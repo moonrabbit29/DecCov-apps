@@ -1,0 +1,16 @@
+dotenv: .env
+networks:
+  default: development
+  rinkeby:
+    verify: True
+  mainnet-fork-dev:
+    verify: False
+  development:
+    verify: False
+  ganache-local:
+    verify: False
+wallets:
+  from_key: ${PRIVATE_KEY_REGISTRY}
+  from_key_issuer : ${PRIVATE_KEY_ISSUER}
+  development: ${PRIVATE_KEY_GANACHE_REGISTRY}
+  development_issuer : ${PRIVATE_KEY_GANACHE_ISSUER}

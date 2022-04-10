@@ -5,7 +5,7 @@ import "./Data.sol";
 
 contract Helper is Data{
    
-   event IsSuccess(bool value);
+   event IsSuccess(bool value,string result);
    event isFailed(bool value);
    event certificateExist(
       bool is_exist,

@@ -10,7 +10,5 @@ networks:
   ganache-local:
     verify: False
 wallets:
-  from_key: ${PRIVATE_KEY_REGISTRY}
+  from_key_deployer: ${PRIVATE_KEY_REGISTRY}
   from_key_issuer : ${PRIVATE_KEY_ISSUER}
-  development: ${PRIVATE_KEY_GANACHE_REGISTRY}
-  development_issuer : ${PRIVATE_KEY_GANACHE_ISSUER}

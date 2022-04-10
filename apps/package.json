@@ -11,6 +11,7 @@
     "react-bootstrap": "^2.2.3",
     "react-dom": "16.14.0",
     "react-meta-tags": "^1.0.1",
+    "react-modal": "^3.14.4",
     "react-router-dom": "^6.0.2",
     "react-scripts": "^4.0.3",
     "web3": "1.2.2"

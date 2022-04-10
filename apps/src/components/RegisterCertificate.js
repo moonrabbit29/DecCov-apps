@@ -1,11 +1,10 @@
-import React from "react";
+import React,{ useState }  from "react";
 import UserDetails from "./child/UserDetails";
 import CertificateType from "./child/CertificateType";
 import AddToSmartContract from "./child/AddToSmartContract";
 import ipfs from "../ipfs";
 import getWeb3 from "../Web3Handler";
 import Certificate from "../contracts/Certificate.json";
-
 class RegisterCertificate extends React.Component {
   constructor(props) {
     super(props);
@@ -24,16 +23,16 @@ class RegisterCertificate extends React.Component {
     step: 1,
     Name: "",
     NIK: "",
-    type: "",
+    type: "Vaccine",
     cert_name: "",
-    result: "",
+    test_result: "",
     dose: "",
   };
   componentDidMount = async () => {
     const web3 = await getWeb3();
-    const networkId = await web3.eth.net.getId();
-    console.log(`networkId -> ${networkId}`);
-    const deployedNetwork = "0x7a1af4891a8177e4361ab0c731e07712b253b2b2";
+    // const networkId = await web3.eth.net.getId();
+    // console.log(`networkId -> ${networkId}`);
+    const deployedNetwork = Certificate.deployment.address;
     const instance = new web3.eth.Contract(Certificate.abi, deployedNetwork);
     this.setState({ web3, contract: instance });
     setInterval(async () => {
@@ -68,7 +67,13 @@ class RegisterCertificate extends React.Component {
   };
 
   handleChange = (input) => (e) => {
+    // console.log(`CHANGE TYPE ${e.target.value}`)
+    // console.log(`STATE CHANGE  ${[input]}`)
     this.setState({ [input]: e.target.value });
+  };
+
+  resetState = () => {
+    this.setState({ ...this.state });
   };
 
   render() {
@@ -78,7 +83,7 @@ class RegisterCertificate extends React.Component {
       NIK,
       type,
       cert_name,
-      result,
+      test_result,
       dose,
       web3,
       accounts,
@@ -95,7 +100,7 @@ class RegisterCertificate extends React.Component {
       NIK,
       type,
       cert_name,
-      result,
+      test_result,
       dose,
       web3,
       accounts,
@@ -108,7 +113,6 @@ class RegisterCertificate extends React.Component {
       transactionHash,
     };
     if (this.state.isLoginAccount === false && values.activeAccount==="Anonymous") {
-      console.log(`${values.activeAccount}`);
       return (<h1>PROCESSING</h1>);
     } else {
       //console.log(`render after value complete, isLogin -> ${this.state.isLoginAccount} ${this.state.activeAccount} -> ${values.activeAccount}`)

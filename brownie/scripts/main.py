@@ -3,6 +3,6 @@ from scripts.certificate import main as register_certificate
 from scripts.registry import main as register_issuer
 
 def main() :
-   deploy()
-   register_issuer()
+   # deploy()
+   # register_issuer()
    register_certificate()

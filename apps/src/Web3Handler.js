@@ -4,6 +4,7 @@ const getWeb3 = () =>
   new Promise((resolve, reject) => {
     // Wait for loading completion to avoid race conditions with web3 injection timing.
     window.addEventListener("load", async () => {
+      console.log(window)
       // Modern dapp browsers...
       if (window.ethereum) {
         const web3 = new Web3(window.ethereum);
@@ -25,6 +26,7 @@ const getWeb3 = () =>
       }
       // Fallback to localhost; use dev console port by default...
       else {
+        console.log("FALLBACK")
         const provider = new Web3.providers.HttpProvider(
           "http://127.0.0.1:8545"
         );

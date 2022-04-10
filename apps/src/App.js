@@ -10,12 +10,15 @@ import RegisterCertificate from './components/RegisterCertificate'
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route exact path='/' element={< Home />}></Route>
-        <Route exact path='/register-cert' element={<RegisterCertificate />}></Route>
-      </Routes>
-    </Router>
+    <div style={{padding:"0px 10px", margin:"5px"}}>
+        
+        <Router>
+        <Routes>
+          <Route exact path='/' element={< Home />}></Route>
+          <Route exact path='/register-cert' element={<RegisterCertificate />}></Route>
+        </Routes>
+      </Router>
+    </div>
   );
 }
 

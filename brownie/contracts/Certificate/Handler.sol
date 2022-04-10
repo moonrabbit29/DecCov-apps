@@ -21,16 +21,16 @@ contract CertificateHandler is CertificateAuthorization, Helper {
         if (
             isCertificateExist(certificate_hash, holder_to_certificates[holder_id]) > 0
         ) {
-            emit IsSuccess(false);
+            emit IsSuccess(false,"already");
             return false;
         } else {
             if (!compareHash(certificate_hash, payload, holder_id)){
-                emit IsSuccess(false);
+                emit IsSuccess(false,"failhash");
                 return false;
             }
             holder_to_certificates[holder_id].push(
             COV_CERTIFICATE(certificate_hash,data_address,block.timestamp,msg.sender));
-            emit IsSuccess(true);
+            emit IsSuccess(true,"stored");
             return true;
         }
     }
@@ -44,7 +44,7 @@ contract CertificateHandler is CertificateAuthorization, Helper {
             );
             return true;
         }
-        emit IsSuccess(true);
+        emit IsSuccess(true,"verified");
         return false;
     }
 

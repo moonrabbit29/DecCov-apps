@@ -2,6 +2,8 @@ import React from "react";
 import { Table } from "react-bootstrap";
 import Web3 from "web3";
 import { Modal,Button } from "react-bootstrap";
+import Qrcode from 'qrcode'
+
 class AddToSmartContract extends React.Component {
   // ganache-cli --chain.vmErrorsOnRPCResponse true --hardfork istanbul --miner.blockGasLimit 12000000 --wallet.mnemonic brownie --server.port 8545 --account="0xf5c9a0c1c21216b57a93f0157c309093885b261c7623c138bffbf6298114798c,9629874799100000000000000000" --account="0x60f7afbcb7c2784c04be36ccfd49fc3e04da6acca0157411b87d9eaab1762596,96298
   // 74799100000000000000000"
@@ -13,38 +15,53 @@ class AddToSmartContract extends React.Component {
     holder_id: "",
     transactionHash: "",
     certificate_hash: "",
-    show:false
+    show:false,
+    qrURL:''
   };
   handleClose = () => {
-    this.setState({show:true})
+    this.setState({show:false})
   }
   storeCertificateData = async (e) => {
     var holder_id = Web3.utils.soliditySha3(this.props.values.NIK);
     this.setState({ holder_id: holder_id });
-    var str_data = {
+    var user_data = {
       name: this.props.values.Name,
-      type: {
+      nik: holder_id,
+      certificate_data:{
+        type: this.props.values.type, 
         name: this.props.values.cert_name,
-        date: 1,
         dose: this.props.values.dose,
       },
+      date: Date.now(),
+      issuer_address: this.props.values.activeAccount
     };
     //var certificate_hash = "0xd838244465d7b705adf17e52bd7ea23a1d7f45cf78c6f31e97df9caedf5120e6"
     //["bytes32","string","address"]
-    console.log(JSON.stringify(str_data));
+    console.log(JSON.stringify(user_data));
+    var str_data = JSON.stringify(user_data)
+    var opts = {
+      errorCorrectionLevel: 'H',
+      type: 'image/jpeg',
+      quality: 0.3,
+      margin: 1,
+      color: {
+        dark:"#010599FF",
+        light:"#FFBF60FF"
+      }
+    }
     var certificate_hash = Web3.utils.soliditySha3(
       { t: "bytes32", v: holder_id },
-      { t: "string", v: JSON.stringify(str_data) },
+      { t: "string", v: JSON.stringify(user_data.certificate_data) },
       { t: "address", v: this.props.values.activeAccount }
     );
     this.setState({ certificate_hash: certificate_hash });
     console.log(`Certificate hash -> ${certificate_hash}`);
-    var json_result = {};
+ 
     var ipfs_address =
       "0xabfb3b9720db61e98f482c272d29c35ca96ce19cbae73fc81eb51fda31d21121";
-    // console.log(JSON.stringify(str_data))
-    // console.log(`Certificate hash ${certificate_hash}`)
-    // console.log(this.props.values.activeAccount)
+    console.log(JSON.stringify(str_data))
+    console.log(`Certificate hash ${certificate_hash}`)
+    console.log(this.props.values.activeAccount)
     const isSuccess = await this.props.values.contract.methods
       .registerCertificate(
         certificate_hash,
@@ -75,23 +92,15 @@ class AddToSmartContract extends React.Component {
         // var eventDecoded = Web3.utils.hexToUtf8(myevent);
         return IsSuccess["value"] && IsSuccess["result"] == "stored"
       });
-
-      if (isSuccess) this.setState({show:true})
-
-    // await this.props.values.web3.eth.getTransactionReceipt(
-    //   this.state.transactionHash,
-    //   function (error, result) {
-    //     console.log(result);
-    //     return result;
-    //   }
-    // );
-    this.props.values.contract.events
-      .IsSuccess()
-      .on("data", (event) => {
-        console.log("here");
-        console.log(event);
-      })
-      .on("error", console.error);
+      console.log(`isSuccess ${isSuccess}`);
+    if (true) this.setState({show:true});
+      Qrcode.toDataURL(
+        str_data,opts,function(err,url) {
+          if(err) console.log(err)
+          this.setState({qrURL:url});
+        }.bind(this)
+      );     
+     
   };
   render() {
     const Previous = (e) => {
@@ -148,12 +157,15 @@ class AddToSmartContract extends React.Component {
           backdrop="static"
           keyboard={false}
         >
-          <Modal.Header closeButton onClick={this.handleClose}>
+          <Modal.Header closeButton onClick={() => this.handleClose()}>
             <Modal.Title>Certificate result</Modal.Title>
           </Modal.Header>
-          <Modal.Body>QR CODE DISINI Dibawahnya JSON file //TODO</Modal.Body>
+          <Modal.Body>
+              <h3>QR CERTIFICATE</h3>
+              <img src={this.state.qrURL}/>
+          </Modal.Body>
           <Modal.Footer>
-            <Button variant="primary">Finish</Button>
+            <Button variant="primary" onClick={() => this.handleClose()} >Finish</Button>
           </Modal.Footer>
         </Modal>
       </div>

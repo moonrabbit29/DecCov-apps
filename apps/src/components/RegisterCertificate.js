@@ -1,10 +1,10 @@
-import React  from "react";
+import React from "react";
 import UserDetails from "./child/UserDetails";
 import CertificateType from "./child/CertificateType";
 import AddToSmartContract from "./child/AddToSmartContract";
 import getWeb3 from "../Web3Handler";
 import Certificate from "../contracts/Certificate.json";
-
+import MyImageCaptureComponent from "./child/CapturePhoto";
 ////"deployment" :
 //{"address": "0x16752Eb174Ce2B3036f428f67ED304Dea80fF847", "chainid": "4", "blockHeight": 10477515}
 class RegisterCertificate extends React.Component {
@@ -26,6 +26,7 @@ class RegisterCertificate extends React.Component {
     cert_name: "",
     test_result: "",
     dose: "",
+    imageDataURL: "",
   };
   componentDidMount = async () => {
     const web3 = await getWeb3();
@@ -53,7 +54,7 @@ class RegisterCertificate extends React.Component {
       } catch (error) {
         alert(`You are offline, connect to metamask to continue.`);
       }
-   },500)
+    }, 500);
   };
 
   prevStep = () => {
@@ -68,6 +69,10 @@ class RegisterCertificate extends React.Component {
 
   handleChange = (input) => (e) => {
     this.setState({ [input]: e.target.value });
+  };
+
+  changeState = (input, value) => {
+    this.setState({ [input]: value });
   };
 
   resetState = () => {
@@ -92,6 +97,7 @@ class RegisterCertificate extends React.Component {
       ipfsHash,
       hashToCheck,
       transactionHash,
+      imageDataURL,
     } = this.state;
     const values = {
       Name,
@@ -109,9 +115,13 @@ class RegisterCertificate extends React.Component {
       ipfsHash,
       hashToCheck,
       transactionHash,
+      imageDataURL,
     };
-    if (this.state.isLoginAccount === false && values.activeAccount==="Anonymous") {
-      return (<h1>PROCESSING</h1>);
+    if (
+      this.state.isLoginAccount === false &&
+      values.activeAccount === "Anonymous"
+    ) {
+      return <h1>PROCESSING</h1>;
     } else {
       switch (step) {
         case 1:
@@ -133,6 +143,19 @@ class RegisterCertificate extends React.Component {
             />
           );
         case 3:
+          return (
+            <>
+              <MyImageCaptureComponent
+                values={values}
+                changeState={this.changeState}
+                handleChange={this.handleChange}
+                nextStep={this.nextStep}
+                prevStep={this.prevStep}
+              />
+              ;
+            </>
+          );
+        case 4:
           return (
             <AddToSmartContract
               nextStep={this.nextStep}

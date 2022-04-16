@@ -35,10 +35,13 @@ class AddToSmartContract extends React.Component {
 
   storeCertificateData = async (e) => {
     const holder_id = Web3.utils.soliditySha3(this.props.values.NIK);
+    const image = await addFile(turnIntoBuffer(JSON.stringify(this.props.values.imageDataURL)))
+    console.log(image)
     this.setState({ holder_id: holder_id });
     var user_data = {
       name: this.props.values.Name,
       nik: holder_id,
+      image : image,
       certificate_data:{
         type: this.props.values.type, 
         name: this.props.values.cert_name,

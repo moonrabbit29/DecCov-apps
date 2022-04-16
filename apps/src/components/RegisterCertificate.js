@@ -1,14 +1,13 @@
-import React,{ useState }  from "react";
+import React  from "react";
 import UserDetails from "./child/UserDetails";
 import CertificateType from "./child/CertificateType";
 import AddToSmartContract from "./child/AddToSmartContract";
-import ipfs from "../ipfs";
 import getWeb3 from "../Web3Handler";
 import Certificate from "../contracts/Certificate.json";
+
+////"deployment" :
+//{"address": "0x16752Eb174Ce2B3036f428f67ED304Dea80fF847", "chainid": "4", "blockHeight": 10477515}
 class RegisterCertificate extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   state = {
     web3: null,
     accounts: null,
@@ -32,7 +31,8 @@ class RegisterCertificate extends React.Component {
     const web3 = await getWeb3();
     // const networkId = await web3.eth.net.getId();
     // console.log(`networkId -> ${networkId}`);
-    const deployedNetwork = Certificate.deployment.address;
+    const deployedNetwork = "0x7a1aF4891a8177E4361AB0C731e07712B253b2B2";
+    //const deployedNetwork = Certificate.deployment.address;
     const instance = new web3.eth.Contract(Certificate.abi, deployedNetwork);
     this.setState({ web3, contract: instance });
     setInterval(async () => {
@@ -67,8 +67,6 @@ class RegisterCertificate extends React.Component {
   };
 
   handleChange = (input) => (e) => {
-    // console.log(`CHANGE TYPE ${e.target.value}`)
-    // console.log(`STATE CHANGE  ${[input]}`)
     this.setState({ [input]: e.target.value });
   };
 
@@ -115,7 +113,6 @@ class RegisterCertificate extends React.Component {
     if (this.state.isLoginAccount === false && values.activeAccount==="Anonymous") {
       return (<h1>PROCESSING</h1>);
     } else {
-      //console.log(`render after value complete, isLogin -> ${this.state.isLoginAccount} ${this.state.activeAccount} -> ${values.activeAccount}`)
       switch (step) {
         case 1:
           return (

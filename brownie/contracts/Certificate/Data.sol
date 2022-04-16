@@ -7,7 +7,6 @@ contract Data {
         bytes32 cov_hash;
         bytes32 data_address;
         uint256 timestamp;
-        address issuer;
     }
     mapping(bytes32 => COV_CERTIFICATE[]) internal holder_to_certificates;
 

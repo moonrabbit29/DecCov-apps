@@ -11,6 +11,13 @@ contract Helper is Data{
       bool is_exist,
       COV_CERTIFICATE certificate_data
    );
+   event getCertificate(
+       bool is_exist,
+       COV_CERTIFICATE[] certificate_data
+   );
+   event timestampEvent(
+       uint256 timestamp
+   );
     //function will return index + 1 if data is present in certificates storage.
    function isCertificateExist(
         bytes32 hash_data,
@@ -29,23 +36,4 @@ contract Helper is Data{
         bytes32 generated_hash = keccak256(abi.encodePacked(holderID, payload , msg.sender));
         return generated_hash == certificateHash;
     }
-
-    //unused function 
-    // function verifySignature(bytes32 holderID,bytes32 certificateHash,bytes memory signature,uint256 nonce) 
-    // internal 
-    // returns(bool){
-    //     // This recreates the message hash that was signed on the client.
-    //     bytes32 hash = keccak256(abi.encodePacked(holderID, certificateHash, msg.sender, nonce));
-    //     bytes32 messageHash = hash.toEthSignedMessageHash();
-
-    //     // Verify that the message's signer is the owner of the order
-    //     address signer = messageHash.recover(signature);
-    //     emit CompareHash(signer,msg.sender,hash);
-    //     //require(signer == msg.sender);
-
-    //     require(!seenNonces[signer][nonce]);
-    //     seenNonces[signer][nonce] = true;  
-
-    //     return true;
-    // }
 }

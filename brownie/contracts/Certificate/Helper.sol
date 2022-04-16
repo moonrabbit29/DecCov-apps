@@ -33,7 +33,7 @@ contract Helper is Data{
     }
 
     function compareHash(bytes32 certificateHash, string memory payload, bytes32 holderID) internal view returns(bool){
-        bytes32 generated_hash = keccak256(abi.encodePacked(holderID, payload , msg.sender));
+        bytes32 generated_hash = keccak256(abi.encodePacked(holderID, payload));
         return generated_hash == certificateHash;
     }
 }

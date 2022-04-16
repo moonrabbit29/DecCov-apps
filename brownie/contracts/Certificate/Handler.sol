@@ -33,7 +33,7 @@ contract CertificateHandler is CertificateAuthorization, Helper {
             }
             uint256 timestamp = block.timestamp;
             holder_to_certificates[holder_id].push(
-            COV_CERTIFICATE(certificate_hash,data_address,timestamp));
+            COV_CERTIFICATE(certificate_hash,data_address,timestamp,msg.sender));
             emit IsSuccess(true,"stored");
             emit timestampEvent(timestamp);
             return true;

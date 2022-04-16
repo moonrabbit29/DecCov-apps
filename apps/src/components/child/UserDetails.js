@@ -77,7 +77,6 @@ class DataTable extends React.Component {
     return (
       <>
         {this.props.certificates_data.map((element, index) => {
-          console.log(element)
           return (
             <Table striped bordered hover size="sm">
               <thead>

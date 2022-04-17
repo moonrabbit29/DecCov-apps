@@ -40,17 +40,12 @@ contract CertificateHandler is CertificateAuthorization, Helper {
         }
     }
 
-    function verifyCertificate(bytes32 certificate_hash,bytes32 holder_id) public returns(bool){
+    function verifyCertificate(bytes32 certificate_hash,bytes32 holder_id) public view returns(bool,COV_CERTIFICATE memory){
         uint256 index = isCertificateExist(certificate_hash, holder_to_certificates[holder_id]);
         if(index>0){
-            emit certificateExist(
-                true,
-                holder_to_certificates[holder_id][index-1]
-            );
-            return true;
+            return (true,holder_to_certificates[holder_id][index-1]);
         }
-        emit IsSuccess(true,"verified");
-        return false;
+        return (false,holder_to_certificates[holder_id][index-1]);
     }
 
     function getCertificatesByUser(bytes32 holder_id) 

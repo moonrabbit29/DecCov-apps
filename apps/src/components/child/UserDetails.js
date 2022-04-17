@@ -154,7 +154,6 @@ class UserDetail extends React.Component {
             }
           })
         );
-        console.log(modified_data);
         this.setState({
           show_exiting_data_table: true,
           user_certificate_data: modified_data,
@@ -197,3 +196,4 @@ class UserDetail extends React.Component {
 }
 
 export default UserDetail;
+export {DataTable};

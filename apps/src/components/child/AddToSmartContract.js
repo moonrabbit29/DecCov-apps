@@ -50,17 +50,17 @@ class AddToSmartContract extends React.Component {
             name: this.props.values.cert_name,
             result: this.props.values.test_result,
           };
-    var user_data = {
+    const user_data = {
       name: this.props.values.Name,
-      nik: holder_id,
+      holder_id: holder_id,
       image: image,
       certificate_data: certificate_data,
       issuer_address: this.props.values.activeAccount,
     };
     //var certificate_hash = "0xd838244465d7b705adf17e52bd7ea23a1d7f45cf78c6f31e97df9caedf5120e6"
     //["bytes32","string","address"]
-    const str_data = JSON.stringify(user_data.certificate_data);
-    var opts = {
+    const str_certificate_data = JSON.stringify(user_data.certificate_data);
+    const opts = {
       errorCorrectionLevel: "H",
       type: "image/jpeg",
       quality: 0.3,
@@ -70,21 +70,26 @@ class AddToSmartContract extends React.Component {
         light: "#FFBF60FF",
       },
     };
-    var certificate_hash = Web3.utils.soliditySha3(
+    const certificate_hash = Web3.utils.soliditySha3(
       { t: "bytes32", v: holder_id },
       { t: "string", v: JSON.stringify(user_data.certificate_data) }
     );
     this.setState({ certificate_hash: certificate_hash });
 
-    // var ipfs_address =
-    //   "0xabfb3b9720db61e98f482c272d29c35ca96ce19cbae73fc81eb51fda31d21121";
-    //ipfs daemon
-    const ipfs_address = await addFile(
-      turnIntoBuffer(JSON.stringify(user_data))
+    //ipfs daemon --writable
+    const ipfs_address_for_certificate = await addFile(
+      turnIntoBuffer(JSON.stringify(
+        {
+          holder_id:holder_id,
+          image: image,
+          certificate_data: certificate_data,
+          issuer_address: this.props.values.activeAccount,
+        }
+      ))
     );
-    console.log(`ipfs_address ${ipfs_address}`);
+    console.log(`ipfs_address ${ipfs_address_for_certificate}`);
     await this.props.values.contract.methods
-      .registerCertificate(certificate_hash, holder_id, str_data, ipfs_address)
+      .registerCertificate(certificate_hash, holder_id, str_certificate_data, ipfs_address_for_certificate)
       .send(
         { from: this.props.values.activeAccount },
         (error, transactionHash) => {
@@ -106,8 +111,13 @@ class AddToSmartContract extends React.Component {
             const timestamp =
               receipt.events.timestampEvent.returnValues["timestamp"];
             user_data["timestamp"] = timestamp;
+            const qrCodeData = {
+              name : user_data.name,
+              holder_id : user_data.holder_id,
+              certificate_data : user_data.certificate_data
+            }
             Qrcode.toDataURL(
-              str_data,
+              JSON.stringify(qrCodeData),
               opts,
               function (err, url) {
                 if (err) console.log(err);

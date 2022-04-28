@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.12.4",
     "@truffle/hdwallet-provider": "^2.0.0",
     "bl": "^5.0.0",
     "bootstrap": "^5.1.3",
@@ -16,7 +17,7 @@
     "react-image-data-capture": "^1.2.2",
     "react-meta-tags": "^1.0.1",
     "react-modal": "^3.14.4",
-    "react-router-dom": "^6.0.2",
+    "react-router-dom": "^6.3.0",
     "react-scripts": "^4.0.3",
     "web3": "1.2.2"
   },

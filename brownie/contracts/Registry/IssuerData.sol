@@ -20,12 +20,6 @@ contract Issuer is RegistryAuthorization {
         return true;
     }
 
-    //testing and debugging
-    event DebugVerifyIssuer(
-        address _address,
-        bool result
-    );
-
     function verifyIssuer (address _address) public view returns(bool){
         return issuerMapping[_address]>0;
     }

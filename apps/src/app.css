@@ -11,32 +11,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-.App {
-    text-align: center;
-  }
-  
-  .App-logo {
-    height: 40vmin;
-  }
-  
 
-  
-  .App-link {
-    color: #09d3ac;
-  }
-  
-  .footer{
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-  }
+.footer {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow:hidden;
+}
 
-  /* input[type=text] {
+.empty-content {
+  min-height: 150px;
+  height: auto;
+}
+
+/* input[type=text] {
     width: 400px;
   } */
-  
-  /* .files input {
+
+/* .files input {
     outline: 2px dashed #92b0b3;
     outline-offset: -10px;
     -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;

@@ -1,124 +1,22 @@
 import React from "react";
-import { Form, Table } from "react-bootstrap";
+import { Form, Row, Col, Button, Modal } from "react-bootstrap";
 import Web3 from "web3";
 import { retrieve_file } from "../../ipfs";
-
-class DataTableContent extends React.Component {
-  constructor(props) {
-    super(props);
-    this.props = props;
-  }
-  render() {
-    return (
-      <>
-        <tr>
-          <td>COV Hash : </td>
-          <td>{this.props.hash}</td>
-        </tr>
-        <tr>
-          <td>COV issuer : </td>
-          <td>{this.props.issuer}</td>
-        </tr>
-        <tr>
-          <td>Timestamp : </td>
-          <td>{this.props.timestamp}</td>
-        </tr>
-      </>
-    );
-  }
-}
-class VaccineData extends React.Component {
-  constructor(props) {
-    super(props);
-    this.props = props;
-  }
-  render() {
-    return (
-      <>
-        <tr>
-          <td>Jenis Vaksin: </td>
-          <td>{this.props.data.name}</td>
-        </tr>
-        <tr>
-          <td>Dosis : </td>
-          <td>{this.props.data.dose}</td>
-        </tr>
-      </>
-    );
-  }
-}
-
-class TestData extends React.Component {
-  constructor(props) {
-    super(props);
-    this.props = props;
-  }
-  render() {
-    return (
-      <>
-        <tr>
-          <td>Jenis tes: </td>
-          <td>{this.props.data.name}</td>
-        </tr>
-        <tr>
-          <td> Hasil tes : </td>
-          <td>{this.props.data.result}</td>
-        </tr>
-      </>
-    );
-  }
-}
-class DataTable extends React.Component {
-  constructor(props) {
-    super(props);
-    this.props = props;
-  }
-  render() {
-    return (
-      <>
-        {this.props.certificates_data.map((element, index) => {
-          return (
-            <Table striped bordered hover size="sm">
-              <thead>
-                <tr>Certificate Data</tr>
-              </thead>
-              <tbody>
-                <DataTableContent
-                  key={index}
-                  hash={element.cov_hash}
-                  timestamp={new Date(
-                    parseInt(element.timestamp) * 1000
-                  ).toDateString()}
-                  issuer={
-                    element.data_detail.issuer_address
-                      ? element.data_detail.issuer_address
-                      : element.data_detail
-                  }
-                />
-                {element.data_detail.certificate_data.type === "Vaccine" ? (
-                  <VaccineData 
-                    data={element.data_detail.certificate_data}
-                  />
-                ) : (
-                  <TestData
-                    data = {element.data_detail.certificate_data}
-                  />
-                )}
-              </tbody>
-            </Table>
-          );
-        })}
-      </>
-    );
-  }
-}
+import DataTable from "./DataTable";
 class UserDetail extends React.Component {
   constructor(props) {
     super(props);
     this.props = props;
   }
   state = {
+    isChecked: false,
     show_exiting_data_table: false,
+    is_loading: false,
+    is_empty_certificates: false,
+  };
+
+  handleClose = (input) => {
+    this.setState({ [input]: false });
   };
 
   render() {
@@ -126,8 +24,25 @@ class UserDetail extends React.Component {
       e.preventDefault();
       this.props.nextStep();
     };
-    const showExistedData = async (e) => {
+
+    const checkData = async (e) => {
       e.preventDefault();
+      this.setState({ is_loading: true });
+      try {
+        const { res, data_len } = await showExistedData();
+        console.log(`res => ${res}`);
+        this.setState({ is_loading: false });
+        if (!res) this.setState({ is_data_valid: false });
+        if (data_len == 0) {
+          this.setState({ is_empty_certificates: true  });
+        }
+        this.setState({isChecked:true})
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    const showExistedData = async () => {
       const holder_id = Web3.utils.soliditySha3(this.props.values.NIK);
       const data = await this.props.values.contract.methods
         .getCertificatesByUser(holder_id)
@@ -158,42 +73,87 @@ class UserDetail extends React.Component {
           show_exiting_data_table: true,
           user_certificate_data: modified_data,
         });
+        const vaccine_dose = modified_data.map(e=>{
+          if(e.data_detail.certificate_data.type == "Vaccine")
+            return e.data_detail.certificate_data.dose
+        })
+        console.log(vaccine_dose)
+        this.props.setTakenVaccineDose(vaccine_dose)
       }
+      return { res: true, data_len: data.length };
     };
     return (
-      <>
-        <Form>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Nama</Form.Label>
-            <Form.Control
-              required
-              type="text"
-              placeholder="Nama pemilik sertifikat"
-              value={this.props.values.Name}
-              onChange={this.props.handleChange("Name")}
-            />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>NIK</Form.Label>
-            <Form.Control
-              required
-              type="text"
-              placeholder="NIK pemilik sertifikat"
-              value={this.props.values.NIK}
-              onChange={this.props.handleChange("NIK")}
-            />
-          </Form.Group>
-          <button onClick={Continue}>Next</button>
-          <button onClick={showExistedData}>Check</button>
-        </Form>
+      <Row>
+        <Col md={"7"} lg={"7"}>
+          <Form>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>Nama</Form.Label>
+              <Form.Control
+                required
+                type="text"
+                placeholder="Nama pemilik sertifikat"
+                value={this.props.values.Name}
+                onChange={this.props.handleChange("Name")}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>NIK</Form.Label>
+              <Form.Control
+                required
+                type="text"
+                placeholder="NIK pemilik sertifikat"
+                value={this.props.values.NIK}
+                onChange={this.props.handleChange("NIK")}
+              />
+            </Form.Group>
+            <Row>
+              <Col md={4} xs="auto">
+                <Button onClick={checkData}>
+                  {this.state.isLoading ? "Loading…" : "Check"}
+                </Button>
+              </Col>
+              <Col md={6} xs="auto" />
+              <Col md={2} xs="auto">
+                <Button onClick={Continue} disabled={!this.state.isChecked}>
+                  Next
+                </Button>
+              </Col>
+            </Row>
+          </Form>
+        </Col>
+
         <br />
         {this.state.show_exiting_data_table ? (
           <DataTable certificates_data={this.state.user_certificate_data} />
         ) : null}
-      </>
+        <Modal
+          show={this.state.is_empty_certificates}
+          onHide={this.handleClose}
+          backdrop="static"
+          keyboard={false}
+        >
+          <Modal.Header
+            closeButton
+            onClick={() => this.handleClose("is_empty_certificates")}
+          >
+            <Modal.Title>
+              Pasien Belum Memiliki Riwayat Vaksin/Tes Covid-19
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body></Modal.Body>
+          <Modal.Footer>
+            <Button
+              variant="primary"
+              onClick={() => this.handleClose("is_empty_certificates")}
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </Row>
     );
   }
 }
 
 export default UserDetail;
-export {DataTable};
+export { DataTable };

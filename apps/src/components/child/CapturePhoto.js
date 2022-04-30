@@ -1,4 +1,5 @@
 import React from "react";
+import { Row, Button, Col } from "react-bootstrap";
 
 //https://stackoverflow.com/questions/64341977/using-device-camera-for-capturing-image-in-reactjs
 class MyImageCaptureComponent extends React.Component {
@@ -6,8 +7,11 @@ class MyImageCaptureComponent extends React.Component {
     super(props);
     this.cameraNumber = 0;
   }
-
+  state = {
+    is_ready_photo: false,
+  };
   initializeMedia = async () => {
+    this.setState({ is_ready_photo: true });
     this.props.changeState("imageDataURL", null);
 
     if (!("mediaDevices" in navigator)) {
@@ -83,24 +87,51 @@ class MyImageCaptureComponent extends React.Component {
       e.preventDefault();
       this.props.prevStep();
     };
-    const playerORImage = Boolean(this.props.values.imageDataURL) ? (
-      <img src={this.props.values.imageDataURL} alt="cameraPic" />
+    const playerORImage = this.state.is_ready_photo ? (
+      Boolean(this.props.values.imageDataURL) ? (
+        <img src={this.props.values.imageDataURL} alt="cameraPic" />
+      ) : (
+        <video
+          ref={(refrence) => {
+            this.player = refrence;
+          }}
+          autoPlay
+        ></video>
+      )
     ) : (
-      <video
-        ref={(refrence) => {
-          this.player = refrence;
-        }}
-        autoPlay
-      ></video>
+      <></>
     );
+
+    const capturePhoto = !this.state.is_ready_photo ? (
+      <button onClick={this.initializeMedia}>Take Photo</button>
+    ) : this.props.values.imageDataURL ? (
+      <button onClick={this.initializeMedia}>Take Photo</button>
+    ) : (
+      <button onClick={this.capturePicture}>Capture</button>
+    );
+
     return (
-      <div>
-        {playerORImage}
-        <button onClick={this.initializeMedia}>Take Photo</button>
-        <button onClick={this.capturePicture}>Capture</button>
-        <button type="submit" onClick={ Previous }>Previous</button>
-        <button type="submit" onClick={ Continue }>Next</button>
-      </div>
+      <>
+        <Row className="justify-content-md-center">
+          {playerORImage}
+          <Col md="12" xs="auto">
+            {capturePhoto}
+          </Col>
+        </Row>
+        <Row />
+        <Row className="justify-content-md-center">
+          <Col>
+            <Button type="submit" onClick={Previous}>
+              Previous
+            </Button>
+          </Col>
+          <Col>
+            <Button type="submit" onClick={Continue}>
+              Next
+            </Button>
+          </Col>
+        </Row>
+      </>
     );
   }
 }

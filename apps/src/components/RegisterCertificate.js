@@ -27,6 +27,7 @@ class RegisterCertificate extends React.Component {
     test_result: "",
     dose: "",
     imageDataURL: "",
+    TakenVaccineDose : null
   };
   componentDidMount = async () => {
     const web3 = await getWeb3();
@@ -79,6 +80,10 @@ class RegisterCertificate extends React.Component {
     this.setState({ ...this.state });
   };
 
+  setTakenVaccineDose = (data) => {
+    this.setState({TakenVaccineDose:data})
+  }
+
   render() {
     const { step } = this.state;
     const {
@@ -98,6 +103,7 @@ class RegisterCertificate extends React.Component {
       hashToCheck,
       transactionHash,
       imageDataURL,
+      TakenVaccineDose
     } = this.state;
     const values = {
       Name,
@@ -116,6 +122,7 @@ class RegisterCertificate extends React.Component {
       hashToCheck,
       transactionHash,
       imageDataURL,
+      TakenVaccineDose
     };
     if (
       this.state.isLoginAccount === false &&
@@ -131,6 +138,7 @@ class RegisterCertificate extends React.Component {
               prevStep={this.prevStep}
               values={values}
               handleChange={this.handleChange}
+              setTakenVaccineDose={this.setTakenVaccineDose}
             />
           );
         case 2:
@@ -140,6 +148,7 @@ class RegisterCertificate extends React.Component {
               prevStep={this.prevStep}
               values={values}
               handleChange={this.handleChange}
+              resetState={this.resetState}
             />
           );
         case 3:
@@ -152,7 +161,6 @@ class RegisterCertificate extends React.Component {
                 nextStep={this.nextStep}
                 prevStep={this.prevStep}
               />
-              ;
             </>
           );
         case 4:

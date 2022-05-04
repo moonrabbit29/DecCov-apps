@@ -1,10 +1,12 @@
 from pydoc import importfile
 from brownie import Registry, network, config, Certificate
 from scripts.helper_script import get_account
+from brownie.network.gas.strategies import LinearScalingStrategy
 
 
 def deploy_registry_sc() -> str :
    account = get_account()
+   print(account)
    sc_address = Registry.deploy(
         {"from": account}, publish_source=config["networks"][network.show_active()].get("verify"))
    return sc_address

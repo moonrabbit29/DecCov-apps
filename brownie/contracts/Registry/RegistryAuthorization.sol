@@ -9,7 +9,7 @@ contract RegistryAuthorization {
     address payable public owner;
     mapping(address => bool ) internal authorize_user;
     
-    mapping (address=>bytes32) issuerMapping; //TODO change to ipfs address
+    mapping (address=>bytes32) issuerMapping;
 
     constructor() payable {
         owner = payable(msg.sender);
@@ -21,11 +21,6 @@ contract RegistryAuthorization {
         _;
     }
 
-    //grant authorization for issuer.
-    modifier grantAccessIssuer {
-        require(issuerMapping[msg.sender] > 0);
-        _;
-    }
 
     function registerAuthorizeUser(address _address) public grantAccess returns(bool success) {
         if(!(authorize_user[_address]==true)){

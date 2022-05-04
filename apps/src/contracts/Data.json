@@ -1,0 +1,332 @@
+{
+  "abi": [],
+  "allSourcePaths": {
+    "2": "contracts/Certificate/Data.sol"
+  },
+  "ast": {
+    "absolutePath": "contracts/Certificate/Data.sol",
+    "exportedSymbols": {
+      "Data": [
+        383
+      ]
+    },
+    "id": 384,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 367,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.7",
+          ".0",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:31:2"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 383,
+        "linearizedBaseContracts": [
+          383
+        ],
+        "name": "Data",
+        "nameLocation": "77:4:2",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "Data.COV_CERTIFICATE",
+            "id": 376,
+            "members": [
+              {
+                "constant": false,
+                "id": 369,
+                "mutability": "mutable",
+                "name": "cov_hash",
+                "nameLocation": "133:8:2",
+                "nodeType": "VariableDeclaration",
+                "scope": 376,
+                "src": "125:16:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 368,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "125:7:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 371,
+                "mutability": "mutable",
+                "name": "data_address",
+                "nameLocation": "160:12:2",
+                "nodeType": "VariableDeclaration",
+                "scope": 376,
+                "src": "152:20:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 370,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "152:7:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 373,
+                "mutability": "mutable",
+                "name": "timestamp",
+                "nameLocation": "191:9:2",
+                "nodeType": "VariableDeclaration",
+                "scope": 376,
+                "src": "183:17:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 372,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "183:7:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 375,
+                "mutability": "mutable",
+                "name": "issuer_address",
+                "nameLocation": "219:14:2",
+                "nodeType": "VariableDeclaration",
+                "scope": 376,
+                "src": "211:22:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 374,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "211:7:2",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "COV_CERTIFICATE",
+            "nameLocation": "98:15:2",
+            "nodeType": "StructDefinition",
+            "scope": 383,
+            "src": "91:150:2",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 382,
+            "mutability": "mutable",
+            "name": "holder_to_certificates",
+            "nameLocation": "294:22:2",
+            "nodeType": "VariableDeclaration",
+            "scope": 383,
+            "src": "247:69:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_bytes32_$_t_array$_t_struct$_COV_CERTIFICATE_$376_storage_$dyn_storage_$",
+              "typeString": "mapping(bytes32 => struct Data.COV_CERTIFICATE[])"
+            },
+            "typeName": {
+              "id": 381,
+              "keyType": {
+                "id": 377,
+                "name": "bytes32",
+                "nodeType": "ElementaryTypeName",
+                "src": "255:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "247:37:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_bytes32_$_t_array$_t_struct$_COV_CERTIFICATE_$376_storage_$dyn_storage_$",
+                "typeString": "mapping(bytes32 => struct Data.COV_CERTIFICATE[])"
+              },
+              "valueType": {
+                "baseType": {
+                  "id": 379,
+                  "nodeType": "UserDefinedTypeName",
+                  "pathNode": {
+                    "id": 378,
+                    "name": "COV_CERTIFICATE",
+                    "nodeType": "IdentifierPath",
+                    "referencedDeclaration": 376,
+                    "src": "266:15:2"
+                  },
+                  "referencedDeclaration": 376,
+                  "src": "266:15:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_COV_CERTIFICATE_$376_storage_ptr",
+                    "typeString": "struct Data.COV_CERTIFICATE"
+                  }
+                },
+                "id": 380,
+                "nodeType": "ArrayTypeName",
+                "src": "266:17:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_struct$_COV_CERTIFICATE_$376_storage_$dyn_storage_ptr",
+                  "typeString": "struct Data.COV_CERTIFICATE[]"
+                }
+              }
+            },
+            "visibility": "internal"
+          }
+        ],
+        "scope": 384,
+        "src": "68:254:2",
+        "usedErrors": []
+      }
+    ],
+    "src": "33:289:2"
+  },
+  "bytecode": "6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea26469706673582212206b9e2a7a03bcadcc64aeed098199e23c50a9b0ecb7cffb90b9a1578a5a8ca47564736f6c63430008070033",
+  "bytecodeSha1": "73df0a6f5d0123eb2b2db0faf62b602aa77c123a",
+  "compiler": {
+    "evm_version": "istanbul",
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "version": "0.8.7+commit.e28d00a7"
+  },
+  "contractName": "Data",
+  "coverageMap": {
+    "branches": {
+      "2": {}
+    },
+    "statements": {
+      "2": {}
+    }
+  },
+  "dependencies": [],
+  "deployedBytecode": "6080604052600080fdfea26469706673582212206b9e2a7a03bcadcc64aeed098199e23c50a9b0ecb7cffb90b9a1578a5a8ca47564736f6c63430008070033",
+  "deployedSourceMap": "68:254:2:-:0;;;;;",
+  "language": "Solidity",
+  "natspec": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "offset": [
+    68,
+    322
+  ],
+  "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE PUSH1 0x0 DUP1 REVERT INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 PUSH12 0x9E2A7A03BCADCC64AEED0981 SWAP10 0xE2 EXTCODECOPY POP 0xA9 0xB0 0xEC 0xB7 0xCF 0xFB SWAP1 0xB9 LOG1 JUMPI DUP11 GAS DUP13 LOG4 PUSH22 0x64736F6C634300080700330000000000000000000000 ",
+  "pcMap": {
+    "0": {
+      "offset": [
+        68,
+        322
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x80"
+    },
+    "2": {
+      "fn": null,
+      "offset": [
+        68,
+        322
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "4": {
+      "fn": null,
+      "offset": [
+        68,
+        322
+      ],
+      "op": "MSTORE",
+      "path": "2"
+    },
+    "5": {
+      "fn": null,
+      "offset": [
+        68,
+        322
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "7": {
+      "fn": null,
+      "offset": [
+        68,
+        322
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "8": {
+      "fn": null,
+      "offset": [
+        68,
+        322
+      ],
+      "op": "REVERT",
+      "path": "2"
+    }
+  },
+  "sha1": "305faaa1d759211c97d89bf3d8fa727029a14a6f",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.7.0 <0.9.0;\n\ncontract Data {\n\n    struct COV_CERTIFICATE {\n        bytes32 cov_hash;\n        bytes32 data_address;\n        uint256 timestamp;\n        address issuer_address;\n    }\n    mapping(bytes32 => COV_CERTIFICATE[]) internal holder_to_certificates;\n\n}",
+  "sourceMap": "68:254:2:-:0;;;;;;;;;;;;;;;;;;;",
+  "sourcePath": "contracts/Certificate/Data.sol",
+  "type": "contract"
+}

@@ -5,4 +5,3 @@ from scripts.registry import main as register_issuer
 def main() :
    deploy()
    register_issuer()
-   register_certificate()

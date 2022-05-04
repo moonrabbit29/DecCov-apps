@@ -5,25 +5,6 @@
       "inputs": [
         {
           "indexed": false,
-          "internalType": "address",
-          "name": "_address",
-          "type": "address"
-        },
-        {
-          "indexed": false,
-          "internalType": "bool",
-          "name": "result",
-          "type": "bool"
-        }
-      ],
-      "name": "DebugVerifyIssuer",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": false,
           "internalType": "bool",
           "name": "value",
           "type": "bool"
@@ -121,29 +102,29 @@
     }
   ],
   "allSourcePaths": {
-    "6": "contracts/Registry/IssuerData.sol",
-    "7": "contracts/Registry/Registry.sol",
-    "8": "contracts/Registry/RegistryAuthorization.sol"
+    "5": "contracts/Registry/IssuerData.sol",
+    "6": "contracts/Registry/Registry.sol",
+    "7": "contracts/Registry/RegistryAuthorization.sol"
   },
   "ast": {
     "absolutePath": "contracts/Registry/Registry.sol",
     "exportedSymbols": {
       "Issuer": [
-        472
+        307
       ],
       "Registry": [
-        478
+        313
       ],
       "RegistryAuthorization": [
-        562
+        384
       ]
     },
-    "id": 479,
+    "id": 314,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 474,
+        "id": 309,
         "literals": [
           "solidity",
           ">=",
@@ -154,17 +135,17 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "32:31:7"
+        "src": "32:31:6"
       },
       {
         "absolutePath": "contracts/Registry/IssuerData.sol",
         "file": "./IssuerData.sol",
-        "id": 475,
+        "id": 310,
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
-        "scope": 479,
-        "sourceUnit": 473,
-        "src": "65:26:7",
+        "scope": 314,
+        "sourceUnit": 308,
+        "src": "65:26:6",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -173,38 +154,38 @@
         "baseContracts": [
           {
             "baseName": {
-              "id": 476,
+              "id": 311,
               "name": "Issuer",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 472,
-              "src": "114:6:7"
+              "referencedDeclaration": 307,
+              "src": "114:6:6"
             },
-            "id": 477,
+            "id": 312,
             "nodeType": "InheritanceSpecifier",
-            "src": "114:6:7"
+            "src": "114:6:6"
           }
         ],
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 478,
+        "id": 313,
         "linearizedBaseContracts": [
-          478,
-          472,
-          562
+          313,
+          307,
+          384
         ],
         "name": "Registry",
-        "nameLocation": "102:8:7",
+        "nameLocation": "102:8:6",
         "nodeType": "ContractDefinition",
         "nodes": [],
-        "scope": 479,
-        "src": "93:30:7",
+        "scope": 314,
+        "src": "93:30:6",
         "usedErrors": []
       }
     ],
-    "src": "32:91:7"
+    "src": "32:91:6"
   },
-  "bytecode": "608060405234801561001057600080fd5b50600080546001600160a01b0319163317905561029c806100326000396000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c806360c000d4146100515780636210d360146100915780638da5cb5b146100a457806392067121146100cf575b600080fd5b61007c61005f36600461021a565b6001600160a01b0316600090815260026020526040902054151590565b60405190151581526020015b60405180910390f35b61007c61009f36600461021a565b6100e2565b6000546100b7906001600160a01b031681565b6040516001600160a01b039091168152602001610088565b61007c6100dd36600461023c565b61016b565b600080546001600160a01b031633148061010b57503360009081526001602052604090205460ff165b61011457600080fd5b6001600160a01b03821660009081526001602081905260409091205460ff1615151461016257506001600160a01b03166000908152600160208190526040909120805460ff19168217905590565b5060005b919050565b600080546001600160a01b031633148061019457503360009081526001602052604090205460ff165b61019d57600080fd5b6001600160a01b03831660008181526002602090815260409182902085905581516001815290810185905280820192909252517f7a0f50b566ab4225b0f298a229bcf96d4ba86d1c6c43d48ad0f0f6d96f68413d9181900360600190a150600192915050565b80356001600160a01b038116811461016657600080fd5b60006020828403121561022c57600080fd5b61023582610203565b9392505050565b6000806040838503121561024f57600080fd5b61025883610203565b94602093909301359350505056fea26469706673582212206c1edf2b9a8fc33369959ac72688e77b2186ea3cb16bebb2bd0c36f6658ccadd64736f6c63430008070033",
+  "bytecode": "608060405234801561001057600080fd5b50600080546001600160a01b0319163317905561029c806100326000396000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c806360c000d4146100515780636210d360146100915780638da5cb5b146100a457806392067121146100cf575b600080fd5b61007c61005f36600461021a565b6001600160a01b0316600090815260026020526040902054151590565b60405190151581526020015b60405180910390f35b61007c61009f36600461021a565b6100e2565b6000546100b7906001600160a01b031681565b6040516001600160a01b039091168152602001610088565b61007c6100dd36600461023c565b61016b565b600080546001600160a01b031633148061010b57503360009081526001602052604090205460ff165b61011457600080fd5b6001600160a01b03821660009081526001602081905260409091205460ff1615151461016257506001600160a01b03166000908152600160208190526040909120805460ff19168217905590565b5060005b919050565b600080546001600160a01b031633148061019457503360009081526001602052604090205460ff165b61019d57600080fd5b6001600160a01b03831660008181526002602090815260409182902085905581516001815290810185905280820192909252517f7a0f50b566ab4225b0f298a229bcf96d4ba86d1c6c43d48ad0f0f6d96f68413d9181900360600190a150600192915050565b80356001600160a01b038116811461016657600080fd5b60006020828403121561022c57600080fd5b61023582610203565b9392505050565b6000806040838503121561024f57600080fd5b61025883610203565b94602093909301359350505056fea2646970667358221220f63d5040cd3bf91fdbf9cd24a418cad1d0c9f84d8f5f1ef84cd19aa8b7afa30c64736f6c63430008070033",
   "bytecodeSha1": "fb0d10465175e8b5d096493cf9899ab0f0f04bab",
   "compiler": {
     "evm_version": "istanbul",
@@ -217,25 +198,25 @@
   "contractName": "Registry",
   "coverageMap": {
     "branches": {
+      "5": {},
       "6": {},
-      "7": {},
-      "8": {
+      "7": {
         "Issuer.registerIssuer": {
           "6": [
-            537,
-            556,
+            507,
+            526,
             true
           ],
           "7": [
-            560,
-            586,
+            530,
+            556,
             true
           ]
         }
       }
     },
     "statements": {
-      "6": {
+      "5": {
         "Issuer.registerIssuer": {
           "3": [
             438,
@@ -252,21 +233,21 @@
         },
         "Issuer.verifyIssuer": {
           "0": [
-            739,
-            771
+            628,
+            660
           ]
         }
       },
-      "7": {},
-      "8": {
+      "6": {},
+      "7": {
         "RegistryAuthorization.registerAuthorizeUser": {
           "1": [
-            899,
-            930
+            733,
+            764
           ],
           "2": [
-            984,
-            996
+            818,
+            830
           ]
         }
       }
@@ -276,8 +257,8 @@
     "Issuer",
     "RegistryAuthorization"
   ],
-  "deployedBytecode": "608060405234801561001057600080fd5b506004361061004c5760003560e01c806360c000d4146100515780636210d360146100915780638da5cb5b146100a457806392067121146100cf575b600080fd5b61007c61005f36600461021a565b6001600160a01b0316600090815260026020526040902054151590565b60405190151581526020015b60405180910390f35b61007c61009f36600461021a565b6100e2565b6000546100b7906001600160a01b031681565b6040516001600160a01b039091168152602001610088565b61007c6100dd36600461023c565b61016b565b600080546001600160a01b031633148061010b57503360009081526001602052604090205460ff165b61011457600080fd5b6001600160a01b03821660009081526001602081905260409091205460ff1615151461016257506001600160a01b03166000908152600160208190526040909120805460ff19168217905590565b5060005b919050565b600080546001600160a01b031633148061019457503360009081526001602052604090205460ff165b61019d57600080fd5b6001600160a01b03831660008181526002602090815260409182902085905581516001815290810185905280820192909252517f7a0f50b566ab4225b0f298a229bcf96d4ba86d1c6c43d48ad0f0f6d96f68413d9181900360600190a150600192915050565b80356001600160a01b038116811461016657600080fd5b60006020828403121561022c57600080fd5b61023582610203565b9392505050565b6000806040838503121561024f57600080fd5b61025883610203565b94602093909301359350505056fea26469706673582212206c1edf2b9a8fc33369959ac72688e77b2186ea3cb16bebb2bd0c36f6658ccadd64736f6c63430008070033",
-  "deployedSourceMap": "93:30:7:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;663:115:6;;;;;;:::i;:::-;-1:-1:-1;;;;;746:23:6;724:4;746:23;;;:13;:23;;;;;;:25;;;663:115;;;;1031:14:9;;1024:22;1006:41;;994:2;979:18;663:115:6;;;;;;;;748:265:8;;;;;;:::i;:::-;;:::i;173:28::-;;;;;-1:-1:-1;;;;;173:28:8;;;;;;-1:-1:-1;;;;;822:32:9;;;804:51;;792:2;777:18;173:28:8;642:219:9;326:220:6;;;;;;:::i;:::-;;:::i;748:265:8:-;824:12;551:5;;-1:-1:-1;;;;;551:5:8;537:10;:19;;:49;;-1:-1:-1;575:10:8;560:26;;;;:14;:26;;;;;;;;537:49;529:58;;;;;;-1:-1:-1;;;;;853:24:8;::::1;;::::0;;;:14:::1;:24;::::0;;;;;;;;::::1;;:30;;;848:159;;-1:-1:-1::0;;;;;;899:24:8::1;;::::0;;;926:4:::1;899:24;::::0;;;;;;;:31;;-1:-1:-1;;899:31:8::1;::::0;::::1;::::0;;926:4;748:265::o;848:159::-:1;-1:-1:-1::0;991:5:8::1;848:159;748:265:::0;;;:::o;326:220:6:-;413:12;551:5:8;;-1:-1:-1;;;;;551:5:8;537:10;:19;;:49;;-1:-1:-1;575:10:8;560:26;;;;:14;:26;;;;;;;;537:49;529:58;;;;;;-1:-1:-1;;;;;438:21:6;::::1;;::::0;;;:13:::1;:21;::::0;;;;;;;;:33;;;486:32;;496:4:::1;1254:41:9::0;;1311:18;;;1304:34;;;1354:18;;;1347:60;;;;486:32:6;::::1;::::0;;;;1242:2:9;486:32:6;;::::1;-1:-1:-1::0;535:4:6::1;326:220:::0;;;;:::o;14:173:9:-;82:20;;-1:-1:-1;;;;;131:31:9;;121:42;;111:70;;177:1;174;167:12;192:186;251:6;304:2;292:9;283:7;279:23;275:32;272:52;;;320:1;317;310:12;272:52;343:29;362:9;343:29;:::i;:::-;333:39;192:186;-1:-1:-1;;;192:186:9:o;383:254::-;451:6;459;512:2;500:9;491:7;487:23;483:32;480:52;;;528:1;525;518:12;480:52;551:29;570:9;551:29;:::i;:::-;541:39;627:2;612:18;;;;599:32;;-1:-1:-1;;;383:254:9:o",
+  "deployedBytecode": "608060405234801561001057600080fd5b506004361061004c5760003560e01c806360c000d4146100515780636210d360146100915780638da5cb5b146100a457806392067121146100cf575b600080fd5b61007c61005f36600461021a565b6001600160a01b0316600090815260026020526040902054151590565b60405190151581526020015b60405180910390f35b61007c61009f36600461021a565b6100e2565b6000546100b7906001600160a01b031681565b6040516001600160a01b039091168152602001610088565b61007c6100dd36600461023c565b61016b565b600080546001600160a01b031633148061010b57503360009081526001602052604090205460ff165b61011457600080fd5b6001600160a01b03821660009081526001602081905260409091205460ff1615151461016257506001600160a01b03166000908152600160208190526040909120805460ff19168217905590565b5060005b919050565b600080546001600160a01b031633148061019457503360009081526001602052604090205460ff165b61019d57600080fd5b6001600160a01b03831660008181526002602090815260409182902085905581516001815290810185905280820192909252517f7a0f50b566ab4225b0f298a229bcf96d4ba86d1c6c43d48ad0f0f6d96f68413d9181900360600190a150600192915050565b80356001600160a01b038116811461016657600080fd5b60006020828403121561022c57600080fd5b61023582610203565b9392505050565b6000806040838503121561024f57600080fd5b61025883610203565b94602093909301359350505056fea2646970667358221220f63d5040cd3bf91fdbf9cd24a418cad1d0c9f84d8f5f1ef84cd19aa8b7afa30c64736f6c63430008070033",
+  "deployedSourceMap": "93:30:6:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;552:115:5;;;;;;:::i;:::-;-1:-1:-1;;;;;635:23:5;613:4;635:23;;;:13;:23;;;;;;:25;;;552:115;;;;1031:14:8;;1024:22;1006:41;;994:2;979:18;552:115:5;;;;;;;;582:265:7;;;;;;:::i;:::-;;:::i;173:28::-;;;;;-1:-1:-1;;;;;173:28:7;;;;;;-1:-1:-1;;;;;822:32:8;;;804:51;;792:2;777:18;173:28:7;642:219:8;326:220:5;;;;;;:::i;:::-;;:::i;582:265:7:-;658:12;521:5;;-1:-1:-1;;;;;521:5:7;507:10;:19;;:49;;-1:-1:-1;545:10:7;530:26;;;;:14;:26;;;;;;;;507:49;499:58;;;;;;-1:-1:-1;;;;;687:24:7;::::1;;::::0;;;:14:::1;:24;::::0;;;;;;;;::::1;;:30;;;682:159;;-1:-1:-1::0;;;;;;733:24:7::1;;::::0;;;760:4:::1;733:24;::::0;;;;;;;:31;;-1:-1:-1;;733:31:7::1;::::0;::::1;::::0;;760:4;582:265::o;682:159::-:1;-1:-1:-1::0;825:5:7::1;682:159;582:265:::0;;;:::o;326:220:5:-;413:12;521:5:7;;-1:-1:-1;;;;;521:5:7;507:10;:19;;:49;;-1:-1:-1;545:10:7;530:26;;;;:14;:26;;;;;;;;507:49;499:58;;;;;;-1:-1:-1;;;;;438:21:5;::::1;;::::0;;;:13:::1;:21;::::0;;;;;;;;:33;;;486:32;;496:4:::1;1254:41:8::0;;1311:18;;;1304:34;;;1354:18;;;1347:60;;;;486:32:5;::::1;::::0;;;;1242:2:8;486:32:5;;::::1;-1:-1:-1::0;535:4:5::1;326:220:::0;;;;:::o;14:173:8:-;82:20;;-1:-1:-1;;;;;131:31:8;;121:42;;111:70;;177:1;174;167:12;192:186;251:6;304:2;292:9;283:7;279:23;275:32;272:52;;;320:1;317;310:12;272:52;343:29;362:9;343:29;:::i;:::-;333:39;192:186;-1:-1:-1;;;192:186:8:o;383:254::-;451:6;459;512:2;500:9;491:7;487:23;483:32;480:52;;;528:1;525;518:12;480:52;551:29;570:9;551:29;:::i;:::-;541:39;627:2;612:18;;;;599:32;;-1:-1:-1;;;383:254:8:o",
   "language": "Solidity",
   "natspec": {
     "kind": "dev",
@@ -288,7 +269,7 @@
     93,
     123
   ],
-  "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH2 0x10 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH2 0x4C JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x60C000D4 EQ PUSH2 0x51 JUMPI DUP1 PUSH4 0x6210D360 EQ PUSH2 0x91 JUMPI DUP1 PUSH4 0x8DA5CB5B EQ PUSH2 0xA4 JUMPI DUP1 PUSH4 0x92067121 EQ PUSH2 0xCF JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x7C PUSH2 0x5F CALLDATASIZE PUSH1 0x4 PUSH2 0x21A JUMP JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x2 PUSH1 0x20 MSTORE PUSH1 0x40 SWAP1 KECCAK256 SLOAD ISZERO ISZERO SWAP1 JUMP JUMPDEST PUSH1 0x40 MLOAD SWAP1 ISZERO ISZERO DUP2 MSTORE PUSH1 0x20 ADD JUMPDEST PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 RETURN JUMPDEST PUSH2 0x7C PUSH2 0x9F CALLDATASIZE PUSH1 0x4 PUSH2 0x21A JUMP JUMPDEST PUSH2 0xE2 JUMP JUMPDEST PUSH1 0x0 SLOAD PUSH2 0xB7 SWAP1 PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND DUP2 JUMP JUMPDEST PUSH1 0x40 MLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB SWAP1 SWAP2 AND DUP2 MSTORE PUSH1 0x20 ADD PUSH2 0x88 JUMP JUMPDEST PUSH2 0x7C PUSH2 0xDD CALLDATASIZE PUSH1 0x4 PUSH2 0x23C JUMP JUMPDEST PUSH2 0x16B JUMP JUMPDEST PUSH1 0x0 DUP1 SLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND CALLER EQ DUP1 PUSH2 0x10B JUMPI POP CALLER PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x1 PUSH1 0x20 MSTORE PUSH1 0x40 SWAP1 KECCAK256 SLOAD PUSH1 0xFF AND JUMPDEST PUSH2 0x114 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP3 AND PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x1 PUSH1 0x20 DUP2 SWAP1 MSTORE PUSH1 0x40 SWAP1 SWAP2 KECCAK256 SLOAD PUSH1 0xFF AND ISZERO ISZERO EQ PUSH2 0x162 JUMPI POP PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x1 PUSH1 0x20 DUP2 SWAP1 MSTORE PUSH1 0x40 SWAP1 SWAP2 KECCAK256 DUP1 SLOAD PUSH1 0xFF NOT AND DUP3 OR SWAP1 SSTORE SWAP1 JUMP JUMPDEST POP PUSH1 0x0 JUMPDEST SWAP2 SWAP1 POP JUMP JUMPDEST PUSH1 0x0 DUP1 SLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND CALLER EQ DUP1 PUSH2 0x194 JUMPI POP CALLER PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x1 PUSH1 0x20 MSTORE PUSH1 0x40 SWAP1 KECCAK256 SLOAD PUSH1 0xFF AND JUMPDEST PUSH2 0x19D JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP4 AND PUSH1 0x0 DUP2 DUP2 MSTORE PUSH1 0x2 PUSH1 0x20 SWAP1 DUP2 MSTORE PUSH1 0x40 SWAP2 DUP3 SWAP1 KECCAK256 DUP6 SWAP1 SSTORE DUP2 MLOAD PUSH1 0x1 DUP2 MSTORE SWAP1 DUP2 ADD DUP6 SWAP1 MSTORE DUP1 DUP3 ADD SWAP3 SWAP1 SWAP3 MSTORE MLOAD PUSH32 0x7A0F50B566AB4225B0F298A229BCF96D4BA86D1C6C43D48AD0F0F6D96F68413D SWAP2 DUP2 SWAP1 SUB PUSH1 0x60 ADD SWAP1 LOG1 POP PUSH1 0x1 SWAP3 SWAP2 POP POP JUMP JUMPDEST DUP1 CALLDATALOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP2 AND DUP2 EQ PUSH2 0x166 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x0 PUSH1 0x20 DUP3 DUP5 SUB SLT ISZERO PUSH2 0x22C JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x235 DUP3 PUSH2 0x203 JUMP JUMPDEST SWAP4 SWAP3 POP POP POP JUMP JUMPDEST PUSH1 0x0 DUP1 PUSH1 0x40 DUP4 DUP6 SUB SLT ISZERO PUSH2 0x24F JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x258 DUP4 PUSH2 0x203 JUMP JUMPDEST SWAP5 PUSH1 0x20 SWAP4 SWAP1 SWAP4 ADD CALLDATALOAD SWAP4 POP POP POP JUMP INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 PUSH13 0x1EDF2B9A8FC33369959AC72688 0xE7 PUSH28 0x2186EA3CB16BEBB2BD0C36F6658CCADD64736F6C6343000807003300 ",
+  "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH2 0x10 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH2 0x4C JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x60C000D4 EQ PUSH2 0x51 JUMPI DUP1 PUSH4 0x6210D360 EQ PUSH2 0x91 JUMPI DUP1 PUSH4 0x8DA5CB5B EQ PUSH2 0xA4 JUMPI DUP1 PUSH4 0x92067121 EQ PUSH2 0xCF JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x7C PUSH2 0x5F CALLDATASIZE PUSH1 0x4 PUSH2 0x21A JUMP JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x2 PUSH1 0x20 MSTORE PUSH1 0x40 SWAP1 KECCAK256 SLOAD ISZERO ISZERO SWAP1 JUMP JUMPDEST PUSH1 0x40 MLOAD SWAP1 ISZERO ISZERO DUP2 MSTORE PUSH1 0x20 ADD JUMPDEST PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 RETURN JUMPDEST PUSH2 0x7C PUSH2 0x9F CALLDATASIZE PUSH1 0x4 PUSH2 0x21A JUMP JUMPDEST PUSH2 0xE2 JUMP JUMPDEST PUSH1 0x0 SLOAD PUSH2 0xB7 SWAP1 PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND DUP2 JUMP JUMPDEST PUSH1 0x40 MLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB SWAP1 SWAP2 AND DUP2 MSTORE PUSH1 0x20 ADD PUSH2 0x88 JUMP JUMPDEST PUSH2 0x7C PUSH2 0xDD CALLDATASIZE PUSH1 0x4 PUSH2 0x23C JUMP JUMPDEST PUSH2 0x16B JUMP JUMPDEST PUSH1 0x0 DUP1 SLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND CALLER EQ DUP1 PUSH2 0x10B JUMPI POP CALLER PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x1 PUSH1 0x20 MSTORE PUSH1 0x40 SWAP1 KECCAK256 SLOAD PUSH1 0xFF AND JUMPDEST PUSH2 0x114 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP3 AND PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x1 PUSH1 0x20 DUP2 SWAP1 MSTORE PUSH1 0x40 SWAP1 SWAP2 KECCAK256 SLOAD PUSH1 0xFF AND ISZERO ISZERO EQ PUSH2 0x162 JUMPI POP PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x1 PUSH1 0x20 DUP2 SWAP1 MSTORE PUSH1 0x40 SWAP1 SWAP2 KECCAK256 DUP1 SLOAD PUSH1 0xFF NOT AND DUP3 OR SWAP1 SSTORE SWAP1 JUMP JUMPDEST POP PUSH1 0x0 JUMPDEST SWAP2 SWAP1 POP JUMP JUMPDEST PUSH1 0x0 DUP1 SLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND CALLER EQ DUP1 PUSH2 0x194 JUMPI POP CALLER PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x1 PUSH1 0x20 MSTORE PUSH1 0x40 SWAP1 KECCAK256 SLOAD PUSH1 0xFF AND JUMPDEST PUSH2 0x19D JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP4 AND PUSH1 0x0 DUP2 DUP2 MSTORE PUSH1 0x2 PUSH1 0x20 SWAP1 DUP2 MSTORE PUSH1 0x40 SWAP2 DUP3 SWAP1 KECCAK256 DUP6 SWAP1 SSTORE DUP2 MLOAD PUSH1 0x1 DUP2 MSTORE SWAP1 DUP2 ADD DUP6 SWAP1 MSTORE DUP1 DUP3 ADD SWAP3 SWAP1 SWAP3 MSTORE MLOAD PUSH32 0x7A0F50B566AB4225B0F298A229BCF96D4BA86D1C6C43D48AD0F0F6D96F68413D SWAP2 DUP2 SWAP1 SUB PUSH1 0x60 ADD SWAP1 LOG1 POP PUSH1 0x1 SWAP3 SWAP2 POP POP JUMP JUMPDEST DUP1 CALLDATALOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP2 AND DUP2 EQ PUSH2 0x166 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x0 PUSH1 0x20 DUP3 DUP5 SUB SLT ISZERO PUSH2 0x22C JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x235 DUP3 PUSH2 0x203 JUMP JUMPDEST SWAP4 SWAP3 POP POP POP JUMP JUMPDEST PUSH1 0x0 DUP1 PUSH1 0x40 DUP4 DUP6 SUB SLT ISZERO PUSH2 0x24F JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x258 DUP4 PUSH2 0x203 JUMP JUMPDEST SWAP5 PUSH1 0x20 SWAP4 SWAP1 SWAP4 ADD CALLDATALOAD SWAP4 POP POP POP JUMP INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 0xF6 RETURNDATASIZE POP BLOCKHASH 0xCD EXTCODESIZE 0xF9 0x1F 0xDB 0xF9 0xCD 0x24 LOG4 XOR 0xCA 0xD1 0xD0 0xC9 0xF8 0x4D DUP16 0x5F 0x1E 0xF8 0x4C 0xD1 SWAP11 0xA8 0xB7 0xAF LOG3 0xC PUSH5 0x736F6C6343 STOP ADDMOD SMOD STOP CALLER ",
   "pcMap": {
     "0": {
       "offset": [
@@ -296,7 +277,7 @@
         123
       ],
       "op": "PUSH1",
-      "path": "7",
+      "path": "6",
       "value": "0x80"
     },
     "2": {
@@ -306,7 +287,7 @@
         123
       ],
       "op": "PUSH1",
-      "path": "7",
+      "path": "6",
       "value": "0x40"
     },
     "4": {
@@ -316,7 +297,7 @@
         123
       ],
       "op": "MSTORE",
-      "path": "7"
+      "path": "6"
     },
     "5": {
       "fn": null,
@@ -325,7 +306,7 @@
         123
       ],
       "op": "CALLVALUE",
-      "path": "7"
+      "path": "6"
     },
     "6": {
       "fn": null,
@@ -334,7 +315,7 @@
         123
       ],
       "op": "DUP1",
-      "path": "7"
+      "path": "6"
     },
     "7": {
       "fn": null,
@@ -343,7 +324,7 @@
         123
       ],
       "op": "ISZERO",
-      "path": "7"
+      "path": "6"
     },
     "8": {
       "fn": null,
@@ -352,7 +333,7 @@
         123
       ],
       "op": "PUSH2",
-      "path": "7",
+      "path": "6",
       "value": "0x10"
     },
     "11": {
@@ -362,7 +343,7 @@
         123
       ],
       "op": "JUMPI",
-      "path": "7"
+      "path": "6"
     },
     "12": {
       "fn": null,
@@ -371,7 +352,7 @@
         123
       ],
       "op": "PUSH1",
-      "path": "7",
+      "path": "6",
       "value": "0x0"
     },
     "14": {
@@ -381,7 +362,7 @@
         123
       ],
       "op": "DUP1",
-      "path": "7"
+      "path": "6"
     },
     "15": {
       "dev": "Cannot send ether to nonpayable function",
@@ -391,7 +372,7 @@
         123
       ],
       "op": "REVERT",
-      "path": "7"
+      "path": "6"
     },
     "16": {
       "fn": null,
@@ -400,7 +381,7 @@
         123
       ],
       "op": "JUMPDEST",
-      "path": "7"
+      "path": "6"
     },
     "17": {
       "fn": null,
@@ -409,7 +390,7 @@
         123
       ],
       "op": "POP",
-      "path": "7"
+      "path": "6"
     },
     "18": {
       "fn": null,
@@ -418,7 +399,7 @@
         123
       ],
       "op": "PUSH1",
-      "path": "7",
+      "path": "6",
       "value": "0x4"
     },
     "20": {
@@ -428,7 +409,7 @@
         123
       ],
       "op": "CALLDATASIZE",
-      "path": "7"
+      "path": "6"
     },
     "21": {
       "fn": null,
@@ -437,7 +418,7 @@
         123
       ],
       "op": "LT",
-      "path": "7"
+      "path": "6"
     },
     "22": {
       "fn": null,
@@ -446,7 +427,7 @@
         123
       ],
       "op": "PUSH2",
-      "path": "7",
+      "path": "6",
       "value": "0x4C"
     },
     "25": {
@@ -456,7 +437,7 @@
         123
       ],
       "op": "JUMPI",
-      "path": "7"
+      "path": "6"
     },
     "26": {
       "fn": null,
@@ -465,7 +446,7 @@
         123
       ],
       "op": "PUSH1",
-      "path": "7",
+      "path": "6",
       "value": "0x0"
     },
     "28": {
@@ -475,7 +456,7 @@
         123
       ],
       "op": "CALLDATALOAD",
-      "path": "7"
+      "path": "6"
     },
     "29": {
       "fn": null,
@@ -484,7 +465,7 @@
         123
       ],
       "op": "PUSH1",
-      "path": "7",
+      "path": "6",
       "value": "0xE0"
     },
     "31": {
@@ -494,7 +475,7 @@
         123
       ],
       "op": "SHR",
-      "path": "7"
+      "path": "6"
     },
     "32": {
       "fn": null,
@@ -503,7 +484,7 @@
         123
       ],
       "op": "DUP1",
-      "path": "7"
+      "path": "6"
     },
     "33": {
       "fn": null,
@@ -512,7 +493,7 @@
         123
       ],
       "op": "PUSH4",
-      "path": "7",
+      "path": "6",
       "value": "0x60C000D4"
     },
     "38": {
@@ -522,7 +503,7 @@
         123
       ],
       "op": "EQ",
-      "path": "7"
+      "path": "6"
     },
     "39": {
       "fn": null,
@@ -531,7 +512,7 @@
         123
       ],
       "op": "PUSH2",
-      "path": "7",
+      "path": "6",
       "value": "0x51"
     },
     "42": {
@@ -541,7 +522,7 @@
         123
       ],
       "op": "JUMPI",
-      "path": "7"
+      "path": "6"
     },
     "43": {
       "fn": null,
@@ -550,7 +531,7 @@
         123
       ],
       "op": "DUP1",
-      "path": "7"
+      "path": "6"
     },
     "44": {
       "fn": null,
@@ -559,7 +540,7 @@
         123
       ],
       "op": "PUSH4",
-      "path": "7",
+      "path": "6",
       "value": "0x6210D360"
     },
     "49": {
@@ -569,7 +550,7 @@
         123
       ],
       "op": "EQ",
-      "path": "7"
+      "path": "6"
     },
     "50": {
       "fn": null,
@@ -578,7 +559,7 @@
         123
       ],
       "op": "PUSH2",
-      "path": "7",
+      "path": "6",
       "value": "0x91"
     },
     "53": {
@@ -588,7 +569,7 @@
         123
       ],
       "op": "JUMPI",
-      "path": "7"
+      "path": "6"
     },
     "54": {
       "fn": null,
@@ -597,7 +578,7 @@
         123
       ],
       "op": "DUP1",
-      "path": "7"
+      "path": "6"
     },
     "55": {
       "fn": null,
@@ -606,7 +587,7 @@
         123
       ],
       "op": "PUSH4",
-      "path": "7",
+      "path": "6",
       "value": "0x8DA5CB5B"
     },
     "60": {
@@ -616,7 +597,7 @@
         123
       ],
       "op": "EQ",
-      "path": "7"
+      "path": "6"
     },
     "61": {
       "fn": null,
@@ -625,7 +606,7 @@
         123
       ],
       "op": "PUSH2",
-      "path": "7",
+      "path": "6",
       "value": "0xA4"
     },
     "64": {
@@ -635,7 +616,7 @@
         123
       ],
       "op": "JUMPI",
-      "path": "7"
+      "path": "6"
     },
     "65": {
       "fn": null,
@@ -644,7 +625,7 @@
         123
       ],
       "op": "DUP1",
-      "path": "7"
+      "path": "6"
     },
     "66": {
       "fn": null,
@@ -653,7 +634,7 @@
         123
       ],
       "op": "PUSH4",
-      "path": "7",
+      "path": "6",
       "value": "0x92067121"
     },
     "71": {
@@ -663,7 +644,7 @@
         123
       ],
       "op": "EQ",
-      "path": "7"
+      "path": "6"
     },
     "72": {
       "fn": null,
@@ -672,7 +653,7 @@
         123
       ],
       "op": "PUSH2",
-      "path": "7",
+      "path": "6",
       "value": "0xCF"
     },
     "75": {
@@ -682,7 +663,7 @@
         123
       ],
       "op": "JUMPI",
-      "path": "7"
+      "path": "6"
     },
     "76": {
       "fn": null,
@@ -691,7 +672,7 @@
         123
       ],
       "op": "JUMPDEST",
-      "path": "7"
+      "path": "6"
     },
     "77": {
       "fn": null,
@@ -700,7 +681,7 @@
         123
       ],
       "op": "PUSH1",
-      "path": "7",
+      "path": "6",
       "value": "0x0"
     },
     "79": {
@@ -710,7 +691,7 @@
         123
       ],
       "op": "DUP1",
-      "path": "7"
+      "path": "6"
     },
     "80": {
       "first_revert": true,
@@ -720,84 +701,84 @@
         123
       ],
       "op": "REVERT",
-      "path": "7"
+      "path": "6"
     },
     "81": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        663,
-        778
+        552,
+        667
       ],
       "op": "JUMPDEST",
-      "path": "6"
+      "path": "5"
     },
     "82": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        663,
-        778
+        552,
+        667
       ],
       "op": "PUSH2",
-      "path": "6",
+      "path": "5",
       "value": "0x7C"
     },
     "85": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        663,
-        778
+        552,
+        667
       ],
       "op": "PUSH2",
-      "path": "6",
+      "path": "5",
       "value": "0x5F"
     },
     "88": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        663,
-        778
+        552,
+        667
       ],
       "op": "CALLDATASIZE",
-      "path": "6"
+      "path": "5"
     },
     "89": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        663,
-        778
+        552,
+        667
       ],
       "op": "PUSH1",
-      "path": "6",
+      "path": "5",
       "value": "0x4"
     },
     "91": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        663,
-        778
+        552,
+        667
       ],
       "op": "PUSH2",
-      "path": "6",
+      "path": "5",
       "value": "0x21A"
     },
     "94": {
       "fn": "Issuer.verifyIssuer",
       "jump": "i",
       "offset": [
-        663,
-        778
+        552,
+        667
       ],
       "op": "JUMP",
-      "path": "6"
+      "path": "5"
     },
     "95": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        663,
-        778
+        552,
+        667
       ],
       "op": "JUMPDEST",
-      "path": "6"
+      "path": "5"
     },
     "96": {
       "op": "PUSH1",
@@ -820,179 +801,179 @@
     "104": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        746,
-        769
+        635,
+        658
       ],
       "op": "AND",
-      "path": "6",
+      "path": "5",
       "statement": 0
     },
     "105": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        724,
-        728
+        613,
+        617
       ],
       "op": "PUSH1",
-      "path": "6",
+      "path": "5",
       "value": "0x0"
     },
     "107": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        746,
-        769
+        635,
+        658
       ],
       "op": "SWAP1",
-      "path": "6"
+      "path": "5"
     },
     "108": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        746,
-        769
+        635,
+        658
       ],
       "op": "DUP2",
-      "path": "6"
+      "path": "5"
     },
     "109": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        746,
-        769
+        635,
+        658
       ],
       "op": "MSTORE",
-      "path": "6"
+      "path": "5"
     },
     "110": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        746,
-        759
+        635,
+        648
       ],
       "op": "PUSH1",
-      "path": "6",
+      "path": "5",
       "value": "0x2"
     },
     "112": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        746,
-        769
+        635,
+        658
       ],
       "op": "PUSH1",
-      "path": "6",
+      "path": "5",
       "value": "0x20"
     },
     "114": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        746,
-        769
+        635,
+        658
       ],
       "op": "MSTORE",
-      "path": "6"
+      "path": "5"
     },
     "115": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        746,
-        769
+        635,
+        658
       ],
       "op": "PUSH1",
-      "path": "6",
+      "path": "5",
       "value": "0x40"
     },
     "117": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        746,
-        769
+        635,
+        658
       ],
       "op": "SWAP1",
-      "path": "6"
+      "path": "5"
     },
     "118": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        746,
-        769
+        635,
+        658
       ],
       "op": "KECCAK256",
-      "path": "6"
+      "path": "5"
     },
     "119": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        746,
-        769
+        635,
+        658
       ],
       "op": "SLOAD",
-      "path": "6"
+      "path": "5"
     },
     "120": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        746,
-        771
+        635,
+        660
       ],
       "op": "ISZERO",
-      "path": "6"
+      "path": "5"
     },
     "121": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        746,
-        771
+        635,
+        660
       ],
       "op": "ISZERO",
-      "path": "6"
+      "path": "5"
     },
     "122": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        746,
-        771
+        635,
+        660
       ],
       "op": "SWAP1",
-      "path": "6"
+      "path": "5"
     },
     "123": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        663,
-        778
+        552,
+        667
       ],
       "op": "JUMP",
-      "path": "6"
+      "path": "5"
     },
     "124": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        663,
-        778
+        552,
+        667
       ],
       "op": "JUMPDEST",
-      "path": "6"
+      "path": "5"
     },
     "125": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        663,
-        778
+        552,
+        667
       ],
       "op": "PUSH1",
-      "path": "6",
+      "path": "5",
       "value": "0x40"
     },
     "127": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        663,
-        778
+        552,
+        667
       ],
       "op": "MLOAD",
-      "path": "6"
+      "path": "5"
     },
     "128": {
       "op": "SWAP1"
@@ -1019,172 +1000,172 @@
     "136": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        663,
-        778
+        552,
+        667
       ],
       "op": "JUMPDEST",
-      "path": "6"
+      "path": "5"
     },
     "137": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        663,
-        778
+        552,
+        667
       ],
       "op": "PUSH1",
-      "path": "6",
+      "path": "5",
       "value": "0x40"
     },
     "139": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        663,
-        778
+        552,
+        667
       ],
       "op": "MLOAD",
-      "path": "6"
+      "path": "5"
     },
     "140": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        663,
-        778
+        552,
+        667
       ],
       "op": "DUP1",
-      "path": "6"
+      "path": "5"
     },
     "141": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        663,
-        778
+        552,
+        667
       ],
       "op": "SWAP2",
-      "path": "6"
+      "path": "5"
     },
     "142": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        663,
-        778
+        552,
+        667
       ],
       "op": "SUB",
-      "path": "6"
+      "path": "5"
     },
     "143": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        663,
-        778
+        552,
+        667
       ],
       "op": "SWAP1",
-      "path": "6"
+      "path": "5"
     },
     "144": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        663,
-        778
+        552,
+        667
       ],
       "op": "RETURN",
-      "path": "6"
+      "path": "5"
     },
     "145": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        748,
-        1013
+        582,
+        847
       ],
       "op": "JUMPDEST",
-      "path": "8"
+      "path": "7"
     },
     "146": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        748,
-        1013
+        582,
+        847
       ],
       "op": "PUSH2",
-      "path": "8",
+      "path": "7",
       "value": "0x7C"
     },
     "149": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        748,
-        1013
+        582,
+        847
       ],
       "op": "PUSH2",
-      "path": "8",
+      "path": "7",
       "value": "0x9F"
     },
     "152": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        748,
-        1013
+        582,
+        847
       ],
       "op": "CALLDATASIZE",
-      "path": "8"
+      "path": "7"
     },
     "153": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        748,
-        1013
+        582,
+        847
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0x4"
     },
     "155": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        748,
-        1013
+        582,
+        847
       ],
       "op": "PUSH2",
-      "path": "8",
+      "path": "7",
       "value": "0x21A"
     },
     "158": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "jump": "i",
       "offset": [
-        748,
-        1013
+        582,
+        847
       ],
       "op": "JUMP",
-      "path": "8"
+      "path": "7"
     },
     "159": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        748,
-        1013
+        582,
+        847
       ],
       "op": "JUMPDEST",
-      "path": "8"
+      "path": "7"
     },
     "160": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        748,
-        1013
+        582,
+        847
       ],
       "op": "PUSH2",
-      "path": "8",
+      "path": "7",
       "value": "0xE2"
     },
     "163": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "jump": "i",
       "offset": [
-        748,
-        1013
+        582,
+        847
       ],
       "op": "JUMP",
-      "path": "8"
+      "path": "7"
     },
     "164": {
       "offset": [
@@ -1192,7 +1173,7 @@
         201
       ],
       "op": "JUMPDEST",
-      "path": "8"
+      "path": "7"
     },
     "165": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
@@ -1201,7 +1182,7 @@
         201
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0x0"
     },
     "167": {
@@ -1211,7 +1192,7 @@
         201
       ],
       "op": "SLOAD",
-      "path": "8"
+      "path": "7"
     },
     "168": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
@@ -1220,7 +1201,7 @@
         201
       ],
       "op": "PUSH2",
-      "path": "8",
+      "path": "7",
       "value": "0xB7"
     },
     "171": {
@@ -1230,7 +1211,7 @@
         201
       ],
       "op": "SWAP1",
-      "path": "8"
+      "path": "7"
     },
     "172": {
       "op": "PUSH1",
@@ -1256,7 +1237,7 @@
         201
       ],
       "op": "AND",
-      "path": "8"
+      "path": "7"
     },
     "181": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
@@ -1265,7 +1246,7 @@
         201
       ],
       "op": "DUP2",
-      "path": "8"
+      "path": "7"
     },
     "182": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
@@ -1274,7 +1255,7 @@
         201
       ],
       "op": "JUMP",
-      "path": "8"
+      "path": "7"
     },
     "183": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
@@ -1283,7 +1264,7 @@
         201
       ],
       "op": "JUMPDEST",
-      "path": "8"
+      "path": "7"
     },
     "184": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
@@ -1292,7 +1273,7 @@
         201
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0x40"
     },
     "186": {
@@ -1302,7 +1283,7 @@
         201
       ],
       "op": "MLOAD",
-      "path": "8"
+      "path": "7"
     },
     "187": {
       "op": "PUSH1",
@@ -1350,7 +1331,7 @@
         201
       ],
       "op": "PUSH2",
-      "path": "8",
+      "path": "7",
       "value": "0x88"
     },
     "206": {
@@ -1363,7 +1344,7 @@
         546
       ],
       "op": "JUMPDEST",
-      "path": "6"
+      "path": "5"
     },
     "208": {
       "fn": "Issuer.registerIssuer",
@@ -1372,7 +1353,7 @@
         546
       ],
       "op": "PUSH2",
-      "path": "6",
+      "path": "5",
       "value": "0x7C"
     },
     "211": {
@@ -1382,7 +1363,7 @@
         546
       ],
       "op": "PUSH2",
-      "path": "6",
+      "path": "5",
       "value": "0xDD"
     },
     "214": {
@@ -1392,7 +1373,7 @@
         546
       ],
       "op": "CALLDATASIZE",
-      "path": "6"
+      "path": "5"
     },
     "215": {
       "fn": "Issuer.registerIssuer",
@@ -1401,7 +1382,7 @@
         546
       ],
       "op": "PUSH1",
-      "path": "6",
+      "path": "5",
       "value": "0x4"
     },
     "217": {
@@ -1411,7 +1392,7 @@
         546
       ],
       "op": "PUSH2",
-      "path": "6",
+      "path": "5",
       "value": "0x23C"
     },
     "220": {
@@ -1422,7 +1403,7 @@
         546
       ],
       "op": "JUMP",
-      "path": "6"
+      "path": "5"
     },
     "221": {
       "fn": "Issuer.registerIssuer",
@@ -1431,7 +1412,7 @@
         546
       ],
       "op": "JUMPDEST",
-      "path": "6"
+      "path": "5"
     },
     "222": {
       "fn": "Issuer.registerIssuer",
@@ -1440,7 +1421,7 @@
         546
       ],
       "op": "PUSH2",
-      "path": "6",
+      "path": "5",
       "value": "0x16B"
     },
     "225": {
@@ -1451,43 +1432,43 @@
         546
       ],
       "op": "JUMP",
-      "path": "6"
+      "path": "5"
     },
     "226": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        748,
-        1013
+        582,
+        847
       ],
       "op": "JUMPDEST",
-      "path": "8"
+      "path": "7"
     },
     "227": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        824,
-        836
+        658,
+        670
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0x0"
     },
     "229": {
       "offset": [
-        551,
-        556
+        521,
+        526
       ],
       "op": "DUP1",
-      "path": "8"
+      "path": "7"
     },
     "230": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        551,
-        556
+        521,
+        526
       ],
       "op": "SLOAD",
-      "path": "8"
+      "path": "7"
     },
     "231": {
       "op": "PUSH1",
@@ -1509,245 +1490,245 @@
     },
     "239": {
       "offset": [
-        551,
-        556
+        521,
+        526
       ],
       "op": "AND",
-      "path": "8"
+      "path": "7"
     },
     "240": {
       "offset": [
-        537,
-        547
+        507,
+        517
       ],
       "op": "CALLER",
-      "path": "8"
+      "path": "7"
     },
     "241": {
       "offset": [
-        537,
-        556
+        507,
+        526
       ],
       "op": "EQ",
-      "path": "8"
+      "path": "7"
     },
     "242": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        537,
-        556
+        507,
+        526
       ],
       "op": "DUP1",
-      "path": "8"
+      "path": "7"
     },
     "243": {
       "offset": [
-        537,
-        586
+        507,
+        556
       ],
       "op": "PUSH2",
-      "path": "8",
+      "path": "7",
       "value": "0x10B"
     },
     "246": {
       "offset": [
-        537,
-        586
+        507,
+        556
       ],
       "op": "JUMPI",
-      "path": "8"
+      "path": "7"
     },
     "247": {
       "op": "POP"
     },
     "248": {
       "offset": [
-        575,
-        585
+        545,
+        555
       ],
       "op": "CALLER",
-      "path": "8"
+      "path": "7"
     },
     "249": {
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0x0"
     },
     "251": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "SWAP1",
-      "path": "8"
+      "path": "7"
     },
     "252": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "DUP2",
-      "path": "8"
+      "path": "7"
     },
     "253": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "MSTORE",
-      "path": "8"
+      "path": "7"
     },
     "254": {
       "offset": [
-        560,
-        574
+        530,
+        544
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0x1"
     },
     "256": {
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0x20"
     },
     "258": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "MSTORE",
-      "path": "8"
+      "path": "7"
     },
     "259": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0x40"
     },
     "261": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "SWAP1",
-      "path": "8"
+      "path": "7"
     },
     "262": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "KECCAK256",
-      "path": "8"
+      "path": "7"
     },
     "263": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "SLOAD",
-      "path": "8"
+      "path": "7"
     },
     "264": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0xFF"
     },
     "266": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "AND",
-      "path": "8"
+      "path": "7"
     },
     "267": {
       "offset": [
-        537,
-        586
+        507,
+        556
       ],
       "op": "JUMPDEST",
-      "path": "8"
+      "path": "7"
     },
     "268": {
       "offset": [
-        529,
-        587
+        499,
+        557
       ],
       "op": "PUSH2",
-      "path": "8",
+      "path": "7",
       "value": "0x114"
     },
     "271": {
       "offset": [
-        529,
-        587
+        499,
+        557
       ],
       "op": "JUMPI",
-      "path": "8"
+      "path": "7"
     },
     "272": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        529,
-        587
+        499,
+        557
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0x0"
     },
     "274": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        529,
-        587
+        499,
+        557
       ],
       "op": "DUP1",
-      "path": "8"
+      "path": "7"
     },
     "275": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        529,
-        587
+        499,
+        557
       ],
       "op": "REVERT",
-      "path": "8"
+      "path": "7"
     },
     "276": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        529,
-        587
+        499,
+        557
       ],
       "op": "JUMPDEST",
-      "path": "8"
+      "path": "7"
     },
     "277": {
       "op": "PUSH1",
@@ -1770,215 +1751,215 @@
     "285": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        853,
-        877
+        687,
+        711
       ],
       "op": "DUP3",
-      "path": "8"
+      "path": "7"
     },
     "286": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        853,
-        877
+        687,
+        711
       ],
       "op": "AND",
-      "path": "8"
+      "path": "7"
     },
     "287": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        853,
-        877
+        687,
+        711
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0x0"
     },
     "289": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        853,
-        877
+        687,
+        711
       ],
       "op": "SWAP1",
-      "path": "8"
+      "path": "7"
     },
     "290": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        853,
-        877
+        687,
+        711
       ],
       "op": "DUP2",
-      "path": "8"
+      "path": "7"
     },
     "291": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        853,
-        877
+        687,
+        711
       ],
       "op": "MSTORE",
-      "path": "8"
+      "path": "7"
     },
     "292": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        853,
-        867
+        687,
+        701
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0x1"
     },
     "294": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        853,
-        877
+        687,
+        711
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0x20"
     },
     "296": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        853,
-        877
+        687,
+        711
       ],
       "op": "DUP2",
-      "path": "8"
+      "path": "7"
     },
     "297": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        853,
-        877
+        687,
+        711
       ],
       "op": "SWAP1",
-      "path": "8"
+      "path": "7"
     },
     "298": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        853,
-        877
+        687,
+        711
       ],
       "op": "MSTORE",
-      "path": "8"
+      "path": "7"
     },
     "299": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        853,
-        877
+        687,
+        711
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0x40"
     },
     "301": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        853,
-        877
+        687,
+        711
       ],
       "op": "SWAP1",
-      "path": "8"
+      "path": "7"
     },
     "302": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        853,
-        877
+        687,
+        711
       ],
       "op": "SWAP2",
-      "path": "8"
+      "path": "7"
     },
     "303": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        853,
-        877
+        687,
+        711
       ],
       "op": "KECCAK256",
-      "path": "8"
+      "path": "7"
     },
     "304": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        853,
-        877
+        687,
+        711
       ],
       "op": "SLOAD",
-      "path": "8"
+      "path": "7"
     },
     "305": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        853,
-        877
+        687,
+        711
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0xFF"
     },
     "307": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        853,
-        877
+        687,
+        711
       ],
       "op": "AND",
-      "path": "8"
+      "path": "7"
     },
     "308": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        853,
-        883
+        687,
+        717
       ],
       "op": "ISZERO",
-      "path": "8"
+      "path": "7"
     },
     "309": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        853,
-        883
+        687,
+        717
       ],
       "op": "ISZERO",
-      "path": "8"
+      "path": "7"
     },
     "310": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        853,
-        883
+        687,
+        717
       ],
       "op": "EQ",
-      "path": "8"
+      "path": "7"
     },
     "311": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        848,
-        1007
+        682,
+        841
       ],
       "op": "PUSH2",
-      "path": "8",
+      "path": "7",
       "value": "0x162"
     },
     "314": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        848,
-        1007
+        682,
+        841
       ],
       "op": "JUMPI",
-      "path": "8"
+      "path": "7"
     },
     "315": {
       "op": "POP"
@@ -2004,151 +1985,151 @@
     "324": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        899,
-        923
+        733,
+        757
       ],
       "op": "AND",
-      "path": "8",
+      "path": "7",
       "statement": 1
     },
     "325": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        899,
-        923
+        733,
+        757
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0x0"
     },
     "327": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        899,
-        923
+        733,
+        757
       ],
       "op": "SWAP1",
-      "path": "8"
+      "path": "7"
     },
     "328": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        899,
-        923
+        733,
+        757
       ],
       "op": "DUP2",
-      "path": "8"
+      "path": "7"
     },
     "329": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        899,
-        923
+        733,
+        757
       ],
       "op": "MSTORE",
-      "path": "8"
+      "path": "7"
     },
     "330": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        926,
-        930
+        760,
+        764
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0x1"
     },
     "332": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        899,
-        923
+        733,
+        757
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0x20"
     },
     "334": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        899,
-        923
+        733,
+        757
       ],
       "op": "DUP2",
-      "path": "8"
+      "path": "7"
     },
     "335": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        899,
-        923
+        733,
+        757
       ],
       "op": "SWAP1",
-      "path": "8"
+      "path": "7"
     },
     "336": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        899,
-        923
+        733,
+        757
       ],
       "op": "MSTORE",
-      "path": "8"
+      "path": "7"
     },
     "337": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        899,
-        923
+        733,
+        757
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0x40"
     },
     "339": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        899,
-        923
+        733,
+        757
       ],
       "op": "SWAP1",
-      "path": "8"
+      "path": "7"
     },
     "340": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        899,
-        923
+        733,
+        757
       ],
       "op": "SWAP2",
-      "path": "8"
+      "path": "7"
     },
     "341": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        899,
-        923
+        733,
+        757
       ],
       "op": "KECCAK256",
-      "path": "8"
+      "path": "7"
     },
     "342": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        899,
-        930
+        733,
+        764
       ],
       "op": "DUP1",
-      "path": "8"
+      "path": "7"
     },
     "343": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        899,
-        930
+        733,
+        764
       ],
       "op": "SLOAD",
-      "path": "8"
+      "path": "7"
     },
     "344": {
       "op": "PUSH1",
@@ -2160,75 +2141,75 @@
     "347": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        899,
-        930
+        733,
+        764
       ],
       "op": "AND",
-      "path": "8"
+      "path": "7"
     },
     "348": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        899,
-        930
+        733,
+        764
       ],
       "op": "DUP3",
-      "path": "8"
+      "path": "7"
     },
     "349": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        899,
-        930
+        733,
+        764
       ],
       "op": "OR",
-      "path": "8"
+      "path": "7"
     },
     "350": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        899,
-        930
+        733,
+        764
       ],
       "op": "SWAP1",
-      "path": "8"
+      "path": "7"
     },
     "351": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        899,
-        930
+        733,
+        764
       ],
       "op": "SSTORE",
-      "path": "8"
+      "path": "7"
     },
     "352": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        926,
-        930
+        760,
+        764
       ],
       "op": "SWAP1",
-      "path": "8"
+      "path": "7"
     },
     "353": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "jump": "o",
       "offset": [
-        748,
-        1013
+        582,
+        847
       ],
       "op": "JUMP",
-      "path": "8"
+      "path": "7"
     },
     "354": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        848,
-        1007
+        682,
+        841
       ],
       "op": "JUMPDEST",
-      "path": "8"
+      "path": "7"
     },
     "355": {
       "op": "POP"
@@ -2236,59 +2217,59 @@
     "356": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        991,
-        996
+        825,
+        830
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "statement": 2,
       "value": "0x0"
     },
     "358": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        848,
-        1007
+        682,
+        841
       ],
       "op": "JUMPDEST",
-      "path": "8"
+      "path": "7"
     },
     "359": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        748,
-        1013
+        582,
+        847
       ],
       "op": "SWAP2",
-      "path": "8"
+      "path": "7"
     },
     "360": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        748,
-        1013
+        582,
+        847
       ],
       "op": "SWAP1",
-      "path": "8"
+      "path": "7"
     },
     "361": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        748,
-        1013
+        582,
+        847
       ],
       "op": "POP",
-      "path": "8"
+      "path": "7"
     },
     "362": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "jump": "o",
       "offset": [
-        748,
-        1013
+        582,
+        847
       ],
       "op": "JUMP",
-      "path": "8"
+      "path": "7"
     },
     "363": {
       "fn": "Issuer.registerIssuer",
@@ -2297,7 +2278,7 @@
         546
       ],
       "op": "JUMPDEST",
-      "path": "6"
+      "path": "5"
     },
     "364": {
       "fn": "Issuer.registerIssuer",
@@ -2306,25 +2287,25 @@
         425
       ],
       "op": "PUSH1",
-      "path": "6",
+      "path": "5",
       "value": "0x0"
     },
     "366": {
       "offset": [
-        551,
-        556
+        521,
+        526
       ],
       "op": "DUP1",
-      "path": "8"
+      "path": "7"
     },
     "367": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        551,
-        556
+        521,
+        526
       ],
       "op": "SLOAD",
-      "path": "8"
+      "path": "7"
     },
     "368": {
       "op": "PUSH1",
@@ -2346,249 +2327,249 @@
     },
     "376": {
       "offset": [
-        551,
-        556
+        521,
+        526
       ],
       "op": "AND",
-      "path": "8"
+      "path": "7"
     },
     "377": {
       "offset": [
-        537,
-        547
+        507,
+        517
       ],
       "op": "CALLER",
-      "path": "8"
+      "path": "7"
     },
     "378": {
       "offset": [
-        537,
-        556
+        507,
+        526
       ],
       "op": "EQ",
-      "path": "8"
+      "path": "7"
     },
     "379": {
       "branch": 6,
       "fn": "Issuer.registerIssuer",
       "offset": [
-        537,
-        556
+        507,
+        526
       ],
       "op": "DUP1",
-      "path": "8"
+      "path": "7"
     },
     "380": {
       "offset": [
-        537,
-        586
+        507,
+        556
       ],
       "op": "PUSH2",
-      "path": "8",
+      "path": "7",
       "value": "0x194"
     },
     "383": {
       "branch": 6,
       "offset": [
-        537,
-        586
+        507,
+        556
       ],
       "op": "JUMPI",
-      "path": "8"
+      "path": "7"
     },
     "384": {
       "op": "POP"
     },
     "385": {
       "offset": [
-        575,
-        585
+        545,
+        555
       ],
       "op": "CALLER",
-      "path": "8"
+      "path": "7"
     },
     "386": {
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0x0"
     },
     "388": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "SWAP1",
-      "path": "8"
+      "path": "7"
     },
     "389": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "DUP2",
-      "path": "8"
+      "path": "7"
     },
     "390": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "MSTORE",
-      "path": "8"
+      "path": "7"
     },
     "391": {
       "offset": [
-        560,
-        574
+        530,
+        544
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0x1"
     },
     "393": {
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0x20"
     },
     "395": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "MSTORE",
-      "path": "8"
+      "path": "7"
     },
     "396": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0x40"
     },
     "398": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "SWAP1",
-      "path": "8"
+      "path": "7"
     },
     "399": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "KECCAK256",
-      "path": "8"
+      "path": "7"
     },
     "400": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "SLOAD",
-      "path": "8"
+      "path": "7"
     },
     "401": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0xFF"
     },
     "403": {
       "branch": 7,
       "fn": "Issuer.registerIssuer",
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "AND",
-      "path": "8"
+      "path": "7"
     },
     "404": {
       "offset": [
-        537,
-        586
+        507,
+        556
       ],
       "op": "JUMPDEST",
-      "path": "8"
+      "path": "7"
     },
     "405": {
       "offset": [
-        529,
-        587
+        499,
+        557
       ],
       "op": "PUSH2",
-      "path": "8",
+      "path": "7",
       "value": "0x19D"
     },
     "408": {
       "branch": 7,
       "offset": [
-        529,
-        587
+        499,
+        557
       ],
       "op": "JUMPI",
-      "path": "8"
+      "path": "7"
     },
     "409": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        529,
-        587
+        499,
+        557
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0x0"
     },
     "411": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        529,
-        587
+        499,
+        557
       ],
       "op": "DUP1",
-      "path": "8"
+      "path": "7"
     },
     "412": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        529,
-        587
+        499,
+        557
       ],
       "op": "REVERT",
-      "path": "8"
+      "path": "7"
     },
     "413": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        529,
-        587
+        499,
+        557
       ],
       "op": "JUMPDEST",
-      "path": "8"
+      "path": "7"
     },
     "414": {
       "op": "PUSH1",
@@ -2615,7 +2596,7 @@
         459
       ],
       "op": "DUP4",
-      "path": "6",
+      "path": "5",
       "statement": 3
     },
     "423": {
@@ -2625,7 +2606,7 @@
         459
       ],
       "op": "AND",
-      "path": "6"
+      "path": "5"
     },
     "424": {
       "fn": "Issuer.registerIssuer",
@@ -2634,7 +2615,7 @@
         459
       ],
       "op": "PUSH1",
-      "path": "6",
+      "path": "5",
       "value": "0x0"
     },
     "426": {
@@ -2644,7 +2625,7 @@
         459
       ],
       "op": "DUP2",
-      "path": "6"
+      "path": "5"
     },
     "427": {
       "fn": "Issuer.registerIssuer",
@@ -2653,7 +2634,7 @@
         459
       ],
       "op": "DUP2",
-      "path": "6"
+      "path": "5"
     },
     "428": {
       "fn": "Issuer.registerIssuer",
@@ -2662,7 +2643,7 @@
         459
       ],
       "op": "MSTORE",
-      "path": "6"
+      "path": "5"
     },
     "429": {
       "fn": "Issuer.registerIssuer",
@@ -2671,7 +2652,7 @@
         451
       ],
       "op": "PUSH1",
-      "path": "6",
+      "path": "5",
       "value": "0x2"
     },
     "431": {
@@ -2681,7 +2662,7 @@
         459
       ],
       "op": "PUSH1",
-      "path": "6",
+      "path": "5",
       "value": "0x20"
     },
     "433": {
@@ -2691,7 +2672,7 @@
         459
       ],
       "op": "SWAP1",
-      "path": "6"
+      "path": "5"
     },
     "434": {
       "fn": "Issuer.registerIssuer",
@@ -2700,7 +2681,7 @@
         459
       ],
       "op": "DUP2",
-      "path": "6"
+      "path": "5"
     },
     "435": {
       "fn": "Issuer.registerIssuer",
@@ -2709,7 +2690,7 @@
         459
       ],
       "op": "MSTORE",
-      "path": "6"
+      "path": "5"
     },
     "436": {
       "fn": "Issuer.registerIssuer",
@@ -2718,7 +2699,7 @@
         459
       ],
       "op": "PUSH1",
-      "path": "6",
+      "path": "5",
       "value": "0x40"
     },
     "438": {
@@ -2728,7 +2709,7 @@
         459
       ],
       "op": "SWAP2",
-      "path": "6"
+      "path": "5"
     },
     "439": {
       "fn": "Issuer.registerIssuer",
@@ -2737,7 +2718,7 @@
         459
       ],
       "op": "DUP3",
-      "path": "6"
+      "path": "5"
     },
     "440": {
       "fn": "Issuer.registerIssuer",
@@ -2746,7 +2727,7 @@
         459
       ],
       "op": "SWAP1",
-      "path": "6"
+      "path": "5"
     },
     "441": {
       "fn": "Issuer.registerIssuer",
@@ -2755,7 +2736,7 @@
         459
       ],
       "op": "KECCAK256",
-      "path": "6"
+      "path": "5"
     },
     "442": {
       "fn": "Issuer.registerIssuer",
@@ -2764,7 +2745,7 @@
         471
       ],
       "op": "DUP6",
-      "path": "6"
+      "path": "5"
     },
     "443": {
       "fn": "Issuer.registerIssuer",
@@ -2773,7 +2754,7 @@
         471
       ],
       "op": "SWAP1",
-      "path": "6"
+      "path": "5"
     },
     "444": {
       "fn": "Issuer.registerIssuer",
@@ -2782,7 +2763,7 @@
         471
       ],
       "op": "SSTORE",
-      "path": "6"
+      "path": "5"
     },
     "445": {
       "fn": "Issuer.registerIssuer",
@@ -2791,7 +2772,7 @@
         518
       ],
       "op": "DUP2",
-      "path": "6",
+      "path": "5",
       "statement": 4
     },
     "446": {
@@ -2801,7 +2782,7 @@
         518
       ],
       "op": "MLOAD",
-      "path": "6"
+      "path": "5"
     },
     "447": {
       "fn": "Issuer.registerIssuer",
@@ -2810,7 +2791,7 @@
         500
       ],
       "op": "PUSH1",
-      "path": "6",
+      "path": "5",
       "value": "0x1"
     },
     "449": {
@@ -2865,7 +2846,7 @@
         518
       ],
       "op": "MLOAD",
-      "path": "6"
+      "path": "5"
     },
     "465": {
       "fn": "Issuer.registerIssuer",
@@ -2874,7 +2855,7 @@
         518
       ],
       "op": "PUSH32",
-      "path": "6",
+      "path": "5",
       "value": "0x7A0F50B566AB4225B0F298A229BCF96D4BA86D1C6C43D48AD0F0F6D96F68413D"
     },
     "498": {
@@ -2884,7 +2865,7 @@
         518
       ],
       "op": "SWAP2",
-      "path": "6"
+      "path": "5"
     },
     "499": {
       "fn": "Issuer.registerIssuer",
@@ -2893,7 +2874,7 @@
         518
       ],
       "op": "DUP2",
-      "path": "6"
+      "path": "5"
     },
     "500": {
       "fn": "Issuer.registerIssuer",
@@ -2902,7 +2883,7 @@
         518
       ],
       "op": "SWAP1",
-      "path": "6"
+      "path": "5"
     },
     "501": {
       "fn": "Issuer.registerIssuer",
@@ -2911,7 +2892,7 @@
         518
       ],
       "op": "SUB",
-      "path": "6"
+      "path": "5"
     },
     "502": {
       "op": "PUSH1",
@@ -2924,7 +2905,7 @@
         518
       ],
       "op": "ADD",
-      "path": "6"
+      "path": "5"
     },
     "505": {
       "fn": "Issuer.registerIssuer",
@@ -2933,7 +2914,7 @@
         518
       ],
       "op": "SWAP1",
-      "path": "6"
+      "path": "5"
     },
     "506": {
       "fn": "Issuer.registerIssuer",
@@ -2942,7 +2923,7 @@
         518
       ],
       "op": "LOG1",
-      "path": "6"
+      "path": "5"
     },
     "507": {
       "op": "POP"
@@ -2954,7 +2935,7 @@
         539
       ],
       "op": "PUSH1",
-      "path": "6",
+      "path": "5",
       "statement": 5,
       "value": "0x1"
     },
@@ -2965,7 +2946,7 @@
         546
       ],
       "op": "SWAP3",
-      "path": "6"
+      "path": "5"
     },
     "511": {
       "fn": "Issuer.registerIssuer",
@@ -2974,7 +2955,7 @@
         546
       ],
       "op": "SWAP2",
-      "path": "6"
+      "path": "5"
     },
     "512": {
       "fn": "Issuer.registerIssuer",
@@ -2983,7 +2964,7 @@
         546
       ],
       "op": "POP",
-      "path": "6"
+      "path": "5"
     },
     "513": {
       "fn": "Issuer.registerIssuer",
@@ -2992,7 +2973,7 @@
         546
       ],
       "op": "POP",
-      "path": "6"
+      "path": "5"
     },
     "514": {
       "fn": "Issuer.registerIssuer",
@@ -3002,7 +2983,7 @@
         546
       ],
       "op": "JUMP",
-      "path": "6"
+      "path": "5"
     },
     "515": {
       "op": "JUMPDEST"
@@ -3251,7 +3232,7 @@
   },
   "sha1": "6f27e2173a00990f7d51fb8808101842b6b885db",
   "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.7.0 <0.9.0;\n\nimport \"./IssuerData.sol\";\n\ncontract Registry is Issuer{\n}",
-  "sourceMap": "93:30:7:-:0;;;;;;;;;;;;-1:-1:-1;376:5:8;:27;;-1:-1:-1;;;;;;376:27:8;392:10;376:27;;;93:30:7;;;;;;",
+  "sourceMap": "93:30:6:-:0;;;;;;;;;;;;-1:-1:-1;346:5:7;:27;;-1:-1:-1;;;;;;346:27:7;362:10;346:27;;;93:30:6;;;;;;",
   "sourcePath": "contracts/Registry/Registry.sol",
   "type": "contract"
 }

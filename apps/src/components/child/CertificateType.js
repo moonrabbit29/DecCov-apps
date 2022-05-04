@@ -31,14 +31,23 @@ function TestResultList() {
   );
 }
 
-function VaccineDoseList(esisting_vacine_dose = []) {
-  return (
-    <>
-      <option hidden={true ? esisting_vacine_dose.includes('1') : false}>1</option>
-      <option hidden={true ? esisting_vacine_dose.includes('2') : false}>2</option>
-      <option hidden={true ? esisting_vacine_dose.includes('3') : false}>3</option>
-    </>
-  );
+function VaccineDoseList(esisting_vacine_dose) {
+  if (!esisting_vacine_dose)
+    return (
+      <>
+        <option>1</option>
+      </>
+    );
+  else{
+    console.log(esisting_vacine_dose.slice(-1))
+    return (
+      <>
+        <option>
+          {parseInt(esisting_vacine_dose.slice(-1))+1}
+        </option>
+      </>
+    );
+  }
 }
 class CertificateType extends React.Component {
   constructor(props) {
@@ -50,8 +59,8 @@ class CertificateType extends React.Component {
     is_data_submited: false,
   };
 
-  componentDidMount = async () => { 
-    setInterval(()=>{
+  componentDidMount = async () => {
+    setInterval(() => {
       if (
         this.props.values.cert_name &&
         this.props.values.type &&
@@ -59,8 +68,8 @@ class CertificateType extends React.Component {
       ) {
         this.setState({ is_data_submited: true });
       }
-    },100)
-  }
+    }, 100);
+  };
 
   render() {
     const Continue = (e) => {
@@ -100,6 +109,7 @@ class CertificateType extends React.Component {
                 }
                 value={this.props.values.cert_name}
                 onChange={this.props.handleChange("cert_name")}
+                onClick={this.props.handleChange("cert_name")}
               >
                 {this.props.values.type === "Vaccine"
                   ? VaccineTypeList()
@@ -123,11 +133,12 @@ class CertificateType extends React.Component {
                 onChange={this.props.handleChange(
                   this.props.values.type === "Vaccine" ? "dose" : "test_result"
                 )}
+                onClick={this.props.handleChange(
+                  this.props.values.type === "Vaccine" ? "dose" : "test_result"
+                )}
               >
                 {this.props.values.type === "Vaccine"
-                  ? VaccineDoseList(
-                    this.props.values.TakenVaccineDose
-                    )
+                  ? VaccineDoseList(this.props.values.TakenVaccineDose)
                   : TestResultList()}
               </Form.Select>
             </Form.Group>

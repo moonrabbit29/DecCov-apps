@@ -4,7 +4,8 @@ import getWeb3 from "../Web3Handler";
 import Web3 from "web3";
 import Certificate from "../contracts/Certificate.json";
 import { retrieve_file } from "../ipfs";
-import {DataTable} from "./child/UserDetails"
+import { DataTable } from "./child/UserDetails";
+import { Row, Button, Col } from "react-bootstrap";
 
 class VerifyCertificate extends React.Component {
   state = {
@@ -63,6 +64,7 @@ class VerifyCertificate extends React.Component {
       this.qrScanner.setCamera(cameraList[this.state.currentCamera].id);
       this.qrScanner.start();
     } catch (error) {
+      console.log(error);
       this.qrScanner.stop();
       this.resetState();
     }
@@ -93,7 +95,7 @@ class VerifyCertificate extends React.Component {
   getDataFromIPFS = async (data_address) => {
     const ipfs_data = await retrieve_file(data_address);
     const image_data = await retrieve_file(ipfs_data.image);
-    return [image_data,ipfs_data];
+    return [image_data, ipfs_data];
   };
 
   verifyCertificate = async (qr_code_data) => {
@@ -105,18 +107,18 @@ class VerifyCertificate extends React.Component {
       const certificate_in_sc = await this.state.contract.methods
         .verifyCertificate(certificate_hash, qr_code_data.holder_id)
         .call();
-      const [image , certificate_data] = await this.getDataFromIPFS(
+      const [image, certificate_data] = await this.getDataFromIPFS(
         certificate_in_sc[1].data_address
       );
       const final_certificate_data = {
-        "data_detail": certificate_data,
-        ...certificate_in_sc[1]
-      }
+        data_detail: certificate_data,
+        ...certificate_in_sc[1],
+      };
       //TODO validate data ipfs == data qr code.
       this.setState({
         showData: true,
-        imageDataURL:image,
-        certificate_data: final_certificate_data
+        imageDataURL: image,
+        certificate_data: final_certificate_data,
       });
     } catch (err) {
       alert("ERROR PLEASE CONTACT TECHNICIAN");
@@ -125,27 +127,42 @@ class VerifyCertificate extends React.Component {
   };
 
   render() {
+    this.initializeQRScanner();
     const playerORImage = Boolean(this.state.imageDataURL) ? (
-      <>
-        <img src={this.state.imageDataURL} alt="cameraPic" />
-        <DataTable 
-          certificates_data={[this.state.certificate_data]}
-        />
-        <br />
-        <button onClick={this.resetState}>Finish</button>
-      </>
+      <Row>
+        <Col>
+          <img src={this.state.imageDataURL} alt="cameraPic" />
+        </Col>
+        <DataTable certificates_data={[this.state.certificate_data]} />
+      </Row>
     ) : (
-      <>
-        <video
-          ref={(refrence) => {
-            this.player = refrence;
-          }}
-          autoPlay
-        ></video>
-        <button onClick={this.initializeQRScanner}>Scan QR</button>
-        <button onClick={this.stopQRScanner}>Stop Scan</button>
-        <button onClick={this.switchCamera}>Switch Camera</button>
-      </>
+      <Row>
+        <Col md="4" xs="4"></Col>
+        <Col md="4" xs="2">
+          <video
+            width="320"
+            height="240"
+            ref={(refrence) => {
+              this.player = refrence;
+            }}
+            autoPlay
+          ></video>
+        </Col>
+        <Col md="4" xs="4"></Col>
+        {/* <Col>
+          <img
+            width="120"
+            height="120"
+            src="/qr_icon.png"
+            onClick={}
+          />
+        </Col> */}
+        <Col md="5" xs="5"></Col>
+        <Col md="2" xs="2">
+          <Button onClick={this.switchCamera}>Switch Camera</Button>
+        </Col>
+        <Col md="5" xs="5"></Col>
+      </Row>
     );
     return <>{playerORImage}</>;
   }

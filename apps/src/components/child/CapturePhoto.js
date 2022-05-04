@@ -89,9 +89,16 @@ class MyImageCaptureComponent extends React.Component {
     };
     const playerORImage = this.state.is_ready_photo ? (
       Boolean(this.props.values.imageDataURL) ? (
-        <img src={this.props.values.imageDataURL} alt="cameraPic" />
+        <img
+          width="120"
+          height="120"
+          src={this.props.values.imageDataURL}
+          alt="cameraPic"
+        />
       ) : (
         <video
+          width="380"
+          height="280"
           ref={(refrence) => {
             this.player = refrence;
           }}
@@ -103,29 +110,34 @@ class MyImageCaptureComponent extends React.Component {
     );
 
     const capturePhoto = !this.state.is_ready_photo ? (
-      <button onClick={this.initializeMedia}>Take Photo</button>
+      <img src="/camera.png" onClick={this.initializeMedia}></img>
     ) : this.props.values.imageDataURL ? (
-      <button onClick={this.initializeMedia}>Take Photo</button>
+      <Button onClick={this.initializeMedia}>Take Photo</Button>
     ) : (
-      <button onClick={this.capturePicture}>Capture</button>
+      <Button onClick={this.capturePicture}>Capture</Button>
     );
 
     return (
       <>
-        <Row className="justify-content-md-center">
+        <Row
+          className="justify-content-center"
+          style={{ marginBottom: "10px" }}
+        >
           {playerORImage}
-          <Col md="12" xs="auto">
+          <Col md="5" />
+          <Col md="2" xs="auto">
             {capturePhoto}
           </Col>
+          <Col md="5" />
         </Row>
-        <Row />
         <Row className="justify-content-md-center">
-          <Col>
+          <Col md="5" xs="auto">
             <Button type="submit" onClick={Previous}>
               Previous
             </Button>
           </Col>
-          <Col>
+          <Col md="5" xs="auto" />
+          <Col md="2" xs="auto">
             <Button type="submit" onClick={Continue}>
               Next
             </Button>

@@ -24,7 +24,7 @@ contract Helper is Data{
         COV_CERTIFICATE[] memory arrayCOVTranscript
     ) internal pure returns(uint256){
         for (uint256 i = 0; i < arrayCOVTranscript.length; i++) {
-            if (arrayCOVTranscript[i].cov_hash == hash_data) {
+            if (arrayCOVTranscript[i].cov_certificate_identifier == hash_data) {
                 return i+1;
             }
         }
@@ -32,7 +32,7 @@ contract Helper is Data{
         return 0;
     }
 
-    function compareHash(bytes32 certificateHash, string memory payload, bytes32 holderID) internal view returns(bool){
+    function compareHash(bytes32 certificateHash, string memory payload, bytes32 holderID) internal pure returns(bool){
         bytes32 generated_hash = keccak256(abi.encodePacked(holderID, payload));
         return generated_hash == certificateHash;
     }

@@ -5,25 +5,6 @@
       "inputs": [
         {
           "indexed": false,
-          "internalType": "address",
-          "name": "_address",
-          "type": "address"
-        },
-        {
-          "indexed": false,
-          "internalType": "bool",
-          "name": "result",
-          "type": "bool"
-        }
-      ],
-      "name": "DebugVerifyIssuer",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": false,
           "internalType": "bool",
           "name": "value",
           "type": "bool"
@@ -121,25 +102,25 @@
     }
   ],
   "allSourcePaths": {
-    "6": "contracts/Registry/IssuerData.sol",
-    "8": "contracts/Registry/RegistryAuthorization.sol"
+    "5": "contracts/Registry/IssuerData.sol",
+    "7": "contracts/Registry/RegistryAuthorization.sol"
   },
   "ast": {
     "absolutePath": "contracts/Registry/IssuerData.sol",
     "exportedSymbols": {
       "Issuer": [
-        472
+        307
       ],
       "RegistryAuthorization": [
-        562
+        384
       ]
     },
-    "id": 473,
+    "id": 308,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 414,
+        "id": 255,
         "literals": [
           "solidity",
           ">=",
@@ -150,17 +131,17 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "32:31:6"
+        "src": "32:31:5"
       },
       {
         "absolutePath": "contracts/Registry/RegistryAuthorization.sol",
         "file": "./RegistryAuthorization.sol",
-        "id": 415,
+        "id": 256,
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
-        "scope": 473,
-        "sourceUnit": 563,
-        "src": "66:37:6",
+        "scope": 308,
+        "sourceUnit": 385,
+        "src": "66:37:5",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -169,49 +150,49 @@
         "baseContracts": [
           {
             "baseName": {
-              "id": 416,
+              "id": 257,
               "name": "RegistryAuthorization",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 562,
-              "src": "191:21:6"
+              "referencedDeclaration": 384,
+              "src": "191:21:5"
             },
-            "id": 417,
+            "id": 258,
             "nodeType": "InheritanceSpecifier",
-            "src": "191:21:6"
+            "src": "191:21:5"
           }
         ],
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 472,
+        "id": 307,
         "linearizedBaseContracts": [
-          472,
-          562
+          307,
+          384
         ],
         "name": "Issuer",
-        "nameLocation": "181:6:6",
+        "nameLocation": "181:6:5",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "anonymous": false,
-            "id": 425,
+            "id": 266,
             "name": "IsSuccess",
-            "nameLocation": "226:9:6",
+            "nameLocation": "226:9:5",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 424,
+              "id": 265,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 419,
+                  "id": 260,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "value",
-                  "nameLocation": "250:5:6",
+                  "nameLocation": "250:5:5",
                   "nodeType": "VariableDeclaration",
-                  "scope": 425,
-                  "src": "245:10:6",
+                  "scope": 266,
+                  "src": "245:10:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -219,10 +200,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 418,
+                    "id": 259,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "245:4:6",
+                    "src": "245:4:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -232,14 +213,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 421,
+                  "id": 262,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "hashData",
-                  "nameLocation": "273:8:6",
+                  "nameLocation": "273:8:5",
                   "nodeType": "VariableDeclaration",
-                  "scope": 425,
-                  "src": "265:16:6",
+                  "scope": 266,
+                  "src": "265:16:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -247,10 +228,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 420,
+                    "id": 261,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "265:7:6",
+                    "src": "265:7:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -260,14 +241,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 423,
+                  "id": 264,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "issuer",
-                  "nameLocation": "299:6:6",
+                  "nameLocation": "299:6:5",
                   "nodeType": "VariableDeclaration",
-                  "scope": 425,
-                  "src": "291:14:6",
+                  "scope": 266,
+                  "src": "291:14:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -275,10 +256,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 422,
+                    "id": 263,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "291:7:6",
+                    "src": "291:7:5",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -288,44 +269,44 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "235:80:6"
+              "src": "235:80:5"
             },
-            "src": "220:96:6"
+            "src": "220:96:5"
           },
           {
             "body": {
-              "id": 450,
+              "id": 291,
               "nodeType": "Block",
-              "src": "428:118:6",
+              "src": "428:118:5",
               "statements": [
                 {
                   "expression": {
-                    "id": 440,
+                    "id": 281,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "baseExpression": {
-                        "id": 436,
+                        "id": 277,
                         "name": "issuerMapping",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 490,
-                        "src": "438:13:6",
+                        "referencedDeclaration": 325,
+                        "src": "438:13:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_bytes32_$",
                           "typeString": "mapping(address => bytes32)"
                         }
                       },
-                      "id": 438,
+                      "id": 279,
                       "indexExpression": {
-                        "id": 437,
+                        "id": 278,
                         "name": "issuer",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 427,
-                        "src": "452:6:6",
+                        "referencedDeclaration": 268,
+                        "src": "452:6:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -336,7 +317,7 @@
                       "isPure": false,
                       "lValueRequested": true,
                       "nodeType": "IndexAccess",
-                      "src": "438:21:6",
+                      "src": "438:21:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bytes32",
                         "typeString": "bytes32"
@@ -345,40 +326,40 @@
                     "nodeType": "Assignment",
                     "operator": "=",
                     "rightHandSide": {
-                      "id": 439,
+                      "id": 280,
                       "name": "_hashData",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 429,
-                      "src": "462:9:6",
+                      "referencedDeclaration": 270,
+                      "src": "462:9:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bytes32",
                         "typeString": "bytes32"
                       }
                     },
-                    "src": "438:33:6",
+                    "src": "438:33:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
                     }
                   },
-                  "id": 441,
+                  "id": 282,
                   "nodeType": "ExpressionStatement",
-                  "src": "438:33:6"
+                  "src": "438:33:5"
                 },
                 {
                   "eventCall": {
                     "arguments": [
                       {
                         "hexValue": "74727565",
-                        "id": 443,
+                        "id": 284,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "bool",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "496:4:6",
+                        "src": "496:4:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -386,24 +367,24 @@
                         "value": "true"
                       },
                       {
-                        "id": 444,
+                        "id": 285,
                         "name": "_hashData",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 429,
-                        "src": "501:9:6",
+                        "referencedDeclaration": 270,
+                        "src": "501:9:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
                         }
                       },
                       {
-                        "id": 445,
+                        "id": 286,
                         "name": "issuer",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 427,
-                        "src": "511:6:6",
+                        "referencedDeclaration": 268,
+                        "src": "511:6:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -425,18 +406,18 @@
                           "typeString": "address"
                         }
                       ],
-                      "id": 442,
+                      "id": 283,
                       "name": "IsSuccess",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 425,
-                      "src": "486:9:6",
+                      "referencedDeclaration": 266,
+                      "src": "486:9:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_bool_$_t_bytes32_$_t_address_$returns$__$",
                         "typeString": "function (bool,bytes32,address)"
                       }
                     },
-                    "id": 446,
+                    "id": 287,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -444,76 +425,76 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "486:32:6",
+                    "src": "486:32:5",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 447,
+                  "id": 288,
                   "nodeType": "EmitStatement",
-                  "src": "481:37:6"
+                  "src": "481:37:5"
                 },
                 {
                   "expression": {
                     "hexValue": "74727565",
-                    "id": 448,
+                    "id": 289,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
                     "kind": "bool",
                     "lValueRequested": false,
                     "nodeType": "Literal",
-                    "src": "535:4:6",
+                    "src": "535:4:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     },
                     "value": "true"
                   },
-                  "functionReturnParameters": 435,
-                  "id": 449,
+                  "functionReturnParameters": 276,
+                  "id": 290,
                   "nodeType": "Return",
-                  "src": "528:11:6"
+                  "src": "528:11:5"
                 }
               ]
             },
             "functionSelector": "92067121",
-            "id": 451,
+            "id": 292,
             "implemented": true,
             "kind": "function",
             "modifiers": [
               {
-                "id": 432,
+                "id": 273,
                 "kind": "modifierInvocation",
                 "modifierName": {
-                  "id": 431,
+                  "id": 272,
                   "name": "grantAccess",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 518,
-                  "src": "386:11:6"
+                  "referencedDeclaration": 353,
+                  "src": "386:11:5"
                 },
                 "nodeType": "ModifierInvocation",
-                "src": "386:11:6"
+                "src": "386:11:5"
               }
             ],
             "name": "registerIssuer",
-            "nameLocation": "335:14:6",
+            "nameLocation": "335:14:5",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 430,
+              "id": 271,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 427,
+                  "id": 268,
                   "mutability": "mutable",
                   "name": "issuer",
-                  "nameLocation": "359:6:6",
+                  "nameLocation": "359:6:5",
                   "nodeType": "VariableDeclaration",
-                  "scope": 451,
-                  "src": "351:14:6",
+                  "scope": 292,
+                  "src": "351:14:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -521,10 +502,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 426,
+                    "id": 267,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "351:7:6",
+                    "src": "351:7:5",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -535,13 +516,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 429,
+                  "id": 270,
                   "mutability": "mutable",
                   "name": "_hashData",
-                  "nameLocation": "375:9:6",
+                  "nameLocation": "375:9:5",
                   "nodeType": "VariableDeclaration",
-                  "scope": 451,
-                  "src": "367:17:6",
+                  "scope": 292,
+                  "src": "367:17:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -549,10 +530,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 428,
+                    "id": 269,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "367:7:6",
+                    "src": "367:7:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -561,21 +542,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "350:35:6"
+              "src": "350:35:5"
             },
             "returnParameters": {
-              "id": 435,
+              "id": 276,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 434,
+                  "id": 275,
                   "mutability": "mutable",
                   "name": "success",
-                  "nameLocation": "418:7:6",
+                  "nameLocation": "418:7:5",
                   "nodeType": "VariableDeclaration",
-                  "scope": 451,
-                  "src": "413:12:6",
+                  "scope": 292,
+                  "src": "413:12:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -583,10 +564,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 433,
+                    "id": 274,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "413:4:6",
+                    "src": "413:4:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -595,91 +576,19 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "412:14:6"
+              "src": "412:14:5"
             },
-            "scope": 472,
-            "src": "326:220:6",
+            "scope": 307,
+            "src": "326:220:5",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           },
           {
-            "anonymous": false,
-            "id": 457,
-            "name": "DebugVerifyIssuer",
-            "nameLocation": "586:17:6",
-            "nodeType": "EventDefinition",
-            "parameters": {
-              "id": 456,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 453,
-                  "indexed": false,
-                  "mutability": "mutable",
-                  "name": "_address",
-                  "nameLocation": "621:8:6",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 457,
-                  "src": "613:16:6",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
-                  },
-                  "typeName": {
-                    "id": 452,
-                    "name": "address",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "613:7:6",
-                    "stateMutability": "nonpayable",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_address",
-                      "typeString": "address"
-                    }
-                  },
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 455,
-                  "indexed": false,
-                  "mutability": "mutable",
-                  "name": "result",
-                  "nameLocation": "644:6:6",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 457,
-                  "src": "639:11:6",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_bool",
-                    "typeString": "bool"
-                  },
-                  "typeName": {
-                    "id": 454,
-                    "name": "bool",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "639:4:6",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_bool",
-                      "typeString": "bool"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "603:53:6"
-            },
-            "src": "580:77:6"
-          },
-          {
             "body": {
-              "id": 470,
+              "id": 305,
               "nodeType": "Block",
-              "src": "729:49:6",
+              "src": "618:49:5",
               "statements": [
                 {
                   "expression": {
@@ -687,32 +596,32 @@
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
                     },
-                    "id": 468,
+                    "id": 303,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftExpression": {
                       "baseExpression": {
-                        "id": 464,
+                        "id": 299,
                         "name": "issuerMapping",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 490,
-                        "src": "746:13:6",
+                        "referencedDeclaration": 325,
+                        "src": "635:13:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_bytes32_$",
                           "typeString": "mapping(address => bytes32)"
                         }
                       },
-                      "id": 466,
+                      "id": 301,
                       "indexExpression": {
-                        "id": 465,
+                        "id": 300,
                         "name": "_address",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 459,
-                        "src": "760:8:6",
+                        "referencedDeclaration": 294,
+                        "src": "649:8:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -723,7 +632,7 @@
                       "isPure": false,
                       "lValueRequested": false,
                       "nodeType": "IndexAccess",
-                      "src": "746:23:6",
+                      "src": "635:23:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bytes32",
                         "typeString": "bytes32"
@@ -733,54 +642,54 @@
                     "operator": ">",
                     "rightExpression": {
                       "hexValue": "30",
-                      "id": 467,
+                      "id": 302,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "kind": "number",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "770:1:6",
+                      "src": "659:1:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_rational_0_by_1",
                         "typeString": "int_const 0"
                       },
                       "value": "0"
                     },
-                    "src": "746:25:6",
+                    "src": "635:25:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
-                  "functionReturnParameters": 463,
-                  "id": 469,
+                  "functionReturnParameters": 298,
+                  "id": 304,
                   "nodeType": "Return",
-                  "src": "739:32:6"
+                  "src": "628:32:5"
                 }
               ]
             },
             "functionSelector": "60c000d4",
-            "id": 471,
+            "id": 306,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "verifyIssuer",
-            "nameLocation": "672:12:6",
+            "nameLocation": "561:12:5",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 460,
+              "id": 295,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 459,
+                  "id": 294,
                   "mutability": "mutable",
                   "name": "_address",
-                  "nameLocation": "694:8:6",
+                  "nameLocation": "583:8:5",
                   "nodeType": "VariableDeclaration",
-                  "scope": 471,
-                  "src": "686:16:6",
+                  "scope": 306,
+                  "src": "575:16:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -788,10 +697,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 458,
+                    "id": 293,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "686:7:6",
+                    "src": "575:7:5",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -801,21 +710,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "685:18:6"
+              "src": "574:18:5"
             },
             "returnParameters": {
-              "id": 463,
+              "id": 298,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 462,
+                  "id": 297,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 471,
-                  "src": "724:4:6",
+                  "scope": 306,
+                  "src": "613:4:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -823,10 +732,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 461,
+                    "id": 296,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "724:4:6",
+                    "src": "613:4:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -835,23 +744,23 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "723:6:6"
+              "src": "612:6:5"
             },
-            "scope": 472,
-            "src": "663:115:6",
+            "scope": 307,
+            "src": "552:115:5",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "public"
           }
         ],
-        "scope": 473,
-        "src": "172:609:6",
+        "scope": 308,
+        "src": "172:498:5",
         "usedErrors": []
       }
     ],
-    "src": "32:751:6"
+    "src": "32:640:5"
   },
-  "bytecode": "608060405234801561001057600080fd5b50600080546001600160a01b0319163317905561029c806100326000396000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c806360c000d4146100515780636210d360146100915780638da5cb5b146100a457806392067121146100cf575b600080fd5b61007c61005f36600461021a565b6001600160a01b0316600090815260026020526040902054151590565b60405190151581526020015b60405180910390f35b61007c61009f36600461021a565b6100e2565b6000546100b7906001600160a01b031681565b6040516001600160a01b039091168152602001610088565b61007c6100dd36600461023c565b61016b565b600080546001600160a01b031633148061010b57503360009081526001602052604090205460ff165b61011457600080fd5b6001600160a01b03821660009081526001602081905260409091205460ff1615151461016257506001600160a01b03166000908152600160208190526040909120805460ff19168217905590565b5060005b919050565b600080546001600160a01b031633148061019457503360009081526001602052604090205460ff165b61019d57600080fd5b6001600160a01b03831660008181526002602090815260409182902085905581516001815290810185905280820192909252517f7a0f50b566ab4225b0f298a229bcf96d4ba86d1c6c43d48ad0f0f6d96f68413d9181900360600190a150600192915050565b80356001600160a01b038116811461016657600080fd5b60006020828403121561022c57600080fd5b61023582610203565b9392505050565b6000806040838503121561024f57600080fd5b61025883610203565b94602093909301359350505056fea26469706673582212204a9648499caacf47874b8ca5035b329c9a63ef418969734e20d232b5c798335d64736f6c63430008070033",
+  "bytecode": "608060405234801561001057600080fd5b50600080546001600160a01b0319163317905561029c806100326000396000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c806360c000d4146100515780636210d360146100915780638da5cb5b146100a457806392067121146100cf575b600080fd5b61007c61005f36600461021a565b6001600160a01b0316600090815260026020526040902054151590565b60405190151581526020015b60405180910390f35b61007c61009f36600461021a565b6100e2565b6000546100b7906001600160a01b031681565b6040516001600160a01b039091168152602001610088565b61007c6100dd36600461023c565b61016b565b600080546001600160a01b031633148061010b57503360009081526001602052604090205460ff165b61011457600080fd5b6001600160a01b03821660009081526001602081905260409091205460ff1615151461016257506001600160a01b03166000908152600160208190526040909120805460ff19168217905590565b5060005b919050565b600080546001600160a01b031633148061019457503360009081526001602052604090205460ff165b61019d57600080fd5b6001600160a01b03831660008181526002602090815260409182902085905581516001815290810185905280820192909252517f7a0f50b566ab4225b0f298a229bcf96d4ba86d1c6c43d48ad0f0f6d96f68413d9181900360600190a150600192915050565b80356001600160a01b038116811461016657600080fd5b60006020828403121561022c57600080fd5b61023582610203565b9392505050565b6000806040838503121561024f57600080fd5b61025883610203565b94602093909301359350505056fea2646970667358221220c39ac1db07e2761db4c82368da83f47af18c31de2fe7c0a67e740e03557fa44e64736f6c63430008070033",
   "bytecodeSha1": "fb0d10465175e8b5d096493cf9899ab0f0f04bab",
   "compiler": {
     "evm_version": "istanbul",
@@ -864,24 +773,24 @@
   "contractName": "Issuer",
   "coverageMap": {
     "branches": {
-      "6": {},
-      "8": {
+      "5": {},
+      "7": {
         "Issuer.registerIssuer": {
           "6": [
-            537,
-            556,
+            507,
+            526,
             true
           ],
           "7": [
-            560,
-            586,
+            530,
+            556,
             true
           ]
         }
       }
     },
     "statements": {
-      "6": {
+      "5": {
         "Issuer.registerIssuer": {
           "3": [
             438,
@@ -898,20 +807,20 @@
         },
         "Issuer.verifyIssuer": {
           "0": [
-            739,
-            771
+            628,
+            660
           ]
         }
       },
-      "8": {
+      "7": {
         "RegistryAuthorization.registerAuthorizeUser": {
           "1": [
-            899,
-            930
+            733,
+            764
           ],
           "2": [
-            984,
-            996
+            818,
+            830
           ]
         }
       }
@@ -920,8 +829,8 @@
   "dependencies": [
     "RegistryAuthorization"
   ],
-  "deployedBytecode": "608060405234801561001057600080fd5b506004361061004c5760003560e01c806360c000d4146100515780636210d360146100915780638da5cb5b146100a457806392067121146100cf575b600080fd5b61007c61005f36600461021a565b6001600160a01b0316600090815260026020526040902054151590565b60405190151581526020015b60405180910390f35b61007c61009f36600461021a565b6100e2565b6000546100b7906001600160a01b031681565b6040516001600160a01b039091168152602001610088565b61007c6100dd36600461023c565b61016b565b600080546001600160a01b031633148061010b57503360009081526001602052604090205460ff165b61011457600080fd5b6001600160a01b03821660009081526001602081905260409091205460ff1615151461016257506001600160a01b03166000908152600160208190526040909120805460ff19168217905590565b5060005b919050565b600080546001600160a01b031633148061019457503360009081526001602052604090205460ff165b61019d57600080fd5b6001600160a01b03831660008181526002602090815260409182902085905581516001815290810185905280820192909252517f7a0f50b566ab4225b0f298a229bcf96d4ba86d1c6c43d48ad0f0f6d96f68413d9181900360600190a150600192915050565b80356001600160a01b038116811461016657600080fd5b60006020828403121561022c57600080fd5b61023582610203565b9392505050565b6000806040838503121561024f57600080fd5b61025883610203565b94602093909301359350505056fea26469706673582212204a9648499caacf47874b8ca5035b329c9a63ef418969734e20d232b5c798335d64736f6c63430008070033",
-  "deployedSourceMap": "172:609:6:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;663:115;;;;;;:::i;:::-;-1:-1:-1;;;;;746:23:6;724:4;746:23;;;:13;:23;;;;;;:25;;;663:115;;;;1031:14:9;;1024:22;1006:41;;994:2;979:18;663:115:6;;;;;;;;748:265:8;;;;;;:::i;:::-;;:::i;173:28::-;;;;;-1:-1:-1;;;;;173:28:8;;;;;;-1:-1:-1;;;;;822:32:9;;;804:51;;792:2;777:18;173:28:8;642:219:9;326:220:6;;;;;;:::i;:::-;;:::i;748:265:8:-;824:12;551:5;;-1:-1:-1;;;;;551:5:8;537:10;:19;;:49;;-1:-1:-1;575:10:8;560:26;;;;:14;:26;;;;;;;;537:49;529:58;;;;;;-1:-1:-1;;;;;853:24:8;::::1;;::::0;;;:14:::1;:24;::::0;;;;;;;;::::1;;:30;;;848:159;;-1:-1:-1::0;;;;;;899:24:8::1;;::::0;;;926:4:::1;899:24;::::0;;;;;;;:31;;-1:-1:-1;;899:31:8::1;::::0;::::1;::::0;;926:4;748:265::o;848:159::-:1;-1:-1:-1::0;991:5:8::1;848:159;748:265:::0;;;:::o;326:220:6:-;413:12;551:5:8;;-1:-1:-1;;;;;551:5:8;537:10;:19;;:49;;-1:-1:-1;575:10:8;560:26;;;;:14;:26;;;;;;;;537:49;529:58;;;;;;-1:-1:-1;;;;;438:21:6;::::1;;::::0;;;:13:::1;:21;::::0;;;;;;;;:33;;;486:32;;496:4:::1;1254:41:9::0;;1311:18;;;1304:34;;;1354:18;;;1347:60;;;;486:32:6;::::1;::::0;;;;1242:2:9;486:32:6;;::::1;-1:-1:-1::0;535:4:6::1;326:220:::0;;;;:::o;14:173:9:-;82:20;;-1:-1:-1;;;;;131:31:9;;121:42;;111:70;;177:1;174;167:12;192:186;251:6;304:2;292:9;283:7;279:23;275:32;272:52;;;320:1;317;310:12;272:52;343:29;362:9;343:29;:::i;:::-;333:39;192:186;-1:-1:-1;;;192:186:9:o;383:254::-;451:6;459;512:2;500:9;491:7;487:23;483:32;480:52;;;528:1;525;518:12;480:52;551:29;570:9;551:29;:::i;:::-;541:39;627:2;612:18;;;;599:32;;-1:-1:-1;;;383:254:9:o",
+  "deployedBytecode": "608060405234801561001057600080fd5b506004361061004c5760003560e01c806360c000d4146100515780636210d360146100915780638da5cb5b146100a457806392067121146100cf575b600080fd5b61007c61005f36600461021a565b6001600160a01b0316600090815260026020526040902054151590565b60405190151581526020015b60405180910390f35b61007c61009f36600461021a565b6100e2565b6000546100b7906001600160a01b031681565b6040516001600160a01b039091168152602001610088565b61007c6100dd36600461023c565b61016b565b600080546001600160a01b031633148061010b57503360009081526001602052604090205460ff165b61011457600080fd5b6001600160a01b03821660009081526001602081905260409091205460ff1615151461016257506001600160a01b03166000908152600160208190526040909120805460ff19168217905590565b5060005b919050565b600080546001600160a01b031633148061019457503360009081526001602052604090205460ff165b61019d57600080fd5b6001600160a01b03831660008181526002602090815260409182902085905581516001815290810185905280820192909252517f7a0f50b566ab4225b0f298a229bcf96d4ba86d1c6c43d48ad0f0f6d96f68413d9181900360600190a150600192915050565b80356001600160a01b038116811461016657600080fd5b60006020828403121561022c57600080fd5b61023582610203565b9392505050565b6000806040838503121561024f57600080fd5b61025883610203565b94602093909301359350505056fea2646970667358221220c39ac1db07e2761db4c82368da83f47af18c31de2fe7c0a67e740e03557fa44e64736f6c63430008070033",
+  "deployedSourceMap": "172:498:5:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;552:115;;;;;;:::i;:::-;-1:-1:-1;;;;;635:23:5;613:4;635:23;;;:13;:23;;;;;;:25;;;552:115;;;;1031:14:8;;1024:22;1006:41;;994:2;979:18;552:115:5;;;;;;;;582:265:7;;;;;;:::i;:::-;;:::i;173:28::-;;;;;-1:-1:-1;;;;;173:28:7;;;;;;-1:-1:-1;;;;;822:32:8;;;804:51;;792:2;777:18;173:28:7;642:219:8;326:220:5;;;;;;:::i;:::-;;:::i;582:265:7:-;658:12;521:5;;-1:-1:-1;;;;;521:5:7;507:10;:19;;:49;;-1:-1:-1;545:10:7;530:26;;;;:14;:26;;;;;;;;507:49;499:58;;;;;;-1:-1:-1;;;;;687:24:7;::::1;;::::0;;;:14:::1;:24;::::0;;;;;;;;::::1;;:30;;;682:159;;-1:-1:-1::0;;;;;;733:24:7::1;;::::0;;;760:4:::1;733:24;::::0;;;;;;;:31;;-1:-1:-1;;733:31:7::1;::::0;::::1;::::0;;760:4;582:265::o;682:159::-:1;-1:-1:-1::0;825:5:7::1;682:159;582:265:::0;;;:::o;326:220:5:-;413:12;521:5:7;;-1:-1:-1;;;;;521:5:7;507:10;:19;;:49;;-1:-1:-1;545:10:7;530:26;;;;:14;:26;;;;;;;;507:49;499:58;;;;;;-1:-1:-1;;;;;438:21:5;::::1;;::::0;;;:13:::1;:21;::::0;;;;;;;;:33;;;486:32;;496:4:::1;1254:41:8::0;;1311:18;;;1304:34;;;1354:18;;;1347:60;;;;486:32:5;::::1;::::0;;;;1242:2:8;486:32:5;;::::1;-1:-1:-1::0;535:4:5::1;326:220:::0;;;;:::o;14:173:8:-;82:20;;-1:-1:-1;;;;;131:31:8;;121:42;;111:70;;177:1;174;167:12;192:186;251:6;304:2;292:9;283:7;279:23;275:32;272:52;;;320:1;317;310:12;272:52;343:29;362:9;343:29;:::i;:::-;333:39;192:186;-1:-1:-1;;;192:186:8:o;383:254::-;451:6;459;512:2;500:9;491:7;487:23;483:32;480:52;;;528:1;525;518:12;480:52;551:29;570:9;551:29;:::i;:::-;541:39;627:2;612:18;;;;599:32;;-1:-1:-1;;;383:254:8:o",
   "language": "Solidity",
   "natspec": {
     "kind": "dev",
@@ -930,518 +839,518 @@
   },
   "offset": [
     172,
-    781
+    670
   ],
-  "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH2 0x10 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH2 0x4C JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x60C000D4 EQ PUSH2 0x51 JUMPI DUP1 PUSH4 0x6210D360 EQ PUSH2 0x91 JUMPI DUP1 PUSH4 0x8DA5CB5B EQ PUSH2 0xA4 JUMPI DUP1 PUSH4 0x92067121 EQ PUSH2 0xCF JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x7C PUSH2 0x5F CALLDATASIZE PUSH1 0x4 PUSH2 0x21A JUMP JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x2 PUSH1 0x20 MSTORE PUSH1 0x40 SWAP1 KECCAK256 SLOAD ISZERO ISZERO SWAP1 JUMP JUMPDEST PUSH1 0x40 MLOAD SWAP1 ISZERO ISZERO DUP2 MSTORE PUSH1 0x20 ADD JUMPDEST PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 RETURN JUMPDEST PUSH2 0x7C PUSH2 0x9F CALLDATASIZE PUSH1 0x4 PUSH2 0x21A JUMP JUMPDEST PUSH2 0xE2 JUMP JUMPDEST PUSH1 0x0 SLOAD PUSH2 0xB7 SWAP1 PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND DUP2 JUMP JUMPDEST PUSH1 0x40 MLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB SWAP1 SWAP2 AND DUP2 MSTORE PUSH1 0x20 ADD PUSH2 0x88 JUMP JUMPDEST PUSH2 0x7C PUSH2 0xDD CALLDATASIZE PUSH1 0x4 PUSH2 0x23C JUMP JUMPDEST PUSH2 0x16B JUMP JUMPDEST PUSH1 0x0 DUP1 SLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND CALLER EQ DUP1 PUSH2 0x10B JUMPI POP CALLER PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x1 PUSH1 0x20 MSTORE PUSH1 0x40 SWAP1 KECCAK256 SLOAD PUSH1 0xFF AND JUMPDEST PUSH2 0x114 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP3 AND PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x1 PUSH1 0x20 DUP2 SWAP1 MSTORE PUSH1 0x40 SWAP1 SWAP2 KECCAK256 SLOAD PUSH1 0xFF AND ISZERO ISZERO EQ PUSH2 0x162 JUMPI POP PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x1 PUSH1 0x20 DUP2 SWAP1 MSTORE PUSH1 0x40 SWAP1 SWAP2 KECCAK256 DUP1 SLOAD PUSH1 0xFF NOT AND DUP3 OR SWAP1 SSTORE SWAP1 JUMP JUMPDEST POP PUSH1 0x0 JUMPDEST SWAP2 SWAP1 POP JUMP JUMPDEST PUSH1 0x0 DUP1 SLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND CALLER EQ DUP1 PUSH2 0x194 JUMPI POP CALLER PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x1 PUSH1 0x20 MSTORE PUSH1 0x40 SWAP1 KECCAK256 SLOAD PUSH1 0xFF AND JUMPDEST PUSH2 0x19D JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP4 AND PUSH1 0x0 DUP2 DUP2 MSTORE PUSH1 0x2 PUSH1 0x20 SWAP1 DUP2 MSTORE PUSH1 0x40 SWAP2 DUP3 SWAP1 KECCAK256 DUP6 SWAP1 SSTORE DUP2 MLOAD PUSH1 0x1 DUP2 MSTORE SWAP1 DUP2 ADD DUP6 SWAP1 MSTORE DUP1 DUP3 ADD SWAP3 SWAP1 SWAP3 MSTORE MLOAD PUSH32 0x7A0F50B566AB4225B0F298A229BCF96D4BA86D1C6C43D48AD0F0F6D96F68413D SWAP2 DUP2 SWAP1 SUB PUSH1 0x60 ADD SWAP1 LOG1 POP PUSH1 0x1 SWAP3 SWAP2 POP POP JUMP JUMPDEST DUP1 CALLDATALOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP2 AND DUP2 EQ PUSH2 0x166 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x0 PUSH1 0x20 DUP3 DUP5 SUB SLT ISZERO PUSH2 0x22C JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x235 DUP3 PUSH2 0x203 JUMP JUMPDEST SWAP4 SWAP3 POP POP POP JUMP JUMPDEST PUSH1 0x0 DUP1 PUSH1 0x40 DUP4 DUP6 SUB SLT ISZERO PUSH2 0x24F JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x258 DUP4 PUSH2 0x203 JUMP JUMPDEST SWAP5 PUSH1 0x20 SWAP4 SWAP1 SWAP4 ADD CALLDATALOAD SWAP4 POP POP POP JUMP INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 0x4A SWAP7 BASEFEE 0x49 SWAP13 0xAA 0xCF SELFBALANCE DUP8 0x4B DUP13 0xA5 SUB JUMPDEST ORIGIN SWAP13 SWAP11 PUSH4 0xEF418969 PUSH20 0x4E20D232B5C798335D64736F6C63430008070033 ",
+  "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH2 0x10 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH2 0x4C JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x60C000D4 EQ PUSH2 0x51 JUMPI DUP1 PUSH4 0x6210D360 EQ PUSH2 0x91 JUMPI DUP1 PUSH4 0x8DA5CB5B EQ PUSH2 0xA4 JUMPI DUP1 PUSH4 0x92067121 EQ PUSH2 0xCF JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x7C PUSH2 0x5F CALLDATASIZE PUSH1 0x4 PUSH2 0x21A JUMP JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x2 PUSH1 0x20 MSTORE PUSH1 0x40 SWAP1 KECCAK256 SLOAD ISZERO ISZERO SWAP1 JUMP JUMPDEST PUSH1 0x40 MLOAD SWAP1 ISZERO ISZERO DUP2 MSTORE PUSH1 0x20 ADD JUMPDEST PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 RETURN JUMPDEST PUSH2 0x7C PUSH2 0x9F CALLDATASIZE PUSH1 0x4 PUSH2 0x21A JUMP JUMPDEST PUSH2 0xE2 JUMP JUMPDEST PUSH1 0x0 SLOAD PUSH2 0xB7 SWAP1 PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND DUP2 JUMP JUMPDEST PUSH1 0x40 MLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB SWAP1 SWAP2 AND DUP2 MSTORE PUSH1 0x20 ADD PUSH2 0x88 JUMP JUMPDEST PUSH2 0x7C PUSH2 0xDD CALLDATASIZE PUSH1 0x4 PUSH2 0x23C JUMP JUMPDEST PUSH2 0x16B JUMP JUMPDEST PUSH1 0x0 DUP1 SLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND CALLER EQ DUP1 PUSH2 0x10B JUMPI POP CALLER PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x1 PUSH1 0x20 MSTORE PUSH1 0x40 SWAP1 KECCAK256 SLOAD PUSH1 0xFF AND JUMPDEST PUSH2 0x114 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP3 AND PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x1 PUSH1 0x20 DUP2 SWAP1 MSTORE PUSH1 0x40 SWAP1 SWAP2 KECCAK256 SLOAD PUSH1 0xFF AND ISZERO ISZERO EQ PUSH2 0x162 JUMPI POP PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x1 PUSH1 0x20 DUP2 SWAP1 MSTORE PUSH1 0x40 SWAP1 SWAP2 KECCAK256 DUP1 SLOAD PUSH1 0xFF NOT AND DUP3 OR SWAP1 SSTORE SWAP1 JUMP JUMPDEST POP PUSH1 0x0 JUMPDEST SWAP2 SWAP1 POP JUMP JUMPDEST PUSH1 0x0 DUP1 SLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND CALLER EQ DUP1 PUSH2 0x194 JUMPI POP CALLER PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x1 PUSH1 0x20 MSTORE PUSH1 0x40 SWAP1 KECCAK256 SLOAD PUSH1 0xFF AND JUMPDEST PUSH2 0x19D JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP4 AND PUSH1 0x0 DUP2 DUP2 MSTORE PUSH1 0x2 PUSH1 0x20 SWAP1 DUP2 MSTORE PUSH1 0x40 SWAP2 DUP3 SWAP1 KECCAK256 DUP6 SWAP1 SSTORE DUP2 MLOAD PUSH1 0x1 DUP2 MSTORE SWAP1 DUP2 ADD DUP6 SWAP1 MSTORE DUP1 DUP3 ADD SWAP3 SWAP1 SWAP3 MSTORE MLOAD PUSH32 0x7A0F50B566AB4225B0F298A229BCF96D4BA86D1C6C43D48AD0F0F6D96F68413D SWAP2 DUP2 SWAP1 SUB PUSH1 0x60 ADD SWAP1 LOG1 POP PUSH1 0x1 SWAP3 SWAP2 POP POP JUMP JUMPDEST DUP1 CALLDATALOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP2 AND DUP2 EQ PUSH2 0x166 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x0 PUSH1 0x20 DUP3 DUP5 SUB SLT ISZERO PUSH2 0x22C JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x235 DUP3 PUSH2 0x203 JUMP JUMPDEST SWAP4 SWAP3 POP POP POP JUMP JUMPDEST PUSH1 0x0 DUP1 PUSH1 0x40 DUP4 DUP6 SUB SLT ISZERO PUSH2 0x24F JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x258 DUP4 PUSH2 0x203 JUMP JUMPDEST SWAP5 PUSH1 0x20 SWAP4 SWAP1 SWAP4 ADD CALLDATALOAD SWAP4 POP POP POP JUMP INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 0xC3 SWAP11 0xC1 0xDB SMOD 0xE2 PUSH23 0x1DB4C82368DA83F47AF18C31DE2FE7C0A67E740E03557F LOG4 0x4E PUSH5 0x736F6C6343 STOP ADDMOD SMOD STOP CALLER ",
   "pcMap": {
     "0": {
       "offset": [
         172,
-        781
+        670
       ],
       "op": "PUSH1",
-      "path": "6",
+      "path": "5",
       "value": "0x80"
     },
     "2": {
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "PUSH1",
-      "path": "6",
+      "path": "5",
       "value": "0x40"
     },
     "4": {
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "MSTORE",
-      "path": "6"
+      "path": "5"
     },
     "5": {
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "CALLVALUE",
-      "path": "6"
+      "path": "5"
     },
     "6": {
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "DUP1",
-      "path": "6"
+      "path": "5"
     },
     "7": {
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "ISZERO",
-      "path": "6"
+      "path": "5"
     },
     "8": {
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "PUSH2",
-      "path": "6",
+      "path": "5",
       "value": "0x10"
     },
     "11": {
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "JUMPI",
-      "path": "6"
+      "path": "5"
     },
     "12": {
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "PUSH1",
-      "path": "6",
+      "path": "5",
       "value": "0x0"
     },
     "14": {
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "DUP1",
-      "path": "6"
+      "path": "5"
     },
     "15": {
       "dev": "Cannot send ether to nonpayable function",
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "REVERT",
-      "path": "6"
+      "path": "5"
     },
     "16": {
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "JUMPDEST",
-      "path": "6"
+      "path": "5"
     },
     "17": {
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "POP",
-      "path": "6"
+      "path": "5"
     },
     "18": {
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "PUSH1",
-      "path": "6",
+      "path": "5",
       "value": "0x4"
     },
     "20": {
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "CALLDATASIZE",
-      "path": "6"
+      "path": "5"
     },
     "21": {
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "LT",
-      "path": "6"
+      "path": "5"
     },
     "22": {
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "PUSH2",
-      "path": "6",
+      "path": "5",
       "value": "0x4C"
     },
     "25": {
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "JUMPI",
-      "path": "6"
+      "path": "5"
     },
     "26": {
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "PUSH1",
-      "path": "6",
+      "path": "5",
       "value": "0x0"
     },
     "28": {
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "CALLDATALOAD",
-      "path": "6"
+      "path": "5"
     },
     "29": {
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "PUSH1",
-      "path": "6",
+      "path": "5",
       "value": "0xE0"
     },
     "31": {
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "SHR",
-      "path": "6"
+      "path": "5"
     },
     "32": {
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "DUP1",
-      "path": "6"
+      "path": "5"
     },
     "33": {
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "PUSH4",
-      "path": "6",
+      "path": "5",
       "value": "0x60C000D4"
     },
     "38": {
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "EQ",
-      "path": "6"
+      "path": "5"
     },
     "39": {
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "PUSH2",
-      "path": "6",
+      "path": "5",
       "value": "0x51"
     },
     "42": {
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "JUMPI",
-      "path": "6"
+      "path": "5"
     },
     "43": {
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "DUP1",
-      "path": "6"
+      "path": "5"
     },
     "44": {
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "PUSH4",
-      "path": "6",
+      "path": "5",
       "value": "0x6210D360"
     },
     "49": {
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "EQ",
-      "path": "6"
+      "path": "5"
     },
     "50": {
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "PUSH2",
-      "path": "6",
+      "path": "5",
       "value": "0x91"
     },
     "53": {
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "JUMPI",
-      "path": "6"
+      "path": "5"
     },
     "54": {
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "DUP1",
-      "path": "6"
+      "path": "5"
     },
     "55": {
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "PUSH4",
-      "path": "6",
+      "path": "5",
       "value": "0x8DA5CB5B"
     },
     "60": {
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "EQ",
-      "path": "6"
+      "path": "5"
     },
     "61": {
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "PUSH2",
-      "path": "6",
+      "path": "5",
       "value": "0xA4"
     },
     "64": {
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "JUMPI",
-      "path": "6"
+      "path": "5"
     },
     "65": {
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "DUP1",
-      "path": "6"
+      "path": "5"
     },
     "66": {
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "PUSH4",
-      "path": "6",
+      "path": "5",
       "value": "0x92067121"
     },
     "71": {
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "EQ",
-      "path": "6"
+      "path": "5"
     },
     "72": {
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "PUSH2",
-      "path": "6",
+      "path": "5",
       "value": "0xCF"
     },
     "75": {
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "JUMPI",
-      "path": "6"
+      "path": "5"
     },
     "76": {
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "JUMPDEST",
-      "path": "6"
+      "path": "5"
     },
     "77": {
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "PUSH1",
-      "path": "6",
+      "path": "5",
       "value": "0x0"
     },
     "79": {
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "DUP1",
-      "path": "6"
+      "path": "5"
     },
     "80": {
       "first_revert": true,
       "fn": null,
       "offset": [
         172,
-        781
+        670
       ],
       "op": "REVERT",
-      "path": "6"
+      "path": "5"
     },
     "81": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        663,
-        778
+        552,
+        667
       ],
       "op": "JUMPDEST",
-      "path": "6"
+      "path": "5"
     },
     "82": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        663,
-        778
+        552,
+        667
       ],
       "op": "PUSH2",
-      "path": "6",
+      "path": "5",
       "value": "0x7C"
     },
     "85": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        663,
-        778
+        552,
+        667
       ],
       "op": "PUSH2",
-      "path": "6",
+      "path": "5",
       "value": "0x5F"
     },
     "88": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        663,
-        778
+        552,
+        667
       ],
       "op": "CALLDATASIZE",
-      "path": "6"
+      "path": "5"
     },
     "89": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        663,
-        778
+        552,
+        667
       ],
       "op": "PUSH1",
-      "path": "6",
+      "path": "5",
       "value": "0x4"
     },
     "91": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        663,
-        778
+        552,
+        667
       ],
       "op": "PUSH2",
-      "path": "6",
+      "path": "5",
       "value": "0x21A"
     },
     "94": {
       "fn": "Issuer.verifyIssuer",
       "jump": "i",
       "offset": [
-        663,
-        778
+        552,
+        667
       ],
       "op": "JUMP",
-      "path": "6"
+      "path": "5"
     },
     "95": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        663,
-        778
+        552,
+        667
       ],
       "op": "JUMPDEST",
-      "path": "6"
+      "path": "5"
     },
     "96": {
       "op": "PUSH1",
@@ -1464,179 +1373,179 @@
     "104": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        746,
-        769
+        635,
+        658
       ],
       "op": "AND",
-      "path": "6",
+      "path": "5",
       "statement": 0
     },
     "105": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        724,
-        728
+        613,
+        617
       ],
       "op": "PUSH1",
-      "path": "6",
+      "path": "5",
       "value": "0x0"
     },
     "107": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        746,
-        769
+        635,
+        658
       ],
       "op": "SWAP1",
-      "path": "6"
+      "path": "5"
     },
     "108": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        746,
-        769
+        635,
+        658
       ],
       "op": "DUP2",
-      "path": "6"
+      "path": "5"
     },
     "109": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        746,
-        769
+        635,
+        658
       ],
       "op": "MSTORE",
-      "path": "6"
+      "path": "5"
     },
     "110": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        746,
-        759
+        635,
+        648
       ],
       "op": "PUSH1",
-      "path": "6",
+      "path": "5",
       "value": "0x2"
     },
     "112": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        746,
-        769
+        635,
+        658
       ],
       "op": "PUSH1",
-      "path": "6",
+      "path": "5",
       "value": "0x20"
     },
     "114": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        746,
-        769
+        635,
+        658
       ],
       "op": "MSTORE",
-      "path": "6"
+      "path": "5"
     },
     "115": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        746,
-        769
+        635,
+        658
       ],
       "op": "PUSH1",
-      "path": "6",
+      "path": "5",
       "value": "0x40"
     },
     "117": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        746,
-        769
+        635,
+        658
       ],
       "op": "SWAP1",
-      "path": "6"
+      "path": "5"
     },
     "118": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        746,
-        769
+        635,
+        658
       ],
       "op": "KECCAK256",
-      "path": "6"
+      "path": "5"
     },
     "119": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        746,
-        769
+        635,
+        658
       ],
       "op": "SLOAD",
-      "path": "6"
+      "path": "5"
     },
     "120": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        746,
-        771
+        635,
+        660
       ],
       "op": "ISZERO",
-      "path": "6"
+      "path": "5"
     },
     "121": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        746,
-        771
+        635,
+        660
       ],
       "op": "ISZERO",
-      "path": "6"
+      "path": "5"
     },
     "122": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        746,
-        771
+        635,
+        660
       ],
       "op": "SWAP1",
-      "path": "6"
+      "path": "5"
     },
     "123": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        663,
-        778
+        552,
+        667
       ],
       "op": "JUMP",
-      "path": "6"
+      "path": "5"
     },
     "124": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        663,
-        778
+        552,
+        667
       ],
       "op": "JUMPDEST",
-      "path": "6"
+      "path": "5"
     },
     "125": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        663,
-        778
+        552,
+        667
       ],
       "op": "PUSH1",
-      "path": "6",
+      "path": "5",
       "value": "0x40"
     },
     "127": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        663,
-        778
+        552,
+        667
       ],
       "op": "MLOAD",
-      "path": "6"
+      "path": "5"
     },
     "128": {
       "op": "SWAP1"
@@ -1663,172 +1572,172 @@
     "136": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        663,
-        778
+        552,
+        667
       ],
       "op": "JUMPDEST",
-      "path": "6"
+      "path": "5"
     },
     "137": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        663,
-        778
+        552,
+        667
       ],
       "op": "PUSH1",
-      "path": "6",
+      "path": "5",
       "value": "0x40"
     },
     "139": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        663,
-        778
+        552,
+        667
       ],
       "op": "MLOAD",
-      "path": "6"
+      "path": "5"
     },
     "140": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        663,
-        778
+        552,
+        667
       ],
       "op": "DUP1",
-      "path": "6"
+      "path": "5"
     },
     "141": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        663,
-        778
+        552,
+        667
       ],
       "op": "SWAP2",
-      "path": "6"
+      "path": "5"
     },
     "142": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        663,
-        778
+        552,
+        667
       ],
       "op": "SUB",
-      "path": "6"
+      "path": "5"
     },
     "143": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        663,
-        778
+        552,
+        667
       ],
       "op": "SWAP1",
-      "path": "6"
+      "path": "5"
     },
     "144": {
       "fn": "Issuer.verifyIssuer",
       "offset": [
-        663,
-        778
+        552,
+        667
       ],
       "op": "RETURN",
-      "path": "6"
+      "path": "5"
     },
     "145": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        748,
-        1013
+        582,
+        847
       ],
       "op": "JUMPDEST",
-      "path": "8"
+      "path": "7"
     },
     "146": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        748,
-        1013
+        582,
+        847
       ],
       "op": "PUSH2",
-      "path": "8",
+      "path": "7",
       "value": "0x7C"
     },
     "149": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        748,
-        1013
+        582,
+        847
       ],
       "op": "PUSH2",
-      "path": "8",
+      "path": "7",
       "value": "0x9F"
     },
     "152": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        748,
-        1013
+        582,
+        847
       ],
       "op": "CALLDATASIZE",
-      "path": "8"
+      "path": "7"
     },
     "153": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        748,
-        1013
+        582,
+        847
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0x4"
     },
     "155": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        748,
-        1013
+        582,
+        847
       ],
       "op": "PUSH2",
-      "path": "8",
+      "path": "7",
       "value": "0x21A"
     },
     "158": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "jump": "i",
       "offset": [
-        748,
-        1013
+        582,
+        847
       ],
       "op": "JUMP",
-      "path": "8"
+      "path": "7"
     },
     "159": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        748,
-        1013
+        582,
+        847
       ],
       "op": "JUMPDEST",
-      "path": "8"
+      "path": "7"
     },
     "160": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        748,
-        1013
+        582,
+        847
       ],
       "op": "PUSH2",
-      "path": "8",
+      "path": "7",
       "value": "0xE2"
     },
     "163": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "jump": "i",
       "offset": [
-        748,
-        1013
+        582,
+        847
       ],
       "op": "JUMP",
-      "path": "8"
+      "path": "7"
     },
     "164": {
       "offset": [
@@ -1836,7 +1745,7 @@
         201
       ],
       "op": "JUMPDEST",
-      "path": "8"
+      "path": "7"
     },
     "165": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
@@ -1845,7 +1754,7 @@
         201
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0x0"
     },
     "167": {
@@ -1855,7 +1764,7 @@
         201
       ],
       "op": "SLOAD",
-      "path": "8"
+      "path": "7"
     },
     "168": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
@@ -1864,7 +1773,7 @@
         201
       ],
       "op": "PUSH2",
-      "path": "8",
+      "path": "7",
       "value": "0xB7"
     },
     "171": {
@@ -1874,7 +1783,7 @@
         201
       ],
       "op": "SWAP1",
-      "path": "8"
+      "path": "7"
     },
     "172": {
       "op": "PUSH1",
@@ -1900,7 +1809,7 @@
         201
       ],
       "op": "AND",
-      "path": "8"
+      "path": "7"
     },
     "181": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
@@ -1909,7 +1818,7 @@
         201
       ],
       "op": "DUP2",
-      "path": "8"
+      "path": "7"
     },
     "182": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
@@ -1918,7 +1827,7 @@
         201
       ],
       "op": "JUMP",
-      "path": "8"
+      "path": "7"
     },
     "183": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
@@ -1927,7 +1836,7 @@
         201
       ],
       "op": "JUMPDEST",
-      "path": "8"
+      "path": "7"
     },
     "184": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
@@ -1936,7 +1845,7 @@
         201
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0x40"
     },
     "186": {
@@ -1946,7 +1855,7 @@
         201
       ],
       "op": "MLOAD",
-      "path": "8"
+      "path": "7"
     },
     "187": {
       "op": "PUSH1",
@@ -1994,7 +1903,7 @@
         201
       ],
       "op": "PUSH2",
-      "path": "8",
+      "path": "7",
       "value": "0x88"
     },
     "206": {
@@ -2007,7 +1916,7 @@
         546
       ],
       "op": "JUMPDEST",
-      "path": "6"
+      "path": "5"
     },
     "208": {
       "fn": "Issuer.registerIssuer",
@@ -2016,7 +1925,7 @@
         546
       ],
       "op": "PUSH2",
-      "path": "6",
+      "path": "5",
       "value": "0x7C"
     },
     "211": {
@@ -2026,7 +1935,7 @@
         546
       ],
       "op": "PUSH2",
-      "path": "6",
+      "path": "5",
       "value": "0xDD"
     },
     "214": {
@@ -2036,7 +1945,7 @@
         546
       ],
       "op": "CALLDATASIZE",
-      "path": "6"
+      "path": "5"
     },
     "215": {
       "fn": "Issuer.registerIssuer",
@@ -2045,7 +1954,7 @@
         546
       ],
       "op": "PUSH1",
-      "path": "6",
+      "path": "5",
       "value": "0x4"
     },
     "217": {
@@ -2055,7 +1964,7 @@
         546
       ],
       "op": "PUSH2",
-      "path": "6",
+      "path": "5",
       "value": "0x23C"
     },
     "220": {
@@ -2066,7 +1975,7 @@
         546
       ],
       "op": "JUMP",
-      "path": "6"
+      "path": "5"
     },
     "221": {
       "fn": "Issuer.registerIssuer",
@@ -2075,7 +1984,7 @@
         546
       ],
       "op": "JUMPDEST",
-      "path": "6"
+      "path": "5"
     },
     "222": {
       "fn": "Issuer.registerIssuer",
@@ -2084,7 +1993,7 @@
         546
       ],
       "op": "PUSH2",
-      "path": "6",
+      "path": "5",
       "value": "0x16B"
     },
     "225": {
@@ -2095,43 +2004,43 @@
         546
       ],
       "op": "JUMP",
-      "path": "6"
+      "path": "5"
     },
     "226": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        748,
-        1013
+        582,
+        847
       ],
       "op": "JUMPDEST",
-      "path": "8"
+      "path": "7"
     },
     "227": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        824,
-        836
+        658,
+        670
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0x0"
     },
     "229": {
       "offset": [
-        551,
-        556
+        521,
+        526
       ],
       "op": "DUP1",
-      "path": "8"
+      "path": "7"
     },
     "230": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        551,
-        556
+        521,
+        526
       ],
       "op": "SLOAD",
-      "path": "8"
+      "path": "7"
     },
     "231": {
       "op": "PUSH1",
@@ -2153,245 +2062,245 @@
     },
     "239": {
       "offset": [
-        551,
-        556
+        521,
+        526
       ],
       "op": "AND",
-      "path": "8"
+      "path": "7"
     },
     "240": {
       "offset": [
-        537,
-        547
+        507,
+        517
       ],
       "op": "CALLER",
-      "path": "8"
+      "path": "7"
     },
     "241": {
       "offset": [
-        537,
-        556
+        507,
+        526
       ],
       "op": "EQ",
-      "path": "8"
+      "path": "7"
     },
     "242": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        537,
-        556
+        507,
+        526
       ],
       "op": "DUP1",
-      "path": "8"
+      "path": "7"
     },
     "243": {
       "offset": [
-        537,
-        586
+        507,
+        556
       ],
       "op": "PUSH2",
-      "path": "8",
+      "path": "7",
       "value": "0x10B"
     },
     "246": {
       "offset": [
-        537,
-        586
+        507,
+        556
       ],
       "op": "JUMPI",
-      "path": "8"
+      "path": "7"
     },
     "247": {
       "op": "POP"
     },
     "248": {
       "offset": [
-        575,
-        585
+        545,
+        555
       ],
       "op": "CALLER",
-      "path": "8"
+      "path": "7"
     },
     "249": {
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0x0"
     },
     "251": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "SWAP1",
-      "path": "8"
+      "path": "7"
     },
     "252": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "DUP2",
-      "path": "8"
+      "path": "7"
     },
     "253": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "MSTORE",
-      "path": "8"
+      "path": "7"
     },
     "254": {
       "offset": [
-        560,
-        574
+        530,
+        544
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0x1"
     },
     "256": {
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0x20"
     },
     "258": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "MSTORE",
-      "path": "8"
+      "path": "7"
     },
     "259": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0x40"
     },
     "261": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "SWAP1",
-      "path": "8"
+      "path": "7"
     },
     "262": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "KECCAK256",
-      "path": "8"
+      "path": "7"
     },
     "263": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "SLOAD",
-      "path": "8"
+      "path": "7"
     },
     "264": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0xFF"
     },
     "266": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "AND",
-      "path": "8"
+      "path": "7"
     },
     "267": {
       "offset": [
-        537,
-        586
+        507,
+        556
       ],
       "op": "JUMPDEST",
-      "path": "8"
+      "path": "7"
     },
     "268": {
       "offset": [
-        529,
-        587
+        499,
+        557
       ],
       "op": "PUSH2",
-      "path": "8",
+      "path": "7",
       "value": "0x114"
     },
     "271": {
       "offset": [
-        529,
-        587
+        499,
+        557
       ],
       "op": "JUMPI",
-      "path": "8"
+      "path": "7"
     },
     "272": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        529,
-        587
+        499,
+        557
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0x0"
     },
     "274": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        529,
-        587
+        499,
+        557
       ],
       "op": "DUP1",
-      "path": "8"
+      "path": "7"
     },
     "275": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        529,
-        587
+        499,
+        557
       ],
       "op": "REVERT",
-      "path": "8"
+      "path": "7"
     },
     "276": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        529,
-        587
+        499,
+        557
       ],
       "op": "JUMPDEST",
-      "path": "8"
+      "path": "7"
     },
     "277": {
       "op": "PUSH1",
@@ -2414,215 +2323,215 @@
     "285": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        853,
-        877
+        687,
+        711
       ],
       "op": "DUP3",
-      "path": "8"
+      "path": "7"
     },
     "286": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        853,
-        877
+        687,
+        711
       ],
       "op": "AND",
-      "path": "8"
+      "path": "7"
     },
     "287": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        853,
-        877
+        687,
+        711
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0x0"
     },
     "289": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        853,
-        877
+        687,
+        711
       ],
       "op": "SWAP1",
-      "path": "8"
+      "path": "7"
     },
     "290": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        853,
-        877
+        687,
+        711
       ],
       "op": "DUP2",
-      "path": "8"
+      "path": "7"
     },
     "291": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        853,
-        877
+        687,
+        711
       ],
       "op": "MSTORE",
-      "path": "8"
+      "path": "7"
     },
     "292": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        853,
-        867
+        687,
+        701
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0x1"
     },
     "294": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        853,
-        877
+        687,
+        711
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0x20"
     },
     "296": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        853,
-        877
+        687,
+        711
       ],
       "op": "DUP2",
-      "path": "8"
+      "path": "7"
     },
     "297": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        853,
-        877
+        687,
+        711
       ],
       "op": "SWAP1",
-      "path": "8"
+      "path": "7"
     },
     "298": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        853,
-        877
+        687,
+        711
       ],
       "op": "MSTORE",
-      "path": "8"
+      "path": "7"
     },
     "299": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        853,
-        877
+        687,
+        711
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0x40"
     },
     "301": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        853,
-        877
+        687,
+        711
       ],
       "op": "SWAP1",
-      "path": "8"
+      "path": "7"
     },
     "302": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        853,
-        877
+        687,
+        711
       ],
       "op": "SWAP2",
-      "path": "8"
+      "path": "7"
     },
     "303": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        853,
-        877
+        687,
+        711
       ],
       "op": "KECCAK256",
-      "path": "8"
+      "path": "7"
     },
     "304": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        853,
-        877
+        687,
+        711
       ],
       "op": "SLOAD",
-      "path": "8"
+      "path": "7"
     },
     "305": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        853,
-        877
+        687,
+        711
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0xFF"
     },
     "307": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        853,
-        877
+        687,
+        711
       ],
       "op": "AND",
-      "path": "8"
+      "path": "7"
     },
     "308": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        853,
-        883
+        687,
+        717
       ],
       "op": "ISZERO",
-      "path": "8"
+      "path": "7"
     },
     "309": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        853,
-        883
+        687,
+        717
       ],
       "op": "ISZERO",
-      "path": "8"
+      "path": "7"
     },
     "310": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        853,
-        883
+        687,
+        717
       ],
       "op": "EQ",
-      "path": "8"
+      "path": "7"
     },
     "311": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        848,
-        1007
+        682,
+        841
       ],
       "op": "PUSH2",
-      "path": "8",
+      "path": "7",
       "value": "0x162"
     },
     "314": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        848,
-        1007
+        682,
+        841
       ],
       "op": "JUMPI",
-      "path": "8"
+      "path": "7"
     },
     "315": {
       "op": "POP"
@@ -2648,151 +2557,151 @@
     "324": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        899,
-        923
+        733,
+        757
       ],
       "op": "AND",
-      "path": "8",
+      "path": "7",
       "statement": 1
     },
     "325": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        899,
-        923
+        733,
+        757
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0x0"
     },
     "327": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        899,
-        923
+        733,
+        757
       ],
       "op": "SWAP1",
-      "path": "8"
+      "path": "7"
     },
     "328": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        899,
-        923
+        733,
+        757
       ],
       "op": "DUP2",
-      "path": "8"
+      "path": "7"
     },
     "329": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        899,
-        923
+        733,
+        757
       ],
       "op": "MSTORE",
-      "path": "8"
+      "path": "7"
     },
     "330": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        926,
-        930
+        760,
+        764
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0x1"
     },
     "332": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        899,
-        923
+        733,
+        757
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0x20"
     },
     "334": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        899,
-        923
+        733,
+        757
       ],
       "op": "DUP2",
-      "path": "8"
+      "path": "7"
     },
     "335": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        899,
-        923
+        733,
+        757
       ],
       "op": "SWAP1",
-      "path": "8"
+      "path": "7"
     },
     "336": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        899,
-        923
+        733,
+        757
       ],
       "op": "MSTORE",
-      "path": "8"
+      "path": "7"
     },
     "337": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        899,
-        923
+        733,
+        757
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0x40"
     },
     "339": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        899,
-        923
+        733,
+        757
       ],
       "op": "SWAP1",
-      "path": "8"
+      "path": "7"
     },
     "340": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        899,
-        923
+        733,
+        757
       ],
       "op": "SWAP2",
-      "path": "8"
+      "path": "7"
     },
     "341": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        899,
-        923
+        733,
+        757
       ],
       "op": "KECCAK256",
-      "path": "8"
+      "path": "7"
     },
     "342": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        899,
-        930
+        733,
+        764
       ],
       "op": "DUP1",
-      "path": "8"
+      "path": "7"
     },
     "343": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        899,
-        930
+        733,
+        764
       ],
       "op": "SLOAD",
-      "path": "8"
+      "path": "7"
     },
     "344": {
       "op": "PUSH1",
@@ -2804,75 +2713,75 @@
     "347": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        899,
-        930
+        733,
+        764
       ],
       "op": "AND",
-      "path": "8"
+      "path": "7"
     },
     "348": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        899,
-        930
+        733,
+        764
       ],
       "op": "DUP3",
-      "path": "8"
+      "path": "7"
     },
     "349": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        899,
-        930
+        733,
+        764
       ],
       "op": "OR",
-      "path": "8"
+      "path": "7"
     },
     "350": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        899,
-        930
+        733,
+        764
       ],
       "op": "SWAP1",
-      "path": "8"
+      "path": "7"
     },
     "351": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        899,
-        930
+        733,
+        764
       ],
       "op": "SSTORE",
-      "path": "8"
+      "path": "7"
     },
     "352": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        926,
-        930
+        760,
+        764
       ],
       "op": "SWAP1",
-      "path": "8"
+      "path": "7"
     },
     "353": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "jump": "o",
       "offset": [
-        748,
-        1013
+        582,
+        847
       ],
       "op": "JUMP",
-      "path": "8"
+      "path": "7"
     },
     "354": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        848,
-        1007
+        682,
+        841
       ],
       "op": "JUMPDEST",
-      "path": "8"
+      "path": "7"
     },
     "355": {
       "op": "POP"
@@ -2880,59 +2789,59 @@
     "356": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        991,
-        996
+        825,
+        830
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "statement": 2,
       "value": "0x0"
     },
     "358": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        848,
-        1007
+        682,
+        841
       ],
       "op": "JUMPDEST",
-      "path": "8"
+      "path": "7"
     },
     "359": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        748,
-        1013
+        582,
+        847
       ],
       "op": "SWAP2",
-      "path": "8"
+      "path": "7"
     },
     "360": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        748,
-        1013
+        582,
+        847
       ],
       "op": "SWAP1",
-      "path": "8"
+      "path": "7"
     },
     "361": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        748,
-        1013
+        582,
+        847
       ],
       "op": "POP",
-      "path": "8"
+      "path": "7"
     },
     "362": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "jump": "o",
       "offset": [
-        748,
-        1013
+        582,
+        847
       ],
       "op": "JUMP",
-      "path": "8"
+      "path": "7"
     },
     "363": {
       "fn": "Issuer.registerIssuer",
@@ -2941,7 +2850,7 @@
         546
       ],
       "op": "JUMPDEST",
-      "path": "6"
+      "path": "5"
     },
     "364": {
       "fn": "Issuer.registerIssuer",
@@ -2950,25 +2859,25 @@
         425
       ],
       "op": "PUSH1",
-      "path": "6",
+      "path": "5",
       "value": "0x0"
     },
     "366": {
       "offset": [
-        551,
-        556
+        521,
+        526
       ],
       "op": "DUP1",
-      "path": "8"
+      "path": "7"
     },
     "367": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        551,
-        556
+        521,
+        526
       ],
       "op": "SLOAD",
-      "path": "8"
+      "path": "7"
     },
     "368": {
       "op": "PUSH1",
@@ -2990,249 +2899,249 @@
     },
     "376": {
       "offset": [
-        551,
-        556
+        521,
+        526
       ],
       "op": "AND",
-      "path": "8"
+      "path": "7"
     },
     "377": {
       "offset": [
-        537,
-        547
+        507,
+        517
       ],
       "op": "CALLER",
-      "path": "8"
+      "path": "7"
     },
     "378": {
       "offset": [
-        537,
-        556
+        507,
+        526
       ],
       "op": "EQ",
-      "path": "8"
+      "path": "7"
     },
     "379": {
       "branch": 6,
       "fn": "Issuer.registerIssuer",
       "offset": [
-        537,
-        556
+        507,
+        526
       ],
       "op": "DUP1",
-      "path": "8"
+      "path": "7"
     },
     "380": {
       "offset": [
-        537,
-        586
+        507,
+        556
       ],
       "op": "PUSH2",
-      "path": "8",
+      "path": "7",
       "value": "0x194"
     },
     "383": {
       "branch": 6,
       "offset": [
-        537,
-        586
+        507,
+        556
       ],
       "op": "JUMPI",
-      "path": "8"
+      "path": "7"
     },
     "384": {
       "op": "POP"
     },
     "385": {
       "offset": [
-        575,
-        585
+        545,
+        555
       ],
       "op": "CALLER",
-      "path": "8"
+      "path": "7"
     },
     "386": {
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0x0"
     },
     "388": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "SWAP1",
-      "path": "8"
+      "path": "7"
     },
     "389": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "DUP2",
-      "path": "8"
+      "path": "7"
     },
     "390": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "MSTORE",
-      "path": "8"
+      "path": "7"
     },
     "391": {
       "offset": [
-        560,
-        574
+        530,
+        544
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0x1"
     },
     "393": {
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0x20"
     },
     "395": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "MSTORE",
-      "path": "8"
+      "path": "7"
     },
     "396": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0x40"
     },
     "398": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "SWAP1",
-      "path": "8"
+      "path": "7"
     },
     "399": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "KECCAK256",
-      "path": "8"
+      "path": "7"
     },
     "400": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "SLOAD",
-      "path": "8"
+      "path": "7"
     },
     "401": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0xFF"
     },
     "403": {
       "branch": 7,
       "fn": "Issuer.registerIssuer",
       "offset": [
-        560,
-        586
+        530,
+        556
       ],
       "op": "AND",
-      "path": "8"
+      "path": "7"
     },
     "404": {
       "offset": [
-        537,
-        586
+        507,
+        556
       ],
       "op": "JUMPDEST",
-      "path": "8"
+      "path": "7"
     },
     "405": {
       "offset": [
-        529,
-        587
+        499,
+        557
       ],
       "op": "PUSH2",
-      "path": "8",
+      "path": "7",
       "value": "0x19D"
     },
     "408": {
       "branch": 7,
       "offset": [
-        529,
-        587
+        499,
+        557
       ],
       "op": "JUMPI",
-      "path": "8"
+      "path": "7"
     },
     "409": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        529,
-        587
+        499,
+        557
       ],
       "op": "PUSH1",
-      "path": "8",
+      "path": "7",
       "value": "0x0"
     },
     "411": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        529,
-        587
+        499,
+        557
       ],
       "op": "DUP1",
-      "path": "8"
+      "path": "7"
     },
     "412": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        529,
-        587
+        499,
+        557
       ],
       "op": "REVERT",
-      "path": "8"
+      "path": "7"
     },
     "413": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        529,
-        587
+        499,
+        557
       ],
       "op": "JUMPDEST",
-      "path": "8"
+      "path": "7"
     },
     "414": {
       "op": "PUSH1",
@@ -3259,7 +3168,7 @@
         459
       ],
       "op": "DUP4",
-      "path": "6",
+      "path": "5",
       "statement": 3
     },
     "423": {
@@ -3269,7 +3178,7 @@
         459
       ],
       "op": "AND",
-      "path": "6"
+      "path": "5"
     },
     "424": {
       "fn": "Issuer.registerIssuer",
@@ -3278,7 +3187,7 @@
         459
       ],
       "op": "PUSH1",
-      "path": "6",
+      "path": "5",
       "value": "0x0"
     },
     "426": {
@@ -3288,7 +3197,7 @@
         459
       ],
       "op": "DUP2",
-      "path": "6"
+      "path": "5"
     },
     "427": {
       "fn": "Issuer.registerIssuer",
@@ -3297,7 +3206,7 @@
         459
       ],
       "op": "DUP2",
-      "path": "6"
+      "path": "5"
     },
     "428": {
       "fn": "Issuer.registerIssuer",
@@ -3306,7 +3215,7 @@
         459
       ],
       "op": "MSTORE",
-      "path": "6"
+      "path": "5"
     },
     "429": {
       "fn": "Issuer.registerIssuer",
@@ -3315,7 +3224,7 @@
         451
       ],
       "op": "PUSH1",
-      "path": "6",
+      "path": "5",
       "value": "0x2"
     },
     "431": {
@@ -3325,7 +3234,7 @@
         459
       ],
       "op": "PUSH1",
-      "path": "6",
+      "path": "5",
       "value": "0x20"
     },
     "433": {
@@ -3335,7 +3244,7 @@
         459
       ],
       "op": "SWAP1",
-      "path": "6"
+      "path": "5"
     },
     "434": {
       "fn": "Issuer.registerIssuer",
@@ -3344,7 +3253,7 @@
         459
       ],
       "op": "DUP2",
-      "path": "6"
+      "path": "5"
     },
     "435": {
       "fn": "Issuer.registerIssuer",
@@ -3353,7 +3262,7 @@
         459
       ],
       "op": "MSTORE",
-      "path": "6"
+      "path": "5"
     },
     "436": {
       "fn": "Issuer.registerIssuer",
@@ -3362,7 +3271,7 @@
         459
       ],
       "op": "PUSH1",
-      "path": "6",
+      "path": "5",
       "value": "0x40"
     },
     "438": {
@@ -3372,7 +3281,7 @@
         459
       ],
       "op": "SWAP2",
-      "path": "6"
+      "path": "5"
     },
     "439": {
       "fn": "Issuer.registerIssuer",
@@ -3381,7 +3290,7 @@
         459
       ],
       "op": "DUP3",
-      "path": "6"
+      "path": "5"
     },
     "440": {
       "fn": "Issuer.registerIssuer",
@@ -3390,7 +3299,7 @@
         459
       ],
       "op": "SWAP1",
-      "path": "6"
+      "path": "5"
     },
     "441": {
       "fn": "Issuer.registerIssuer",
@@ -3399,7 +3308,7 @@
         459
       ],
       "op": "KECCAK256",
-      "path": "6"
+      "path": "5"
     },
     "442": {
       "fn": "Issuer.registerIssuer",
@@ -3408,7 +3317,7 @@
         471
       ],
       "op": "DUP6",
-      "path": "6"
+      "path": "5"
     },
     "443": {
       "fn": "Issuer.registerIssuer",
@@ -3417,7 +3326,7 @@
         471
       ],
       "op": "SWAP1",
-      "path": "6"
+      "path": "5"
     },
     "444": {
       "fn": "Issuer.registerIssuer",
@@ -3426,7 +3335,7 @@
         471
       ],
       "op": "SSTORE",
-      "path": "6"
+      "path": "5"
     },
     "445": {
       "fn": "Issuer.registerIssuer",
@@ -3435,7 +3344,7 @@
         518
       ],
       "op": "DUP2",
-      "path": "6",
+      "path": "5",
       "statement": 4
     },
     "446": {
@@ -3445,7 +3354,7 @@
         518
       ],
       "op": "MLOAD",
-      "path": "6"
+      "path": "5"
     },
     "447": {
       "fn": "Issuer.registerIssuer",
@@ -3454,7 +3363,7 @@
         500
       ],
       "op": "PUSH1",
-      "path": "6",
+      "path": "5",
       "value": "0x1"
     },
     "449": {
@@ -3509,7 +3418,7 @@
         518
       ],
       "op": "MLOAD",
-      "path": "6"
+      "path": "5"
     },
     "465": {
       "fn": "Issuer.registerIssuer",
@@ -3518,7 +3427,7 @@
         518
       ],
       "op": "PUSH32",
-      "path": "6",
+      "path": "5",
       "value": "0x7A0F50B566AB4225B0F298A229BCF96D4BA86D1C6C43D48AD0F0F6D96F68413D"
     },
     "498": {
@@ -3528,7 +3437,7 @@
         518
       ],
       "op": "SWAP2",
-      "path": "6"
+      "path": "5"
     },
     "499": {
       "fn": "Issuer.registerIssuer",
@@ -3537,7 +3446,7 @@
         518
       ],
       "op": "DUP2",
-      "path": "6"
+      "path": "5"
     },
     "500": {
       "fn": "Issuer.registerIssuer",
@@ -3546,7 +3455,7 @@
         518
       ],
       "op": "SWAP1",
-      "path": "6"
+      "path": "5"
     },
     "501": {
       "fn": "Issuer.registerIssuer",
@@ -3555,7 +3464,7 @@
         518
       ],
       "op": "SUB",
-      "path": "6"
+      "path": "5"
     },
     "502": {
       "op": "PUSH1",
@@ -3568,7 +3477,7 @@
         518
       ],
       "op": "ADD",
-      "path": "6"
+      "path": "5"
     },
     "505": {
       "fn": "Issuer.registerIssuer",
@@ -3577,7 +3486,7 @@
         518
       ],
       "op": "SWAP1",
-      "path": "6"
+      "path": "5"
     },
     "506": {
       "fn": "Issuer.registerIssuer",
@@ -3586,7 +3495,7 @@
         518
       ],
       "op": "LOG1",
-      "path": "6"
+      "path": "5"
     },
     "507": {
       "op": "POP"
@@ -3598,7 +3507,7 @@
         539
       ],
       "op": "PUSH1",
-      "path": "6",
+      "path": "5",
       "statement": 5,
       "value": "0x1"
     },
@@ -3609,7 +3518,7 @@
         546
       ],
       "op": "SWAP3",
-      "path": "6"
+      "path": "5"
     },
     "511": {
       "fn": "Issuer.registerIssuer",
@@ -3618,7 +3527,7 @@
         546
       ],
       "op": "SWAP2",
-      "path": "6"
+      "path": "5"
     },
     "512": {
       "fn": "Issuer.registerIssuer",
@@ -3627,7 +3536,7 @@
         546
       ],
       "op": "POP",
-      "path": "6"
+      "path": "5"
     },
     "513": {
       "fn": "Issuer.registerIssuer",
@@ -3636,7 +3545,7 @@
         546
       ],
       "op": "POP",
-      "path": "6"
+      "path": "5"
     },
     "514": {
       "fn": "Issuer.registerIssuer",
@@ -3646,7 +3555,7 @@
         546
       ],
       "op": "JUMP",
-      "path": "6"
+      "path": "5"
     },
     "515": {
       "op": "JUMPDEST"
@@ -3893,9 +3802,9 @@
       "op": "JUMP"
     }
   },
-  "sha1": "312750419ad90e825457ed95b883cd65bd1e021f",
-  "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.7.0 <0.9.0;\n\n\nimport \"./RegistryAuthorization.sol\";\n\n// this contract provides issuer data for registry smart contract\n\ncontract Issuer is RegistryAuthorization {\n\n    event IsSuccess(\n        bool value,\n        bytes32 hashData,\n        address issuer\n        );\n    \n    function registerIssuer (address issuer, bytes32 _hashData) grantAccess public returns(bool success)  {\n        issuerMapping[issuer] = _hashData;\n        emit IsSuccess(true,_hashData,issuer);\n        return true;\n    }\n\n    //testing and debugging\n    event DebugVerifyIssuer(\n        address _address,\n        bool result\n    );\n\n    function verifyIssuer (address _address) public view returns(bool){\n        return issuerMapping[_address]>0;\n    }\n\n}\n\n",
-  "sourceMap": "172:609:6:-:0;;;;;;;;;;;;-1:-1:-1;376:5:8;:27;;-1:-1:-1;;;;;;376:27:8;392:10;376:27;;;172:609:6;;;;;;",
+  "sha1": "27a4af721db590be0395229b9cb9a226070cd35f",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.7.0 <0.9.0;\n\n\nimport \"./RegistryAuthorization.sol\";\n\n// this contract provides issuer data for registry smart contract\n\ncontract Issuer is RegistryAuthorization {\n\n    event IsSuccess(\n        bool value,\n        bytes32 hashData,\n        address issuer\n        );\n    \n    function registerIssuer (address issuer, bytes32 _hashData) grantAccess public returns(bool success)  {\n        issuerMapping[issuer] = _hashData;\n        emit IsSuccess(true,_hashData,issuer);\n        return true;\n    }\n\n    function verifyIssuer (address _address) public view returns(bool){\n        return issuerMapping[_address]>0;\n    }\n\n}\n\n",
+  "sourceMap": "172:498:5:-:0;;;;;;;;;;;;-1:-1:-1;346:5:7;:27;;-1:-1:-1;;;;;;346:27:7;362:10;346:27;;;172:498:5;;;;;;",
   "sourcePath": "contracts/Registry/IssuerData.sol",
   "type": "contract"
 }

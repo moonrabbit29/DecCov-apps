@@ -21,7 +21,7 @@ class DataTable extends React.Component {
                 <tbody>
                   <DataTableContent
                     key={index}
-                    hash={element.cov_hash}
+                    hash={element.cov_certificate_identifier}
                     timestamp={new Date(
                       parseInt(element.timestamp) * 1000
                     ).toDateString()}

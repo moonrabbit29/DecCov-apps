@@ -18,9 +18,6 @@ class RegisterCertificate extends React.Component {
     contract: null,
     activeAccount: "Anonymous",
     isLoginAccount: false,
-    buffer: null,
-    dataToUpload: "",
-    ipfsHash: "",
     hashToCheck: "",
     transactionHash: "",
     step: 1,
@@ -32,6 +29,10 @@ class RegisterCertificate extends React.Component {
     dose: "",
     imageDataURL: "",
     TakenVaccineDose: null,
+    gender: "Laki",
+    homeAddress: "",
+    age: 0,
+    testExpiryDate:"",
   };
   componentDidMount = async () => {
     this.props.setToLoading(true);
@@ -48,12 +49,7 @@ class RegisterCertificate extends React.Component {
         this.setState({ accounts });
         if (this.state.activeAccount !== accounts[0]) {
           var active = await accounts[0];
-          this.setState({ activeAccount: active });
-          this.setState({ dataToUpload: null });
-          this.setState({ buffer: null });
-          this.setState({ fileName: "" });
-          this.setState({ ipfsHash: "" });
-          this.setState({ hashToCheck: "" });
+          this.setState({ activeAccount: active });         
           this.setState({ transactionHash: "" });
           this.setState({ isLoginAccount: true });
           this.props.setToLoading(false);
@@ -106,13 +102,13 @@ class RegisterCertificate extends React.Component {
       accounts,
       contract,
       activeAccount,
-      buffer,
-      dataToUpload,
-      ipfsHash,
-      hashToCheck,
       transactionHash,
       imageDataURL,
       TakenVaccineDose,
+      gender,
+      homeAddress,
+      age,
+      testExpiryDate
     } = this.state;
     const values = {
       Name,
@@ -125,13 +121,13 @@ class RegisterCertificate extends React.Component {
       accounts,
       contract,
       activeAccount,
-      buffer,
-      dataToUpload,
-      ipfsHash,
-      hashToCheck,
       transactionHash,
       imageDataURL,
       TakenVaccineDose,
+      gender,
+      homeAddress,
+      age,
+      testExpiryDate
     };
     switch (step) {
       case 1:

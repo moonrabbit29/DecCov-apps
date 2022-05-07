@@ -6,6 +6,8 @@ import Qrcode from "qrcode";
 import addFile from "../../ipfs";
 import { turnIntoBuffer, retrieve_file } from "../../ipfs";
 import InputPassword from "./InputPassword"
+import {decryptData,encryptData} from "../../crypt"
+import {convert_unix_date,unix_datetime_add_day} from "../../date_helper";
 
 class AddToSmartContract extends React.Component {
   // ganache-cli --chain.vmErrorsOnRPCResponse true --hardfork istanbul --miner.blockGasLimit 12000000 --wallet.mnemonic brownie --server.port 8545 --account="0xf5c9a0c1c21216b57a93f0157c309093885b261c7623c138bffbf6298114798c,9629874799100000000000000000" --account="0x60f7afbcb7c2784c04be36ccfd49fc3e04da6acca0157411b87d9eaab1762596,96298
@@ -22,9 +24,6 @@ class AddToSmartContract extends React.Component {
     qrURL: "",
     show_already_exist: false,
     existed_data: {
-      name: "",
-      nik: "",
-      certificate_data: {},
       issuer_address: "",
     },
     enter_pin: false,
@@ -38,7 +37,7 @@ class AddToSmartContract extends React.Component {
   storeCertificateData = async (e) => {
     const holder_id = Web3.utils.soliditySha3(this.props.values.NIK);
     const image = await addFile(
-      turnIntoBuffer(JSON.stringify(this.props.values.imageDataURL))
+      turnIntoBuffer(encryptData(this.props.values.imageDataURL,this.state.pin))
     );
     this.setState({ holder_id: holder_id });
     const certificate_data =
@@ -57,6 +56,9 @@ class AddToSmartContract extends React.Component {
     const user_data = {
       name: this.props.values.Name,
       holder_id: holder_id,
+      age: this.props.values.age,
+      home_address : this.props.values.homeAddress,
+      gender : this.props.values.gender,
       image: image,
       certificate_data: certificate_data,
       issuer_address: this.props.values.activeAccount,
@@ -64,7 +66,6 @@ class AddToSmartContract extends React.Component {
 
     //var certificate_hash = "0xd838244465d7b705adf17e52bd7ea23a1d7f45cf78c6f31e97df9caedf5120e6"
     //["bytes32","string","address"]
-    const str_certificate_data = JSON.stringify(user_data.certificate_data);
     const opts = {
       errorCorrectionLevel: "H",
       type: "image/jpeg",
@@ -75,20 +76,14 @@ class AddToSmartContract extends React.Component {
         light: "#FFBF60FF",
       },
     };
-
-    //ipfs daemon --writable
     const certificate_identifier = await addFile(
-      turnIntoBuffer(
         JSON.stringify({
           holder_id: holder_id,
-          image: image,
           certificate_data: certificate_data,
         })
-      )
     );
-
     const ipfs_address_for_certificate = await addFile(
-      turnIntoBuffer(JSON.stringify(user_data))
+      turnIntoBuffer(encryptData(JSON.stringify(user_data),this.state.pin))
     );
 
     this.setState({ certificate_hash: certificate_identifier });
@@ -96,7 +91,6 @@ class AddToSmartContract extends React.Component {
       .registerCertificate(
         certificate_identifier,
         holder_id,
-        //str_certificate_data,
         ipfs_address_for_certificate
       )
       .send(
@@ -120,13 +114,20 @@ class AddToSmartContract extends React.Component {
             const timestamp =
               receipt.events.timestampEvent.returnValues["timestamp"];
             user_data["timestamp"] = timestamp;
-            const qrCodeData = {
-              name: user_data.name,
-              holder_id: user_data.holder_id,
-              certificate_data: user_data.certificate_data,
-            };
+            if(this.props.values.type === "Covid Test"){
+              user_data["expiry_date"] = unix_datetime_add_day(timestamp,this.props.values.testExpiryDate)
+            }
+            const copy_user_data = {...user_data}
+            delete copy_user_data["image"]
+            //const qrCodeData = encryptData(JSON.stringify(user_data),this.state.pin)
+            const qrCodeData = JSON.stringify({
+              user_data
+            })
+            // console.log("HERE")
+            // console.log(qrCodeData)
+            // console.log(decryptData(qrCodeData,this.state.pin))
             Qrcode.toDataURL(
-              JSON.stringify(qrCodeData),
+              qrCodeData,
               opts,
               function (err, url) {
                 if (err) console.log(err);
@@ -136,13 +137,10 @@ class AddToSmartContract extends React.Component {
           } else {
             if (IsSuccess["result"] == "already") {
               const certificate = receipt.events.certificateExist.returnValues;
-              const timestamp = new Date(
-                parseInt(certificate.certificate_data.timestamp) * 1000
-              );
-              const recorded_timestamp = new Date(timestamp.toDateString());
-              const recorded_data = certificate.certificate_data.data_address;
+              const recorded_timestamp = convert_unix_date(certificate.certificate_data.timestamp)
+              const recorded_data = certificate.certificate_data.cov_certificate_identifier;
               console.log(recorded_data);
-              const stored_meta_data = await retrieve_file(recorded_data);
+              const stored_meta_data = JSON.parse(await retrieve_file(recorded_data));
               console.log(stored_meta_data);
               this.setState({
                 show_already_exist: true,

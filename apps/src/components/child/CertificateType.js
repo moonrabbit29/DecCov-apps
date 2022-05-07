@@ -142,6 +142,18 @@ class CertificateType extends React.Component {
                   : TestResultList()}
               </Form.Select>
             </Form.Group>
+            {this.props.values.type === "Vaccine" ? <></> : 
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>Masa berlaku tes</Form.Label>
+              <Form.Control
+                required
+                type="number"
+                placeholder="Hari"
+                value={this.props.values.testExpiryDate}
+                onChange={this.props.handleChange("testExpiryDate")}
+              />
+            </Form.Group>
+            }
             <Row>
               <Col md={4} xs="auto">
                 <Button onClick={Previous}>Previous</Button>

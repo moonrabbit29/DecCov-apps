@@ -19,7 +19,7 @@ contract CertificateHandler is CertificateAuthorization, Helper {
         returns (bool success)
     {
         uint256 index = isCertificateExist(certificate_hash, holder_to_certificates[holder_id]);
-        if (index > 0) {
+        if (index-1 > 0) {
             emit IsSuccess(false,"already");
             emit certificateExist(
                 true,
@@ -42,7 +42,7 @@ contract CertificateHandler is CertificateAuthorization, Helper {
 
     function verifyCertificate(bytes32 certificate_hash,bytes32 holder_id) public view returns(bool,COV_CERTIFICATE memory){
         uint256 index = isCertificateExist(certificate_hash, holder_to_certificates[holder_id]);
-        if(index>0){
+        if(index-1>0){
             return (true,holder_to_certificates[holder_id][index-1]);
         }
         return (false,holder_to_certificates[holder_id][index-1]);

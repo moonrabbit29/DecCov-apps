@@ -3,9 +3,11 @@ import QrScanner from "qr-scanner";
 import getWeb3 from "../Web3Handler";
 import Web3 from "web3";
 import Certificate from "../contracts/Certificate.json";
-import { retrieve_file } from "../ipfs";
+import addFile,{ retrieve_file, turnIntoBuffer} from "../ipfs";
 import { DataTable } from "./child/UserDetails";
 import { Row, Button, Col } from "react-bootstrap";
+import InputPin from "./child/InputPinForDecrypt";
+import {decryptData} from "../crypt"
 
 class VerifyCertificate extends React.Component {
   state = {
@@ -14,7 +16,19 @@ class VerifyCertificate extends React.Component {
     contract: "",
     web3: "",
     showData: false,
+    qrResult: "",
+    enterPin: false,
+    pin: "",
   };
+
+  // called after receiving input for decrypting certificate data 
+  changePin = (pin) => {
+    console.log(pin)
+    this.setState({ pin: pin, enterPin:false });
+    console.log(`after change -> ${this.state.pin}`)
+    console.log(this.state.qrResult)
+    this.verifyCertificate(this.state.qrResult)
+  }
 
   componentDidMount = async () => {
     const web3 = await getWeb3();
@@ -24,6 +38,7 @@ class VerifyCertificate extends React.Component {
     //const deployedNetwork = Certificate.deployment.address;
     const instance = new web3.eth.Contract(Certificate.abi, deployedNetwork);
     this.setState({ web3, contract: instance });
+    this.initializeQRScanner();
     setInterval(async () => {
       try {
         const accounts = await web3.eth.getAccounts();
@@ -50,10 +65,12 @@ class VerifyCertificate extends React.Component {
     try {
       this.qrScanner = new QrScanner(
         this.player ? this.player : "",
-        (result) =>
-          this.verifyCertificate(JSON.parse(result.data)).then(
-            this.qrScanner.stop()
-          ),
+        (result) => {
+          console.log(JSON.parse(result.data).user_data)
+          console.log(result.data);
+          this.setState({ qrResult: JSON.parse(result.data), enterPin: true });
+          this.qrScanner.stop()
+        },
         {
           highlightScanRegion: true,
           highlightCodeOutline: true,
@@ -65,7 +82,6 @@ class VerifyCertificate extends React.Component {
       this.qrScanner.start();
     } catch (error) {
       console.log(error);
-      this.qrScanner.stop();
       this.resetState();
     }
   };
@@ -93,41 +109,55 @@ class VerifyCertificate extends React.Component {
   };
 
   getDataFromIPFS = async (data_address) => {
-    const ipfs_data = await retrieve_file(data_address);
+    const ipfs_data = JSON.parse(decryptData(await retrieve_file(data_address),this.state.pin));
     const image_data = await retrieve_file(ipfs_data.image);
     return [image_data, ipfs_data];
   };
 
   verifyCertificate = async (qr_code_data) => {
+    // {
+    //   name: user_data.name,
+    //   holder_id: user_data.holder_id,
+    //   certificate_data: user_data.certificate_data,
+    // };
     try {
-      const certificate_hash = Web3.utils.soliditySha3(
-        { t: "bytes32", v: qr_code_data.holder_id },
-        { t: "string", v: JSON.stringify(qr_code_data.certificate_data) }
+      const certificate_hash = await addFile(
+          JSON.stringify({
+            holder_id:qr_code_data.user_data.holder_id,
+            certificate_data: qr_code_data.certificate_data,
+          })
       );
+      console.log(certificate_hash)
       const certificate_in_sc = await this.state.contract.methods
-        .verifyCertificate(certificate_hash, qr_code_data.holder_id)
+        .verifyCertificate(certificate_hash, qr_code_data.user_data.holder_id)
         .call();
+      console.log("looking for this")
+      console.log(certificate_in_sc)
       const [image, certificate_data] = await this.getDataFromIPFS(
-        certificate_in_sc[1].data_address
+        certificate_in_sc[1].certificate_data
       );
+
+      const decrypted_image = decryptData(image,this.state.pin)
+
       const final_certificate_data = {
         data_detail: certificate_data,
         ...certificate_in_sc[1],
       };
-      //TODO validate data ipfs == data qr code.
+      
       this.setState({
         showData: true,
-        imageDataURL: image,
+        imageDataURL: decrypted_image,
         certificate_data: final_certificate_data,
       });
     } catch (err) {
+      console.log(err)
       alert("ERROR PLEASE CONTACT TECHNICIAN");
       this.resetState();
+      window.location.reload();
     }
   };
 
   render() {
-    this.initializeQRScanner();
     const playerORImage = Boolean(this.state.imageDataURL) ? (
       <Row>
         <Col>
@@ -162,6 +192,7 @@ class VerifyCertificate extends React.Component {
           <Button onClick={this.switchCamera}>Switch Camera</Button>
         </Col>
         <Col md="5" xs="5"></Col>
+        <InputPin enterPin={this.state.enterPin} changePin={this.changePin} />
       </Row>
     );
     return <>{playerORImage}</>;

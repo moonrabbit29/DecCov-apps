@@ -28,8 +28,8 @@ contract Helper is Data{
                 return i+1;
             }
         }
-        // returning 0 mean not found.
-        return 0;
+        // returning 1 mean not found. Since index will be return with +1 value
+        return 1;
     }
 
     function compareHash(bytes32 certificateHash, string memory payload, bytes32 holderID) internal pure returns(bool){

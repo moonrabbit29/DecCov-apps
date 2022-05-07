@@ -14,10 +14,6 @@ class DataTableContent extends React.Component {
             <td>{this.props.hash}</td>
           </tr>
           <tr>
-            <td>COV issuer : </td>
-            <td>{this.props.issuer}</td>
-          </tr>
-          <tr>
             <td>Timestamp : </td>
             <td>{this.props.timestamp}</td>
           </tr>

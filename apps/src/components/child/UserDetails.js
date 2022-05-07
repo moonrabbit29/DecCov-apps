@@ -44,7 +44,7 @@ class UserDetail extends React.Component {
 
     const showExistedData = async () => {
       const holder_id = Web3.utils.soliditySha3(this.props.values.NIK);
-      console.log(`holder id -> ${holder_id}`)
+      console.log(`holder id -> ${holder_id}`);
       const data = await this.props.values.contract.methods
         .getCertificatesByUser(holder_id)
         .call();
@@ -56,7 +56,9 @@ class UserDetail extends React.Component {
               return {
                 cov_certificate_identifier: e.cov_certificate_identifier,
                 certificate_data: e.certificate_data,
-                data_detail: await retrieve_file(e.certificate_data),
+                data_detail: JSON.parse(
+                  await retrieve_file(e.cov_certificate_identifier)
+                ),
                 timestamp: e.timestamp,
               };
             } catch (error) {
@@ -70,14 +72,18 @@ class UserDetail extends React.Component {
             }
           })
         );
+        console.log("looking for this");
+        console.log(modified_data);
         this.setState({
           show_exiting_data_table: true,
           user_certificate_data: modified_data,
         });
-        const vaccine_dose = modified_data.map((e) => {
-          if (e.data_detail.certificate_data.type == "Vaccine")
-            return e.data_detail.certificate_data.dose;
-        }).sort();
+        const vaccine_dose = modified_data
+          .map((e) => {
+            if (e.data_detail.certificate_data.type == "Vaccine")
+              return e.data_detail.certificate_data.dose;
+          })
+          .sort();
         console.log(vaccine_dose);
         this.props.setTakenVaccineDose(vaccine_dose);
       }
@@ -108,6 +114,38 @@ class UserDetail extends React.Component {
                   onChange={this.props.handleChange("NIK")}
                 />
               </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Umur</Form.Label>
+                <Form.Control
+                  required
+                  type="number"
+                  placeholder="Umur"
+                  value={this.props.values.age}
+                  onChange={this.props.handleChange("age")}
+                />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Gender</Form.Label>
+                <Form.Select
+                  required
+                  placeholder="Gender"
+                  value={this.props.values.gender}
+                  onChange={this.props.handleChange("gender")}
+                >
+                  <option>Laki - Laki</option>
+                  <option>Perempuan</option>
+                </Form.Select>
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Alamat</Form.Label>
+                <Form.Control
+                  required
+                  type="text"
+                  placeholder="Alamat"
+                  value={this.props.values.homeAddress}
+                  onChange={this.props.handleChange("homeAddress")}
+                />
+              </Form.Group>
               <Row>
                 <Col md={4} xs="auto">
                   <Button onClick={checkData}>
@@ -125,7 +163,7 @@ class UserDetail extends React.Component {
           </Col>
           <br />
           <Modal
-            dialogClassName='custom-dialog'
+            dialogClassName="custom-dialog"
             show={this.state.is_empty_certificates}
             onHide={this.handleClose}
             backdrop="static"

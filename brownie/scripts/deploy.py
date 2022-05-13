@@ -18,5 +18,4 @@ def deploy_certificate_sc(regstry_sc_address:str) -> str :
 
 def main() :
    registry_sc_address = deploy_registry_sc()
-   print(registry_sc_address)
    certificate_sc_address = deploy_certificate_sc(registry_sc_address)

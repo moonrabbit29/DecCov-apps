@@ -1,10 +1,13 @@
 import React from "react";
-import { Table } from "react-bootstrap";
+import { Row, Table, Col,  } from "react-bootstrap";
 import Web3 from "web3";
 import { Modal, Button } from "react-bootstrap";
 import Qrcode from "qrcode";
 import addFile from "../../ipfs";
 import { turnIntoBuffer, retrieve_file } from "../../ipfs";
+import InputPassword from "./InputPassword"
+import {decryptData,encryptData} from "../../crypt"
+import {convert_unix_date,unix_datetime_add_day} from "../../date_helper";
 
 class AddToSmartContract extends React.Component {
   // ganache-cli --chain.vmErrorsOnRPCResponse true --hardfork istanbul --miner.blockGasLimit 12000000 --wallet.mnemonic brownie --server.port 8545 --account="0xf5c9a0c1c21216b57a93f0157c309093885b261c7623c138bffbf6298114798c,9629874799100000000000000000" --account="0x60f7afbcb7c2784c04be36ccfd49fc3e04da6acca0157411b87d9eaab1762596,96298
@@ -21,21 +24,20 @@ class AddToSmartContract extends React.Component {
     qrURL: "",
     show_already_exist: false,
     existed_data: {
-      name: "",
-      nik: "",
-      certificate_data: {},
       issuer_address: "",
     },
+    enter_pin: false,
+    pin: "",
   };
 
-  handleClose = (input) => {
-    this.setState({ [input]: false });
+  changeState = (input,value=false) => {
+    this.setState({ [input]: value });
   };
 
   storeCertificateData = async (e) => {
     const holder_id = Web3.utils.soliditySha3(this.props.values.NIK);
     const image = await addFile(
-      turnIntoBuffer(JSON.stringify(this.props.values.imageDataURL))
+      turnIntoBuffer(encryptData(this.props.values.imageDataURL,this.state.pin))
     );
     this.setState({ holder_id: holder_id });
     const certificate_data =
@@ -50,16 +52,20 @@ class AddToSmartContract extends React.Component {
             name: this.props.values.cert_name,
             result: this.props.values.test_result,
           };
+
     const user_data = {
       name: this.props.values.Name,
       holder_id: holder_id,
+      age: this.props.values.age,
+      home_address : this.props.values.homeAddress,
+      gender : this.props.values.gender,
       image: image,
       certificate_data: certificate_data,
       issuer_address: this.props.values.activeAccount,
     };
+
     //var certificate_hash = "0xd838244465d7b705adf17e52bd7ea23a1d7f45cf78c6f31e97df9caedf5120e6"
     //["bytes32","string","address"]
-    const str_certificate_data = JSON.stringify(user_data.certificate_data);
     const opts = {
       errorCorrectionLevel: "H",
       type: "image/jpeg",
@@ -70,26 +76,23 @@ class AddToSmartContract extends React.Component {
         light: "#FFBF60FF",
       },
     };
-    const certificate_hash = Web3.utils.soliditySha3(
-      { t: "bytes32", v: holder_id },
-      { t: "string", v: JSON.stringify(user_data.certificate_data) }
-    );
-    this.setState({ certificate_hash: certificate_hash });
-
-    //ipfs daemon --writable
-    const ipfs_address_for_certificate = await addFile(
-      turnIntoBuffer(JSON.stringify(
-        {
-          holder_id:holder_id,
-          image: image,
+    const certificate_identifier = await addFile(
+        JSON.stringify({
+          holder_id: holder_id,
           certificate_data: certificate_data,
-          issuer_address: this.props.values.activeAccount,
-        }
-      ))
+        })
     );
-    console.log(`ipfs_address ${ipfs_address_for_certificate}`);
+    const ipfs_address_for_certificate = await addFile(
+      turnIntoBuffer(encryptData(JSON.stringify(user_data),this.state.pin))
+    );
+
+    this.setState({ certificate_hash: certificate_identifier });
     await this.props.values.contract.methods
-      .registerCertificate(certificate_hash, holder_id, str_certificate_data, ipfs_address_for_certificate)
+      .registerCertificate(
+        certificate_identifier,
+        holder_id,
+        ipfs_address_for_certificate
+      )
       .send(
         { from: this.props.values.activeAccount },
         (error, transactionHash) => {
@@ -111,13 +114,20 @@ class AddToSmartContract extends React.Component {
             const timestamp =
               receipt.events.timestampEvent.returnValues["timestamp"];
             user_data["timestamp"] = timestamp;
-            const qrCodeData = {
-              name : user_data.name,
-              holder_id : user_data.holder_id,
-              certificate_data : user_data.certificate_data
+            if(this.props.values.type === "Covid Test"){
+              user_data["expiry_date"] = unix_datetime_add_day(timestamp,this.props.values.testExpiryDate)
             }
+            const copy_user_data = {...user_data}
+            delete copy_user_data["image"]
+            //const qrCodeData = encryptData(JSON.stringify(user_data),this.state.pin)
+            const qrCodeData = JSON.stringify({
+              user_data
+            })
+            // console.log("HERE")
+            // console.log(qrCodeData)
+            // console.log(decryptData(qrCodeData,this.state.pin))
             Qrcode.toDataURL(
-              JSON.stringify(qrCodeData),
+              qrCodeData,
               opts,
               function (err, url) {
                 if (err) console.log(err);
@@ -127,13 +137,10 @@ class AddToSmartContract extends React.Component {
           } else {
             if (IsSuccess["result"] == "already") {
               const certificate = receipt.events.certificateExist.returnValues;
-              const timestamp = new Date(
-                parseInt(certificate.certificate_data.timestamp) * 1000
-              );
-              const recorded_timestamp = new Date(timestamp.toDateString());
-              const recorded_data = certificate.certificate_data.data_address;
+              const recorded_timestamp = convert_unix_date(certificate.certificate_data.timestamp)
+              const recorded_data = certificate.certificate_data.cov_certificate_identifier;
               console.log(recorded_data);
-              const stored_meta_data = await retrieve_file(recorded_data);
+              const stored_meta_data = JSON.parse(await retrieve_file(recorded_data));
               console.log(stored_meta_data);
               this.setState({
                 show_already_exist: true,
@@ -151,56 +158,77 @@ class AddToSmartContract extends React.Component {
       this.props.prevStep();
     };
     return (
-      <div className="">
-        <h2>Account: {this.props.values.activeAccount}</h2> <br />
-        <Table striped bordered hover size="sm">
-          <tbody>
-            <tr>
-              <td>Nama : </td>
-              <td>{this.props.values.Name}</td>
-            </tr>
-            <tr>
-              <td>NIK</td>
-              <td>{this.props.values.NIK}</td>
-            </tr>
-            <tr>
-              <td>Hashed NIK</td>
-              <td>{this.state.holder_id}</td>
-            </tr>
-            <tr>
-              <td>{this.props.values.type}</td>
-              <td>{this.props.values.cert_name}</td>
-            </tr>
-            <tr>
-              <td>
-                {this.props.values.type == "Vaccine" ? "Dose" : "hasil tes"}
-              </td>
-              <td>
-                {this.props.values.type == "Vaccine"
-                  ? this.props.values.dose
-                  : this.props.values.test_result}
-              </td>
-            </tr>
-            <tr>
-              <td>Certificate hash</td>
-              <td>{this.state.certificate_hash}</td>
-            </tr>
-            <tr>
-              <td>Transaction Hash</td>
-              <td>{this.state.transactionHash}</td>
-            </tr>
-          </tbody>
-        </Table>
-        <br />
-        <button onClick={Previous}>Previous</button>
-        <button onClick={this.storeCertificateData}>Submit</button>
+      <Row>
+        <Col>
+          <h2>Account: {this.props.values.activeAccount}</h2> <br />
+        </Col>
+        <Col md="8" xs="auto">
+          <Table striped bordered hover size="sm">
+            <tbody>
+              <tr>
+                <td>Nama : </td>
+                <td>{this.props.values.Name}</td>
+              </tr>
+              <tr>
+                <td>NIK</td>
+                <td>{this.props.values.NIK}</td>
+              </tr>
+              <tr>
+                <td>Hashed NIK</td>
+                <td>{this.state.holder_id}</td>
+              </tr>
+              <tr>
+                <td>{this.props.values.type}</td>
+                <td>{this.props.values.cert_name}</td>
+              </tr>
+              <tr>
+                <td>
+                  {this.props.values.type == "Vaccine" ? "Dose" : "hasil tes"}
+                </td>
+                <td>
+                  {this.props.values.type == "Vaccine"
+                    ? this.props.values.dose
+                    : this.props.values.test_result}
+                </td>
+              </tr>
+              <tr>
+                <td>Certificate hash</td>
+                <td>{this.state.certificate_hash}</td>
+              </tr>
+              <tr>
+                <td>Transaction Hash</td>
+                <td>{this.state.transactionHash}</td>
+              </tr>
+            </tbody>
+          </Table>
+          <Row>
+            <Col md="5" xs="auto">
+              <Button onClick={Previous}>Previous</Button>
+            </Col>
+            <Col md="3" xs="auto"></Col>
+            <Col md="2" xs="auto">
+              <Button onClick={() => this.setState({ enter_pin: true })}>
+                Add pin
+              </Button>
+            </Col>
+            <Col md="2" xs="auto">
+              <Button
+                onClick={this.storeCertificateData}
+                disabled={!Boolean(this.state.pin)}
+              >
+                Submit
+              </Button>
+            </Col>
+          </Row>
+        </Col>
         <Modal
+          dialogClassName="custom-dialog"
           show={this.state.show}
-          onHide={this.handleClose}
+          onHide={this.changeState}
           backdrop="static"
           keyboard={false}
         >
-          <Modal.Header closeButton onClick={() => this.handleClose("show")}>
+          <Modal.Header closeButton onClick={() => this.changeState("show")}>
             <Modal.Title>Certificate result</Modal.Title>
           </Modal.Header>
           <Modal.Body>
@@ -208,20 +236,21 @@ class AddToSmartContract extends React.Component {
             <img src={this.state.qrURL} />
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="primary" onClick={() => this.handleClose("show")}>
+            <Button variant="primary" onClick={() => this.changeState("show")}>
               Finish
             </Button>
           </Modal.Footer>
         </Modal>
         <Modal
+          dialogClassName="custom-dialog"
           show={this.state.show_already_exist}
-          onHide={this.handleClose}
+          onHide={this.changeState}
           backdrop="static"
           keyboard={false}
         >
           <Modal.Header
             closeButton
-            onClick={() => this.handleClose("show_already_exist")}
+            onClick={() => this.changeState("show_already_exist")}
           >
             <Modal.Title>Existing Data</Modal.Title>
           </Modal.Header>
@@ -247,13 +276,17 @@ class AddToSmartContract extends React.Component {
           <Modal.Footer>
             <Button
               variant="primary"
-              onClick={() => this.handleClose("show_already_exist")}
+              onClick={() => this.changeState("show_already_exist")}
             >
               Finish
             </Button>
           </Modal.Footer>
         </Modal>
-      </div>
+        <InputPassword 
+          enter_pin={this.state.enter_pin}
+          changeState={this.changeState}
+        />
+      </Row>
     );
   }
 }

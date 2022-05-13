@@ -11,7 +11,7 @@ contract CertificateHandler is CertificateAuthorization, Helper {
     function registerCertificate(
         bytes32 certificate_hash, 
         bytes32 holder_id,
-        string memory payload,
+        //string memory payload,
         bytes32 data_address
     )
         public
@@ -19,7 +19,7 @@ contract CertificateHandler is CertificateAuthorization, Helper {
         returns (bool success)
     {
         uint256 index = isCertificateExist(certificate_hash, holder_to_certificates[holder_id]);
-        if (index > 0) {
+        if (index-1 > 0) {
             emit IsSuccess(false,"already");
             emit certificateExist(
                 true,
@@ -27,13 +27,13 @@ contract CertificateHandler is CertificateAuthorization, Helper {
             );
             return false;
         } else {
-            if (!compareHash(certificate_hash, payload, holder_id)){
-                emit IsSuccess(false,"failhash");
-                return false;
-            }
+            // if (!compareHash(certificate_hash, payload, holder_id)){
+            //     emit IsSuccess(false,"failhash");
+            //     return false;
+            // }
             uint256 timestamp = block.timestamp;
             holder_to_certificates[holder_id].push(
-            COV_CERTIFICATE(certificate_hash,data_address,timestamp,msg.sender));
+            COV_CERTIFICATE(certificate_hash,data_address,timestamp));
             emit IsSuccess(true,"stored");
             emit timestampEvent(timestamp);
             return true;
@@ -42,7 +42,7 @@ contract CertificateHandler is CertificateAuthorization, Helper {
 
     function verifyCertificate(bytes32 certificate_hash,bytes32 holder_id) public view returns(bool,COV_CERTIFICATE memory){
         uint256 index = isCertificateExist(certificate_hash, holder_to_certificates[holder_id]);
-        if(index>0){
+        if(index-1>0){
             return (true,holder_to_certificates[holder_id][index-1]);
         }
         return (false,holder_to_certificates[holder_id][index-1]);

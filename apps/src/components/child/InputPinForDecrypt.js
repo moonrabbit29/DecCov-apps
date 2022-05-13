@@ -10,6 +10,7 @@ class InputPin extends React.Component {
   state = {
       pin_1:""
   }
+  
   submitPin = (e) => {
     e.preventDefault()
     console.log(`PIN -> ${this.state.pin_1}`)

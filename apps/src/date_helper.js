@@ -10,5 +10,8 @@ const unix_datetime_add_day = (current,next) => {
     return next_date
 }
 
+const get_today = () => Math.round(new Date().getTime() / 1000).toString()
+
 export {unix_datetime_add_day}
 export {convert_unix_date}
+export {get_today}

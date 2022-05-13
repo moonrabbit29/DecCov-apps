@@ -4,7 +4,7 @@ pragma solidity >=0.7.0 <0.9.0;
 // this contract provides authorization for certificate smart contract
 
 interface IssuerData {
-    function verifyIssuer(address issuer) external returns (bool);
+    function checkIssuerExist(address issuer) external returns (bool);
 }
 
 contract CertificateAuthorization {
@@ -30,12 +30,12 @@ contract CertificateAuthorization {
         return _Registry;
     }
 
-    function verifyIssuer(address sender) private returns(bool) {
-        return IssuerData(_Registry).verifyIssuer(sender);
+    function checkSignerIsIssuer(address sender) private returns(bool) {
+        return IssuerData(_Registry).checkIssuerExist(sender);
     }
 
     modifier grantAccess(){
-        require(verifyIssuer(msg.sender) == true);
+        require(checkSignerIsIssuer(msg.sender) == true);
         _;
     }
 }

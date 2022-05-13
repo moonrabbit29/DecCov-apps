@@ -7,15 +7,15 @@
     "absolutePath": "contracts/Certificate/Data.sol",
     "exportedSymbols": {
       "Data": [
-        366
+        514
       ]
     },
-    "id": 367,
+    "id": 515,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 352,
+        "id": 500,
         "literals": [
           "solidity",
           ">=",
@@ -34,9 +34,9 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 366,
+        "id": 514,
         "linearizedBaseContracts": [
-          366
+          514
         ],
         "name": "Data",
         "nameLocation": "77:4:2",
@@ -44,16 +44,16 @@
         "nodes": [
           {
             "canonicalName": "Data.COV_CERTIFICATE",
-            "id": 359,
+            "id": 507,
             "members": [
               {
                 "constant": false,
-                "id": 354,
+                "id": 502,
                 "mutability": "mutable",
                 "name": "cov_certificate_identifier",
                 "nameLocation": "133:26:2",
                 "nodeType": "VariableDeclaration",
-                "scope": 359,
+                "scope": 507,
                 "src": "125:34:2",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -62,7 +62,7 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 353,
+                  "id": 501,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
                   "src": "125:7:2",
@@ -75,12 +75,12 @@
               },
               {
                 "constant": false,
-                "id": 356,
+                "id": 504,
                 "mutability": "mutable",
                 "name": "certificate_data",
                 "nameLocation": "178:16:2",
                 "nodeType": "VariableDeclaration",
-                "scope": 359,
+                "scope": 507,
                 "src": "170:24:2",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -89,7 +89,7 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 355,
+                  "id": 503,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
                   "src": "170:7:2",
@@ -102,12 +102,12 @@
               },
               {
                 "constant": false,
-                "id": 358,
+                "id": 506,
                 "mutability": "mutable",
                 "name": "timestamp",
                 "nameLocation": "213:9:2",
                 "nodeType": "VariableDeclaration",
-                "scope": 359,
+                "scope": 507,
                 "src": "205:17:2",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -116,7 +116,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 357,
+                  "id": 505,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "205:7:2",
@@ -131,29 +131,29 @@
             "name": "COV_CERTIFICATE",
             "nameLocation": "98:15:2",
             "nodeType": "StructDefinition",
-            "scope": 366,
+            "scope": 514,
             "src": "91:139:2",
             "visibility": "public"
           },
           {
             "constant": false,
-            "id": 365,
+            "id": 513,
             "mutability": "mutable",
             "name": "holder_to_certificates",
             "nameLocation": "283:22:2",
             "nodeType": "VariableDeclaration",
-            "scope": 366,
+            "scope": 514,
             "src": "236:69:2",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_bytes32_$_t_array$_t_struct$_COV_CERTIFICATE_$359_storage_$dyn_storage_$",
+              "typeIdentifier": "t_mapping$_t_bytes32_$_t_array$_t_struct$_COV_CERTIFICATE_$507_storage_$dyn_storage_$",
               "typeString": "mapping(bytes32 => struct Data.COV_CERTIFICATE[])"
             },
             "typeName": {
-              "id": 364,
+              "id": 512,
               "keyType": {
-                "id": 360,
+                "id": 508,
                 "name": "bytes32",
                 "nodeType": "ElementaryTypeName",
                 "src": "244:7:2",
@@ -165,32 +165,32 @@
               "nodeType": "Mapping",
               "src": "236:37:2",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_bytes32_$_t_array$_t_struct$_COV_CERTIFICATE_$359_storage_$dyn_storage_$",
+                "typeIdentifier": "t_mapping$_t_bytes32_$_t_array$_t_struct$_COV_CERTIFICATE_$507_storage_$dyn_storage_$",
                 "typeString": "mapping(bytes32 => struct Data.COV_CERTIFICATE[])"
               },
               "valueType": {
                 "baseType": {
-                  "id": 362,
+                  "id": 510,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 361,
+                    "id": 509,
                     "name": "COV_CERTIFICATE",
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 359,
+                    "referencedDeclaration": 507,
                     "src": "255:15:2"
                   },
-                  "referencedDeclaration": 359,
+                  "referencedDeclaration": 507,
                   "src": "255:15:2",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_COV_CERTIFICATE_$359_storage_ptr",
+                    "typeIdentifier": "t_struct$_COV_CERTIFICATE_$507_storage_ptr",
                     "typeString": "struct Data.COV_CERTIFICATE"
                   }
                 },
-                "id": 363,
+                "id": 511,
                 "nodeType": "ArrayTypeName",
                 "src": "255:17:2",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_array$_t_struct$_COV_CERTIFICATE_$359_storage_$dyn_storage_ptr",
+                  "typeIdentifier": "t_array$_t_struct$_COV_CERTIFICATE_$507_storage_$dyn_storage_ptr",
                   "typeString": "struct Data.COV_CERTIFICATE[]"
                 }
               }
@@ -198,7 +198,7 @@
             "visibility": "internal"
           }
         ],
-        "scope": 367,
+        "scope": 515,
         "src": "68:243:2",
         "usedErrors": []
       }

@@ -6,8 +6,8 @@ import Qrcode from "qrcode";
 import addFile from "../../ipfs";
 import { turnIntoBuffer, retrieve_file } from "../../ipfs";
 import InputPassword from "./InputPassword"
-import {decryptData,encryptData} from "../../crypt"
-import {convert_unix_date,unix_datetime_add_day} from "../../date_helper";
+import {encryptData} from "../../crypt"
+import {convert_unix_date,unix_datetime_add_day,get_today} from "../../date_helper";
 
 class AddToSmartContract extends React.Component {
   // ganache-cli --chain.vmErrorsOnRPCResponse true --hardfork istanbul --miner.blockGasLimit 12000000 --wallet.mnemonic brownie --server.port 8545 --account="0xf5c9a0c1c21216b57a93f0157c309093885b261c7623c138bffbf6298114798c,9629874799100000000000000000" --account="0x60f7afbcb7c2784c04be36ccfd49fc3e04da6acca0157411b87d9eaab1762596,96298
@@ -64,6 +64,12 @@ class AddToSmartContract extends React.Component {
       issuer_address: this.props.values.activeAccount,
     };
 
+    if(this.props.values.type === "Covid Test"){
+      user_data["certificate_data"]["expiry_date"] = unix_datetime_add_day(get_today,this.props.values.testExpiryDate)
+    }
+
+    console.log(`expiry date -> ${user_data["expiry_date"]}`)
+
     //var certificate_hash = "0xd838244465d7b705adf17e52bd7ea23a1d7f45cf78c6f31e97df9caedf5120e6"
     //["bytes32","string","address"]
     const opts = {
@@ -113,10 +119,6 @@ class AddToSmartContract extends React.Component {
             this.setState({ show: true });
             const timestamp =
               receipt.events.timestampEvent.returnValues["timestamp"];
-            user_data["timestamp"] = timestamp;
-            if(this.props.values.type === "Covid Test"){
-              user_data["expiry_date"] = unix_datetime_add_day(timestamp,this.props.values.testExpiryDate)
-            }
             const copy_user_data = {...user_data}
             delete copy_user_data["image"]
             //const qrCodeData = encryptData(JSON.stringify(user_data),this.state.pin)

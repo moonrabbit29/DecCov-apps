@@ -80,11 +80,14 @@ class UserDetail extends React.Component {
         });
         const vaccine_dose = modified_data
           .map((e) => {
-            if (e.data_detail.certificate_data.type == "Vaccine")
+            if (e.data_detail.certificate_data.type === "Vaccine") {
+              console.log(e.data_detail.certificate_data.type);
               return e.data_detail.certificate_data.dose;
-          })
+            }
+          }).filter(e => e !== undefined)
           .sort();
-        console.log(vaccine_dose);
+        console.log(vaccine_dose)
+        console.log(`vaccine dose ${vaccine_dose[0]} ${vaccine_dose[1]}`);
         this.props.setTakenVaccineDose(vaccine_dose);
       }
       return { res: true, data_len: data.length };
@@ -149,7 +152,7 @@ class UserDetail extends React.Component {
               <Row>
                 <Col md={4} xs="auto">
                   <Button onClick={checkData}>
-                    {this.state.isLoading ? "Loading…" : "Check"}
+                    {this.state.is_loading ? "Loading…" : "Check"}
                   </Button>
                 </Col>
                 <Col md={6} xs="auto" />

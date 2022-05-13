@@ -20,10 +20,35 @@
           "internalType": "address",
           "name": "issuer",
           "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "message",
+          "type": "string"
         }
       ],
       "name": "IsSuccess",
       "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_address",
+          "type": "address"
+        }
+      ],
+      "name": "checkIssuerExist",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
     },
     {
       "inputs": [],
@@ -80,25 +105,6 @@
       ],
       "stateMutability": "nonpayable",
       "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "_address",
-          "type": "address"
-        }
-      ],
-      "name": "verifyIssuer",
-      "outputs": [
-        {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
     }
   ],
   "allSourcePaths": {
@@ -109,18 +115,18 @@
     "absolutePath": "contracts/Registry/IssuerData.sol",
     "exportedSymbols": {
       "Issuer": [
-        307
+        321
       ],
       "RegistryAuthorization": [
-        384
+        498
       ]
     },
-    "id": 308,
+    "id": 322,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 255,
+        "id": 252,
         "literals": [
           "solidity",
           ">=",
@@ -136,12 +142,12 @@
       {
         "absolutePath": "contracts/Registry/RegistryAuthorization.sol",
         "file": "./RegistryAuthorization.sol",
-        "id": 256,
+        "id": 253,
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
-        "scope": 308,
-        "sourceUnit": 385,
-        "src": "66:37:5",
+        "scope": 322,
+        "sourceUnit": 499,
+        "src": "65:37:5",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -150,49 +156,49 @@
         "baseContracts": [
           {
             "baseName": {
-              "id": 257,
+              "id": 254,
               "name": "RegistryAuthorization",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 384,
-              "src": "191:21:5"
+              "referencedDeclaration": 498,
+              "src": "190:21:5"
             },
-            "id": 258,
+            "id": 255,
             "nodeType": "InheritanceSpecifier",
-            "src": "191:21:5"
+            "src": "190:21:5"
           }
         ],
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 307,
+        "id": 321,
         "linearizedBaseContracts": [
-          307,
-          384
+          321,
+          498
         ],
         "name": "Issuer",
-        "nameLocation": "181:6:5",
+        "nameLocation": "180:6:5",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "anonymous": false,
-            "id": 266,
+            "id": 265,
             "name": "IsSuccess",
-            "nameLocation": "226:9:5",
+            "nameLocation": "224:9:5",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 265,
+              "id": 264,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 260,
+                  "id": 257,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "value",
-                  "nameLocation": "250:5:5",
+                  "nameLocation": "248:5:5",
                   "nodeType": "VariableDeclaration",
-                  "scope": 266,
-                  "src": "245:10:5",
+                  "scope": 265,
+                  "src": "243:10:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -200,10 +206,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 259,
+                    "id": 256,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "245:4:5",
+                    "src": "243:4:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -213,14 +219,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 262,
+                  "id": 259,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "hashData",
-                  "nameLocation": "273:8:5",
+                  "nameLocation": "271:8:5",
                   "nodeType": "VariableDeclaration",
-                  "scope": 266,
-                  "src": "265:16:5",
+                  "scope": 265,
+                  "src": "263:16:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -228,10 +234,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 261,
+                    "id": 258,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "265:7:5",
+                    "src": "263:7:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -241,14 +247,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 264,
+                  "id": 261,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "issuer",
-                  "nameLocation": "299:6:5",
+                  "nameLocation": "297:6:5",
                   "nodeType": "VariableDeclaration",
-                  "scope": 266,
-                  "src": "291:14:5",
+                  "scope": 265,
+                  "src": "289:14:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -256,10 +262,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 263,
+                    "id": 260,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "291:7:5",
+                    "src": "289:7:5",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -267,46 +273,265 @@
                     }
                   },
                   "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 263,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "message",
+                  "nameLocation": "320:7:5",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 265,
+                  "src": "313:14:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 262,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "313:6:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
                 }
               ],
-              "src": "235:80:5"
+              "src": "233:100:5"
             },
-            "src": "220:96:5"
+            "src": "218:116:5"
           },
           {
             "body": {
-              "id": 291,
+              "id": 305,
               "nodeType": "Block",
-              "src": "428:118:5",
+              "src": "469:361:5",
               "statements": [
                 {
+                  "condition": {
+                    "arguments": [
+                      {
+                        "id": 277,
+                        "name": "issuer",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 267,
+                        "src": "500:6:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 276,
+                      "name": "checkIssuerExist",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 320,
+                      "src": "483:16:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_view$_t_address_$returns$_t_bool_$",
+                        "typeString": "function (address) view returns (bool)"
+                      }
+                    },
+                    "id": 278,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "483:24:5",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 289,
+                  "nodeType": "IfStatement",
+                  "src": "479:222:5",
+                  "trueBody": {
+                    "id": 288,
+                    "nodeType": "Block",
+                    "src": "509:192:5",
+                    "statements": [
+                      {
+                        "eventCall": {
+                          "arguments": [
+                            {
+                              "hexValue": "66616c7365",
+                              "id": 280,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "kind": "bool",
+                              "lValueRequested": false,
+                              "nodeType": "Literal",
+                              "src": "555:5:5",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_bool",
+                                "typeString": "bool"
+                              },
+                              "value": "false"
+                            },
+                            {
+                              "id": 281,
+                              "name": "_hashData",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 269,
+                              "src": "578:9:5",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_bytes32",
+                                "typeString": "bytes32"
+                              }
+                            },
+                            {
+                              "id": 282,
+                              "name": "issuer",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 267,
+                              "src": "605:6:5",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              }
+                            },
+                            {
+                              "hexValue": "616c6c72656164792072656769737465726564",
+                              "id": 283,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "kind": "string",
+                              "lValueRequested": false,
+                              "nodeType": "Literal",
+                              "src": "629:21:5",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_stringliteral_69b89e8990c6834fd9dffd0364cfd03a15cddf094d720c230aa220da07108d06",
+                                "typeString": "literal_string \"allready registered\""
+                              },
+                              "value": "allready registered"
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_bool",
+                                "typeString": "bool"
+                              },
+                              {
+                                "typeIdentifier": "t_bytes32",
+                                "typeString": "bytes32"
+                              },
+                              {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              },
+                              {
+                                "typeIdentifier": "t_stringliteral_69b89e8990c6834fd9dffd0364cfd03a15cddf094d720c230aa220da07108d06",
+                                "typeString": "literal_string \"allready registered\""
+                              }
+                            ],
+                            "id": 279,
+                            "name": "IsSuccess",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 265,
+                            "src": "528:9:5",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_event_nonpayable$_t_bool_$_t_bytes32_$_t_address_$_t_string_memory_ptr_$returns$__$",
+                              "typeString": "function (bool,bytes32,address,string memory)"
+                            }
+                          },
+                          "id": 284,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "528:136:5",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_tuple$__$",
+                            "typeString": "tuple()"
+                          }
+                        },
+                        "id": 285,
+                        "nodeType": "EmitStatement",
+                        "src": "523:141:5"
+                      },
+                      {
+                        "expression": {
+                          "hexValue": "66616c7365",
+                          "id": 286,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "bool",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "685:5:5",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          },
+                          "value": "false"
+                        },
+                        "functionReturnParameters": 275,
+                        "id": 287,
+                        "nodeType": "Return",
+                        "src": "678:12:5"
+                      }
+                    ]
+                  }
+                },
+                {
                   "expression": {
-                    "id": 281,
+                    "id": 294,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "baseExpression": {
-                        "id": 277,
+                        "id": 290,
                         "name": "issuerMapping",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 325,
-                        "src": "438:13:5",
+                        "referencedDeclaration": 439,
+                        "src": "710:13:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_bytes32_$",
                           "typeString": "mapping(address => bytes32)"
                         }
                       },
-                      "id": 279,
+                      "id": 292,
                       "indexExpression": {
-                        "id": 278,
+                        "id": 291,
                         "name": "issuer",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 268,
-                        "src": "452:6:5",
+                        "referencedDeclaration": 267,
+                        "src": "724:6:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -317,7 +542,7 @@
                       "isPure": false,
                       "lValueRequested": true,
                       "nodeType": "IndexAccess",
-                      "src": "438:21:5",
+                      "src": "710:21:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bytes32",
                         "typeString": "bytes32"
@@ -326,40 +551,40 @@
                     "nodeType": "Assignment",
                     "operator": "=",
                     "rightHandSide": {
-                      "id": 280,
+                      "id": 293,
                       "name": "_hashData",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 270,
-                      "src": "462:9:5",
+                      "referencedDeclaration": 269,
+                      "src": "734:9:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bytes32",
                         "typeString": "bytes32"
                       }
                     },
-                    "src": "438:33:5",
+                    "src": "710:33:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
                     }
                   },
-                  "id": 282,
+                  "id": 295,
                   "nodeType": "ExpressionStatement",
-                  "src": "438:33:5"
+                  "src": "710:33:5"
                 },
                 {
                   "eventCall": {
                     "arguments": [
                       {
                         "hexValue": "74727565",
-                        "id": 284,
+                        "id": 297,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "bool",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "496:4:5",
+                        "src": "768:4:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -367,28 +592,44 @@
                         "value": "true"
                       },
                       {
-                        "id": 285,
+                        "id": 298,
                         "name": "_hashData",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 270,
-                        "src": "501:9:5",
+                        "referencedDeclaration": 269,
+                        "src": "774:9:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
                         }
                       },
                       {
-                        "id": 286,
+                        "id": 299,
                         "name": "issuer",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 268,
-                        "src": "511:6:5",
+                        "referencedDeclaration": 267,
+                        "src": "785:6:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
                         }
+                      },
+                      {
+                        "hexValue": "73746f726564",
+                        "id": 300,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "793:8:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_62abd276aae8e6f841196366f5e78aedbdb6cc3fbe30da0c9ca4cb4382c135cd",
+                          "typeString": "literal_string \"stored\""
+                        },
+                        "value": "stored"
                       }
                     ],
                     "expression": {
@@ -404,20 +645,24 @@
                         {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_62abd276aae8e6f841196366f5e78aedbdb6cc3fbe30da0c9ca4cb4382c135cd",
+                          "typeString": "literal_string \"stored\""
                         }
                       ],
-                      "id": 283,
+                      "id": 296,
                       "name": "IsSuccess",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 266,
-                      "src": "486:9:5",
+                      "referencedDeclaration": 265,
+                      "src": "758:9:5",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_event_nonpayable$_t_bool_$_t_bytes32_$_t_address_$returns$__$",
-                        "typeString": "function (bool,bytes32,address)"
+                        "typeIdentifier": "t_function_event_nonpayable$_t_bool_$_t_bytes32_$_t_address_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,bytes32,address,string memory)"
                       }
                     },
-                    "id": 287,
+                    "id": 301,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -425,76 +670,76 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "486:32:5",
+                    "src": "758:44:5",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 288,
+                  "id": 302,
                   "nodeType": "EmitStatement",
-                  "src": "481:37:5"
+                  "src": "753:49:5"
                 },
                 {
                   "expression": {
                     "hexValue": "74727565",
-                    "id": 289,
+                    "id": 303,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
                     "kind": "bool",
                     "lValueRequested": false,
                     "nodeType": "Literal",
-                    "src": "535:4:5",
+                    "src": "819:4:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     },
                     "value": "true"
                   },
-                  "functionReturnParameters": 276,
-                  "id": 290,
+                  "functionReturnParameters": 275,
+                  "id": 304,
                   "nodeType": "Return",
-                  "src": "528:11:5"
+                  "src": "812:11:5"
                 }
               ]
             },
             "functionSelector": "92067121",
-            "id": 292,
+            "id": 306,
             "implemented": true,
             "kind": "function",
             "modifiers": [
               {
-                "id": 273,
+                "id": 272,
                 "kind": "modifierInvocation",
                 "modifierName": {
-                  "id": 272,
+                  "id": 271,
                   "name": "grantAccess",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 353,
-                  "src": "386:11:5"
+                  "referencedDeclaration": 467,
+                  "src": "422:11:5"
                 },
                 "nodeType": "ModifierInvocation",
-                "src": "386:11:5"
+                "src": "422:11:5"
               }
             ],
             "name": "registerIssuer",
-            "nameLocation": "335:14:5",
+            "nameLocation": "349:14:5",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 271,
+              "id": 270,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 268,
+                  "id": 267,
                   "mutability": "mutable",
                   "name": "issuer",
-                  "nameLocation": "359:6:5",
+                  "nameLocation": "372:6:5",
                   "nodeType": "VariableDeclaration",
-                  "scope": 292,
-                  "src": "351:14:5",
+                  "scope": 306,
+                  "src": "364:14:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -502,10 +747,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 267,
+                    "id": 266,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "351:7:5",
+                    "src": "364:7:5",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -516,13 +761,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 270,
+                  "id": 269,
                   "mutability": "mutable",
                   "name": "_hashData",
-                  "nameLocation": "375:9:5",
+                  "nameLocation": "388:9:5",
                   "nodeType": "VariableDeclaration",
-                  "scope": 292,
-                  "src": "367:17:5",
+                  "scope": 306,
+                  "src": "380:17:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -530,10 +775,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 269,
+                    "id": 268,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "367:7:5",
+                    "src": "380:7:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -542,21 +787,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "350:35:5"
+              "src": "363:35:5"
             },
             "returnParameters": {
-              "id": 276,
+              "id": 275,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 275,
+                  "id": 274,
                   "mutability": "mutable",
                   "name": "success",
-                  "nameLocation": "418:7:5",
+                  "nameLocation": "456:7:5",
                   "nodeType": "VariableDeclaration",
-                  "scope": 292,
-                  "src": "413:12:5",
+                  "scope": 306,
+                  "src": "451:12:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -564,10 +809,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 274,
+                    "id": 273,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "413:4:5",
+                    "src": "451:4:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -576,19 +821,19 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "412:14:5"
+              "src": "450:14:5"
             },
-            "scope": 307,
-            "src": "326:220:5",
+            "scope": 321,
+            "src": "340:490:5",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 305,
+              "id": 319,
               "nodeType": "Block",
-              "src": "618:49:5",
+              "src": "907:51:5",
               "statements": [
                 {
                   "expression": {
@@ -596,32 +841,32 @@
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
                     },
-                    "id": 303,
+                    "id": 317,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftExpression": {
                       "baseExpression": {
-                        "id": 299,
+                        "id": 313,
                         "name": "issuerMapping",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 325,
-                        "src": "635:13:5",
+                        "referencedDeclaration": 439,
+                        "src": "924:13:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_bytes32_$",
                           "typeString": "mapping(address => bytes32)"
                         }
                       },
-                      "id": 301,
+                      "id": 315,
                       "indexExpression": {
-                        "id": 300,
+                        "id": 314,
                         "name": "_address",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 294,
-                        "src": "649:8:5",
+                        "referencedDeclaration": 308,
+                        "src": "938:8:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -632,7 +877,7 @@
                       "isPure": false,
                       "lValueRequested": false,
                       "nodeType": "IndexAccess",
-                      "src": "635:23:5",
+                      "src": "924:23:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bytes32",
                         "typeString": "bytes32"
@@ -642,54 +887,54 @@
                     "operator": ">",
                     "rightExpression": {
                       "hexValue": "30",
-                      "id": 302,
+                      "id": 316,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "kind": "number",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "659:1:5",
+                      "src": "950:1:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_rational_0_by_1",
                         "typeString": "int_const 0"
                       },
                       "value": "0"
                     },
-                    "src": "635:25:5",
+                    "src": "924:27:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
-                  "functionReturnParameters": 298,
-                  "id": 304,
+                  "functionReturnParameters": 312,
+                  "id": 318,
                   "nodeType": "Return",
-                  "src": "628:32:5"
+                  "src": "917:34:5"
                 }
               ]
             },
-            "functionSelector": "60c000d4",
-            "id": 306,
+            "functionSelector": "7547402a",
+            "id": 320,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
-            "name": "verifyIssuer",
-            "nameLocation": "561:12:5",
+            "name": "checkIssuerExist",
+            "nameLocation": "845:16:5",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 295,
+              "id": 309,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 294,
+                  "id": 308,
                   "mutability": "mutable",
                   "name": "_address",
-                  "nameLocation": "583:8:5",
+                  "nameLocation": "870:8:5",
                   "nodeType": "VariableDeclaration",
-                  "scope": 306,
-                  "src": "575:16:5",
+                  "scope": 320,
+                  "src": "862:16:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -697,10 +942,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 293,
+                    "id": 307,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "575:7:5",
+                    "src": "862:7:5",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -710,21 +955,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "574:18:5"
+              "src": "861:18:5"
             },
             "returnParameters": {
-              "id": 298,
+              "id": 312,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 297,
+                  "id": 311,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 306,
-                  "src": "613:4:5",
+                  "scope": 320,
+                  "src": "901:4:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -732,10 +977,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 296,
+                    "id": 310,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "613:4:5",
+                    "src": "901:4:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -744,24 +989,24 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "612:6:5"
+              "src": "900:6:5"
             },
-            "scope": 307,
-            "src": "552:115:5",
+            "scope": 321,
+            "src": "836:122:5",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "public"
           }
         ],
-        "scope": 308,
-        "src": "172:498:5",
+        "scope": 322,
+        "src": "171:789:5",
         "usedErrors": []
       }
     ],
-    "src": "32:640:5"
+    "src": "32:929:5"
   },
-  "bytecode": "608060405234801561001057600080fd5b50600080546001600160a01b0319163317905561029c806100326000396000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c806360c000d4146100515780636210d360146100915780638da5cb5b146100a457806392067121146100cf575b600080fd5b61007c61005f36600461021a565b6001600160a01b0316600090815260026020526040902054151590565b60405190151581526020015b60405180910390f35b61007c61009f36600461021a565b6100e2565b6000546100b7906001600160a01b031681565b6040516001600160a01b039091168152602001610088565b61007c6100dd36600461023c565b61016b565b600080546001600160a01b031633148061010b57503360009081526001602052604090205460ff165b61011457600080fd5b6001600160a01b03821660009081526001602081905260409091205460ff1615151461016257506001600160a01b03166000908152600160208190526040909120805460ff19168217905590565b5060005b919050565b600080546001600160a01b031633148061019457503360009081526001602052604090205460ff165b61019d57600080fd5b6001600160a01b03831660008181526002602090815260409182902085905581516001815290810185905280820192909252517f7a0f50b566ab4225b0f298a229bcf96d4ba86d1c6c43d48ad0f0f6d96f68413d9181900360600190a150600192915050565b80356001600160a01b038116811461016657600080fd5b60006020828403121561022c57600080fd5b61023582610203565b9392505050565b6000806040838503121561024f57600080fd5b61025883610203565b94602093909301359350505056fea2646970667358221220c39ac1db07e2761db4c82368da83f47af18c31de2fe7c0a67e740e03557fa44e64736f6c63430008070033",
-  "bytecodeSha1": "fb0d10465175e8b5d096493cf9899ab0f0f04bab",
+  "bytecode": "608060405234801561001057600080fd5b50600080546001600160a01b03191633179055610355806100326000396000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c80636210d360146100515780637547402a146100795780638da5cb5b146100a457806392067121146100cf575b600080fd5b61006461005f3660046102d3565b6100e2565b60405190151581526020015b60405180910390f35b6100646100873660046102d3565b6001600160a01b0316600090815260026020526040902054151590565b6000546100b7906001600160a01b031681565b6040516001600160a01b039091168152602001610070565b6100646100dd3660046102f5565b61016b565b600080546001600160a01b031633148061010b57503360009081526001602052604090205460ff165b61011457600080fd5b6001600160a01b03821660009081526001602081905260409091205460ff1615151461016257506001600160a01b03166000908152600160208190526040909120805460ff19168217905590565b5060005b919050565b600080546001600160a01b031633148061019457503360009081526001602052604090205460ff165b61019d57600080fd5b6001600160a01b03831660009081526002602052604090205415610237576040805160008152602081018490526001600160a01b0385168183015260806060820181905260139082015272185b1b1c9958591e481c9959da5cdd195c9959606a1b60a082015290517f3a5e9cf671f12108422b0b314d2755338a4779c3f3d01ae983f8e6a19970b0859181900360c00190a15060006102b6565b6001600160a01b03831660008181526002602090815260409182902085905581516001815290810185905280820192909252608060608301819052600690830152651cdd1bdc995960d21b60a0830152517f3a5e9cf671f12108422b0b314d2755338a4779c3f3d01ae983f8e6a19970b0859181900360c00190a15060015b92915050565b80356001600160a01b038116811461016657600080fd5b6000602082840312156102e557600080fd5b6102ee826102bc565b9392505050565b6000806040838503121561030857600080fd5b610311836102bc565b94602093909301359350505056fea2646970667358221220e6e4e8644ced979907f6d99ec6374c5cf3608237cca97c757e2c63b161b2c8a364736f6c63430008070033",
+  "bytecodeSha1": "083d2bf0e231df07c3a32403f40bcc7cb516f092",
   "compiler": {
     "evm_version": "istanbul",
     "optimizer": {
@@ -776,14 +1021,14 @@
       "5": {},
       "7": {
         "Issuer.registerIssuer": {
-          "6": [
-            507,
+          "8": [
             526,
+            545,
             true
           ],
-          "7": [
-            530,
-            556,
+          "9": [
+            549,
+            575,
             true
           ]
         }
@@ -791,36 +1036,44 @@
     },
     "statements": {
       "5": {
-        "Issuer.registerIssuer": {
-          "3": [
-            438,
-            471
-          ],
-          "4": [
-            481,
-            518
-          ],
-          "5": [
-            528,
-            539
+        "Issuer.checkIssuerExist": {
+          "0": [
+            917,
+            951
           ]
         },
-        "Issuer.verifyIssuer": {
-          "0": [
-            628,
-            660
+        "Issuer.registerIssuer": {
+          "3": [
+            523,
+            664
+          ],
+          "4": [
+            678,
+            690
+          ],
+          "5": [
+            710,
+            743
+          ],
+          "6": [
+            753,
+            802
+          ],
+          "7": [
+            812,
+            823
           ]
         }
       },
       "7": {
         "RegistryAuthorization.registerAuthorizeUser": {
           "1": [
-            733,
-            764
+            759,
+            790
           ],
           "2": [
-            818,
-            830
+            847,
+            859
           ]
         }
       }
@@ -829,8 +1082,8 @@
   "dependencies": [
     "RegistryAuthorization"
   ],
-  "deployedBytecode": "608060405234801561001057600080fd5b506004361061004c5760003560e01c806360c000d4146100515780636210d360146100915780638da5cb5b146100a457806392067121146100cf575b600080fd5b61007c61005f36600461021a565b6001600160a01b0316600090815260026020526040902054151590565b60405190151581526020015b60405180910390f35b61007c61009f36600461021a565b6100e2565b6000546100b7906001600160a01b031681565b6040516001600160a01b039091168152602001610088565b61007c6100dd36600461023c565b61016b565b600080546001600160a01b031633148061010b57503360009081526001602052604090205460ff165b61011457600080fd5b6001600160a01b03821660009081526001602081905260409091205460ff1615151461016257506001600160a01b03166000908152600160208190526040909120805460ff19168217905590565b5060005b919050565b600080546001600160a01b031633148061019457503360009081526001602052604090205460ff165b61019d57600080fd5b6001600160a01b03831660008181526002602090815260409182902085905581516001815290810185905280820192909252517f7a0f50b566ab4225b0f298a229bcf96d4ba86d1c6c43d48ad0f0f6d96f68413d9181900360600190a150600192915050565b80356001600160a01b038116811461016657600080fd5b60006020828403121561022c57600080fd5b61023582610203565b9392505050565b6000806040838503121561024f57600080fd5b61025883610203565b94602093909301359350505056fea2646970667358221220c39ac1db07e2761db4c82368da83f47af18c31de2fe7c0a67e740e03557fa44e64736f6c63430008070033",
-  "deployedSourceMap": "172:498:5:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;552:115;;;;;;:::i;:::-;-1:-1:-1;;;;;635:23:5;613:4;635:23;;;:13;:23;;;;;;:25;;;552:115;;;;1031:14:8;;1024:22;1006:41;;994:2;979:18;552:115:5;;;;;;;;582:265:7;;;;;;:::i;:::-;;:::i;173:28::-;;;;;-1:-1:-1;;;;;173:28:7;;;;;;-1:-1:-1;;;;;822:32:8;;;804:51;;792:2;777:18;173:28:7;642:219:8;326:220:5;;;;;;:::i;:::-;;:::i;582:265:7:-;658:12;521:5;;-1:-1:-1;;;;;521:5:7;507:10;:19;;:49;;-1:-1:-1;545:10:7;530:26;;;;:14;:26;;;;;;;;507:49;499:58;;;;;;-1:-1:-1;;;;;687:24:7;::::1;;::::0;;;:14:::1;:24;::::0;;;;;;;;::::1;;:30;;;682:159;;-1:-1:-1::0;;;;;;733:24:7::1;;::::0;;;760:4:::1;733:24;::::0;;;;;;;:31;;-1:-1:-1;;733:31:7::1;::::0;::::1;::::0;;760:4;582:265::o;682:159::-:1;-1:-1:-1::0;825:5:7::1;682:159;582:265:::0;;;:::o;326:220:5:-;413:12;521:5:7;;-1:-1:-1;;;;;521:5:7;507:10;:19;;:49;;-1:-1:-1;545:10:7;530:26;;;;:14;:26;;;;;;;;507:49;499:58;;;;;;-1:-1:-1;;;;;438:21:5;::::1;;::::0;;;:13:::1;:21;::::0;;;;;;;;:33;;;486:32;;496:4:::1;1254:41:8::0;;1311:18;;;1304:34;;;1354:18;;;1347:60;;;;486:32:5;::::1;::::0;;;;1242:2:8;486:32:5;;::::1;-1:-1:-1::0;535:4:5::1;326:220:::0;;;;:::o;14:173:8:-;82:20;;-1:-1:-1;;;;;131:31:8;;121:42;;111:70;;177:1;174;167:12;192:186;251:6;304:2;292:9;283:7;279:23;275:32;272:52;;;320:1;317;310:12;272:52;343:29;362:9;343:29;:::i;:::-;333:39;192:186;-1:-1:-1;;;192:186:8:o;383:254::-;451:6;459;512:2;500:9;491:7;487:23;483:32;480:52;;;528:1;525;518:12;480:52;551:29;570:9;551:29;:::i;:::-;541:39;627:2;612:18;;;;599:32;;-1:-1:-1;;;383:254:8:o",
+  "deployedBytecode": "608060405234801561001057600080fd5b506004361061004c5760003560e01c80636210d360146100515780637547402a146100795780638da5cb5b146100a457806392067121146100cf575b600080fd5b61006461005f3660046102d3565b6100e2565b60405190151581526020015b60405180910390f35b6100646100873660046102d3565b6001600160a01b0316600090815260026020526040902054151590565b6000546100b7906001600160a01b031681565b6040516001600160a01b039091168152602001610070565b6100646100dd3660046102f5565b61016b565b600080546001600160a01b031633148061010b57503360009081526001602052604090205460ff165b61011457600080fd5b6001600160a01b03821660009081526001602081905260409091205460ff1615151461016257506001600160a01b03166000908152600160208190526040909120805460ff19168217905590565b5060005b919050565b600080546001600160a01b031633148061019457503360009081526001602052604090205460ff165b61019d57600080fd5b6001600160a01b03831660009081526002602052604090205415610237576040805160008152602081018490526001600160a01b0385168183015260806060820181905260139082015272185b1b1c9958591e481c9959da5cdd195c9959606a1b60a082015290517f3a5e9cf671f12108422b0b314d2755338a4779c3f3d01ae983f8e6a19970b0859181900360c00190a15060006102b6565b6001600160a01b03831660008181526002602090815260409182902085905581516001815290810185905280820192909252608060608301819052600690830152651cdd1bdc995960d21b60a0830152517f3a5e9cf671f12108422b0b314d2755338a4779c3f3d01ae983f8e6a19970b0859181900360c00190a15060015b92915050565b80356001600160a01b038116811461016657600080fd5b6000602082840312156102e557600080fd5b6102ee826102bc565b9392505050565b6000806040838503121561030857600080fd5b610311836102bc565b94602093909301359350505056fea2646970667358221220e6e4e8644ced979907f6d99ec6374c5cf3608237cca97c757e2c63b161b2c8a364736f6c63430008070033",
+  "deployedSourceMap": "171:789:5:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;606:272:7;;;;;;:::i;:::-;;:::i;:::-;;;1031:14:8;;1024:22;1006:41;;994:2;979:18;606:272:7;;;;;;;;836:122:5;;;;;;:::i;:::-;-1:-1:-1;;;;;924:23:5;901:4;924:23;;;:13;:23;;;;;;:27;;;836:122;181:28:7;;;;;-1:-1:-1;;;;;181:28:7;;;;;;-1:-1:-1;;;;;822:32:8;;;804:51;;792:2;777:18;181:28:7;642:219:8;340:490:5;;;;;;:::i;:::-;;:::i;606:272:7:-;682:12;540:5;;-1:-1:-1;;;;;540:5:7;526:10;:19;;:49;;-1:-1:-1;564:10:7;549:26;;;;:14;:26;;;;;;;;526:49;518:58;;;;;;-1:-1:-1;;;;;712:24:7;::::1;;::::0;;;:14:::1;:24;::::0;;;;;;;;::::1;;:30;;;707:164;;-1:-1:-1::0;;;;;;759:24:7::1;;::::0;;;786:4:::1;759:24;::::0;;;;;;;:31;;-1:-1:-1;;759:31:7::1;::::0;::::1;::::0;;786:4;606:272::o;707:164::-:1;-1:-1:-1::0;854:5:7::1;707:164;606:272:::0;;;:::o;340:490:5:-;451:12;540:5:7;;-1:-1:-1;;;;;540:5:7;526:10;:19;;:49;;-1:-1:-1;564:10:7;549:26;;;;:14;:26;;;;;;;;526:49;518:58;;;;;;-1:-1:-1;;;;;924:23:5;;901:4;924:23;;;:13;:23;;;;;;:27;479:222:::1;;528:136;::::0;;555:5:::1;1907:41:8::0;;1979:2;1964:18;;1957:34;;;-1:-1:-1;;;;;2027:32:8;;2007:18;;;2000:60;2096:3;2091:2;2076:18;;2069:31;;;2137:2;2116:19;;;2109:31;-1:-1:-1;;;2047:3:8;2156:19;;2149:50;528:136:5;;::::1;::::0;;;;2231:3:8;528:136:5;;::::1;-1:-1:-1::0;685:5:5::1;678:12;;479:222;-1:-1:-1::0;;;;;710:21:5;::::1;;::::0;;;:13:::1;:21;::::0;;;;;;;;:33;;;758:44;;768:4:::1;1320:41:8::0;;1377:18;;;1370:34;;;1420:18;;;1413:60;;;;1509:3;1504:2;1489:18;;1482:31;;;1550:1;1529:19;;;1522:30;-1:-1:-1;;;1460:3:8;1568:19;;1561:37;758:44:5;::::1;::::0;;;;1630:3:8;758:44:5;;::::1;-1:-1:-1::0;819:4:5::1;587:1:7;340:490:5::0;;;;:::o;14:173:8:-;82:20;;-1:-1:-1;;;;;131:31:8;;121:42;;111:70;;177:1;174;167:12;192:186;251:6;304:2;292:9;283:7;279:23;275:32;272:52;;;320:1;317;310:12;272:52;343:29;362:9;343:29;:::i;:::-;333:39;192:186;-1:-1:-1;;;192:186:8:o;383:254::-;451:6;459;512:2;500:9;491:7;487:23;483:32;480:52;;;528:1;525;518:12;480:52;551:29;570:9;551:29;:::i;:::-;541:39;627:2;612:18;;;;599:32;;-1:-1:-1;;;383:254:8:o",
   "language": "Solidity",
   "natspec": {
     "kind": "dev",
@@ -838,15 +1091,15 @@
     "version": 1
   },
   "offset": [
-    172,
-    670
+    171,
+    960
   ],
-  "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH2 0x10 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH2 0x4C JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x60C000D4 EQ PUSH2 0x51 JUMPI DUP1 PUSH4 0x6210D360 EQ PUSH2 0x91 JUMPI DUP1 PUSH4 0x8DA5CB5B EQ PUSH2 0xA4 JUMPI DUP1 PUSH4 0x92067121 EQ PUSH2 0xCF JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x7C PUSH2 0x5F CALLDATASIZE PUSH1 0x4 PUSH2 0x21A JUMP JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x2 PUSH1 0x20 MSTORE PUSH1 0x40 SWAP1 KECCAK256 SLOAD ISZERO ISZERO SWAP1 JUMP JUMPDEST PUSH1 0x40 MLOAD SWAP1 ISZERO ISZERO DUP2 MSTORE PUSH1 0x20 ADD JUMPDEST PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 RETURN JUMPDEST PUSH2 0x7C PUSH2 0x9F CALLDATASIZE PUSH1 0x4 PUSH2 0x21A JUMP JUMPDEST PUSH2 0xE2 JUMP JUMPDEST PUSH1 0x0 SLOAD PUSH2 0xB7 SWAP1 PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND DUP2 JUMP JUMPDEST PUSH1 0x40 MLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB SWAP1 SWAP2 AND DUP2 MSTORE PUSH1 0x20 ADD PUSH2 0x88 JUMP JUMPDEST PUSH2 0x7C PUSH2 0xDD CALLDATASIZE PUSH1 0x4 PUSH2 0x23C JUMP JUMPDEST PUSH2 0x16B JUMP JUMPDEST PUSH1 0x0 DUP1 SLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND CALLER EQ DUP1 PUSH2 0x10B JUMPI POP CALLER PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x1 PUSH1 0x20 MSTORE PUSH1 0x40 SWAP1 KECCAK256 SLOAD PUSH1 0xFF AND JUMPDEST PUSH2 0x114 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP3 AND PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x1 PUSH1 0x20 DUP2 SWAP1 MSTORE PUSH1 0x40 SWAP1 SWAP2 KECCAK256 SLOAD PUSH1 0xFF AND ISZERO ISZERO EQ PUSH2 0x162 JUMPI POP PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x1 PUSH1 0x20 DUP2 SWAP1 MSTORE PUSH1 0x40 SWAP1 SWAP2 KECCAK256 DUP1 SLOAD PUSH1 0xFF NOT AND DUP3 OR SWAP1 SSTORE SWAP1 JUMP JUMPDEST POP PUSH1 0x0 JUMPDEST SWAP2 SWAP1 POP JUMP JUMPDEST PUSH1 0x0 DUP1 SLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND CALLER EQ DUP1 PUSH2 0x194 JUMPI POP CALLER PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x1 PUSH1 0x20 MSTORE PUSH1 0x40 SWAP1 KECCAK256 SLOAD PUSH1 0xFF AND JUMPDEST PUSH2 0x19D JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP4 AND PUSH1 0x0 DUP2 DUP2 MSTORE PUSH1 0x2 PUSH1 0x20 SWAP1 DUP2 MSTORE PUSH1 0x40 SWAP2 DUP3 SWAP1 KECCAK256 DUP6 SWAP1 SSTORE DUP2 MLOAD PUSH1 0x1 DUP2 MSTORE SWAP1 DUP2 ADD DUP6 SWAP1 MSTORE DUP1 DUP3 ADD SWAP3 SWAP1 SWAP3 MSTORE MLOAD PUSH32 0x7A0F50B566AB4225B0F298A229BCF96D4BA86D1C6C43D48AD0F0F6D96F68413D SWAP2 DUP2 SWAP1 SUB PUSH1 0x60 ADD SWAP1 LOG1 POP PUSH1 0x1 SWAP3 SWAP2 POP POP JUMP JUMPDEST DUP1 CALLDATALOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP2 AND DUP2 EQ PUSH2 0x166 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x0 PUSH1 0x20 DUP3 DUP5 SUB SLT ISZERO PUSH2 0x22C JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x235 DUP3 PUSH2 0x203 JUMP JUMPDEST SWAP4 SWAP3 POP POP POP JUMP JUMPDEST PUSH1 0x0 DUP1 PUSH1 0x40 DUP4 DUP6 SUB SLT ISZERO PUSH2 0x24F JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x258 DUP4 PUSH2 0x203 JUMP JUMPDEST SWAP5 PUSH1 0x20 SWAP4 SWAP1 SWAP4 ADD CALLDATALOAD SWAP4 POP POP POP JUMP INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 0xC3 SWAP11 0xC1 0xDB SMOD 0xE2 PUSH23 0x1DB4C82368DA83F47AF18C31DE2FE7C0A67E740E03557F LOG4 0x4E PUSH5 0x736F6C6343 STOP ADDMOD SMOD STOP CALLER ",
+  "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH2 0x10 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH2 0x4C JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x6210D360 EQ PUSH2 0x51 JUMPI DUP1 PUSH4 0x7547402A EQ PUSH2 0x79 JUMPI DUP1 PUSH4 0x8DA5CB5B EQ PUSH2 0xA4 JUMPI DUP1 PUSH4 0x92067121 EQ PUSH2 0xCF JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x64 PUSH2 0x5F CALLDATASIZE PUSH1 0x4 PUSH2 0x2D3 JUMP JUMPDEST PUSH2 0xE2 JUMP JUMPDEST PUSH1 0x40 MLOAD SWAP1 ISZERO ISZERO DUP2 MSTORE PUSH1 0x20 ADD JUMPDEST PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 RETURN JUMPDEST PUSH2 0x64 PUSH2 0x87 CALLDATASIZE PUSH1 0x4 PUSH2 0x2D3 JUMP JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x2 PUSH1 0x20 MSTORE PUSH1 0x40 SWAP1 KECCAK256 SLOAD ISZERO ISZERO SWAP1 JUMP JUMPDEST PUSH1 0x0 SLOAD PUSH2 0xB7 SWAP1 PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND DUP2 JUMP JUMPDEST PUSH1 0x40 MLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB SWAP1 SWAP2 AND DUP2 MSTORE PUSH1 0x20 ADD PUSH2 0x70 JUMP JUMPDEST PUSH2 0x64 PUSH2 0xDD CALLDATASIZE PUSH1 0x4 PUSH2 0x2F5 JUMP JUMPDEST PUSH2 0x16B JUMP JUMPDEST PUSH1 0x0 DUP1 SLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND CALLER EQ DUP1 PUSH2 0x10B JUMPI POP CALLER PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x1 PUSH1 0x20 MSTORE PUSH1 0x40 SWAP1 KECCAK256 SLOAD PUSH1 0xFF AND JUMPDEST PUSH2 0x114 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP3 AND PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x1 PUSH1 0x20 DUP2 SWAP1 MSTORE PUSH1 0x40 SWAP1 SWAP2 KECCAK256 SLOAD PUSH1 0xFF AND ISZERO ISZERO EQ PUSH2 0x162 JUMPI POP PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x1 PUSH1 0x20 DUP2 SWAP1 MSTORE PUSH1 0x40 SWAP1 SWAP2 KECCAK256 DUP1 SLOAD PUSH1 0xFF NOT AND DUP3 OR SWAP1 SSTORE SWAP1 JUMP JUMPDEST POP PUSH1 0x0 JUMPDEST SWAP2 SWAP1 POP JUMP JUMPDEST PUSH1 0x0 DUP1 SLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND CALLER EQ DUP1 PUSH2 0x194 JUMPI POP CALLER PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x1 PUSH1 0x20 MSTORE PUSH1 0x40 SWAP1 KECCAK256 SLOAD PUSH1 0xFF AND JUMPDEST PUSH2 0x19D JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP4 AND PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x2 PUSH1 0x20 MSTORE PUSH1 0x40 SWAP1 KECCAK256 SLOAD ISZERO PUSH2 0x237 JUMPI PUSH1 0x40 DUP1 MLOAD PUSH1 0x0 DUP2 MSTORE PUSH1 0x20 DUP2 ADD DUP5 SWAP1 MSTORE PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP6 AND DUP2 DUP4 ADD MSTORE PUSH1 0x80 PUSH1 0x60 DUP3 ADD DUP2 SWAP1 MSTORE PUSH1 0x13 SWAP1 DUP3 ADD MSTORE PUSH19 0x185B1B1C9958591E481C9959DA5CDD195C9959 PUSH1 0x6A SHL PUSH1 0xA0 DUP3 ADD MSTORE SWAP1 MLOAD PUSH32 0x3A5E9CF671F12108422B0B314D2755338A4779C3F3D01AE983F8E6A19970B085 SWAP2 DUP2 SWAP1 SUB PUSH1 0xC0 ADD SWAP1 LOG1 POP PUSH1 0x0 PUSH2 0x2B6 JUMP JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP4 AND PUSH1 0x0 DUP2 DUP2 MSTORE PUSH1 0x2 PUSH1 0x20 SWAP1 DUP2 MSTORE PUSH1 0x40 SWAP2 DUP3 SWAP1 KECCAK256 DUP6 SWAP1 SSTORE DUP2 MLOAD PUSH1 0x1 DUP2 MSTORE SWAP1 DUP2 ADD DUP6 SWAP1 MSTORE DUP1 DUP3 ADD SWAP3 SWAP1 SWAP3 MSTORE PUSH1 0x80 PUSH1 0x60 DUP4 ADD DUP2 SWAP1 MSTORE PUSH1 0x6 SWAP1 DUP4 ADD MSTORE PUSH6 0x1CDD1BDC9959 PUSH1 0xD2 SHL PUSH1 0xA0 DUP4 ADD MSTORE MLOAD PUSH32 0x3A5E9CF671F12108422B0B314D2755338A4779C3F3D01AE983F8E6A19970B085 SWAP2 DUP2 SWAP1 SUB PUSH1 0xC0 ADD SWAP1 LOG1 POP PUSH1 0x1 JUMPDEST SWAP3 SWAP2 POP POP JUMP JUMPDEST DUP1 CALLDATALOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP2 AND DUP2 EQ PUSH2 0x166 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x0 PUSH1 0x20 DUP3 DUP5 SUB SLT ISZERO PUSH2 0x2E5 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x2EE DUP3 PUSH2 0x2BC JUMP JUMPDEST SWAP4 SWAP3 POP POP POP JUMP JUMPDEST PUSH1 0x0 DUP1 PUSH1 0x40 DUP4 DUP6 SUB SLT ISZERO PUSH2 0x308 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x311 DUP4 PUSH2 0x2BC JUMP JUMPDEST SWAP5 PUSH1 0x20 SWAP4 SWAP1 SWAP4 ADD CALLDATALOAD SWAP4 POP POP POP JUMP INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 0xE6 0xE4 0xE8 PUSH5 0x4CED979907 0xF6 0xD9 SWAP15 0xC6 CALLDATACOPY 0x4C 0x5C RETURN PUSH1 0x82 CALLDATACOPY 0xCC 0xA9 PUSH29 0x757E2C63B161B2C8A364736F6C63430008070033000000000000000000 ",
   "pcMap": {
     "0": {
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "PUSH1",
       "path": "5",
@@ -855,8 +1108,8 @@
     "2": {
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "PUSH1",
       "path": "5",
@@ -865,8 +1118,8 @@
     "4": {
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "MSTORE",
       "path": "5"
@@ -874,8 +1127,8 @@
     "5": {
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "CALLVALUE",
       "path": "5"
@@ -883,8 +1136,8 @@
     "6": {
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "DUP1",
       "path": "5"
@@ -892,8 +1145,8 @@
     "7": {
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "ISZERO",
       "path": "5"
@@ -901,8 +1154,8 @@
     "8": {
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "PUSH2",
       "path": "5",
@@ -911,8 +1164,8 @@
     "11": {
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "JUMPI",
       "path": "5"
@@ -920,8 +1173,8 @@
     "12": {
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "PUSH1",
       "path": "5",
@@ -930,8 +1183,8 @@
     "14": {
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "DUP1",
       "path": "5"
@@ -940,8 +1193,8 @@
       "dev": "Cannot send ether to nonpayable function",
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "REVERT",
       "path": "5"
@@ -949,8 +1202,8 @@
     "16": {
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "JUMPDEST",
       "path": "5"
@@ -958,8 +1211,8 @@
     "17": {
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "POP",
       "path": "5"
@@ -967,8 +1220,8 @@
     "18": {
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "PUSH1",
       "path": "5",
@@ -977,8 +1230,8 @@
     "20": {
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "CALLDATASIZE",
       "path": "5"
@@ -986,8 +1239,8 @@
     "21": {
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "LT",
       "path": "5"
@@ -995,8 +1248,8 @@
     "22": {
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "PUSH2",
       "path": "5",
@@ -1005,8 +1258,8 @@
     "25": {
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "JUMPI",
       "path": "5"
@@ -1014,8 +1267,8 @@
     "26": {
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "PUSH1",
       "path": "5",
@@ -1024,8 +1277,8 @@
     "28": {
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "CALLDATALOAD",
       "path": "5"
@@ -1033,8 +1286,8 @@
     "29": {
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "PUSH1",
       "path": "5",
@@ -1043,8 +1296,8 @@
     "31": {
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "SHR",
       "path": "5"
@@ -1052,8 +1305,8 @@
     "32": {
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "DUP1",
       "path": "5"
@@ -1061,18 +1314,18 @@
     "33": {
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "PUSH4",
       "path": "5",
-      "value": "0x60C000D4"
+      "value": "0x6210D360"
     },
     "38": {
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "EQ",
       "path": "5"
@@ -1080,8 +1333,8 @@
     "39": {
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "PUSH2",
       "path": "5",
@@ -1090,8 +1343,8 @@
     "42": {
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "JUMPI",
       "path": "5"
@@ -1099,8 +1352,8 @@
     "43": {
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "DUP1",
       "path": "5"
@@ -1108,18 +1361,18 @@
     "44": {
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "PUSH4",
       "path": "5",
-      "value": "0x6210D360"
+      "value": "0x7547402A"
     },
     "49": {
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "EQ",
       "path": "5"
@@ -1127,18 +1380,18 @@
     "50": {
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "PUSH2",
       "path": "5",
-      "value": "0x91"
+      "value": "0x79"
     },
     "53": {
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "JUMPI",
       "path": "5"
@@ -1146,8 +1399,8 @@
     "54": {
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "DUP1",
       "path": "5"
@@ -1155,8 +1408,8 @@
     "55": {
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "PUSH4",
       "path": "5",
@@ -1165,8 +1418,8 @@
     "60": {
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "EQ",
       "path": "5"
@@ -1174,8 +1427,8 @@
     "61": {
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "PUSH2",
       "path": "5",
@@ -1184,8 +1437,8 @@
     "64": {
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "JUMPI",
       "path": "5"
@@ -1193,8 +1446,8 @@
     "65": {
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "DUP1",
       "path": "5"
@@ -1202,8 +1455,8 @@
     "66": {
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "PUSH4",
       "path": "5",
@@ -1212,8 +1465,8 @@
     "71": {
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "EQ",
       "path": "5"
@@ -1221,8 +1474,8 @@
     "72": {
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "PUSH2",
       "path": "5",
@@ -1231,8 +1484,8 @@
     "75": {
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "JUMPI",
       "path": "5"
@@ -1240,8 +1493,8 @@
     "76": {
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "JUMPDEST",
       "path": "5"
@@ -1249,8 +1502,8 @@
     "77": {
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "PUSH1",
       "path": "5",
@@ -1259,8 +1512,8 @@
     "79": {
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "DUP1",
       "path": "5"
@@ -1269,518 +1522,518 @@
       "first_revert": true,
       "fn": null,
       "offset": [
-        172,
-        670
+        171,
+        960
       ],
       "op": "REVERT",
       "path": "5"
     },
     "81": {
-      "fn": "Issuer.verifyIssuer",
+      "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        552,
-        667
+        606,
+        878
       ],
       "op": "JUMPDEST",
-      "path": "5"
+      "path": "7"
     },
     "82": {
-      "fn": "Issuer.verifyIssuer",
+      "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        552,
-        667
+        606,
+        878
       ],
       "op": "PUSH2",
-      "path": "5",
-      "value": "0x7C"
+      "path": "7",
+      "value": "0x64"
     },
     "85": {
-      "fn": "Issuer.verifyIssuer",
+      "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        552,
-        667
+        606,
+        878
       ],
       "op": "PUSH2",
-      "path": "5",
+      "path": "7",
       "value": "0x5F"
     },
     "88": {
-      "fn": "Issuer.verifyIssuer",
+      "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        552,
-        667
+        606,
+        878
       ],
       "op": "CALLDATASIZE",
-      "path": "5"
+      "path": "7"
     },
     "89": {
-      "fn": "Issuer.verifyIssuer",
+      "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        552,
-        667
+        606,
+        878
       ],
       "op": "PUSH1",
-      "path": "5",
+      "path": "7",
       "value": "0x4"
     },
     "91": {
-      "fn": "Issuer.verifyIssuer",
+      "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        552,
-        667
+        606,
+        878
       ],
       "op": "PUSH2",
-      "path": "5",
-      "value": "0x21A"
+      "path": "7",
+      "value": "0x2D3"
     },
     "94": {
-      "fn": "Issuer.verifyIssuer",
+      "fn": "RegistryAuthorization.registerAuthorizeUser",
       "jump": "i",
       "offset": [
-        552,
-        667
+        606,
+        878
       ],
       "op": "JUMP",
-      "path": "5"
+      "path": "7"
     },
     "95": {
-      "fn": "Issuer.verifyIssuer",
+      "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        552,
-        667
+        606,
+        878
       ],
       "op": "JUMPDEST",
-      "path": "5"
+      "path": "7"
     },
     "96": {
-      "op": "PUSH1",
-      "value": "0x1"
-    },
-    "98": {
-      "op": "PUSH1",
-      "value": "0x1"
-    },
-    "100": {
-      "op": "PUSH1",
-      "value": "0xA0"
-    },
-    "102": {
-      "op": "SHL"
-    },
-    "103": {
-      "op": "SUB"
-    },
-    "104": {
-      "fn": "Issuer.verifyIssuer",
-      "offset": [
-        635,
-        658
-      ],
-      "op": "AND",
-      "path": "5",
-      "statement": 0
-    },
-    "105": {
-      "fn": "Issuer.verifyIssuer",
-      "offset": [
-        613,
-        617
-      ],
-      "op": "PUSH1",
-      "path": "5",
-      "value": "0x0"
-    },
-    "107": {
-      "fn": "Issuer.verifyIssuer",
-      "offset": [
-        635,
-        658
-      ],
-      "op": "SWAP1",
-      "path": "5"
-    },
-    "108": {
-      "fn": "Issuer.verifyIssuer",
-      "offset": [
-        635,
-        658
-      ],
-      "op": "DUP2",
-      "path": "5"
-    },
-    "109": {
-      "fn": "Issuer.verifyIssuer",
-      "offset": [
-        635,
-        658
-      ],
-      "op": "MSTORE",
-      "path": "5"
-    },
-    "110": {
-      "fn": "Issuer.verifyIssuer",
-      "offset": [
-        635,
-        648
-      ],
-      "op": "PUSH1",
-      "path": "5",
-      "value": "0x2"
-    },
-    "112": {
-      "fn": "Issuer.verifyIssuer",
-      "offset": [
-        635,
-        658
-      ],
-      "op": "PUSH1",
-      "path": "5",
-      "value": "0x20"
-    },
-    "114": {
-      "fn": "Issuer.verifyIssuer",
-      "offset": [
-        635,
-        658
-      ],
-      "op": "MSTORE",
-      "path": "5"
-    },
-    "115": {
-      "fn": "Issuer.verifyIssuer",
-      "offset": [
-        635,
-        658
-      ],
-      "op": "PUSH1",
-      "path": "5",
-      "value": "0x40"
-    },
-    "117": {
-      "fn": "Issuer.verifyIssuer",
-      "offset": [
-        635,
-        658
-      ],
-      "op": "SWAP1",
-      "path": "5"
-    },
-    "118": {
-      "fn": "Issuer.verifyIssuer",
-      "offset": [
-        635,
-        658
-      ],
-      "op": "KECCAK256",
-      "path": "5"
-    },
-    "119": {
-      "fn": "Issuer.verifyIssuer",
-      "offset": [
-        635,
-        658
-      ],
-      "op": "SLOAD",
-      "path": "5"
-    },
-    "120": {
-      "fn": "Issuer.verifyIssuer",
-      "offset": [
-        635,
-        660
-      ],
-      "op": "ISZERO",
-      "path": "5"
-    },
-    "121": {
-      "fn": "Issuer.verifyIssuer",
-      "offset": [
-        635,
-        660
-      ],
-      "op": "ISZERO",
-      "path": "5"
-    },
-    "122": {
-      "fn": "Issuer.verifyIssuer",
-      "offset": [
-        635,
-        660
-      ],
-      "op": "SWAP1",
-      "path": "5"
-    },
-    "123": {
-      "fn": "Issuer.verifyIssuer",
-      "offset": [
-        552,
-        667
-      ],
-      "op": "JUMP",
-      "path": "5"
-    },
-    "124": {
-      "fn": "Issuer.verifyIssuer",
-      "offset": [
-        552,
-        667
-      ],
-      "op": "JUMPDEST",
-      "path": "5"
-    },
-    "125": {
-      "fn": "Issuer.verifyIssuer",
-      "offset": [
-        552,
-        667
-      ],
-      "op": "PUSH1",
-      "path": "5",
-      "value": "0x40"
-    },
-    "127": {
-      "fn": "Issuer.verifyIssuer",
-      "offset": [
-        552,
-        667
-      ],
-      "op": "MLOAD",
-      "path": "5"
-    },
-    "128": {
-      "op": "SWAP1"
-    },
-    "129": {
-      "op": "ISZERO"
-    },
-    "130": {
-      "op": "ISZERO"
-    },
-    "131": {
-      "op": "DUP2"
-    },
-    "132": {
-      "op": "MSTORE"
-    },
-    "133": {
-      "op": "PUSH1",
-      "value": "0x20"
-    },
-    "135": {
-      "op": "ADD"
-    },
-    "136": {
-      "fn": "Issuer.verifyIssuer",
-      "offset": [
-        552,
-        667
-      ],
-      "op": "JUMPDEST",
-      "path": "5"
-    },
-    "137": {
-      "fn": "Issuer.verifyIssuer",
-      "offset": [
-        552,
-        667
-      ],
-      "op": "PUSH1",
-      "path": "5",
-      "value": "0x40"
-    },
-    "139": {
-      "fn": "Issuer.verifyIssuer",
-      "offset": [
-        552,
-        667
-      ],
-      "op": "MLOAD",
-      "path": "5"
-    },
-    "140": {
-      "fn": "Issuer.verifyIssuer",
-      "offset": [
-        552,
-        667
-      ],
-      "op": "DUP1",
-      "path": "5"
-    },
-    "141": {
-      "fn": "Issuer.verifyIssuer",
-      "offset": [
-        552,
-        667
-      ],
-      "op": "SWAP2",
-      "path": "5"
-    },
-    "142": {
-      "fn": "Issuer.verifyIssuer",
-      "offset": [
-        552,
-        667
-      ],
-      "op": "SUB",
-      "path": "5"
-    },
-    "143": {
-      "fn": "Issuer.verifyIssuer",
-      "offset": [
-        552,
-        667
-      ],
-      "op": "SWAP1",
-      "path": "5"
-    },
-    "144": {
-      "fn": "Issuer.verifyIssuer",
-      "offset": [
-        552,
-        667
-      ],
-      "op": "RETURN",
-      "path": "5"
-    },
-    "145": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        582,
-        847
-      ],
-      "op": "JUMPDEST",
-      "path": "7"
-    },
-    "146": {
-      "fn": "RegistryAuthorization.registerAuthorizeUser",
-      "offset": [
-        582,
-        847
-      ],
-      "op": "PUSH2",
-      "path": "7",
-      "value": "0x7C"
-    },
-    "149": {
-      "fn": "RegistryAuthorization.registerAuthorizeUser",
-      "offset": [
-        582,
-        847
-      ],
-      "op": "PUSH2",
-      "path": "7",
-      "value": "0x9F"
-    },
-    "152": {
-      "fn": "RegistryAuthorization.registerAuthorizeUser",
-      "offset": [
-        582,
-        847
-      ],
-      "op": "CALLDATASIZE",
-      "path": "7"
-    },
-    "153": {
-      "fn": "RegistryAuthorization.registerAuthorizeUser",
-      "offset": [
-        582,
-        847
-      ],
-      "op": "PUSH1",
-      "path": "7",
-      "value": "0x4"
-    },
-    "155": {
-      "fn": "RegistryAuthorization.registerAuthorizeUser",
-      "offset": [
-        582,
-        847
-      ],
-      "op": "PUSH2",
-      "path": "7",
-      "value": "0x21A"
-    },
-    "158": {
-      "fn": "RegistryAuthorization.registerAuthorizeUser",
-      "jump": "i",
-      "offset": [
-        582,
-        847
-      ],
-      "op": "JUMP",
-      "path": "7"
-    },
-    "159": {
-      "fn": "RegistryAuthorization.registerAuthorizeUser",
-      "offset": [
-        582,
-        847
-      ],
-      "op": "JUMPDEST",
-      "path": "7"
-    },
-    "160": {
-      "fn": "RegistryAuthorization.registerAuthorizeUser",
-      "offset": [
-        582,
-        847
+        606,
+        878
       ],
       "op": "PUSH2",
       "path": "7",
       "value": "0xE2"
     },
-    "163": {
+    "99": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "jump": "i",
       "offset": [
-        582,
-        847
+        606,
+        878
       ],
       "op": "JUMP",
       "path": "7"
     },
+    "100": {
+      "fn": "RegistryAuthorization.registerAuthorizeUser",
+      "offset": [
+        606,
+        878
+      ],
+      "op": "JUMPDEST",
+      "path": "7"
+    },
+    "101": {
+      "fn": "RegistryAuthorization.registerAuthorizeUser",
+      "offset": [
+        606,
+        878
+      ],
+      "op": "PUSH1",
+      "path": "7",
+      "value": "0x40"
+    },
+    "103": {
+      "fn": "RegistryAuthorization.registerAuthorizeUser",
+      "offset": [
+        606,
+        878
+      ],
+      "op": "MLOAD",
+      "path": "7"
+    },
+    "104": {
+      "op": "SWAP1"
+    },
+    "105": {
+      "op": "ISZERO"
+    },
+    "106": {
+      "op": "ISZERO"
+    },
+    "107": {
+      "op": "DUP2"
+    },
+    "108": {
+      "op": "MSTORE"
+    },
+    "109": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "111": {
+      "op": "ADD"
+    },
+    "112": {
+      "fn": "RegistryAuthorization.registerAuthorizeUser",
+      "offset": [
+        606,
+        878
+      ],
+      "op": "JUMPDEST",
+      "path": "7"
+    },
+    "113": {
+      "fn": "RegistryAuthorization.registerAuthorizeUser",
+      "offset": [
+        606,
+        878
+      ],
+      "op": "PUSH1",
+      "path": "7",
+      "value": "0x40"
+    },
+    "115": {
+      "fn": "RegistryAuthorization.registerAuthorizeUser",
+      "offset": [
+        606,
+        878
+      ],
+      "op": "MLOAD",
+      "path": "7"
+    },
+    "116": {
+      "fn": "RegistryAuthorization.registerAuthorizeUser",
+      "offset": [
+        606,
+        878
+      ],
+      "op": "DUP1",
+      "path": "7"
+    },
+    "117": {
+      "fn": "RegistryAuthorization.registerAuthorizeUser",
+      "offset": [
+        606,
+        878
+      ],
+      "op": "SWAP2",
+      "path": "7"
+    },
+    "118": {
+      "fn": "RegistryAuthorization.registerAuthorizeUser",
+      "offset": [
+        606,
+        878
+      ],
+      "op": "SUB",
+      "path": "7"
+    },
+    "119": {
+      "fn": "RegistryAuthorization.registerAuthorizeUser",
+      "offset": [
+        606,
+        878
+      ],
+      "op": "SWAP1",
+      "path": "7"
+    },
+    "120": {
+      "fn": "RegistryAuthorization.registerAuthorizeUser",
+      "offset": [
+        606,
+        878
+      ],
+      "op": "RETURN",
+      "path": "7"
+    },
+    "121": {
+      "fn": "Issuer.checkIssuerExist",
+      "offset": [
+        836,
+        958
+      ],
+      "op": "JUMPDEST",
+      "path": "5"
+    },
+    "122": {
+      "fn": "Issuer.checkIssuerExist",
+      "offset": [
+        836,
+        958
+      ],
+      "op": "PUSH2",
+      "path": "5",
+      "value": "0x64"
+    },
+    "125": {
+      "fn": "Issuer.checkIssuerExist",
+      "offset": [
+        836,
+        958
+      ],
+      "op": "PUSH2",
+      "path": "5",
+      "value": "0x87"
+    },
+    "128": {
+      "fn": "Issuer.checkIssuerExist",
+      "offset": [
+        836,
+        958
+      ],
+      "op": "CALLDATASIZE",
+      "path": "5"
+    },
+    "129": {
+      "fn": "Issuer.checkIssuerExist",
+      "offset": [
+        836,
+        958
+      ],
+      "op": "PUSH1",
+      "path": "5",
+      "value": "0x4"
+    },
+    "131": {
+      "fn": "Issuer.checkIssuerExist",
+      "offset": [
+        836,
+        958
+      ],
+      "op": "PUSH2",
+      "path": "5",
+      "value": "0x2D3"
+    },
+    "134": {
+      "fn": "Issuer.checkIssuerExist",
+      "jump": "i",
+      "offset": [
+        836,
+        958
+      ],
+      "op": "JUMP",
+      "path": "5"
+    },
+    "135": {
+      "fn": "Issuer.checkIssuerExist",
+      "offset": [
+        836,
+        958
+      ],
+      "op": "JUMPDEST",
+      "path": "5"
+    },
+    "136": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "138": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "140": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "142": {
+      "op": "SHL"
+    },
+    "143": {
+      "op": "SUB"
+    },
+    "144": {
+      "fn": "Issuer.checkIssuerExist",
+      "offset": [
+        924,
+        947
+      ],
+      "op": "AND",
+      "path": "5",
+      "statement": 0
+    },
+    "145": {
+      "fn": "Issuer.checkIssuerExist",
+      "offset": [
+        901,
+        905
+      ],
+      "op": "PUSH1",
+      "path": "5",
+      "value": "0x0"
+    },
+    "147": {
+      "fn": "Issuer.checkIssuerExist",
+      "offset": [
+        924,
+        947
+      ],
+      "op": "SWAP1",
+      "path": "5"
+    },
+    "148": {
+      "fn": "Issuer.checkIssuerExist",
+      "offset": [
+        924,
+        947
+      ],
+      "op": "DUP2",
+      "path": "5"
+    },
+    "149": {
+      "fn": "Issuer.checkIssuerExist",
+      "offset": [
+        924,
+        947
+      ],
+      "op": "MSTORE",
+      "path": "5"
+    },
+    "150": {
+      "fn": "Issuer.checkIssuerExist",
+      "offset": [
+        924,
+        937
+      ],
+      "op": "PUSH1",
+      "path": "5",
+      "value": "0x2"
+    },
+    "152": {
+      "fn": "Issuer.checkIssuerExist",
+      "offset": [
+        924,
+        947
+      ],
+      "op": "PUSH1",
+      "path": "5",
+      "value": "0x20"
+    },
+    "154": {
+      "fn": "Issuer.checkIssuerExist",
+      "offset": [
+        924,
+        947
+      ],
+      "op": "MSTORE",
+      "path": "5"
+    },
+    "155": {
+      "fn": "Issuer.checkIssuerExist",
+      "offset": [
+        924,
+        947
+      ],
+      "op": "PUSH1",
+      "path": "5",
+      "value": "0x40"
+    },
+    "157": {
+      "fn": "Issuer.checkIssuerExist",
+      "offset": [
+        924,
+        947
+      ],
+      "op": "SWAP1",
+      "path": "5"
+    },
+    "158": {
+      "fn": "Issuer.checkIssuerExist",
+      "offset": [
+        924,
+        947
+      ],
+      "op": "KECCAK256",
+      "path": "5"
+    },
+    "159": {
+      "fn": "Issuer.checkIssuerExist",
+      "offset": [
+        924,
+        947
+      ],
+      "op": "SLOAD",
+      "path": "5"
+    },
+    "160": {
+      "fn": "Issuer.checkIssuerExist",
+      "offset": [
+        924,
+        951
+      ],
+      "op": "ISZERO",
+      "path": "5"
+    },
+    "161": {
+      "fn": "Issuer.checkIssuerExist",
+      "offset": [
+        924,
+        951
+      ],
+      "op": "ISZERO",
+      "path": "5"
+    },
+    "162": {
+      "fn": "Issuer.checkIssuerExist",
+      "offset": [
+        924,
+        951
+      ],
+      "op": "SWAP1",
+      "path": "5"
+    },
+    "163": {
+      "fn": "Issuer.checkIssuerExist",
+      "offset": [
+        836,
+        958
+      ],
+      "op": "JUMP",
+      "path": "5"
+    },
     "164": {
       "offset": [
-        173,
-        201
+        181,
+        209
       ],
       "op": "JUMPDEST",
       "path": "7"
     },
     "165": {
-      "fn": "RegistryAuthorization.registerAuthorizeUser",
+      "fn": "Issuer.checkIssuerExist",
       "offset": [
-        173,
-        201
+        181,
+        209
       ],
       "op": "PUSH1",
       "path": "7",
       "value": "0x0"
     },
     "167": {
-      "fn": "RegistryAuthorization.registerAuthorizeUser",
+      "fn": "Issuer.checkIssuerExist",
       "offset": [
-        173,
-        201
+        181,
+        209
       ],
       "op": "SLOAD",
       "path": "7"
     },
     "168": {
-      "fn": "RegistryAuthorization.registerAuthorizeUser",
+      "fn": "Issuer.checkIssuerExist",
       "offset": [
-        173,
-        201
+        181,
+        209
       ],
       "op": "PUSH2",
       "path": "7",
       "value": "0xB7"
     },
     "171": {
-      "fn": "RegistryAuthorization.registerAuthorizeUser",
+      "fn": "Issuer.checkIssuerExist",
       "offset": [
-        173,
-        201
+        181,
+        209
       ],
       "op": "SWAP1",
       "path": "7"
@@ -1805,54 +2058,54 @@
     },
     "180": {
       "offset": [
-        173,
-        201
+        181,
+        209
       ],
       "op": "AND",
       "path": "7"
     },
     "181": {
-      "fn": "RegistryAuthorization.registerAuthorizeUser",
+      "fn": "Issuer.checkIssuerExist",
       "offset": [
-        173,
-        201
+        181,
+        209
       ],
       "op": "DUP2",
       "path": "7"
     },
     "182": {
-      "fn": "RegistryAuthorization.registerAuthorizeUser",
+      "fn": "Issuer.checkIssuerExist",
       "offset": [
-        173,
-        201
+        181,
+        209
       ],
       "op": "JUMP",
       "path": "7"
     },
     "183": {
-      "fn": "RegistryAuthorization.registerAuthorizeUser",
+      "fn": "Issuer.checkIssuerExist",
       "offset": [
-        173,
-        201
+        181,
+        209
       ],
       "op": "JUMPDEST",
       "path": "7"
     },
     "184": {
-      "fn": "RegistryAuthorization.registerAuthorizeUser",
+      "fn": "Issuer.checkIssuerExist",
       "offset": [
-        173,
-        201
+        181,
+        209
       ],
       "op": "PUSH1",
       "path": "7",
       "value": "0x40"
     },
     "186": {
-      "fn": "RegistryAuthorization.registerAuthorizeUser",
+      "fn": "Issuer.checkIssuerExist",
       "offset": [
-        173,
-        201
+        181,
+        209
       ],
       "op": "MLOAD",
       "path": "7"
@@ -1899,12 +2152,12 @@
     },
     "203": {
       "offset": [
-        173,
-        201
+        181,
+        209
       ],
       "op": "PUSH2",
       "path": "7",
-      "value": "0x88"
+      "value": "0x70"
     },
     "206": {
       "op": "JUMP"
@@ -1912,8 +2165,8 @@
     "207": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        326,
-        546
+        340,
+        830
       ],
       "op": "JUMPDEST",
       "path": "5"
@@ -1921,18 +2174,18 @@
     "208": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        326,
-        546
+        340,
+        830
       ],
       "op": "PUSH2",
       "path": "5",
-      "value": "0x7C"
+      "value": "0x64"
     },
     "211": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        326,
-        546
+        340,
+        830
       ],
       "op": "PUSH2",
       "path": "5",
@@ -1941,8 +2194,8 @@
     "214": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        326,
-        546
+        340,
+        830
       ],
       "op": "CALLDATASIZE",
       "path": "5"
@@ -1950,8 +2203,8 @@
     "215": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        326,
-        546
+        340,
+        830
       ],
       "op": "PUSH1",
       "path": "5",
@@ -1960,19 +2213,19 @@
     "217": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        326,
-        546
+        340,
+        830
       ],
       "op": "PUSH2",
       "path": "5",
-      "value": "0x23C"
+      "value": "0x2F5"
     },
     "220": {
       "fn": "Issuer.registerIssuer",
       "jump": "i",
       "offset": [
-        326,
-        546
+        340,
+        830
       ],
       "op": "JUMP",
       "path": "5"
@@ -1980,8 +2233,8 @@
     "221": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        326,
-        546
+        340,
+        830
       ],
       "op": "JUMPDEST",
       "path": "5"
@@ -1989,8 +2242,8 @@
     "222": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        326,
-        546
+        340,
+        830
       ],
       "op": "PUSH2",
       "path": "5",
@@ -2000,8 +2253,8 @@
       "fn": "Issuer.registerIssuer",
       "jump": "i",
       "offset": [
-        326,
-        546
+        340,
+        830
       ],
       "op": "JUMP",
       "path": "5"
@@ -2009,8 +2262,8 @@
     "226": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        582,
-        847
+        606,
+        878
       ],
       "op": "JUMPDEST",
       "path": "7"
@@ -2018,8 +2271,8 @@
     "227": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        658,
-        670
+        682,
+        694
       ],
       "op": "PUSH1",
       "path": "7",
@@ -2027,8 +2280,8 @@
     },
     "229": {
       "offset": [
-        521,
-        526
+        540,
+        545
       ],
       "op": "DUP1",
       "path": "7"
@@ -2036,8 +2289,8 @@
     "230": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        521,
-        526
+        540,
+        545
       ],
       "op": "SLOAD",
       "path": "7"
@@ -2062,24 +2315,24 @@
     },
     "239": {
       "offset": [
-        521,
-        526
+        540,
+        545
       ],
       "op": "AND",
       "path": "7"
     },
     "240": {
       "offset": [
-        507,
-        517
+        526,
+        536
       ],
       "op": "CALLER",
       "path": "7"
     },
     "241": {
       "offset": [
-        507,
-        526
+        526,
+        545
       ],
       "op": "EQ",
       "path": "7"
@@ -2087,16 +2340,16 @@
     "242": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        507,
-        526
+        526,
+        545
       ],
       "op": "DUP1",
       "path": "7"
     },
     "243": {
       "offset": [
-        507,
-        556
+        526,
+        575
       ],
       "op": "PUSH2",
       "path": "7",
@@ -2104,8 +2357,8 @@
     },
     "246": {
       "offset": [
-        507,
-        556
+        526,
+        575
       ],
       "op": "JUMPI",
       "path": "7"
@@ -2115,16 +2368,16 @@
     },
     "248": {
       "offset": [
-        545,
-        555
+        564,
+        574
       ],
       "op": "CALLER",
       "path": "7"
     },
     "249": {
       "offset": [
-        530,
-        556
+        549,
+        575
       ],
       "op": "PUSH1",
       "path": "7",
@@ -2133,8 +2386,8 @@
     "251": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        530,
-        556
+        549,
+        575
       ],
       "op": "SWAP1",
       "path": "7"
@@ -2142,8 +2395,8 @@
     "252": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        530,
-        556
+        549,
+        575
       ],
       "op": "DUP2",
       "path": "7"
@@ -2151,16 +2404,16 @@
     "253": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        530,
-        556
+        549,
+        575
       ],
       "op": "MSTORE",
       "path": "7"
     },
     "254": {
       "offset": [
-        530,
-        544
+        549,
+        563
       ],
       "op": "PUSH1",
       "path": "7",
@@ -2168,8 +2421,8 @@
     },
     "256": {
       "offset": [
-        530,
-        556
+        549,
+        575
       ],
       "op": "PUSH1",
       "path": "7",
@@ -2178,8 +2431,8 @@
     "258": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        530,
-        556
+        549,
+        575
       ],
       "op": "MSTORE",
       "path": "7"
@@ -2187,8 +2440,8 @@
     "259": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        530,
-        556
+        549,
+        575
       ],
       "op": "PUSH1",
       "path": "7",
@@ -2197,8 +2450,8 @@
     "261": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        530,
-        556
+        549,
+        575
       ],
       "op": "SWAP1",
       "path": "7"
@@ -2206,8 +2459,8 @@
     "262": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        530,
-        556
+        549,
+        575
       ],
       "op": "KECCAK256",
       "path": "7"
@@ -2215,8 +2468,8 @@
     "263": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        530,
-        556
+        549,
+        575
       ],
       "op": "SLOAD",
       "path": "7"
@@ -2224,8 +2477,8 @@
     "264": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        530,
-        556
+        549,
+        575
       ],
       "op": "PUSH1",
       "path": "7",
@@ -2234,24 +2487,24 @@
     "266": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        530,
-        556
+        549,
+        575
       ],
       "op": "AND",
       "path": "7"
     },
     "267": {
       "offset": [
-        507,
-        556
+        526,
+        575
       ],
       "op": "JUMPDEST",
       "path": "7"
     },
     "268": {
       "offset": [
-        499,
-        557
+        518,
+        576
       ],
       "op": "PUSH2",
       "path": "7",
@@ -2259,8 +2512,8 @@
     },
     "271": {
       "offset": [
-        499,
-        557
+        518,
+        576
       ],
       "op": "JUMPI",
       "path": "7"
@@ -2268,8 +2521,8 @@
     "272": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        499,
-        557
+        518,
+        576
       ],
       "op": "PUSH1",
       "path": "7",
@@ -2278,8 +2531,8 @@
     "274": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        499,
-        557
+        518,
+        576
       ],
       "op": "DUP1",
       "path": "7"
@@ -2287,8 +2540,8 @@
     "275": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        499,
-        557
+        518,
+        576
       ],
       "op": "REVERT",
       "path": "7"
@@ -2296,8 +2549,8 @@
     "276": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        499,
-        557
+        518,
+        576
       ],
       "op": "JUMPDEST",
       "path": "7"
@@ -2323,8 +2576,8 @@
     "285": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        687,
-        711
+        712,
+        736
       ],
       "op": "DUP3",
       "path": "7"
@@ -2332,8 +2585,8 @@
     "286": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        687,
-        711
+        712,
+        736
       ],
       "op": "AND",
       "path": "7"
@@ -2341,8 +2594,8 @@
     "287": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        687,
-        711
+        712,
+        736
       ],
       "op": "PUSH1",
       "path": "7",
@@ -2351,8 +2604,8 @@
     "289": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        687,
-        711
+        712,
+        736
       ],
       "op": "SWAP1",
       "path": "7"
@@ -2360,8 +2613,8 @@
     "290": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        687,
-        711
+        712,
+        736
       ],
       "op": "DUP2",
       "path": "7"
@@ -2369,8 +2622,8 @@
     "291": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        687,
-        711
+        712,
+        736
       ],
       "op": "MSTORE",
       "path": "7"
@@ -2378,8 +2631,8 @@
     "292": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        687,
-        701
+        712,
+        726
       ],
       "op": "PUSH1",
       "path": "7",
@@ -2388,8 +2641,8 @@
     "294": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        687,
-        711
+        712,
+        736
       ],
       "op": "PUSH1",
       "path": "7",
@@ -2398,8 +2651,8 @@
     "296": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        687,
-        711
+        712,
+        736
       ],
       "op": "DUP2",
       "path": "7"
@@ -2407,8 +2660,8 @@
     "297": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        687,
-        711
+        712,
+        736
       ],
       "op": "SWAP1",
       "path": "7"
@@ -2416,8 +2669,8 @@
     "298": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        687,
-        711
+        712,
+        736
       ],
       "op": "MSTORE",
       "path": "7"
@@ -2425,8 +2678,8 @@
     "299": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        687,
-        711
+        712,
+        736
       ],
       "op": "PUSH1",
       "path": "7",
@@ -2435,8 +2688,8 @@
     "301": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        687,
-        711
+        712,
+        736
       ],
       "op": "SWAP1",
       "path": "7"
@@ -2444,8 +2697,8 @@
     "302": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        687,
-        711
+        712,
+        736
       ],
       "op": "SWAP2",
       "path": "7"
@@ -2453,8 +2706,8 @@
     "303": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        687,
-        711
+        712,
+        736
       ],
       "op": "KECCAK256",
       "path": "7"
@@ -2462,8 +2715,8 @@
     "304": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        687,
-        711
+        712,
+        736
       ],
       "op": "SLOAD",
       "path": "7"
@@ -2471,8 +2724,8 @@
     "305": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        687,
-        711
+        712,
+        736
       ],
       "op": "PUSH1",
       "path": "7",
@@ -2481,8 +2734,8 @@
     "307": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        687,
-        711
+        712,
+        736
       ],
       "op": "AND",
       "path": "7"
@@ -2490,8 +2743,8 @@
     "308": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        687,
-        717
+        712,
+        742
       ],
       "op": "ISZERO",
       "path": "7"
@@ -2499,8 +2752,8 @@
     "309": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        687,
-        717
+        712,
+        742
       ],
       "op": "ISZERO",
       "path": "7"
@@ -2508,8 +2761,8 @@
     "310": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        687,
-        717
+        712,
+        742
       ],
       "op": "EQ",
       "path": "7"
@@ -2517,8 +2770,8 @@
     "311": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        682,
-        841
+        707,
+        871
       ],
       "op": "PUSH2",
       "path": "7",
@@ -2527,8 +2780,8 @@
     "314": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        682,
-        841
+        707,
+        871
       ],
       "op": "JUMPI",
       "path": "7"
@@ -2557,8 +2810,8 @@
     "324": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        733,
-        757
+        759,
+        783
       ],
       "op": "AND",
       "path": "7",
@@ -2567,8 +2820,8 @@
     "325": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        733,
-        757
+        759,
+        783
       ],
       "op": "PUSH1",
       "path": "7",
@@ -2577,8 +2830,8 @@
     "327": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        733,
-        757
+        759,
+        783
       ],
       "op": "SWAP1",
       "path": "7"
@@ -2586,8 +2839,8 @@
     "328": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        733,
-        757
+        759,
+        783
       ],
       "op": "DUP2",
       "path": "7"
@@ -2595,8 +2848,8 @@
     "329": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        733,
-        757
+        759,
+        783
       ],
       "op": "MSTORE",
       "path": "7"
@@ -2604,8 +2857,8 @@
     "330": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        760,
-        764
+        786,
+        790
       ],
       "op": "PUSH1",
       "path": "7",
@@ -2614,8 +2867,8 @@
     "332": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        733,
-        757
+        759,
+        783
       ],
       "op": "PUSH1",
       "path": "7",
@@ -2624,8 +2877,8 @@
     "334": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        733,
-        757
+        759,
+        783
       ],
       "op": "DUP2",
       "path": "7"
@@ -2633,8 +2886,8 @@
     "335": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        733,
-        757
+        759,
+        783
       ],
       "op": "SWAP1",
       "path": "7"
@@ -2642,8 +2895,8 @@
     "336": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        733,
-        757
+        759,
+        783
       ],
       "op": "MSTORE",
       "path": "7"
@@ -2651,8 +2904,8 @@
     "337": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        733,
-        757
+        759,
+        783
       ],
       "op": "PUSH1",
       "path": "7",
@@ -2661,8 +2914,8 @@
     "339": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        733,
-        757
+        759,
+        783
       ],
       "op": "SWAP1",
       "path": "7"
@@ -2670,8 +2923,8 @@
     "340": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        733,
-        757
+        759,
+        783
       ],
       "op": "SWAP2",
       "path": "7"
@@ -2679,8 +2932,8 @@
     "341": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        733,
-        757
+        759,
+        783
       ],
       "op": "KECCAK256",
       "path": "7"
@@ -2688,8 +2941,8 @@
     "342": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        733,
-        764
+        759,
+        790
       ],
       "op": "DUP1",
       "path": "7"
@@ -2697,8 +2950,8 @@
     "343": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        733,
-        764
+        759,
+        790
       ],
       "op": "SLOAD",
       "path": "7"
@@ -2713,8 +2966,8 @@
     "347": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        733,
-        764
+        759,
+        790
       ],
       "op": "AND",
       "path": "7"
@@ -2722,8 +2975,8 @@
     "348": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        733,
-        764
+        759,
+        790
       ],
       "op": "DUP3",
       "path": "7"
@@ -2731,8 +2984,8 @@
     "349": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        733,
-        764
+        759,
+        790
       ],
       "op": "OR",
       "path": "7"
@@ -2740,8 +2993,8 @@
     "350": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        733,
-        764
+        759,
+        790
       ],
       "op": "SWAP1",
       "path": "7"
@@ -2749,8 +3002,8 @@
     "351": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        733,
-        764
+        759,
+        790
       ],
       "op": "SSTORE",
       "path": "7"
@@ -2758,8 +3011,8 @@
     "352": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        760,
-        764
+        786,
+        790
       ],
       "op": "SWAP1",
       "path": "7"
@@ -2768,8 +3021,8 @@
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "jump": "o",
       "offset": [
-        582,
-        847
+        606,
+        878
       ],
       "op": "JUMP",
       "path": "7"
@@ -2777,8 +3030,8 @@
     "354": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        682,
-        841
+        707,
+        871
       ],
       "op": "JUMPDEST",
       "path": "7"
@@ -2789,8 +3042,8 @@
     "356": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        825,
-        830
+        854,
+        859
       ],
       "op": "PUSH1",
       "path": "7",
@@ -2800,8 +3053,8 @@
     "358": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        682,
-        841
+        707,
+        871
       ],
       "op": "JUMPDEST",
       "path": "7"
@@ -2809,8 +3062,8 @@
     "359": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        582,
-        847
+        606,
+        878
       ],
       "op": "SWAP2",
       "path": "7"
@@ -2818,8 +3071,8 @@
     "360": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        582,
-        847
+        606,
+        878
       ],
       "op": "SWAP1",
       "path": "7"
@@ -2827,8 +3080,8 @@
     "361": {
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "offset": [
-        582,
-        847
+        606,
+        878
       ],
       "op": "POP",
       "path": "7"
@@ -2837,8 +3090,8 @@
       "fn": "RegistryAuthorization.registerAuthorizeUser",
       "jump": "o",
       "offset": [
-        582,
-        847
+        606,
+        878
       ],
       "op": "JUMP",
       "path": "7"
@@ -2846,8 +3099,8 @@
     "363": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        326,
-        546
+        340,
+        830
       ],
       "op": "JUMPDEST",
       "path": "5"
@@ -2855,8 +3108,8 @@
     "364": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        413,
-        425
+        451,
+        463
       ],
       "op": "PUSH1",
       "path": "5",
@@ -2864,8 +3117,8 @@
     },
     "366": {
       "offset": [
-        521,
-        526
+        540,
+        545
       ],
       "op": "DUP1",
       "path": "7"
@@ -2873,8 +3126,8 @@
     "367": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        521,
-        526
+        540,
+        545
       ],
       "op": "SLOAD",
       "path": "7"
@@ -2899,52 +3152,52 @@
     },
     "376": {
       "offset": [
-        521,
-        526
+        540,
+        545
       ],
       "op": "AND",
       "path": "7"
     },
     "377": {
       "offset": [
-        507,
-        517
+        526,
+        536
       ],
       "op": "CALLER",
       "path": "7"
     },
     "378": {
       "offset": [
-        507,
-        526
+        526,
+        545
       ],
       "op": "EQ",
       "path": "7"
     },
     "379": {
-      "branch": 6,
+      "branch": 8,
       "fn": "Issuer.registerIssuer",
       "offset": [
-        507,
-        526
+        526,
+        545
       ],
       "op": "DUP1",
       "path": "7"
     },
     "380": {
       "offset": [
-        507,
-        556
+        526,
+        575
       ],
       "op": "PUSH2",
       "path": "7",
       "value": "0x194"
     },
     "383": {
-      "branch": 6,
+      "branch": 8,
       "offset": [
-        507,
-        556
+        526,
+        575
       ],
       "op": "JUMPI",
       "path": "7"
@@ -2954,16 +3207,16 @@
     },
     "385": {
       "offset": [
-        545,
-        555
+        564,
+        574
       ],
       "op": "CALLER",
       "path": "7"
     },
     "386": {
       "offset": [
-        530,
-        556
+        549,
+        575
       ],
       "op": "PUSH1",
       "path": "7",
@@ -2972,8 +3225,8 @@
     "388": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        530,
-        556
+        549,
+        575
       ],
       "op": "SWAP1",
       "path": "7"
@@ -2981,8 +3234,8 @@
     "389": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        530,
-        556
+        549,
+        575
       ],
       "op": "DUP2",
       "path": "7"
@@ -2990,16 +3243,16 @@
     "390": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        530,
-        556
+        549,
+        575
       ],
       "op": "MSTORE",
       "path": "7"
     },
     "391": {
       "offset": [
-        530,
-        544
+        549,
+        563
       ],
       "op": "PUSH1",
       "path": "7",
@@ -3007,8 +3260,8 @@
     },
     "393": {
       "offset": [
-        530,
-        556
+        549,
+        575
       ],
       "op": "PUSH1",
       "path": "7",
@@ -3017,8 +3270,8 @@
     "395": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        530,
-        556
+        549,
+        575
       ],
       "op": "MSTORE",
       "path": "7"
@@ -3026,8 +3279,8 @@
     "396": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        530,
-        556
+        549,
+        575
       ],
       "op": "PUSH1",
       "path": "7",
@@ -3036,8 +3289,8 @@
     "398": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        530,
-        556
+        549,
+        575
       ],
       "op": "SWAP1",
       "path": "7"
@@ -3045,8 +3298,8 @@
     "399": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        530,
-        556
+        549,
+        575
       ],
       "op": "KECCAK256",
       "path": "7"
@@ -3054,8 +3307,8 @@
     "400": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        530,
-        556
+        549,
+        575
       ],
       "op": "SLOAD",
       "path": "7"
@@ -3063,45 +3316,45 @@
     "401": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        530,
-        556
+        549,
+        575
       ],
       "op": "PUSH1",
       "path": "7",
       "value": "0xFF"
     },
     "403": {
-      "branch": 7,
+      "branch": 9,
       "fn": "Issuer.registerIssuer",
       "offset": [
-        530,
-        556
+        549,
+        575
       ],
       "op": "AND",
       "path": "7"
     },
     "404": {
       "offset": [
-        507,
-        556
+        526,
+        575
       ],
       "op": "JUMPDEST",
       "path": "7"
     },
     "405": {
       "offset": [
-        499,
-        557
+        518,
+        576
       ],
       "op": "PUSH2",
       "path": "7",
       "value": "0x19D"
     },
     "408": {
-      "branch": 7,
+      "branch": 9,
       "offset": [
-        499,
-        557
+        518,
+        576
       ],
       "op": "JUMPI",
       "path": "7"
@@ -3109,8 +3362,8 @@
     "409": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        499,
-        557
+        518,
+        576
       ],
       "op": "PUSH1",
       "path": "7",
@@ -3119,8 +3372,8 @@
     "411": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        499,
-        557
+        518,
+        576
       ],
       "op": "DUP1",
       "path": "7"
@@ -3128,8 +3381,8 @@
     "412": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        499,
-        557
+        518,
+        576
       ],
       "op": "REVERT",
       "path": "7"
@@ -3137,8 +3390,8 @@
     "413": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        499,
-        557
+        518,
+        576
       ],
       "op": "JUMPDEST",
       "path": "7"
@@ -3162,649 +3415,1187 @@
       "op": "SUB"
     },
     "422": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "Issuer.checkIssuerExist",
       "offset": [
-        438,
-        459
+        924,
+        947
       ],
       "op": "DUP4",
-      "path": "5",
-      "statement": 3
+      "path": "5"
     },
     "423": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "Issuer.checkIssuerExist",
       "offset": [
-        438,
-        459
+        924,
+        947
       ],
       "op": "AND",
       "path": "5"
     },
     "424": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "Issuer.checkIssuerExist",
       "offset": [
-        438,
-        459
+        901,
+        905
       ],
       "op": "PUSH1",
       "path": "5",
       "value": "0x0"
     },
     "426": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "Issuer.checkIssuerExist",
       "offset": [
-        438,
-        459
+        924,
+        947
       ],
-      "op": "DUP2",
+      "op": "SWAP1",
       "path": "5"
     },
     "427": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "Issuer.checkIssuerExist",
       "offset": [
-        438,
-        459
+        924,
+        947
       ],
       "op": "DUP2",
       "path": "5"
     },
     "428": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "Issuer.checkIssuerExist",
       "offset": [
-        438,
-        459
+        924,
+        947
       ],
       "op": "MSTORE",
       "path": "5"
     },
     "429": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "Issuer.checkIssuerExist",
       "offset": [
-        438,
-        451
+        924,
+        937
       ],
       "op": "PUSH1",
       "path": "5",
       "value": "0x2"
     },
     "431": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "Issuer.checkIssuerExist",
       "offset": [
-        438,
-        459
+        924,
+        947
       ],
       "op": "PUSH1",
       "path": "5",
       "value": "0x20"
     },
     "433": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "Issuer.checkIssuerExist",
       "offset": [
-        438,
-        459
-      ],
-      "op": "SWAP1",
-      "path": "5"
-    },
-    "434": {
-      "fn": "Issuer.registerIssuer",
-      "offset": [
-        438,
-        459
-      ],
-      "op": "DUP2",
-      "path": "5"
-    },
-    "435": {
-      "fn": "Issuer.registerIssuer",
-      "offset": [
-        438,
-        459
+        924,
+        947
       ],
       "op": "MSTORE",
       "path": "5"
     },
-    "436": {
-      "fn": "Issuer.registerIssuer",
+    "434": {
+      "fn": "Issuer.checkIssuerExist",
       "offset": [
-        438,
-        459
+        924,
+        947
       ],
       "op": "PUSH1",
       "path": "5",
       "value": "0x40"
     },
-    "438": {
-      "fn": "Issuer.registerIssuer",
+    "436": {
+      "fn": "Issuer.checkIssuerExist",
       "offset": [
-        438,
-        459
+        924,
+        947
       ],
-      "op": "SWAP2",
+      "op": "SWAP1",
+      "path": "5"
+    },
+    "437": {
+      "fn": "Issuer.checkIssuerExist",
+      "offset": [
+        924,
+        947
+      ],
+      "op": "KECCAK256",
+      "path": "5"
+    },
+    "438": {
+      "fn": "Issuer.checkIssuerExist",
+      "offset": [
+        924,
+        947
+      ],
+      "op": "SLOAD",
       "path": "5"
     },
     "439": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "Issuer.checkIssuerExist",
       "offset": [
-        438,
-        459
+        924,
+        951
       ],
-      "op": "DUP3",
+      "op": "ISZERO",
       "path": "5"
     },
     "440": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        438,
-        459
+        479,
+        701
       ],
-      "op": "SWAP1",
-      "path": "5"
-    },
-    "441": {
-      "fn": "Issuer.registerIssuer",
-      "offset": [
-        438,
-        459
-      ],
-      "op": "KECCAK256",
-      "path": "5"
-    },
-    "442": {
-      "fn": "Issuer.registerIssuer",
-      "offset": [
-        438,
-        471
-      ],
-      "op": "DUP6",
-      "path": "5"
+      "op": "PUSH2",
+      "path": "5",
+      "value": "0x237"
     },
     "443": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        438,
-        471
+        479,
+        701
       ],
-      "op": "SWAP1",
+      "op": "JUMPI",
       "path": "5"
     },
     "444": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        438,
-        471
+        528,
+        664
       ],
-      "op": "SSTORE",
-      "path": "5"
-    },
-    "445": {
-      "fn": "Issuer.registerIssuer",
-      "offset": [
-        486,
-        518
-      ],
-      "op": "DUP2",
+      "op": "PUSH1",
       "path": "5",
-      "statement": 4
+      "statement": 3,
+      "value": "0x40"
     },
     "446": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        486,
-        518
+        528,
+        664
       ],
-      "op": "MLOAD",
+      "op": "DUP1",
       "path": "5"
     },
     "447": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        496,
-        500
-      ],
-      "op": "PUSH1",
-      "path": "5",
-      "value": "0x1"
-    },
-    "449": {
-      "op": "DUP2"
-    },
-    "450": {
-      "op": "MSTORE"
-    },
-    "451": {
-      "op": "SWAP1"
-    },
-    "452": {
-      "op": "DUP2"
-    },
-    "453": {
-      "op": "ADD"
-    },
-    "454": {
-      "op": "DUP6"
-    },
-    "455": {
-      "op": "SWAP1"
-    },
-    "456": {
-      "op": "MSTORE"
-    },
-    "457": {
-      "op": "DUP1"
-    },
-    "458": {
-      "op": "DUP3"
-    },
-    "459": {
-      "op": "ADD"
-    },
-    "460": {
-      "op": "SWAP3"
-    },
-    "461": {
-      "op": "SWAP1"
-    },
-    "462": {
-      "op": "SWAP3"
-    },
-    "463": {
-      "op": "MSTORE"
-    },
-    "464": {
-      "fn": "Issuer.registerIssuer",
-      "offset": [
-        486,
-        518
+        528,
+        664
       ],
       "op": "MLOAD",
       "path": "5"
     },
-    "465": {
+    "448": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        486,
-        518
+        555,
+        560
+      ],
+      "op": "PUSH1",
+      "path": "5",
+      "value": "0x0"
+    },
+    "450": {
+      "op": "DUP2"
+    },
+    "451": {
+      "op": "MSTORE"
+    },
+    "452": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "454": {
+      "op": "DUP2"
+    },
+    "455": {
+      "op": "ADD"
+    },
+    "456": {
+      "op": "DUP5"
+    },
+    "457": {
+      "op": "SWAP1"
+    },
+    "458": {
+      "op": "MSTORE"
+    },
+    "459": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "461": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "463": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "465": {
+      "op": "SHL"
+    },
+    "466": {
+      "op": "SUB"
+    },
+    "467": {
+      "op": "DUP6"
+    },
+    "468": {
+      "op": "AND"
+    },
+    "469": {
+      "op": "DUP2"
+    },
+    "470": {
+      "op": "DUP4"
+    },
+    "471": {
+      "op": "ADD"
+    },
+    "472": {
+      "op": "MSTORE"
+    },
+    "473": {
+      "op": "PUSH1",
+      "value": "0x80"
+    },
+    "475": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "477": {
+      "op": "DUP3"
+    },
+    "478": {
+      "op": "ADD"
+    },
+    "479": {
+      "op": "DUP2"
+    },
+    "480": {
+      "op": "SWAP1"
+    },
+    "481": {
+      "op": "MSTORE"
+    },
+    "482": {
+      "op": "PUSH1",
+      "value": "0x13"
+    },
+    "484": {
+      "op": "SWAP1"
+    },
+    "485": {
+      "op": "DUP3"
+    },
+    "486": {
+      "op": "ADD"
+    },
+    "487": {
+      "op": "MSTORE"
+    },
+    "488": {
+      "op": "PUSH19",
+      "value": "0x185B1B1C9958591E481C9959DA5CDD195C9959"
+    },
+    "508": {
+      "op": "PUSH1",
+      "value": "0x6A"
+    },
+    "510": {
+      "op": "SHL"
+    },
+    "511": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "513": {
+      "op": "DUP3"
+    },
+    "514": {
+      "op": "ADD"
+    },
+    "515": {
+      "op": "MSTORE"
+    },
+    "516": {
+      "fn": "Issuer.registerIssuer",
+      "offset": [
+        528,
+        664
+      ],
+      "op": "SWAP1",
+      "path": "5"
+    },
+    "517": {
+      "fn": "Issuer.registerIssuer",
+      "offset": [
+        528,
+        664
+      ],
+      "op": "MLOAD",
+      "path": "5"
+    },
+    "518": {
+      "fn": "Issuer.registerIssuer",
+      "offset": [
+        528,
+        664
       ],
       "op": "PUSH32",
       "path": "5",
-      "value": "0x7A0F50B566AB4225B0F298A229BCF96D4BA86D1C6C43D48AD0F0F6D96F68413D"
+      "value": "0x3A5E9CF671F12108422B0B314D2755338A4779C3F3D01AE983F8E6A19970B085"
     },
-    "498": {
+    "551": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        486,
-        518
+        528,
+        664
       ],
       "op": "SWAP2",
       "path": "5"
     },
-    "499": {
+    "552": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        486,
-        518
+        528,
+        664
       ],
       "op": "DUP2",
       "path": "5"
     },
-    "500": {
+    "553": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        486,
-        518
+        528,
+        664
       ],
       "op": "SWAP1",
       "path": "5"
     },
-    "501": {
+    "554": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        486,
-        518
+        528,
+        664
       ],
       "op": "SUB",
       "path": "5"
     },
-    "502": {
+    "555": {
       "op": "PUSH1",
-      "value": "0x60"
+      "value": "0xC0"
     },
-    "504": {
+    "557": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        486,
-        518
+        528,
+        664
       ],
       "op": "ADD",
       "path": "5"
     },
-    "505": {
+    "558": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        486,
-        518
+        528,
+        664
       ],
       "op": "SWAP1",
       "path": "5"
     },
-    "506": {
+    "559": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        486,
-        518
+        528,
+        664
       ],
       "op": "LOG1",
       "path": "5"
     },
-    "507": {
+    "560": {
       "op": "POP"
     },
-    "508": {
+    "561": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        535,
-        539
+        685,
+        690
       ],
       "op": "PUSH1",
       "path": "5",
-      "statement": 5,
-      "value": "0x1"
+      "statement": 4,
+      "value": "0x0"
     },
-    "510": {
+    "563": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        326,
-        546
+        678,
+        690
       ],
-      "op": "SWAP3",
-      "path": "5"
+      "op": "PUSH2",
+      "path": "5",
+      "value": "0x2B6"
     },
-    "511": {
+    "566": {
       "fn": "Issuer.registerIssuer",
       "offset": [
-        326,
-        546
-      ],
-      "op": "SWAP2",
-      "path": "5"
-    },
-    "512": {
-      "fn": "Issuer.registerIssuer",
-      "offset": [
-        326,
-        546
-      ],
-      "op": "POP",
-      "path": "5"
-    },
-    "513": {
-      "fn": "Issuer.registerIssuer",
-      "offset": [
-        326,
-        546
-      ],
-      "op": "POP",
-      "path": "5"
-    },
-    "514": {
-      "fn": "Issuer.registerIssuer",
-      "jump": "o",
-      "offset": [
-        326,
-        546
+        678,
+        690
       ],
       "op": "JUMP",
       "path": "5"
     },
-    "515": {
-      "op": "JUMPDEST"
+    "567": {
+      "fn": "Issuer.registerIssuer",
+      "offset": [
+        479,
+        701
+      ],
+      "op": "JUMPDEST",
+      "path": "5"
     },
-    "516": {
-      "op": "DUP1"
-    },
-    "517": {
-      "op": "CALLDATALOAD"
-    },
-    "518": {
+    "568": {
       "op": "PUSH1",
       "value": "0x1"
     },
-    "520": {
+    "570": {
       "op": "PUSH1",
       "value": "0x1"
     },
-    "522": {
+    "572": {
       "op": "PUSH1",
       "value": "0xA0"
     },
-    "524": {
+    "574": {
       "op": "SHL"
     },
-    "525": {
-      "op": "SUB"
-    },
-    "526": {
-      "op": "DUP2"
-    },
-    "527": {
-      "op": "AND"
-    },
-    "528": {
-      "op": "DUP2"
-    },
-    "529": {
-      "op": "EQ"
-    },
-    "530": {
-      "op": "PUSH2",
-      "value": "0x166"
-    },
-    "533": {
-      "op": "JUMPI"
-    },
-    "534": {
-      "op": "PUSH1",
-      "value": "0x0"
-    },
-    "536": {
-      "op": "DUP1"
-    },
-    "537": {
-      "op": "REVERT"
-    },
-    "538": {
-      "op": "JUMPDEST"
-    },
-    "539": {
-      "op": "PUSH1",
-      "value": "0x0"
-    },
-    "541": {
-      "op": "PUSH1",
-      "value": "0x20"
-    },
-    "543": {
-      "op": "DUP3"
-    },
-    "544": {
-      "op": "DUP5"
-    },
-    "545": {
-      "op": "SUB"
-    },
-    "546": {
-      "op": "SLT"
-    },
-    "547": {
-      "op": "ISZERO"
-    },
-    "548": {
-      "op": "PUSH2",
-      "value": "0x22C"
-    },
-    "551": {
-      "op": "JUMPI"
-    },
-    "552": {
-      "op": "PUSH1",
-      "value": "0x0"
-    },
-    "554": {
-      "op": "DUP1"
-    },
-    "555": {
-      "op": "REVERT"
-    },
-    "556": {
-      "op": "JUMPDEST"
-    },
-    "557": {
-      "op": "PUSH2",
-      "value": "0x235"
-    },
-    "560": {
-      "op": "DUP3"
-    },
-    "561": {
-      "op": "PUSH2",
-      "value": "0x203"
-    },
-    "564": {
-      "jump": "i",
-      "op": "JUMP"
-    },
-    "565": {
-      "op": "JUMPDEST"
-    },
-    "566": {
-      "op": "SWAP4"
-    },
-    "567": {
-      "op": "SWAP3"
-    },
-    "568": {
-      "op": "POP"
-    },
-    "569": {
-      "op": "POP"
-    },
-    "570": {
-      "op": "POP"
-    },
-    "571": {
-      "jump": "o",
-      "op": "JUMP"
-    },
-    "572": {
-      "op": "JUMPDEST"
-    },
-    "573": {
-      "op": "PUSH1",
-      "value": "0x0"
-    },
     "575": {
-      "op": "DUP1"
+      "op": "SUB"
     },
     "576": {
-      "op": "PUSH1",
-      "value": "0x40"
+      "fn": "Issuer.registerIssuer",
+      "offset": [
+        710,
+        731
+      ],
+      "op": "DUP4",
+      "path": "5",
+      "statement": 5
+    },
+    "577": {
+      "fn": "Issuer.registerIssuer",
+      "offset": [
+        710,
+        731
+      ],
+      "op": "AND",
+      "path": "5"
     },
     "578": {
-      "op": "DUP4"
-    },
-    "579": {
-      "op": "DUP6"
-    },
-    "580": {
-      "op": "SUB"
-    },
-    "581": {
-      "op": "SLT"
-    },
-    "582": {
-      "op": "ISZERO"
-    },
-    "583": {
-      "op": "PUSH2",
-      "value": "0x24F"
-    },
-    "586": {
-      "op": "JUMPI"
-    },
-    "587": {
+      "fn": "Issuer.registerIssuer",
+      "offset": [
+        710,
+        731
+      ],
       "op": "PUSH1",
+      "path": "5",
       "value": "0x0"
     },
-    "589": {
-      "op": "DUP1"
+    "580": {
+      "fn": "Issuer.registerIssuer",
+      "offset": [
+        710,
+        731
+      ],
+      "op": "DUP2",
+      "path": "5"
     },
-    "590": {
-      "op": "REVERT"
+    "581": {
+      "fn": "Issuer.registerIssuer",
+      "offset": [
+        710,
+        731
+      ],
+      "op": "DUP2",
+      "path": "5"
     },
-    "591": {
-      "op": "JUMPDEST"
+    "582": {
+      "fn": "Issuer.registerIssuer",
+      "offset": [
+        710,
+        731
+      ],
+      "op": "MSTORE",
+      "path": "5"
     },
-    "592": {
-      "op": "PUSH2",
-      "value": "0x258"
-    },
-    "595": {
-      "op": "DUP4"
-    },
-    "596": {
-      "op": "PUSH2",
-      "value": "0x203"
-    },
-    "599": {
-      "jump": "i",
-      "op": "JUMP"
-    },
-    "600": {
-      "op": "JUMPDEST"
-    },
-    "601": {
-      "op": "SWAP5"
-    },
-    "602": {
+    "583": {
+      "fn": "Issuer.registerIssuer",
+      "offset": [
+        710,
+        723
+      ],
       "op": "PUSH1",
+      "path": "5",
+      "value": "0x2"
+    },
+    "585": {
+      "fn": "Issuer.registerIssuer",
+      "offset": [
+        710,
+        731
+      ],
+      "op": "PUSH1",
+      "path": "5",
       "value": "0x20"
     },
+    "587": {
+      "fn": "Issuer.registerIssuer",
+      "offset": [
+        710,
+        731
+      ],
+      "op": "SWAP1",
+      "path": "5"
+    },
+    "588": {
+      "fn": "Issuer.registerIssuer",
+      "offset": [
+        710,
+        731
+      ],
+      "op": "DUP2",
+      "path": "5"
+    },
+    "589": {
+      "fn": "Issuer.registerIssuer",
+      "offset": [
+        710,
+        731
+      ],
+      "op": "MSTORE",
+      "path": "5"
+    },
+    "590": {
+      "fn": "Issuer.registerIssuer",
+      "offset": [
+        710,
+        731
+      ],
+      "op": "PUSH1",
+      "path": "5",
+      "value": "0x40"
+    },
+    "592": {
+      "fn": "Issuer.registerIssuer",
+      "offset": [
+        710,
+        731
+      ],
+      "op": "SWAP2",
+      "path": "5"
+    },
+    "593": {
+      "fn": "Issuer.registerIssuer",
+      "offset": [
+        710,
+        731
+      ],
+      "op": "DUP3",
+      "path": "5"
+    },
+    "594": {
+      "fn": "Issuer.registerIssuer",
+      "offset": [
+        710,
+        731
+      ],
+      "op": "SWAP1",
+      "path": "5"
+    },
+    "595": {
+      "fn": "Issuer.registerIssuer",
+      "offset": [
+        710,
+        731
+      ],
+      "op": "KECCAK256",
+      "path": "5"
+    },
+    "596": {
+      "fn": "Issuer.registerIssuer",
+      "offset": [
+        710,
+        743
+      ],
+      "op": "DUP6",
+      "path": "5"
+    },
+    "597": {
+      "fn": "Issuer.registerIssuer",
+      "offset": [
+        710,
+        743
+      ],
+      "op": "SWAP1",
+      "path": "5"
+    },
+    "598": {
+      "fn": "Issuer.registerIssuer",
+      "offset": [
+        710,
+        743
+      ],
+      "op": "SSTORE",
+      "path": "5"
+    },
+    "599": {
+      "fn": "Issuer.registerIssuer",
+      "offset": [
+        758,
+        802
+      ],
+      "op": "DUP2",
+      "path": "5",
+      "statement": 6
+    },
+    "600": {
+      "fn": "Issuer.registerIssuer",
+      "offset": [
+        758,
+        802
+      ],
+      "op": "MLOAD",
+      "path": "5"
+    },
+    "601": {
+      "fn": "Issuer.registerIssuer",
+      "offset": [
+        768,
+        772
+      ],
+      "op": "PUSH1",
+      "path": "5",
+      "value": "0x1"
+    },
+    "603": {
+      "op": "DUP2"
+    },
     "604": {
-      "op": "SWAP4"
+      "op": "MSTORE"
     },
     "605": {
       "op": "SWAP1"
     },
     "606": {
-      "op": "SWAP4"
+      "op": "DUP2"
     },
     "607": {
       "op": "ADD"
     },
     "608": {
-      "op": "CALLDATALOAD"
+      "op": "DUP6"
     },
     "609": {
-      "op": "SWAP4"
+      "op": "SWAP1"
     },
     "610": {
-      "op": "POP"
+      "op": "MSTORE"
     },
     "611": {
-      "op": "POP"
+      "op": "DUP1"
     },
     "612": {
-      "op": "POP"
+      "op": "DUP3"
     },
     "613": {
+      "op": "ADD"
+    },
+    "614": {
+      "op": "SWAP3"
+    },
+    "615": {
+      "op": "SWAP1"
+    },
+    "616": {
+      "op": "SWAP3"
+    },
+    "617": {
+      "op": "MSTORE"
+    },
+    "618": {
+      "op": "PUSH1",
+      "value": "0x80"
+    },
+    "620": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "622": {
+      "op": "DUP4"
+    },
+    "623": {
+      "op": "ADD"
+    },
+    "624": {
+      "op": "DUP2"
+    },
+    "625": {
+      "op": "SWAP1"
+    },
+    "626": {
+      "op": "MSTORE"
+    },
+    "627": {
+      "op": "PUSH1",
+      "value": "0x6"
+    },
+    "629": {
+      "op": "SWAP1"
+    },
+    "630": {
+      "op": "DUP4"
+    },
+    "631": {
+      "op": "ADD"
+    },
+    "632": {
+      "op": "MSTORE"
+    },
+    "633": {
+      "op": "PUSH6",
+      "value": "0x1CDD1BDC9959"
+    },
+    "640": {
+      "op": "PUSH1",
+      "value": "0xD2"
+    },
+    "642": {
+      "op": "SHL"
+    },
+    "643": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "645": {
+      "op": "DUP4"
+    },
+    "646": {
+      "op": "ADD"
+    },
+    "647": {
+      "op": "MSTORE"
+    },
+    "648": {
+      "fn": "Issuer.registerIssuer",
+      "offset": [
+        758,
+        802
+      ],
+      "op": "MLOAD",
+      "path": "5"
+    },
+    "649": {
+      "fn": "Issuer.registerIssuer",
+      "offset": [
+        758,
+        802
+      ],
+      "op": "PUSH32",
+      "path": "5",
+      "value": "0x3A5E9CF671F12108422B0B314D2755338A4779C3F3D01AE983F8E6A19970B085"
+    },
+    "682": {
+      "fn": "Issuer.registerIssuer",
+      "offset": [
+        758,
+        802
+      ],
+      "op": "SWAP2",
+      "path": "5"
+    },
+    "683": {
+      "fn": "Issuer.registerIssuer",
+      "offset": [
+        758,
+        802
+      ],
+      "op": "DUP2",
+      "path": "5"
+    },
+    "684": {
+      "fn": "Issuer.registerIssuer",
+      "offset": [
+        758,
+        802
+      ],
+      "op": "SWAP1",
+      "path": "5"
+    },
+    "685": {
+      "fn": "Issuer.registerIssuer",
+      "offset": [
+        758,
+        802
+      ],
+      "op": "SUB",
+      "path": "5"
+    },
+    "686": {
+      "op": "PUSH1",
+      "value": "0xC0"
+    },
+    "688": {
+      "fn": "Issuer.registerIssuer",
+      "offset": [
+        758,
+        802
+      ],
+      "op": "ADD",
+      "path": "5"
+    },
+    "689": {
+      "fn": "Issuer.registerIssuer",
+      "offset": [
+        758,
+        802
+      ],
+      "op": "SWAP1",
+      "path": "5"
+    },
+    "690": {
+      "fn": "Issuer.registerIssuer",
+      "offset": [
+        758,
+        802
+      ],
+      "op": "LOG1",
+      "path": "5"
+    },
+    "691": {
+      "op": "POP"
+    },
+    "692": {
+      "fn": "Issuer.registerIssuer",
+      "offset": [
+        819,
+        823
+      ],
+      "op": "PUSH1",
+      "path": "5",
+      "statement": 7,
+      "value": "0x1"
+    },
+    "694": {
+      "offset": [
+        587,
+        588
+      ],
+      "op": "JUMPDEST",
+      "path": "7"
+    },
+    "695": {
+      "fn": "Issuer.registerIssuer",
+      "offset": [
+        340,
+        830
+      ],
+      "op": "SWAP3",
+      "path": "5"
+    },
+    "696": {
+      "fn": "Issuer.registerIssuer",
+      "offset": [
+        340,
+        830
+      ],
+      "op": "SWAP2",
+      "path": "5"
+    },
+    "697": {
+      "fn": "Issuer.registerIssuer",
+      "offset": [
+        340,
+        830
+      ],
+      "op": "POP",
+      "path": "5"
+    },
+    "698": {
+      "fn": "Issuer.registerIssuer",
+      "offset": [
+        340,
+        830
+      ],
+      "op": "POP",
+      "path": "5"
+    },
+    "699": {
+      "fn": "Issuer.registerIssuer",
+      "jump": "o",
+      "offset": [
+        340,
+        830
+      ],
+      "op": "JUMP",
+      "path": "5"
+    },
+    "700": {
+      "op": "JUMPDEST"
+    },
+    "701": {
+      "op": "DUP1"
+    },
+    "702": {
+      "op": "CALLDATALOAD"
+    },
+    "703": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "705": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "707": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "709": {
+      "op": "SHL"
+    },
+    "710": {
+      "op": "SUB"
+    },
+    "711": {
+      "op": "DUP2"
+    },
+    "712": {
+      "op": "AND"
+    },
+    "713": {
+      "op": "DUP2"
+    },
+    "714": {
+      "op": "EQ"
+    },
+    "715": {
+      "op": "PUSH2",
+      "value": "0x166"
+    },
+    "718": {
+      "op": "JUMPI"
+    },
+    "719": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "721": {
+      "op": "DUP1"
+    },
+    "722": {
+      "op": "REVERT"
+    },
+    "723": {
+      "op": "JUMPDEST"
+    },
+    "724": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "726": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "728": {
+      "op": "DUP3"
+    },
+    "729": {
+      "op": "DUP5"
+    },
+    "730": {
+      "op": "SUB"
+    },
+    "731": {
+      "op": "SLT"
+    },
+    "732": {
+      "op": "ISZERO"
+    },
+    "733": {
+      "op": "PUSH2",
+      "value": "0x2E5"
+    },
+    "736": {
+      "op": "JUMPI"
+    },
+    "737": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "739": {
+      "op": "DUP1"
+    },
+    "740": {
+      "op": "REVERT"
+    },
+    "741": {
+      "op": "JUMPDEST"
+    },
+    "742": {
+      "op": "PUSH2",
+      "value": "0x2EE"
+    },
+    "745": {
+      "op": "DUP3"
+    },
+    "746": {
+      "op": "PUSH2",
+      "value": "0x2BC"
+    },
+    "749": {
+      "jump": "i",
+      "op": "JUMP"
+    },
+    "750": {
+      "op": "JUMPDEST"
+    },
+    "751": {
+      "op": "SWAP4"
+    },
+    "752": {
+      "op": "SWAP3"
+    },
+    "753": {
+      "op": "POP"
+    },
+    "754": {
+      "op": "POP"
+    },
+    "755": {
+      "op": "POP"
+    },
+    "756": {
+      "jump": "o",
+      "op": "JUMP"
+    },
+    "757": {
+      "op": "JUMPDEST"
+    },
+    "758": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "760": {
+      "op": "DUP1"
+    },
+    "761": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "763": {
+      "op": "DUP4"
+    },
+    "764": {
+      "op": "DUP6"
+    },
+    "765": {
+      "op": "SUB"
+    },
+    "766": {
+      "op": "SLT"
+    },
+    "767": {
+      "op": "ISZERO"
+    },
+    "768": {
+      "op": "PUSH2",
+      "value": "0x308"
+    },
+    "771": {
+      "op": "JUMPI"
+    },
+    "772": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "774": {
+      "op": "DUP1"
+    },
+    "775": {
+      "op": "REVERT"
+    },
+    "776": {
+      "op": "JUMPDEST"
+    },
+    "777": {
+      "op": "PUSH2",
+      "value": "0x311"
+    },
+    "780": {
+      "op": "DUP4"
+    },
+    "781": {
+      "op": "PUSH2",
+      "value": "0x2BC"
+    },
+    "784": {
+      "jump": "i",
+      "op": "JUMP"
+    },
+    "785": {
+      "op": "JUMPDEST"
+    },
+    "786": {
+      "op": "SWAP5"
+    },
+    "787": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "789": {
+      "op": "SWAP4"
+    },
+    "790": {
+      "op": "SWAP1"
+    },
+    "791": {
+      "op": "SWAP4"
+    },
+    "792": {
+      "op": "ADD"
+    },
+    "793": {
+      "op": "CALLDATALOAD"
+    },
+    "794": {
+      "op": "SWAP4"
+    },
+    "795": {
+      "op": "POP"
+    },
+    "796": {
+      "op": "POP"
+    },
+    "797": {
+      "op": "POP"
+    },
+    "798": {
       "jump": "o",
       "op": "JUMP"
     }
   },
-  "sha1": "27a4af721db590be0395229b9cb9a226070cd35f",
-  "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.7.0 <0.9.0;\n\n\nimport \"./RegistryAuthorization.sol\";\n\n// this contract provides issuer data for registry smart contract\n\ncontract Issuer is RegistryAuthorization {\n\n    event IsSuccess(\n        bool value,\n        bytes32 hashData,\n        address issuer\n        );\n    \n    function registerIssuer (address issuer, bytes32 _hashData) grantAccess public returns(bool success)  {\n        issuerMapping[issuer] = _hashData;\n        emit IsSuccess(true,_hashData,issuer);\n        return true;\n    }\n\n    function verifyIssuer (address _address) public view returns(bool){\n        return issuerMapping[_address]>0;\n    }\n\n}\n\n",
-  "sourceMap": "172:498:5:-:0;;;;;;;;;;;;-1:-1:-1;346:5:7;:27;;-1:-1:-1;;;;;;346:27:7;362:10;346:27;;;172:498:5;;;;;;",
+  "sha1": "92c86d08cc217c7567d65890235692221063e375",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.7.0 <0.9.0;\n\nimport \"./RegistryAuthorization.sol\";\n\n// this contract provides issuer data for registry smart contract\n\ncontract Issuer is RegistryAuthorization {\n    event IsSuccess(\n        bool value,\n        bytes32 hashData,\n        address issuer,\n        string message\n    );\n\n    function registerIssuer(address issuer, bytes32 _hashData)\n        public\n        grantAccess\n        returns (bool success)\n    {\n        if (checkIssuerExist(issuer)) {\n            emit IsSuccess(\n                false,\n                _hashData,\n                issuer,\n                \"allready registered\"\n            );\n            return false;\n        }\n        issuerMapping[issuer] = _hashData;\n        emit IsSuccess(true, _hashData, issuer, \"stored\");\n        return true;\n    }\n\n    function checkIssuerExist(address _address) public view returns (bool) {\n        return issuerMapping[_address] > 0;\n    }\n}\n",
+  "sourceMap": "171:789:5:-:0;;;;;;;;;;;;-1:-1:-1;360:5:7;:27;;-1:-1:-1;;;;;;360:27:7;376:10;360:27;;;171:789:5;;;;;;",
   "sourcePath": "contracts/Registry/IssuerData.sol",
   "type": "contract"
 }

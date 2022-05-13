@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import RegisterCertificate from "./components/RegisterCertificate";
 import VerifyCertificate from "./components/VerifyCertificate";
+import RegisterIssuer from "./components/RegisterIssuer";
 
 class AppRouter extends React.Component {
   constructor(props) {
@@ -27,7 +28,22 @@ class AppRouter extends React.Component {
           <Route
             exact
             path="/verify-cert"
-            element={<VerifyCertificate />}
+            element={
+              <VerifyCertificate
+                isLoading={this.props.isLoading}
+                setToLoading={this.props.setToLoading}
+              />
+            }
+          ></Route>
+          <Route
+            exact
+            path="/register-issuer"
+            element={
+              <RegisterIssuer
+                isLoading={this.props.isLoading}
+                setToLoading={this.props.setToLoading}
+              />
+            }
           ></Route>
         </Routes>
       </Router>
@@ -35,4 +51,4 @@ class AppRouter extends React.Component {
   }
 }
 
-export default AppRouter
+export default AppRouter;

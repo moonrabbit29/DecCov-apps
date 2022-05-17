@@ -139,7 +139,7 @@ class UserDetail extends React.Component {
                   <option>Perempuan</option>
                 </Form.Select>
               </Form.Group>
-              <Form.Group className="mb-3" controlId="formBasicEmail">
+              {/* <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Alamat</Form.Label>
                 <Form.Control
                   required
@@ -148,7 +148,7 @@ class UserDetail extends React.Component {
                   value={this.props.values.homeAddress}
                   onChange={this.props.handleChange("homeAddress")}
                 />
-              </Form.Group>
+              </Form.Group> */}
               <Row>
                 <Col md={4} xs="auto">
                   <Button onClick={checkData}>

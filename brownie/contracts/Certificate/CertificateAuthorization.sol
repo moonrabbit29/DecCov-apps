@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.7.0 <0.9.0;
+import "./Helper.sol";
 
 // this contract provides authorization for certificate smart contract
 
@@ -7,7 +8,7 @@ interface IssuerData {
     function checkIssuerExist(address issuer) external returns (bool);
 }
 
-contract CertificateAuthorization {
+contract CertificateAuthorization is Helper{
     address private _Registry;
     mapping(address => mapping(uint256 => bool)) internal seenNonces;
 

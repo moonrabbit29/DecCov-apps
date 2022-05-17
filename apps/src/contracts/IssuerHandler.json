@@ -108,25 +108,25 @@
     }
   ],
   "allSourcePaths": {
-    "5": "contracts/Registry/IssuerData.sol",
+    "5": "contracts/Registry/IssuerHandler.sol",
     "7": "contracts/Registry/RegistryAuthorization.sol"
   },
   "ast": {
-    "absolutePath": "contracts/Registry/IssuerData.sol",
+    "absolutePath": "contracts/Registry/IssuerHandler.sol",
     "exportedSymbols": {
-      "Issuer": [
-        321
+      "IssuerHandler": [
+        437
       ],
       "RegistryAuthorization": [
-        498
+        514
       ]
     },
-    "id": 322,
+    "id": 438,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 252,
+        "id": 368,
         "literals": [
           "solidity",
           ">=",
@@ -142,11 +142,11 @@
       {
         "absolutePath": "contracts/Registry/RegistryAuthorization.sol",
         "file": "./RegistryAuthorization.sol",
-        "id": 253,
+        "id": 369,
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
-        "scope": 322,
-        "sourceUnit": 499,
+        "scope": 438,
+        "sourceUnit": 515,
         "src": "65:37:5",
         "symbolAliases": [],
         "unitAlias": ""
@@ -156,49 +156,49 @@
         "baseContracts": [
           {
             "baseName": {
-              "id": 254,
+              "id": 370,
               "name": "RegistryAuthorization",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 498,
-              "src": "190:21:5"
+              "referencedDeclaration": 514,
+              "src": "197:21:5"
             },
-            "id": 255,
+            "id": 371,
             "nodeType": "InheritanceSpecifier",
-            "src": "190:21:5"
+            "src": "197:21:5"
           }
         ],
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 321,
+        "id": 437,
         "linearizedBaseContracts": [
-          321,
-          498
+          437,
+          514
         ],
-        "name": "Issuer",
-        "nameLocation": "180:6:5",
+        "name": "IssuerHandler",
+        "nameLocation": "180:13:5",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "anonymous": false,
-            "id": 265,
+            "id": 381,
             "name": "IsSuccess",
-            "nameLocation": "224:9:5",
+            "nameLocation": "231:9:5",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 264,
+              "id": 380,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 257,
+                  "id": 373,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "value",
-                  "nameLocation": "248:5:5",
+                  "nameLocation": "255:5:5",
                   "nodeType": "VariableDeclaration",
-                  "scope": 265,
-                  "src": "243:10:5",
+                  "scope": 381,
+                  "src": "250:10:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -206,10 +206,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 256,
+                    "id": 372,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "243:4:5",
+                    "src": "250:4:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -219,14 +219,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 259,
+                  "id": 375,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "hashData",
-                  "nameLocation": "271:8:5",
+                  "nameLocation": "278:8:5",
                   "nodeType": "VariableDeclaration",
-                  "scope": 265,
-                  "src": "263:16:5",
+                  "scope": 381,
+                  "src": "270:16:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -234,10 +234,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 258,
+                    "id": 374,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "263:7:5",
+                    "src": "270:7:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -247,14 +247,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 261,
+                  "id": 377,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "issuer",
-                  "nameLocation": "297:6:5",
+                  "nameLocation": "304:6:5",
                   "nodeType": "VariableDeclaration",
-                  "scope": 265,
-                  "src": "289:14:5",
+                  "scope": 381,
+                  "src": "296:14:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -262,10 +262,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 260,
+                    "id": 376,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "289:7:5",
+                    "src": "296:7:5",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -276,14 +276,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 263,
+                  "id": 379,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "message",
-                  "nameLocation": "320:7:5",
+                  "nameLocation": "327:7:5",
                   "nodeType": "VariableDeclaration",
-                  "scope": 265,
-                  "src": "313:14:5",
+                  "scope": 381,
+                  "src": "320:14:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -291,10 +291,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 262,
+                    "id": 378,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "313:6:5",
+                    "src": "320:6:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -303,26 +303,26 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "233:100:5"
+              "src": "240:100:5"
             },
-            "src": "218:116:5"
+            "src": "225:116:5"
           },
           {
             "body": {
-              "id": 305,
+              "id": 421,
               "nodeType": "Block",
-              "src": "469:361:5",
+              "src": "476:361:5",
               "statements": [
                 {
                   "condition": {
                     "arguments": [
                       {
-                        "id": 277,
+                        "id": 393,
                         "name": "issuer",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 267,
-                        "src": "500:6:5",
+                        "referencedDeclaration": 383,
+                        "src": "507:6:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -336,18 +336,18 @@
                           "typeString": "address"
                         }
                       ],
-                      "id": 276,
+                      "id": 392,
                       "name": "checkIssuerExist",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 320,
-                      "src": "483:16:5",
+                      "referencedDeclaration": 436,
+                      "src": "490:16:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_view$_t_address_$returns$_t_bool_$",
                         "typeString": "function (address) view returns (bool)"
                       }
                     },
-                    "id": 278,
+                    "id": 394,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -355,34 +355,34 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "483:24:5",
+                    "src": "490:24:5",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
-                  "id": 289,
+                  "id": 405,
                   "nodeType": "IfStatement",
-                  "src": "479:222:5",
+                  "src": "486:222:5",
                   "trueBody": {
-                    "id": 288,
+                    "id": 404,
                     "nodeType": "Block",
-                    "src": "509:192:5",
+                    "src": "516:192:5",
                     "statements": [
                       {
                         "eventCall": {
                           "arguments": [
                             {
                               "hexValue": "66616c7365",
-                              "id": 280,
+                              "id": 396,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
                               "kind": "bool",
                               "lValueRequested": false,
                               "nodeType": "Literal",
-                              "src": "555:5:5",
+                              "src": "562:5:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_bool",
                                 "typeString": "bool"
@@ -390,24 +390,24 @@
                               "value": "false"
                             },
                             {
-                              "id": 281,
+                              "id": 397,
                               "name": "_hashData",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 269,
-                              "src": "578:9:5",
+                              "referencedDeclaration": 385,
+                              "src": "585:9:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_bytes32",
                                 "typeString": "bytes32"
                               }
                             },
                             {
-                              "id": 282,
+                              "id": 398,
                               "name": "issuer",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 267,
-                              "src": "605:6:5",
+                              "referencedDeclaration": 383,
+                              "src": "612:6:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_address",
                                 "typeString": "address"
@@ -415,14 +415,14 @@
                             },
                             {
                               "hexValue": "616c6c72656164792072656769737465726564",
-                              "id": 283,
+                              "id": 399,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
                               "kind": "string",
                               "lValueRequested": false,
                               "nodeType": "Literal",
-                              "src": "629:21:5",
+                              "src": "636:21:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_stringliteral_69b89e8990c6834fd9dffd0364cfd03a15cddf094d720c230aa220da07108d06",
                                 "typeString": "literal_string \"allready registered\""
@@ -449,18 +449,18 @@
                                 "typeString": "literal_string \"allready registered\""
                               }
                             ],
-                            "id": 279,
+                            "id": 395,
                             "name": "IsSuccess",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 265,
-                            "src": "528:9:5",
+                            "referencedDeclaration": 381,
+                            "src": "535:9:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_event_nonpayable$_t_bool_$_t_bytes32_$_t_address_$_t_string_memory_ptr_$returns$__$",
                               "typeString": "function (bool,bytes32,address,string memory)"
                             }
                           },
-                          "id": 284,
+                          "id": 400,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -468,70 +468,70 @@
                           "lValueRequested": false,
                           "names": [],
                           "nodeType": "FunctionCall",
-                          "src": "528:136:5",
+                          "src": "535:136:5",
                           "tryCall": false,
                           "typeDescriptions": {
                             "typeIdentifier": "t_tuple$__$",
                             "typeString": "tuple()"
                           }
                         },
-                        "id": 285,
+                        "id": 401,
                         "nodeType": "EmitStatement",
-                        "src": "523:141:5"
+                        "src": "530:141:5"
                       },
                       {
                         "expression": {
                           "hexValue": "66616c7365",
-                          "id": 286,
+                          "id": 402,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
                           "kind": "bool",
                           "lValueRequested": false,
                           "nodeType": "Literal",
-                          "src": "685:5:5",
+                          "src": "692:5:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bool",
                             "typeString": "bool"
                           },
                           "value": "false"
                         },
-                        "functionReturnParameters": 275,
-                        "id": 287,
+                        "functionReturnParameters": 391,
+                        "id": 403,
                         "nodeType": "Return",
-                        "src": "678:12:5"
+                        "src": "685:12:5"
                       }
                     ]
                   }
                 },
                 {
                   "expression": {
-                    "id": 294,
+                    "id": 410,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "baseExpression": {
-                        "id": 290,
+                        "id": 406,
                         "name": "issuerMapping",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 439,
-                        "src": "710:13:5",
+                        "referencedDeclaration": 455,
+                        "src": "717:13:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_bytes32_$",
                           "typeString": "mapping(address => bytes32)"
                         }
                       },
-                      "id": 292,
+                      "id": 408,
                       "indexExpression": {
-                        "id": 291,
+                        "id": 407,
                         "name": "issuer",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 267,
-                        "src": "724:6:5",
+                        "referencedDeclaration": 383,
+                        "src": "731:6:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -542,7 +542,7 @@
                       "isPure": false,
                       "lValueRequested": true,
                       "nodeType": "IndexAccess",
-                      "src": "710:21:5",
+                      "src": "717:21:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bytes32",
                         "typeString": "bytes32"
@@ -551,40 +551,40 @@
                     "nodeType": "Assignment",
                     "operator": "=",
                     "rightHandSide": {
-                      "id": 293,
+                      "id": 409,
                       "name": "_hashData",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 269,
-                      "src": "734:9:5",
+                      "referencedDeclaration": 385,
+                      "src": "741:9:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bytes32",
                         "typeString": "bytes32"
                       }
                     },
-                    "src": "710:33:5",
+                    "src": "717:33:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
                     }
                   },
-                  "id": 295,
+                  "id": 411,
                   "nodeType": "ExpressionStatement",
-                  "src": "710:33:5"
+                  "src": "717:33:5"
                 },
                 {
                   "eventCall": {
                     "arguments": [
                       {
                         "hexValue": "74727565",
-                        "id": 297,
+                        "id": 413,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "bool",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "768:4:5",
+                        "src": "775:4:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -592,24 +592,24 @@
                         "value": "true"
                       },
                       {
-                        "id": 298,
+                        "id": 414,
                         "name": "_hashData",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 269,
-                        "src": "774:9:5",
+                        "referencedDeclaration": 385,
+                        "src": "781:9:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
                         }
                       },
                       {
-                        "id": 299,
+                        "id": 415,
                         "name": "issuer",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 267,
-                        "src": "785:6:5",
+                        "referencedDeclaration": 383,
+                        "src": "792:6:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -617,14 +617,14 @@
                       },
                       {
                         "hexValue": "73746f726564",
-                        "id": 300,
+                        "id": 416,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "string",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "793:8:5",
+                        "src": "800:8:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_stringliteral_62abd276aae8e6f841196366f5e78aedbdb6cc3fbe30da0c9ca4cb4382c135cd",
                           "typeString": "literal_string \"stored\""
@@ -651,18 +651,18 @@
                           "typeString": "literal_string \"stored\""
                         }
                       ],
-                      "id": 296,
+                      "id": 412,
                       "name": "IsSuccess",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 265,
-                      "src": "758:9:5",
+                      "referencedDeclaration": 381,
+                      "src": "765:9:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_bool_$_t_bytes32_$_t_address_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,bytes32,address,string memory)"
                       }
                     },
-                    "id": 301,
+                    "id": 417,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -670,76 +670,76 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "758:44:5",
+                    "src": "765:44:5",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 302,
+                  "id": 418,
                   "nodeType": "EmitStatement",
-                  "src": "753:49:5"
+                  "src": "760:49:5"
                 },
                 {
                   "expression": {
                     "hexValue": "74727565",
-                    "id": 303,
+                    "id": 419,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
                     "kind": "bool",
                     "lValueRequested": false,
                     "nodeType": "Literal",
-                    "src": "819:4:5",
+                    "src": "826:4:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     },
                     "value": "true"
                   },
-                  "functionReturnParameters": 275,
-                  "id": 304,
+                  "functionReturnParameters": 391,
+                  "id": 420,
                   "nodeType": "Return",
-                  "src": "812:11:5"
+                  "src": "819:11:5"
                 }
               ]
             },
             "functionSelector": "92067121",
-            "id": 306,
+            "id": 422,
             "implemented": true,
             "kind": "function",
             "modifiers": [
               {
-                "id": 272,
+                "id": 388,
                 "kind": "modifierInvocation",
                 "modifierName": {
-                  "id": 271,
+                  "id": 387,
                   "name": "grantAccess",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 467,
-                  "src": "422:11:5"
+                  "referencedDeclaration": 483,
+                  "src": "429:11:5"
                 },
                 "nodeType": "ModifierInvocation",
-                "src": "422:11:5"
+                "src": "429:11:5"
               }
             ],
             "name": "registerIssuer",
-            "nameLocation": "349:14:5",
+            "nameLocation": "356:14:5",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 270,
+              "id": 386,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 267,
+                  "id": 383,
                   "mutability": "mutable",
                   "name": "issuer",
-                  "nameLocation": "372:6:5",
+                  "nameLocation": "379:6:5",
                   "nodeType": "VariableDeclaration",
-                  "scope": 306,
-                  "src": "364:14:5",
+                  "scope": 422,
+                  "src": "371:14:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -747,10 +747,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 266,
+                    "id": 382,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "364:7:5",
+                    "src": "371:7:5",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -761,13 +761,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 269,
+                  "id": 385,
                   "mutability": "mutable",
                   "name": "_hashData",
-                  "nameLocation": "388:9:5",
+                  "nameLocation": "395:9:5",
                   "nodeType": "VariableDeclaration",
-                  "scope": 306,
-                  "src": "380:17:5",
+                  "scope": 422,
+                  "src": "387:17:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -775,10 +775,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 268,
+                    "id": 384,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "380:7:5",
+                    "src": "387:7:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -787,21 +787,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "363:35:5"
+              "src": "370:35:5"
             },
             "returnParameters": {
-              "id": 275,
+              "id": 391,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 274,
+                  "id": 390,
                   "mutability": "mutable",
                   "name": "success",
-                  "nameLocation": "456:7:5",
+                  "nameLocation": "463:7:5",
                   "nodeType": "VariableDeclaration",
-                  "scope": 306,
-                  "src": "451:12:5",
+                  "scope": 422,
+                  "src": "458:12:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -809,10 +809,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 273,
+                    "id": 389,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "451:4:5",
+                    "src": "458:4:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -821,19 +821,19 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "450:14:5"
+              "src": "457:14:5"
             },
-            "scope": 321,
-            "src": "340:490:5",
+            "scope": 437,
+            "src": "347:490:5",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 319,
+              "id": 435,
               "nodeType": "Block",
-              "src": "907:51:5",
+              "src": "914:51:5",
               "statements": [
                 {
                   "expression": {
@@ -841,32 +841,32 @@
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
                     },
-                    "id": 317,
+                    "id": 433,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftExpression": {
                       "baseExpression": {
-                        "id": 313,
+                        "id": 429,
                         "name": "issuerMapping",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 439,
-                        "src": "924:13:5",
+                        "referencedDeclaration": 455,
+                        "src": "931:13:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_bytes32_$",
                           "typeString": "mapping(address => bytes32)"
                         }
                       },
-                      "id": 315,
+                      "id": 431,
                       "indexExpression": {
-                        "id": 314,
+                        "id": 430,
                         "name": "_address",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 308,
-                        "src": "938:8:5",
+                        "referencedDeclaration": 424,
+                        "src": "945:8:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -877,7 +877,7 @@
                       "isPure": false,
                       "lValueRequested": false,
                       "nodeType": "IndexAccess",
-                      "src": "924:23:5",
+                      "src": "931:23:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bytes32",
                         "typeString": "bytes32"
@@ -887,54 +887,54 @@
                     "operator": ">",
                     "rightExpression": {
                       "hexValue": "30",
-                      "id": 316,
+                      "id": 432,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "kind": "number",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "950:1:5",
+                      "src": "957:1:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_rational_0_by_1",
                         "typeString": "int_const 0"
                       },
                       "value": "0"
                     },
-                    "src": "924:27:5",
+                    "src": "931:27:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
-                  "functionReturnParameters": 312,
-                  "id": 318,
+                  "functionReturnParameters": 428,
+                  "id": 434,
                   "nodeType": "Return",
-                  "src": "917:34:5"
+                  "src": "924:34:5"
                 }
               ]
             },
             "functionSelector": "7547402a",
-            "id": 320,
+            "id": 436,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "checkIssuerExist",
-            "nameLocation": "845:16:5",
+            "nameLocation": "852:16:5",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 309,
+              "id": 425,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 308,
+                  "id": 424,
                   "mutability": "mutable",
                   "name": "_address",
-                  "nameLocation": "870:8:5",
+                  "nameLocation": "877:8:5",
                   "nodeType": "VariableDeclaration",
-                  "scope": 320,
-                  "src": "862:16:5",
+                  "scope": 436,
+                  "src": "869:16:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -942,10 +942,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 307,
+                    "id": 423,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "862:7:5",
+                    "src": "869:7:5",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -955,21 +955,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "861:18:5"
+              "src": "868:18:5"
             },
             "returnParameters": {
-              "id": 312,
+              "id": 428,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 311,
+                  "id": 427,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 320,
-                  "src": "901:4:5",
+                  "scope": 436,
+                  "src": "908:4:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -977,10 +977,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 310,
+                    "id": 426,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "901:4:5",
+                    "src": "908:4:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -989,23 +989,23 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "900:6:5"
+              "src": "907:6:5"
             },
-            "scope": 321,
-            "src": "836:122:5",
+            "scope": 437,
+            "src": "843:122:5",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "public"
           }
         ],
-        "scope": 322,
-        "src": "171:789:5",
+        "scope": 438,
+        "src": "171:796:5",
         "usedErrors": []
       }
     ],
-    "src": "32:929:5"
+    "src": "32:936:5"
   },
-  "bytecode": "608060405234801561001057600080fd5b50600080546001600160a01b03191633179055610355806100326000396000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c80636210d360146100515780637547402a146100795780638da5cb5b146100a457806392067121146100cf575b600080fd5b61006461005f3660046102d3565b6100e2565b60405190151581526020015b60405180910390f35b6100646100873660046102d3565b6001600160a01b0316600090815260026020526040902054151590565b6000546100b7906001600160a01b031681565b6040516001600160a01b039091168152602001610070565b6100646100dd3660046102f5565b61016b565b600080546001600160a01b031633148061010b57503360009081526001602052604090205460ff165b61011457600080fd5b6001600160a01b03821660009081526001602081905260409091205460ff1615151461016257506001600160a01b03166000908152600160208190526040909120805460ff19168217905590565b5060005b919050565b600080546001600160a01b031633148061019457503360009081526001602052604090205460ff165b61019d57600080fd5b6001600160a01b03831660009081526002602052604090205415610237576040805160008152602081018490526001600160a01b0385168183015260806060820181905260139082015272185b1b1c9958591e481c9959da5cdd195c9959606a1b60a082015290517f3a5e9cf671f12108422b0b314d2755338a4779c3f3d01ae983f8e6a19970b0859181900360c00190a15060006102b6565b6001600160a01b03831660008181526002602090815260409182902085905581516001815290810185905280820192909252608060608301819052600690830152651cdd1bdc995960d21b60a0830152517f3a5e9cf671f12108422b0b314d2755338a4779c3f3d01ae983f8e6a19970b0859181900360c00190a15060015b92915050565b80356001600160a01b038116811461016657600080fd5b6000602082840312156102e557600080fd5b6102ee826102bc565b9392505050565b6000806040838503121561030857600080fd5b610311836102bc565b94602093909301359350505056fea2646970667358221220e6e4e8644ced979907f6d99ec6374c5cf3608237cca97c757e2c63b161b2c8a364736f6c63430008070033",
+  "bytecode": "608060405234801561001057600080fd5b50600080546001600160a01b03191633179055610355806100326000396000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c80636210d360146100515780637547402a146100795780638da5cb5b146100a457806392067121146100cf575b600080fd5b61006461005f3660046102d3565b6100e2565b60405190151581526020015b60405180910390f35b6100646100873660046102d3565b6001600160a01b0316600090815260026020526040902054151590565b6000546100b7906001600160a01b031681565b6040516001600160a01b039091168152602001610070565b6100646100dd3660046102f5565b61016b565b600080546001600160a01b031633148061010b57503360009081526001602052604090205460ff165b61011457600080fd5b6001600160a01b03821660009081526001602081905260409091205460ff1615151461016257506001600160a01b03166000908152600160208190526040909120805460ff19168217905590565b5060005b919050565b600080546001600160a01b031633148061019457503360009081526001602052604090205460ff165b61019d57600080fd5b6001600160a01b03831660009081526002602052604090205415610237576040805160008152602081018490526001600160a01b0385168183015260806060820181905260139082015272185b1b1c9958591e481c9959da5cdd195c9959606a1b60a082015290517f3a5e9cf671f12108422b0b314d2755338a4779c3f3d01ae983f8e6a19970b0859181900360c00190a15060006102b6565b6001600160a01b03831660008181526002602090815260409182902085905581516001815290810185905280820192909252608060608301819052600690830152651cdd1bdc995960d21b60a0830152517f3a5e9cf671f12108422b0b314d2755338a4779c3f3d01ae983f8e6a19970b0859181900360c00190a15060015b92915050565b80356001600160a01b038116811461016657600080fd5b6000602082840312156102e557600080fd5b6102ee826102bc565b9392505050565b6000806040838503121561030857600080fd5b610311836102bc565b94602093909301359350505056fea26469706673582212202bd9f0c3c974991f36c28717dc9e64d3e45b498f5dac823990e6e6b02b3d2c4264736f6c63430008070033",
   "bytecodeSha1": "083d2bf0e231df07c3a32403f40bcc7cb516f092",
   "compiler": {
     "evm_version": "istanbul",
@@ -1015,12 +1015,12 @@
     },
     "version": "0.8.7+commit.e28d00a7"
   },
-  "contractName": "Issuer",
+  "contractName": "IssuerHandler",
   "coverageMap": {
     "branches": {
       "5": {},
       "7": {
-        "Issuer.registerIssuer": {
+        "IssuerHandler.registerIssuer": {
           "8": [
             526,
             545,
@@ -1036,32 +1036,32 @@
     },
     "statements": {
       "5": {
-        "Issuer.checkIssuerExist": {
+        "IssuerHandler.checkIssuerExist": {
           "0": [
-            917,
-            951
+            924,
+            958
           ]
         },
-        "Issuer.registerIssuer": {
+        "IssuerHandler.registerIssuer": {
           "3": [
-            523,
-            664
+            530,
+            671
           ],
           "4": [
-            678,
-            690
+            685,
+            697
           ],
           "5": [
-            710,
-            743
+            717,
+            750
           ],
           "6": [
-            753,
-            802
+            760,
+            809
           ],
           "7": [
-            812,
-            823
+            819,
+            830
           ]
         }
       },
@@ -1082,8 +1082,8 @@
   "dependencies": [
     "RegistryAuthorization"
   ],
-  "deployedBytecode": "608060405234801561001057600080fd5b506004361061004c5760003560e01c80636210d360146100515780637547402a146100795780638da5cb5b146100a457806392067121146100cf575b600080fd5b61006461005f3660046102d3565b6100e2565b60405190151581526020015b60405180910390f35b6100646100873660046102d3565b6001600160a01b0316600090815260026020526040902054151590565b6000546100b7906001600160a01b031681565b6040516001600160a01b039091168152602001610070565b6100646100dd3660046102f5565b61016b565b600080546001600160a01b031633148061010b57503360009081526001602052604090205460ff165b61011457600080fd5b6001600160a01b03821660009081526001602081905260409091205460ff1615151461016257506001600160a01b03166000908152600160208190526040909120805460ff19168217905590565b5060005b919050565b600080546001600160a01b031633148061019457503360009081526001602052604090205460ff165b61019d57600080fd5b6001600160a01b03831660009081526002602052604090205415610237576040805160008152602081018490526001600160a01b0385168183015260806060820181905260139082015272185b1b1c9958591e481c9959da5cdd195c9959606a1b60a082015290517f3a5e9cf671f12108422b0b314d2755338a4779c3f3d01ae983f8e6a19970b0859181900360c00190a15060006102b6565b6001600160a01b03831660008181526002602090815260409182902085905581516001815290810185905280820192909252608060608301819052600690830152651cdd1bdc995960d21b60a0830152517f3a5e9cf671f12108422b0b314d2755338a4779c3f3d01ae983f8e6a19970b0859181900360c00190a15060015b92915050565b80356001600160a01b038116811461016657600080fd5b6000602082840312156102e557600080fd5b6102ee826102bc565b9392505050565b6000806040838503121561030857600080fd5b610311836102bc565b94602093909301359350505056fea2646970667358221220e6e4e8644ced979907f6d99ec6374c5cf3608237cca97c757e2c63b161b2c8a364736f6c63430008070033",
-  "deployedSourceMap": "171:789:5:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;606:272:7;;;;;;:::i;:::-;;:::i;:::-;;;1031:14:8;;1024:22;1006:41;;994:2;979:18;606:272:7;;;;;;;;836:122:5;;;;;;:::i;:::-;-1:-1:-1;;;;;924:23:5;901:4;924:23;;;:13;:23;;;;;;:27;;;836:122;181:28:7;;;;;-1:-1:-1;;;;;181:28:7;;;;;;-1:-1:-1;;;;;822:32:8;;;804:51;;792:2;777:18;181:28:7;642:219:8;340:490:5;;;;;;:::i;:::-;;:::i;606:272:7:-;682:12;540:5;;-1:-1:-1;;;;;540:5:7;526:10;:19;;:49;;-1:-1:-1;564:10:7;549:26;;;;:14;:26;;;;;;;;526:49;518:58;;;;;;-1:-1:-1;;;;;712:24:7;::::1;;::::0;;;:14:::1;:24;::::0;;;;;;;;::::1;;:30;;;707:164;;-1:-1:-1::0;;;;;;759:24:7::1;;::::0;;;786:4:::1;759:24;::::0;;;;;;;:31;;-1:-1:-1;;759:31:7::1;::::0;::::1;::::0;;786:4;606:272::o;707:164::-:1;-1:-1:-1::0;854:5:7::1;707:164;606:272:::0;;;:::o;340:490:5:-;451:12;540:5:7;;-1:-1:-1;;;;;540:5:7;526:10;:19;;:49;;-1:-1:-1;564:10:7;549:26;;;;:14;:26;;;;;;;;526:49;518:58;;;;;;-1:-1:-1;;;;;924:23:5;;901:4;924:23;;;:13;:23;;;;;;:27;479:222:::1;;528:136;::::0;;555:5:::1;1907:41:8::0;;1979:2;1964:18;;1957:34;;;-1:-1:-1;;;;;2027:32:8;;2007:18;;;2000:60;2096:3;2091:2;2076:18;;2069:31;;;2137:2;2116:19;;;2109:31;-1:-1:-1;;;2047:3:8;2156:19;;2149:50;528:136:5;;::::1;::::0;;;;2231:3:8;528:136:5;;::::1;-1:-1:-1::0;685:5:5::1;678:12;;479:222;-1:-1:-1::0;;;;;710:21:5;::::1;;::::0;;;:13:::1;:21;::::0;;;;;;;;:33;;;758:44;;768:4:::1;1320:41:8::0;;1377:18;;;1370:34;;;1420:18;;;1413:60;;;;1509:3;1504:2;1489:18;;1482:31;;;1550:1;1529:19;;;1522:30;-1:-1:-1;;;1460:3:8;1568:19;;1561:37;758:44:5;::::1;::::0;;;;1630:3:8;758:44:5;;::::1;-1:-1:-1::0;819:4:5::1;587:1:7;340:490:5::0;;;;:::o;14:173:8:-;82:20;;-1:-1:-1;;;;;131:31:8;;121:42;;111:70;;177:1;174;167:12;192:186;251:6;304:2;292:9;283:7;279:23;275:32;272:52;;;320:1;317;310:12;272:52;343:29;362:9;343:29;:::i;:::-;333:39;192:186;-1:-1:-1;;;192:186:8:o;383:254::-;451:6;459;512:2;500:9;491:7;487:23;483:32;480:52;;;528:1;525;518:12;480:52;551:29;570:9;551:29;:::i;:::-;541:39;627:2;612:18;;;;599:32;;-1:-1:-1;;;383:254:8:o",
+  "deployedBytecode": "608060405234801561001057600080fd5b506004361061004c5760003560e01c80636210d360146100515780637547402a146100795780638da5cb5b146100a457806392067121146100cf575b600080fd5b61006461005f3660046102d3565b6100e2565b60405190151581526020015b60405180910390f35b6100646100873660046102d3565b6001600160a01b0316600090815260026020526040902054151590565b6000546100b7906001600160a01b031681565b6040516001600160a01b039091168152602001610070565b6100646100dd3660046102f5565b61016b565b600080546001600160a01b031633148061010b57503360009081526001602052604090205460ff165b61011457600080fd5b6001600160a01b03821660009081526001602081905260409091205460ff1615151461016257506001600160a01b03166000908152600160208190526040909120805460ff19168217905590565b5060005b919050565b600080546001600160a01b031633148061019457503360009081526001602052604090205460ff165b61019d57600080fd5b6001600160a01b03831660009081526002602052604090205415610237576040805160008152602081018490526001600160a01b0385168183015260806060820181905260139082015272185b1b1c9958591e481c9959da5cdd195c9959606a1b60a082015290517f3a5e9cf671f12108422b0b314d2755338a4779c3f3d01ae983f8e6a19970b0859181900360c00190a15060006102b6565b6001600160a01b03831660008181526002602090815260409182902085905581516001815290810185905280820192909252608060608301819052600690830152651cdd1bdc995960d21b60a0830152517f3a5e9cf671f12108422b0b314d2755338a4779c3f3d01ae983f8e6a19970b0859181900360c00190a15060015b92915050565b80356001600160a01b038116811461016657600080fd5b6000602082840312156102e557600080fd5b6102ee826102bc565b9392505050565b6000806040838503121561030857600080fd5b610311836102bc565b94602093909301359350505056fea26469706673582212202bd9f0c3c974991f36c28717dc9e64d3e45b498f5dac823990e6e6b02b3d2c4264736f6c63430008070033",
+  "deployedSourceMap": "171:796:5:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;606:272:7;;;;;;:::i;:::-;;:::i;:::-;;;1031:14:8;;1024:22;1006:41;;994:2;979:18;606:272:7;;;;;;;;843:122:5;;;;;;:::i;:::-;-1:-1:-1;;;;;931:23:5;908:4;931:23;;;:13;:23;;;;;;:27;;;843:122;181:28:7;;;;;-1:-1:-1;;;;;181:28:7;;;;;;-1:-1:-1;;;;;822:32:8;;;804:51;;792:2;777:18;181:28:7;642:219:8;347:490:5;;;;;;:::i;:::-;;:::i;606:272:7:-;682:12;540:5;;-1:-1:-1;;;;;540:5:7;526:10;:19;;:49;;-1:-1:-1;564:10:7;549:26;;;;:14;:26;;;;;;;;526:49;518:58;;;;;;-1:-1:-1;;;;;712:24:7;::::1;;::::0;;;:14:::1;:24;::::0;;;;;;;;::::1;;:30;;;707:164;;-1:-1:-1::0;;;;;;759:24:7::1;;::::0;;;786:4:::1;759:24;::::0;;;;;;;:31;;-1:-1:-1;;759:31:7::1;::::0;::::1;::::0;;786:4;606:272::o;707:164::-:1;-1:-1:-1::0;854:5:7::1;707:164;606:272:::0;;;:::o;347:490:5:-;458:12;540:5:7;;-1:-1:-1;;;;;540:5:7;526:10;:19;;:49;;-1:-1:-1;564:10:7;549:26;;;;:14;:26;;;;;;;;526:49;518:58;;;;;;-1:-1:-1;;;;;931:23:5;;908:4;931:23;;;:13;:23;;;;;;:27;486:222:::1;;535:136;::::0;;562:5:::1;1907:41:8::0;;1979:2;1964:18;;1957:34;;;-1:-1:-1;;;;;2027:32:8;;2007:18;;;2000:60;2096:3;2091:2;2076:18;;2069:31;;;2137:2;2116:19;;;2109:31;-1:-1:-1;;;2047:3:8;2156:19;;2149:50;535:136:5;;::::1;::::0;;;;2231:3:8;535:136:5;;::::1;-1:-1:-1::0;692:5:5::1;685:12;;486:222;-1:-1:-1::0;;;;;717:21:5;::::1;;::::0;;;:13:::1;:21;::::0;;;;;;;;:33;;;765:44;;775:4:::1;1320:41:8::0;;1377:18;;;1370:34;;;1420:18;;;1413:60;;;;1509:3;1504:2;1489:18;;1482:31;;;1550:1;1529:19;;;1522:30;-1:-1:-1;;;1460:3:8;1568:19;;1561:37;765:44:5;::::1;::::0;;;;1630:3:8;765:44:5;;::::1;-1:-1:-1::0;826:4:5::1;587:1:7;347:490:5::0;;;;:::o;14:173:8:-;82:20;;-1:-1:-1;;;;;131:31:8;;121:42;;111:70;;177:1;174;167:12;192:186;251:6;304:2;292:9;283:7;279:23;275:32;272:52;;;320:1;317;310:12;272:52;343:29;362:9;343:29;:::i;:::-;333:39;192:186;-1:-1:-1;;;192:186:8:o;383:254::-;451:6;459;512:2;500:9;491:7;487:23;483:32;480:52;;;528:1;525;518:12;480:52;551:29;570:9;551:29;:::i;:::-;541:39;627:2;612:18;;;;599:32;;-1:-1:-1;;;383:254:8:o",
   "language": "Solidity",
   "natspec": {
     "kind": "dev",
@@ -1092,14 +1092,14 @@
   },
   "offset": [
     171,
-    960
+    967
   ],
-  "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH2 0x10 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH2 0x4C JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x6210D360 EQ PUSH2 0x51 JUMPI DUP1 PUSH4 0x7547402A EQ PUSH2 0x79 JUMPI DUP1 PUSH4 0x8DA5CB5B EQ PUSH2 0xA4 JUMPI DUP1 PUSH4 0x92067121 EQ PUSH2 0xCF JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x64 PUSH2 0x5F CALLDATASIZE PUSH1 0x4 PUSH2 0x2D3 JUMP JUMPDEST PUSH2 0xE2 JUMP JUMPDEST PUSH1 0x40 MLOAD SWAP1 ISZERO ISZERO DUP2 MSTORE PUSH1 0x20 ADD JUMPDEST PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 RETURN JUMPDEST PUSH2 0x64 PUSH2 0x87 CALLDATASIZE PUSH1 0x4 PUSH2 0x2D3 JUMP JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x2 PUSH1 0x20 MSTORE PUSH1 0x40 SWAP1 KECCAK256 SLOAD ISZERO ISZERO SWAP1 JUMP JUMPDEST PUSH1 0x0 SLOAD PUSH2 0xB7 SWAP1 PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND DUP2 JUMP JUMPDEST PUSH1 0x40 MLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB SWAP1 SWAP2 AND DUP2 MSTORE PUSH1 0x20 ADD PUSH2 0x70 JUMP JUMPDEST PUSH2 0x64 PUSH2 0xDD CALLDATASIZE PUSH1 0x4 PUSH2 0x2F5 JUMP JUMPDEST PUSH2 0x16B JUMP JUMPDEST PUSH1 0x0 DUP1 SLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND CALLER EQ DUP1 PUSH2 0x10B JUMPI POP CALLER PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x1 PUSH1 0x20 MSTORE PUSH1 0x40 SWAP1 KECCAK256 SLOAD PUSH1 0xFF AND JUMPDEST PUSH2 0x114 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP3 AND PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x1 PUSH1 0x20 DUP2 SWAP1 MSTORE PUSH1 0x40 SWAP1 SWAP2 KECCAK256 SLOAD PUSH1 0xFF AND ISZERO ISZERO EQ PUSH2 0x162 JUMPI POP PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x1 PUSH1 0x20 DUP2 SWAP1 MSTORE PUSH1 0x40 SWAP1 SWAP2 KECCAK256 DUP1 SLOAD PUSH1 0xFF NOT AND DUP3 OR SWAP1 SSTORE SWAP1 JUMP JUMPDEST POP PUSH1 0x0 JUMPDEST SWAP2 SWAP1 POP JUMP JUMPDEST PUSH1 0x0 DUP1 SLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND CALLER EQ DUP1 PUSH2 0x194 JUMPI POP CALLER PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x1 PUSH1 0x20 MSTORE PUSH1 0x40 SWAP1 KECCAK256 SLOAD PUSH1 0xFF AND JUMPDEST PUSH2 0x19D JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP4 AND PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x2 PUSH1 0x20 MSTORE PUSH1 0x40 SWAP1 KECCAK256 SLOAD ISZERO PUSH2 0x237 JUMPI PUSH1 0x40 DUP1 MLOAD PUSH1 0x0 DUP2 MSTORE PUSH1 0x20 DUP2 ADD DUP5 SWAP1 MSTORE PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP6 AND DUP2 DUP4 ADD MSTORE PUSH1 0x80 PUSH1 0x60 DUP3 ADD DUP2 SWAP1 MSTORE PUSH1 0x13 SWAP1 DUP3 ADD MSTORE PUSH19 0x185B1B1C9958591E481C9959DA5CDD195C9959 PUSH1 0x6A SHL PUSH1 0xA0 DUP3 ADD MSTORE SWAP1 MLOAD PUSH32 0x3A5E9CF671F12108422B0B314D2755338A4779C3F3D01AE983F8E6A19970B085 SWAP2 DUP2 SWAP1 SUB PUSH1 0xC0 ADD SWAP1 LOG1 POP PUSH1 0x0 PUSH2 0x2B6 JUMP JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP4 AND PUSH1 0x0 DUP2 DUP2 MSTORE PUSH1 0x2 PUSH1 0x20 SWAP1 DUP2 MSTORE PUSH1 0x40 SWAP2 DUP3 SWAP1 KECCAK256 DUP6 SWAP1 SSTORE DUP2 MLOAD PUSH1 0x1 DUP2 MSTORE SWAP1 DUP2 ADD DUP6 SWAP1 MSTORE DUP1 DUP3 ADD SWAP3 SWAP1 SWAP3 MSTORE PUSH1 0x80 PUSH1 0x60 DUP4 ADD DUP2 SWAP1 MSTORE PUSH1 0x6 SWAP1 DUP4 ADD MSTORE PUSH6 0x1CDD1BDC9959 PUSH1 0xD2 SHL PUSH1 0xA0 DUP4 ADD MSTORE MLOAD PUSH32 0x3A5E9CF671F12108422B0B314D2755338A4779C3F3D01AE983F8E6A19970B085 SWAP2 DUP2 SWAP1 SUB PUSH1 0xC0 ADD SWAP1 LOG1 POP PUSH1 0x1 JUMPDEST SWAP3 SWAP2 POP POP JUMP JUMPDEST DUP1 CALLDATALOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP2 AND DUP2 EQ PUSH2 0x166 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x0 PUSH1 0x20 DUP3 DUP5 SUB SLT ISZERO PUSH2 0x2E5 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x2EE DUP3 PUSH2 0x2BC JUMP JUMPDEST SWAP4 SWAP3 POP POP POP JUMP JUMPDEST PUSH1 0x0 DUP1 PUSH1 0x40 DUP4 DUP6 SUB SLT ISZERO PUSH2 0x308 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x311 DUP4 PUSH2 0x2BC JUMP JUMPDEST SWAP5 PUSH1 0x20 SWAP4 SWAP1 SWAP4 ADD CALLDATALOAD SWAP4 POP POP POP JUMP INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 0xE6 0xE4 0xE8 PUSH5 0x4CED979907 0xF6 0xD9 SWAP15 0xC6 CALLDATACOPY 0x4C 0x5C RETURN PUSH1 0x82 CALLDATACOPY 0xCC 0xA9 PUSH29 0x757E2C63B161B2C8A364736F6C63430008070033000000000000000000 ",
+  "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH2 0x10 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH2 0x4C JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x6210D360 EQ PUSH2 0x51 JUMPI DUP1 PUSH4 0x7547402A EQ PUSH2 0x79 JUMPI DUP1 PUSH4 0x8DA5CB5B EQ PUSH2 0xA4 JUMPI DUP1 PUSH4 0x92067121 EQ PUSH2 0xCF JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x64 PUSH2 0x5F CALLDATASIZE PUSH1 0x4 PUSH2 0x2D3 JUMP JUMPDEST PUSH2 0xE2 JUMP JUMPDEST PUSH1 0x40 MLOAD SWAP1 ISZERO ISZERO DUP2 MSTORE PUSH1 0x20 ADD JUMPDEST PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 RETURN JUMPDEST PUSH2 0x64 PUSH2 0x87 CALLDATASIZE PUSH1 0x4 PUSH2 0x2D3 JUMP JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x2 PUSH1 0x20 MSTORE PUSH1 0x40 SWAP1 KECCAK256 SLOAD ISZERO ISZERO SWAP1 JUMP JUMPDEST PUSH1 0x0 SLOAD PUSH2 0xB7 SWAP1 PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND DUP2 JUMP JUMPDEST PUSH1 0x40 MLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB SWAP1 SWAP2 AND DUP2 MSTORE PUSH1 0x20 ADD PUSH2 0x70 JUMP JUMPDEST PUSH2 0x64 PUSH2 0xDD CALLDATASIZE PUSH1 0x4 PUSH2 0x2F5 JUMP JUMPDEST PUSH2 0x16B JUMP JUMPDEST PUSH1 0x0 DUP1 SLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND CALLER EQ DUP1 PUSH2 0x10B JUMPI POP CALLER PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x1 PUSH1 0x20 MSTORE PUSH1 0x40 SWAP1 KECCAK256 SLOAD PUSH1 0xFF AND JUMPDEST PUSH2 0x114 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP3 AND PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x1 PUSH1 0x20 DUP2 SWAP1 MSTORE PUSH1 0x40 SWAP1 SWAP2 KECCAK256 SLOAD PUSH1 0xFF AND ISZERO ISZERO EQ PUSH2 0x162 JUMPI POP PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x1 PUSH1 0x20 DUP2 SWAP1 MSTORE PUSH1 0x40 SWAP1 SWAP2 KECCAK256 DUP1 SLOAD PUSH1 0xFF NOT AND DUP3 OR SWAP1 SSTORE SWAP1 JUMP JUMPDEST POP PUSH1 0x0 JUMPDEST SWAP2 SWAP1 POP JUMP JUMPDEST PUSH1 0x0 DUP1 SLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND CALLER EQ DUP1 PUSH2 0x194 JUMPI POP CALLER PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x1 PUSH1 0x20 MSTORE PUSH1 0x40 SWAP1 KECCAK256 SLOAD PUSH1 0xFF AND JUMPDEST PUSH2 0x19D JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP4 AND PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x2 PUSH1 0x20 MSTORE PUSH1 0x40 SWAP1 KECCAK256 SLOAD ISZERO PUSH2 0x237 JUMPI PUSH1 0x40 DUP1 MLOAD PUSH1 0x0 DUP2 MSTORE PUSH1 0x20 DUP2 ADD DUP5 SWAP1 MSTORE PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP6 AND DUP2 DUP4 ADD MSTORE PUSH1 0x80 PUSH1 0x60 DUP3 ADD DUP2 SWAP1 MSTORE PUSH1 0x13 SWAP1 DUP3 ADD MSTORE PUSH19 0x185B1B1C9958591E481C9959DA5CDD195C9959 PUSH1 0x6A SHL PUSH1 0xA0 DUP3 ADD MSTORE SWAP1 MLOAD PUSH32 0x3A5E9CF671F12108422B0B314D2755338A4779C3F3D01AE983F8E6A19970B085 SWAP2 DUP2 SWAP1 SUB PUSH1 0xC0 ADD SWAP1 LOG1 POP PUSH1 0x0 PUSH2 0x2B6 JUMP JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP4 AND PUSH1 0x0 DUP2 DUP2 MSTORE PUSH1 0x2 PUSH1 0x20 SWAP1 DUP2 MSTORE PUSH1 0x40 SWAP2 DUP3 SWAP1 KECCAK256 DUP6 SWAP1 SSTORE DUP2 MLOAD PUSH1 0x1 DUP2 MSTORE SWAP1 DUP2 ADD DUP6 SWAP1 MSTORE DUP1 DUP3 ADD SWAP3 SWAP1 SWAP3 MSTORE PUSH1 0x80 PUSH1 0x60 DUP4 ADD DUP2 SWAP1 MSTORE PUSH1 0x6 SWAP1 DUP4 ADD MSTORE PUSH6 0x1CDD1BDC9959 PUSH1 0xD2 SHL PUSH1 0xA0 DUP4 ADD MSTORE MLOAD PUSH32 0x3A5E9CF671F12108422B0B314D2755338A4779C3F3D01AE983F8E6A19970B085 SWAP2 DUP2 SWAP1 SUB PUSH1 0xC0 ADD SWAP1 LOG1 POP PUSH1 0x1 JUMPDEST SWAP3 SWAP2 POP POP JUMP JUMPDEST DUP1 CALLDATALOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP2 AND DUP2 EQ PUSH2 0x166 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x0 PUSH1 0x20 DUP3 DUP5 SUB SLT ISZERO PUSH2 0x2E5 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x2EE DUP3 PUSH2 0x2BC JUMP JUMPDEST SWAP4 SWAP3 POP POP POP JUMP JUMPDEST PUSH1 0x0 DUP1 PUSH1 0x40 DUP4 DUP6 SUB SLT ISZERO PUSH2 0x308 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x311 DUP4 PUSH2 0x2BC JUMP JUMPDEST SWAP5 PUSH1 0x20 SWAP4 SWAP1 SWAP4 ADD CALLDATALOAD SWAP4 POP POP POP JUMP INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 0x2B 0xD9 CREATE 0xC3 0xC9 PUSH21 0x991F36C28717DC9E64D3E45B498F5DAC823990E6E6 0xB0 0x2B RETURNDATASIZE 0x2C TIMESTAMP PUSH5 0x736F6C6343 STOP ADDMOD SMOD STOP CALLER ",
   "pcMap": {
     "0": {
       "offset": [
         171,
-        960
+        967
       ],
       "op": "PUSH1",
       "path": "5",
@@ -1109,7 +1109,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "PUSH1",
       "path": "5",
@@ -1119,7 +1119,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "MSTORE",
       "path": "5"
@@ -1128,7 +1128,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "CALLVALUE",
       "path": "5"
@@ -1137,7 +1137,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "DUP1",
       "path": "5"
@@ -1146,7 +1146,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "ISZERO",
       "path": "5"
@@ -1155,7 +1155,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "PUSH2",
       "path": "5",
@@ -1165,7 +1165,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "JUMPI",
       "path": "5"
@@ -1174,7 +1174,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "PUSH1",
       "path": "5",
@@ -1184,7 +1184,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "DUP1",
       "path": "5"
@@ -1194,7 +1194,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "REVERT",
       "path": "5"
@@ -1203,7 +1203,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "JUMPDEST",
       "path": "5"
@@ -1212,7 +1212,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "POP",
       "path": "5"
@@ -1221,7 +1221,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "PUSH1",
       "path": "5",
@@ -1231,7 +1231,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "CALLDATASIZE",
       "path": "5"
@@ -1240,7 +1240,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "LT",
       "path": "5"
@@ -1249,7 +1249,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "PUSH2",
       "path": "5",
@@ -1259,7 +1259,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "JUMPI",
       "path": "5"
@@ -1268,7 +1268,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "PUSH1",
       "path": "5",
@@ -1278,7 +1278,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "CALLDATALOAD",
       "path": "5"
@@ -1287,7 +1287,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "PUSH1",
       "path": "5",
@@ -1297,7 +1297,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "SHR",
       "path": "5"
@@ -1306,7 +1306,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "DUP1",
       "path": "5"
@@ -1315,7 +1315,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "PUSH4",
       "path": "5",
@@ -1325,7 +1325,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "EQ",
       "path": "5"
@@ -1334,7 +1334,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "PUSH2",
       "path": "5",
@@ -1344,7 +1344,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "JUMPI",
       "path": "5"
@@ -1353,7 +1353,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "DUP1",
       "path": "5"
@@ -1362,7 +1362,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "PUSH4",
       "path": "5",
@@ -1372,7 +1372,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "EQ",
       "path": "5"
@@ -1381,7 +1381,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "PUSH2",
       "path": "5",
@@ -1391,7 +1391,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "JUMPI",
       "path": "5"
@@ -1400,7 +1400,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "DUP1",
       "path": "5"
@@ -1409,7 +1409,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "PUSH4",
       "path": "5",
@@ -1419,7 +1419,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "EQ",
       "path": "5"
@@ -1428,7 +1428,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "PUSH2",
       "path": "5",
@@ -1438,7 +1438,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "JUMPI",
       "path": "5"
@@ -1447,7 +1447,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "DUP1",
       "path": "5"
@@ -1456,7 +1456,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "PUSH4",
       "path": "5",
@@ -1466,7 +1466,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "EQ",
       "path": "5"
@@ -1475,7 +1475,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "PUSH2",
       "path": "5",
@@ -1485,7 +1485,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "JUMPI",
       "path": "5"
@@ -1494,7 +1494,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "JUMPDEST",
       "path": "5"
@@ -1503,7 +1503,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "PUSH1",
       "path": "5",
@@ -1513,7 +1513,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "DUP1",
       "path": "5"
@@ -1523,7 +1523,7 @@
       "fn": null,
       "offset": [
         171,
-        960
+        967
       ],
       "op": "REVERT",
       "path": "5"
@@ -1749,78 +1749,78 @@
       "path": "7"
     },
     "121": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
-        836,
-        958
+        843,
+        965
       ],
       "op": "JUMPDEST",
       "path": "5"
     },
     "122": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
-        836,
-        958
+        843,
+        965
       ],
       "op": "PUSH2",
       "path": "5",
       "value": "0x64"
     },
     "125": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
-        836,
-        958
+        843,
+        965
       ],
       "op": "PUSH2",
       "path": "5",
       "value": "0x87"
     },
     "128": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
-        836,
-        958
+        843,
+        965
       ],
       "op": "CALLDATASIZE",
       "path": "5"
     },
     "129": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
-        836,
-        958
+        843,
+        965
       ],
       "op": "PUSH1",
       "path": "5",
       "value": "0x4"
     },
     "131": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
-        836,
-        958
+        843,
+        965
       ],
       "op": "PUSH2",
       "path": "5",
       "value": "0x2D3"
     },
     "134": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "jump": "i",
       "offset": [
-        836,
-        958
+        843,
+        965
       ],
       "op": "JUMP",
       "path": "5"
     },
     "135": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
-        836,
-        958
+        843,
+        965
       ],
       "op": "JUMPDEST",
       "path": "5"
@@ -1844,150 +1844,150 @@
       "op": "SUB"
     },
     "144": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
-        924,
-        947
+        931,
+        954
       ],
       "op": "AND",
       "path": "5",
       "statement": 0
     },
     "145": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
-        901,
-        905
+        908,
+        912
       ],
       "op": "PUSH1",
       "path": "5",
       "value": "0x0"
     },
     "147": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
-        924,
-        947
+        931,
+        954
       ],
       "op": "SWAP1",
       "path": "5"
     },
     "148": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
-        924,
-        947
+        931,
+        954
       ],
       "op": "DUP2",
       "path": "5"
     },
     "149": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
-        924,
-        947
+        931,
+        954
       ],
       "op": "MSTORE",
       "path": "5"
     },
     "150": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
-        924,
-        937
+        931,
+        944
       ],
       "op": "PUSH1",
       "path": "5",
       "value": "0x2"
     },
     "152": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
-        924,
-        947
+        931,
+        954
       ],
       "op": "PUSH1",
       "path": "5",
       "value": "0x20"
     },
     "154": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
-        924,
-        947
+        931,
+        954
       ],
       "op": "MSTORE",
       "path": "5"
     },
     "155": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
-        924,
-        947
+        931,
+        954
       ],
       "op": "PUSH1",
       "path": "5",
       "value": "0x40"
     },
     "157": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
-        924,
-        947
+        931,
+        954
       ],
       "op": "SWAP1",
       "path": "5"
     },
     "158": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
-        924,
-        947
+        931,
+        954
       ],
       "op": "KECCAK256",
       "path": "5"
     },
     "159": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
-        924,
-        947
+        931,
+        954
       ],
       "op": "SLOAD",
       "path": "5"
     },
     "160": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
-        924,
-        951
+        931,
+        958
       ],
       "op": "ISZERO",
       "path": "5"
     },
     "161": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
-        924,
-        951
+        931,
+        958
       ],
       "op": "ISZERO",
       "path": "5"
     },
     "162": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
-        924,
-        951
+        931,
+        958
       ],
       "op": "SWAP1",
       "path": "5"
     },
     "163": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
-        836,
-        958
+        843,
+        965
       ],
       "op": "JUMP",
       "path": "5"
@@ -2001,7 +2001,7 @@
       "path": "7"
     },
     "165": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
         181,
         209
@@ -2011,7 +2011,7 @@
       "value": "0x0"
     },
     "167": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
         181,
         209
@@ -2020,7 +2020,7 @@
       "path": "7"
     },
     "168": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
         181,
         209
@@ -2030,7 +2030,7 @@
       "value": "0xB7"
     },
     "171": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
         181,
         209
@@ -2065,7 +2065,7 @@
       "path": "7"
     },
     "181": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
         181,
         209
@@ -2074,7 +2074,7 @@
       "path": "7"
     },
     "182": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
         181,
         209
@@ -2083,7 +2083,7 @@
       "path": "7"
     },
     "183": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
         181,
         209
@@ -2092,7 +2092,7 @@
       "path": "7"
     },
     "184": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
         181,
         209
@@ -2102,7 +2102,7 @@
       "value": "0x40"
     },
     "186": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
         181,
         209
@@ -2163,98 +2163,98 @@
       "op": "JUMP"
     },
     "207": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        340,
-        830
+        347,
+        837
       ],
       "op": "JUMPDEST",
       "path": "5"
     },
     "208": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        340,
-        830
+        347,
+        837
       ],
       "op": "PUSH2",
       "path": "5",
       "value": "0x64"
     },
     "211": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        340,
-        830
+        347,
+        837
       ],
       "op": "PUSH2",
       "path": "5",
       "value": "0xDD"
     },
     "214": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        340,
-        830
+        347,
+        837
       ],
       "op": "CALLDATASIZE",
       "path": "5"
     },
     "215": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        340,
-        830
+        347,
+        837
       ],
       "op": "PUSH1",
       "path": "5",
       "value": "0x4"
     },
     "217": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        340,
-        830
+        347,
+        837
       ],
       "op": "PUSH2",
       "path": "5",
       "value": "0x2F5"
     },
     "220": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "jump": "i",
       "offset": [
-        340,
-        830
+        347,
+        837
       ],
       "op": "JUMP",
       "path": "5"
     },
     "221": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        340,
-        830
+        347,
+        837
       ],
       "op": "JUMPDEST",
       "path": "5"
     },
     "222": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        340,
-        830
+        347,
+        837
       ],
       "op": "PUSH2",
       "path": "5",
       "value": "0x16B"
     },
     "225": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "jump": "i",
       "offset": [
-        340,
-        830
+        347,
+        837
       ],
       "op": "JUMP",
       "path": "5"
@@ -3097,19 +3097,19 @@
       "path": "7"
     },
     "363": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        340,
-        830
+        347,
+        837
       ],
       "op": "JUMPDEST",
       "path": "5"
     },
     "364": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        451,
-        463
+        458,
+        470
       ],
       "op": "PUSH1",
       "path": "5",
@@ -3124,7 +3124,7 @@
       "path": "7"
     },
     "367": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
         540,
         545
@@ -3176,7 +3176,7 @@
     },
     "379": {
       "branch": 8,
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
         526,
         545
@@ -3223,7 +3223,7 @@
       "value": "0x0"
     },
     "388": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
         549,
         575
@@ -3232,7 +3232,7 @@
       "path": "7"
     },
     "389": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
         549,
         575
@@ -3241,7 +3241,7 @@
       "path": "7"
     },
     "390": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
         549,
         575
@@ -3268,7 +3268,7 @@
       "value": "0x20"
     },
     "395": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
         549,
         575
@@ -3277,7 +3277,7 @@
       "path": "7"
     },
     "396": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
         549,
         575
@@ -3287,7 +3287,7 @@
       "value": "0x40"
     },
     "398": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
         549,
         575
@@ -3296,7 +3296,7 @@
       "path": "7"
     },
     "399": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
         549,
         575
@@ -3305,7 +3305,7 @@
       "path": "7"
     },
     "400": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
         549,
         575
@@ -3314,7 +3314,7 @@
       "path": "7"
     },
     "401": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
         549,
         575
@@ -3325,7 +3325,7 @@
     },
     "403": {
       "branch": 9,
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
         549,
         575
@@ -3360,7 +3360,7 @@
       "path": "7"
     },
     "409": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
         518,
         576
@@ -3370,7 +3370,7 @@
       "value": "0x0"
     },
     "411": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
         518,
         576
@@ -3379,7 +3379,7 @@
       "path": "7"
     },
     "412": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
         518,
         576
@@ -3388,7 +3388,7 @@
       "path": "7"
     },
     "413": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
         518,
         576
@@ -3415,159 +3415,159 @@
       "op": "SUB"
     },
     "422": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
-        924,
-        947
+        931,
+        954
       ],
       "op": "DUP4",
       "path": "5"
     },
     "423": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
-        924,
-        947
+        931,
+        954
       ],
       "op": "AND",
       "path": "5"
     },
     "424": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
-        901,
-        905
+        908,
+        912
       ],
       "op": "PUSH1",
       "path": "5",
       "value": "0x0"
     },
     "426": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
-        924,
-        947
+        931,
+        954
       ],
       "op": "SWAP1",
       "path": "5"
     },
     "427": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
-        924,
-        947
+        931,
+        954
       ],
       "op": "DUP2",
       "path": "5"
     },
     "428": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
-        924,
-        947
+        931,
+        954
       ],
       "op": "MSTORE",
       "path": "5"
     },
     "429": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
-        924,
-        937
+        931,
+        944
       ],
       "op": "PUSH1",
       "path": "5",
       "value": "0x2"
     },
     "431": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
-        924,
-        947
+        931,
+        954
       ],
       "op": "PUSH1",
       "path": "5",
       "value": "0x20"
     },
     "433": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
-        924,
-        947
+        931,
+        954
       ],
       "op": "MSTORE",
       "path": "5"
     },
     "434": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
-        924,
-        947
+        931,
+        954
       ],
       "op": "PUSH1",
       "path": "5",
       "value": "0x40"
     },
     "436": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
-        924,
-        947
+        931,
+        954
       ],
       "op": "SWAP1",
       "path": "5"
     },
     "437": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
-        924,
-        947
+        931,
+        954
       ],
       "op": "KECCAK256",
       "path": "5"
     },
     "438": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
-        924,
-        947
+        931,
+        954
       ],
       "op": "SLOAD",
       "path": "5"
     },
     "439": {
-      "fn": "Issuer.checkIssuerExist",
+      "fn": "IssuerHandler.checkIssuerExist",
       "offset": [
-        924,
-        951
+        931,
+        958
       ],
       "op": "ISZERO",
       "path": "5"
     },
     "440": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        479,
-        701
+        486,
+        708
       ],
       "op": "PUSH2",
       "path": "5",
       "value": "0x237"
     },
     "443": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        479,
-        701
+        486,
+        708
       ],
       "op": "JUMPI",
       "path": "5"
     },
     "444": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        528,
-        664
+        535,
+        671
       ],
       "op": "PUSH1",
       "path": "5",
@@ -3575,28 +3575,28 @@
       "value": "0x40"
     },
     "446": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        528,
-        664
+        535,
+        671
       ],
       "op": "DUP1",
       "path": "5"
     },
     "447": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        528,
-        664
+        535,
+        671
       ],
       "op": "MLOAD",
       "path": "5"
     },
     "448": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        555,
-        560
+        562,
+        567
       ],
       "op": "PUSH1",
       "path": "5",
@@ -3727,65 +3727,65 @@
       "op": "MSTORE"
     },
     "516": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        528,
-        664
+        535,
+        671
       ],
       "op": "SWAP1",
       "path": "5"
     },
     "517": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        528,
-        664
+        535,
+        671
       ],
       "op": "MLOAD",
       "path": "5"
     },
     "518": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        528,
-        664
+        535,
+        671
       ],
       "op": "PUSH32",
       "path": "5",
       "value": "0x3A5E9CF671F12108422B0B314D2755338A4779C3F3D01AE983F8E6A19970B085"
     },
     "551": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        528,
-        664
+        535,
+        671
       ],
       "op": "SWAP2",
       "path": "5"
     },
     "552": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        528,
-        664
+        535,
+        671
       ],
       "op": "DUP2",
       "path": "5"
     },
     "553": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        528,
-        664
+        535,
+        671
       ],
       "op": "SWAP1",
       "path": "5"
     },
     "554": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        528,
-        664
+        535,
+        671
       ],
       "op": "SUB",
       "path": "5"
@@ -3795,28 +3795,28 @@
       "value": "0xC0"
     },
     "557": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        528,
-        664
+        535,
+        671
       ],
       "op": "ADD",
       "path": "5"
     },
     "558": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        528,
-        664
+        535,
+        671
       ],
       "op": "SWAP1",
       "path": "5"
     },
     "559": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        528,
-        664
+        535,
+        671
       ],
       "op": "LOG1",
       "path": "5"
@@ -3825,10 +3825,10 @@
       "op": "POP"
     },
     "561": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        685,
-        690
+        692,
+        697
       ],
       "op": "PUSH1",
       "path": "5",
@@ -3836,29 +3836,29 @@
       "value": "0x0"
     },
     "563": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        678,
-        690
+        685,
+        697
       ],
       "op": "PUSH2",
       "path": "5",
       "value": "0x2B6"
     },
     "566": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        678,
-        690
+        685,
+        697
       ],
       "op": "JUMP",
       "path": "5"
     },
     "567": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        479,
-        701
+        486,
+        708
       ],
       "op": "JUMPDEST",
       "path": "5"
@@ -3882,205 +3882,205 @@
       "op": "SUB"
     },
     "576": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        710,
-        731
+        717,
+        738
       ],
       "op": "DUP4",
       "path": "5",
       "statement": 5
     },
     "577": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        710,
-        731
+        717,
+        738
       ],
       "op": "AND",
       "path": "5"
     },
     "578": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        710,
-        731
+        717,
+        738
       ],
       "op": "PUSH1",
       "path": "5",
       "value": "0x0"
     },
     "580": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        710,
-        731
+        717,
+        738
       ],
       "op": "DUP2",
       "path": "5"
     },
     "581": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        710,
-        731
+        717,
+        738
       ],
       "op": "DUP2",
       "path": "5"
     },
     "582": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        710,
-        731
+        717,
+        738
       ],
       "op": "MSTORE",
       "path": "5"
     },
     "583": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        710,
-        723
+        717,
+        730
       ],
       "op": "PUSH1",
       "path": "5",
       "value": "0x2"
     },
     "585": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        710,
-        731
+        717,
+        738
       ],
       "op": "PUSH1",
       "path": "5",
       "value": "0x20"
     },
     "587": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        710,
-        731
+        717,
+        738
       ],
       "op": "SWAP1",
       "path": "5"
     },
     "588": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        710,
-        731
+        717,
+        738
       ],
       "op": "DUP2",
       "path": "5"
     },
     "589": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        710,
-        731
+        717,
+        738
       ],
       "op": "MSTORE",
       "path": "5"
     },
     "590": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        710,
-        731
+        717,
+        738
       ],
       "op": "PUSH1",
       "path": "5",
       "value": "0x40"
     },
     "592": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        710,
-        731
+        717,
+        738
       ],
       "op": "SWAP2",
       "path": "5"
     },
     "593": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        710,
-        731
+        717,
+        738
       ],
       "op": "DUP3",
       "path": "5"
     },
     "594": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        710,
-        731
+        717,
+        738
       ],
       "op": "SWAP1",
       "path": "5"
     },
     "595": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        710,
-        731
+        717,
+        738
       ],
       "op": "KECCAK256",
       "path": "5"
     },
     "596": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        710,
-        743
+        717,
+        750
       ],
       "op": "DUP6",
       "path": "5"
     },
     "597": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        710,
-        743
+        717,
+        750
       ],
       "op": "SWAP1",
       "path": "5"
     },
     "598": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        710,
-        743
+        717,
+        750
       ],
       "op": "SSTORE",
       "path": "5"
     },
     "599": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        758,
-        802
+        765,
+        809
       ],
       "op": "DUP2",
       "path": "5",
       "statement": 6
     },
     "600": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        758,
-        802
+        765,
+        809
       ],
       "op": "MLOAD",
       "path": "5"
     },
     "601": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        768,
-        772
+        775,
+        779
       ],
       "op": "PUSH1",
       "path": "5",
@@ -4195,56 +4195,56 @@
       "op": "MSTORE"
     },
     "648": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        758,
-        802
+        765,
+        809
       ],
       "op": "MLOAD",
       "path": "5"
     },
     "649": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        758,
-        802
+        765,
+        809
       ],
       "op": "PUSH32",
       "path": "5",
       "value": "0x3A5E9CF671F12108422B0B314D2755338A4779C3F3D01AE983F8E6A19970B085"
     },
     "682": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        758,
-        802
+        765,
+        809
       ],
       "op": "SWAP2",
       "path": "5"
     },
     "683": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        758,
-        802
+        765,
+        809
       ],
       "op": "DUP2",
       "path": "5"
     },
     "684": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        758,
-        802
+        765,
+        809
       ],
       "op": "SWAP1",
       "path": "5"
     },
     "685": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        758,
-        802
+        765,
+        809
       ],
       "op": "SUB",
       "path": "5"
@@ -4254,28 +4254,28 @@
       "value": "0xC0"
     },
     "688": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        758,
-        802
+        765,
+        809
       ],
       "op": "ADD",
       "path": "5"
     },
     "689": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        758,
-        802
+        765,
+        809
       ],
       "op": "SWAP1",
       "path": "5"
     },
     "690": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        758,
-        802
+        765,
+        809
       ],
       "op": "LOG1",
       "path": "5"
@@ -4284,10 +4284,10 @@
       "op": "POP"
     },
     "692": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        819,
-        823
+        826,
+        830
       ],
       "op": "PUSH1",
       "path": "5",
@@ -4303,47 +4303,47 @@
       "path": "7"
     },
     "695": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        340,
-        830
+        347,
+        837
       ],
       "op": "SWAP3",
       "path": "5"
     },
     "696": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        340,
-        830
+        347,
+        837
       ],
       "op": "SWAP2",
       "path": "5"
     },
     "697": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        340,
-        830
+        347,
+        837
       ],
       "op": "POP",
       "path": "5"
     },
     "698": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "offset": [
-        340,
-        830
+        347,
+        837
       ],
       "op": "POP",
       "path": "5"
     },
     "699": {
-      "fn": "Issuer.registerIssuer",
+      "fn": "IssuerHandler.registerIssuer",
       "jump": "o",
       "offset": [
-        340,
-        830
+        347,
+        837
       ],
       "op": "JUMP",
       "path": "5"
@@ -4593,9 +4593,9 @@
       "op": "JUMP"
     }
   },
-  "sha1": "92c86d08cc217c7567d65890235692221063e375",
-  "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.7.0 <0.9.0;\n\nimport \"./RegistryAuthorization.sol\";\n\n// this contract provides issuer data for registry smart contract\n\ncontract Issuer is RegistryAuthorization {\n    event IsSuccess(\n        bool value,\n        bytes32 hashData,\n        address issuer,\n        string message\n    );\n\n    function registerIssuer(address issuer, bytes32 _hashData)\n        public\n        grantAccess\n        returns (bool success)\n    {\n        if (checkIssuerExist(issuer)) {\n            emit IsSuccess(\n                false,\n                _hashData,\n                issuer,\n                \"allready registered\"\n            );\n            return false;\n        }\n        issuerMapping[issuer] = _hashData;\n        emit IsSuccess(true, _hashData, issuer, \"stored\");\n        return true;\n    }\n\n    function checkIssuerExist(address _address) public view returns (bool) {\n        return issuerMapping[_address] > 0;\n    }\n}\n",
-  "sourceMap": "171:789:5:-:0;;;;;;;;;;;;-1:-1:-1;360:5:7;:27;;-1:-1:-1;;;;;;360:27:7;376:10;360:27;;;171:789:5;;;;;;",
-  "sourcePath": "contracts/Registry/IssuerData.sol",
+  "sha1": "8176899da93f00441f368732a340248c63b87157",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.7.0 <0.9.0;\n\nimport \"./RegistryAuthorization.sol\";\n\n// this contract provides issuer data for registry smart contract\n\ncontract IssuerHandler is RegistryAuthorization {\n    event IsSuccess(\n        bool value,\n        bytes32 hashData,\n        address issuer,\n        string message\n    );\n\n    function registerIssuer(address issuer, bytes32 _hashData)\n        public\n        grantAccess\n        returns (bool success)\n    {\n        if (checkIssuerExist(issuer)) {\n            emit IsSuccess(\n                false,\n                _hashData,\n                issuer,\n                \"allready registered\"\n            );\n            return false;\n        }\n        issuerMapping[issuer] = _hashData;\n        emit IsSuccess(true, _hashData, issuer, \"stored\");\n        return true;\n    }\n\n    function checkIssuerExist(address _address) public view returns (bool) {\n        return issuerMapping[_address] > 0;\n    }\n}\n",
+  "sourceMap": "171:796:5:-:0;;;;;;;;;;;;-1:-1:-1;360:5:7;:27;;-1:-1:-1;;;;;;360:27:7;376:10;360:27;;;171:796:5;;;;;;",
+  "sourcePath": "contracts/Registry/IssuerHandler.sol",
   "type": "contract"
 }

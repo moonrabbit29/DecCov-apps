@@ -5,7 +5,7 @@ import "./RegistryAuthorization.sol";
 
 // this contract provides issuer data for registry smart contract
 
-contract Issuer is RegistryAuthorization {
+contract IssuerHandler is RegistryAuthorization {
     event IsSuccess(
         bool value,
         bytes32 hashData,

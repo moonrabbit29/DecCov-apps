@@ -1,4 +1,4 @@
-from brownie import Certificate,accounts
+from brownie import CertificateRegistry,accounts
 from web3 import Web3
 from scripts.helper_script import get_account_issuer
 from eth_account.messages import encode_defunct

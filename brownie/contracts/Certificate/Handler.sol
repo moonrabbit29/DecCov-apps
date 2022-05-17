@@ -2,9 +2,8 @@
 pragma solidity >=0.7.0 <0.9.0;
 
 import "./CertificateAuthorization.sol";
-import "./Helper.sol";
 
-contract CertificateHandler is CertificateAuthorization, Helper {
+contract CertificateHandler is CertificateAuthorization{
 
     constructor(address registrySC) CertificateAuthorization(registrySC){}
     
@@ -27,13 +26,9 @@ contract CertificateHandler is CertificateAuthorization, Helper {
             );
             return false;
         } else {
-            // if (!compareHash(certificate_hash, payload, holder_id)){
-            //     emit IsSuccess(false,"failhash");
-            //     return false;
-            // }
             uint256 timestamp = block.timestamp;
             holder_to_certificates[holder_id].push(
-            COV_CERTIFICATE(certificate_hash,data_address,timestamp));
+            COV_CERTIFICATE(certificate_hash,data_address,msg.sender,timestamp));
             emit IsSuccess(true,"stored");
             emit timestampEvent(timestamp);
             return true;

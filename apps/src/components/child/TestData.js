@@ -1,4 +1,5 @@
 import React from "react";
+import { convert_unix_date } from "../../date_helper";
 
 class TestData extends React.Component {
     constructor(props) {
@@ -18,7 +19,7 @@ class TestData extends React.Component {
           </tr>
           <tr>
             <td>Habis berlaku : </td>
-            <td>{this.props.data.expiry_date}</td>
+            <td>{convert_unix_date(this.props.data.expiry_date)}</td>
           </tr>
         </>
       );

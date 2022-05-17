@@ -3,7 +3,7 @@ pragma solidity >=0.7.0 <0.9.0;
 
 import "./Data.sol";
 
-contract Helper is Data{
+contract Helper is CertificateData{
    
    event IsSuccess(bool value,string result);
    event isFailed(bool value);

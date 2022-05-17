@@ -3,7 +3,7 @@ import UserDetails from "./child/UserDetails";
 import CertificateType from "./child/CertificateType";
 import AddToSmartContract from "./child/AddToSmartContract";
 import getWeb3 from "../Web3Handler";
-import Certificate from "../contracts/Certificate.json";
+import Certificate from "../contracts/CertificateRegistry.json";
 import MyImageCaptureComponent from "./child/CapturePhoto";
 ////"deployment" :
 //{"address": "0x16752Eb174Ce2B3036f428f67ED304Dea80fF847", "chainid": "4", "blockHeight": 10477515}
@@ -30,7 +30,7 @@ class RegisterCertificate extends React.Component {
     imageDataURL: "",
     TakenVaccineDose: null,
     gender: "Laki",
-    homeAddress: "",
+    //homeAddress: "",
     age: 0,
     testExpiryDate:"",
   };
@@ -106,7 +106,7 @@ class RegisterCertificate extends React.Component {
       imageDataURL,
       TakenVaccineDose,
       gender,
-      homeAddress,
+      //homeAddress,
       age,
       testExpiryDate
     } = this.state;
@@ -125,7 +125,7 @@ class RegisterCertificate extends React.Component {
       imageDataURL,
       TakenVaccineDose,
       gender,
-      homeAddress,
+      //homeAddress,
       age,
       testExpiryDate
     };

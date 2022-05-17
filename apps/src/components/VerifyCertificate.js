@@ -2,7 +2,7 @@ import React from "react";
 import QrScanner from "qr-scanner";
 import getWeb3 from "../Web3Handler";
 import Web3 from "web3";
-import Certificate from "../contracts/Certificate.json";
+import Certificate from "../contracts/CertificateRegistry.json";
 import addFile, { retrieve_file, turnIntoBuffer } from "../ipfs";
 import { DataTable } from "./child/UserDetails";
 import { Row, Button, Col } from "react-bootstrap";
@@ -129,17 +129,20 @@ class VerifyCertificate extends React.Component {
         })
       );
       console.log(certificate_hash);
+      const user_id = Web3.utils.soliditySha3(qr_code_data.user_data.holder_id)
+      console.log(`Holder id -> ${qr_code_data.user_data.holder_id}`)
+      console.log(`user id -> ${user_id}`)
       const certificate_in_sc = await this.state.contract.methods
-        .verifyCertificate(certificate_hash, qr_code_data.user_data.holder_id)
+        .verifyCertificate(certificate_hash, user_id)
         .call();
       console.log("looking for this");
       console.log(certificate_in_sc);
       const [image, certificate_data] = await this.getDataFromIPFS(
         certificate_in_sc[1].certificate_data
       );
-
+      console.log(`image -> ${image}`)
       const decrypted_image = decryptData(image, this.state.pin);
-
+      console.log(`decrypted image -> ${decrypted_image}`)
       const final_certificate_data = {
         data_detail: certificate_data,
         ...certificate_in_sc[1],

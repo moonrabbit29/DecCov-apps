@@ -13,6 +13,7 @@
     "file-saver": "^2.0.5",
     "ipfs-http-client": "^56.0.2",
     "js-base64": "^3.7.2",
+    "lodash": "^4.17.21",
     "qr-scanner": "^1.4.1",
     "qrcode": "^1.5.0",
     "react": "^16.14.0",

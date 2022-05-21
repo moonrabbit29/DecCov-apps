@@ -133,7 +133,7 @@ class UserDetail extends React.Component {
                   required
                   placeholder="Gender"
                   value={this.props.values.gender}
-                  onChange={this.props.handleChange("gender")}
+                  onChange={this.props.genderEncoding("gender")}
                 >
                   <option>Laki - Laki</option>
                   <option>Perempuan</option>

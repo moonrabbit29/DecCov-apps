@@ -29,7 +29,7 @@ class RegisterCertificate extends React.Component {
     dose: "",
     imageDataURL: "",
     TakenVaccineDose: null,
-    gender: "Laki",
+    gender: "L",
     //homeAddress: "",
     age: 0,
     testExpiryDate:"",
@@ -39,15 +39,15 @@ class RegisterCertificate extends React.Component {
     const web3 = await getWeb3();
     // const networkId = await web3.eth.net.getId();
     // console.log(`networkId -> ${networkId}`);
-    const deployedNetwork = "0x7a1aF4891a8177E4361AB0C731e07712B253b2B2";
-    //const deployedNetwork = Certificate.deployment.address;
+    //const deployedNetwork = "0x7a1aF4891a8177E4361AB0C731e07712B253b2B2";
+    const deployedNetwork = Certificate.deployment.address;
     const instance = new web3.eth.Contract(Certificate.abi, deployedNetwork);
     this.setState({ web3, contract: instance });
     setInterval(async () => {
       try {
         const accounts = await web3.eth.getAccounts();
         this.setState({ accounts });
-        if (this.state.activeAccount !== accounts[0]) {
+        if (this.state.activeAccount !== accounts[0] && this.state.activeAccount==="Anonymous") {
           var active = await accounts[0];
           this.setState({ activeAccount: active });         
           this.setState({ transactionHash: "" });
@@ -55,6 +55,8 @@ class RegisterCertificate extends React.Component {
           this.props.setToLoading(false);
         }else if(!accounts[0]){
           this.props.setToLoading(true);
+        }else if(this.state.activeAccount !== accounts[0]){
+          window.location.reload();
         }
       } catch (error) {
         alert(error);
@@ -76,6 +78,14 @@ class RegisterCertificate extends React.Component {
   handleChange = (input) => (e) => {
     this.setState({ [input]: e.target.value });
   };
+
+  genderEncoding = (input) => (e) => {
+    const genderCode = {
+        'Laki - Laki' : 'L',
+        'Perempuan' : 'p'
+    }
+    this.setState({gender:genderCode[e.target.value]})
+  }
 
   changeState = (input, value) => {
     this.setState({ [input]: value });
@@ -138,6 +148,7 @@ class RegisterCertificate extends React.Component {
             values={values}
             handleChange={this.handleChange}
             setTakenVaccineDose={this.setTakenVaccineDose}
+            genderEncoding={this.genderEncoding}
           />
         );
       case 2:

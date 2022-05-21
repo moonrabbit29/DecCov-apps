@@ -42,11 +42,12 @@ class AddToSmartContract extends React.Component {
 
   storeCertificateData = async (e) => {
     const holder_id = Web3.utils.soliditySha3(this.props.values.NIK);
-    const image = await addFile(
-      turnIntoBuffer(
-        encryptData(this.props.values.imageDataURL, this.state.pin)
-      )
-    );
+    // const image = await addFile(
+    //   turnIntoBuffer(
+    //     encryptData(this.props.values.imageDataURL, this.state.pin)
+    //   )
+    // );
+    const image = this.props.values.imageDataURL;
     this.setState({ holder_id: holder_id });
     const certificate_data =
       this.props.values.type === "Vaccine"
@@ -69,7 +70,9 @@ class AddToSmartContract extends React.Component {
       image: image,
       certificate_data: certificate_data,
     };
-
+    console.log("user_data")
+    console.log(user_data)
+    
     if (this.props.values.type === "Covid Test") {
       user_data["certificate_data"]["expiry_date"] = unix_datetime_add_day(
         get_today(),
@@ -100,7 +103,7 @@ class AddToSmartContract extends React.Component {
     };
     const certificate_identifier = await addFile(
       JSON.stringify({
-        holder_id: holder_id,
+        holder_id: this.props.values.NIK,
         certificate_data: certificate_data,
       })
     );
@@ -126,7 +129,14 @@ class AddToSmartContract extends React.Component {
       )
       .once("receipt", function (receipt) {})
       .on("confirmation", function (confNumber, receipt) {})
-      .on("error", function (error) {})
+      .on("error", function (error) {
+        console.log("REVERTED")
+        console.log(`error -> `)
+        console.log(error)
+        if (error['message'].includes(`"message":"revert"`)) {
+          //call modal failed transaction non issuer user
+        }
+      })
       .then(
         async function (receipt) {
           const IsSuccess = receipt.events.IsSuccess.returnValues;
@@ -135,11 +145,13 @@ class AddToSmartContract extends React.Component {
             this.setState({ show: true });
             const timestamp =
               receipt.events.timestampEvent.returnValues["timestamp"];
+              console.log(`timestamp -> ${timestamp}`)
             const copy_user_data = { ...user_data };
             delete copy_user_data["image"];
+            console.log(copy_user_data)
             //const qrCodeData = encryptData(JSON.stringify(user_data),this.state.pin)
             const qrCodeData = JSON.stringify({
-              user_data,
+              ...copy_user_data,
             });
             // console.log("HERE")
             // console.log(qrCodeData)

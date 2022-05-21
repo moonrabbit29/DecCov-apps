@@ -8,6 +8,7 @@ import { DataTable } from "./child/UserDetails";
 import { Row, Button, Col } from "react-bootstrap";
 import InputPin from "./child/InputPinForDecrypt";
 import { decryptData } from "../crypt";
+import _ from "lodash";
 
 class VerifyCertificate extends React.Component {
   state = {
@@ -35,13 +36,15 @@ class VerifyCertificate extends React.Component {
     const web3 = await getWeb3();
     // const networkId = await web3.eth.net.getId();
     // console.log(`networkId -> ${networkId}`);
-    const deployedNetwork = "0x7a1aF4891a8177E4361AB0C731e07712B253b2B2";
-    //const deployedNetwork = Certificate.deployment.address;
+    //const deployedNetwork = "0x7a1aF4891a8177E4361AB0C731e07712B253b2B2";
+    const deployedNetwork = Certificate.deployment.address;
     const instance = new web3.eth.Contract(Certificate.abi, deployedNetwork);
     this.setState({ web3, contract: instance });
     this.initializeQRScanner();
     setInterval(async () => {
       try {
+        console.log("deployed network")
+        console.log(deployedNetwork)
         const accounts = await web3.eth.getAccounts();
         this.setState({ accounts });
         if (this.state.activeAccount !== accounts[0]) {
@@ -65,7 +68,7 @@ class VerifyCertificate extends React.Component {
       this.qrScanner = new QrScanner(
         this.player ? this.player : "",
         (result) => {
-          console.log(JSON.parse(result.data).user_data);
+          console.log(JSON.parse(result.data));
           console.log(result.data);
           this.setState({ qrResult: JSON.parse(result.data), enterPin: true });
           this.qrScanner.stop();
@@ -111,7 +114,7 @@ class VerifyCertificate extends React.Component {
     const ipfs_data = JSON.parse(
       decryptData(await retrieve_file(data_address), this.state.pin)
     );
-    const image_data = await retrieve_file(ipfs_data.image);
+    const image_data = ipfs_data.image;
     return [image_data, ipfs_data];
   };
 
@@ -122,35 +125,39 @@ class VerifyCertificate extends React.Component {
     //   certificate_data: user_data.certificate_data,
     // };
     try {
+      console.log(qr_code_data)
       const certificate_hash = await addFile(
         JSON.stringify({
-          holder_id: qr_code_data.user_data.holder_id,
+          holder_id: qr_code_data.holder_id,
           certificate_data: qr_code_data.certificate_data,
         })
       );
       console.log(certificate_hash);
-      const user_id = Web3.utils.soliditySha3(qr_code_data.user_data.holder_id)
-      console.log(`Holder id -> ${qr_code_data.user_data.holder_id}`)
-      console.log(`user id -> ${user_id}`)
+      const user_id = Web3.utils.soliditySha3(qr_code_data.holder_id)
       const certificate_in_sc = await this.state.contract.methods
         .verifyCertificate(certificate_hash, user_id)
         .call();
       console.log("looking for this");
       console.log(certificate_in_sc);
-      const [image, certificate_data] = await this.getDataFromIPFS(
+      const [image, certificate] = await this.getDataFromIPFS(
         certificate_in_sc[1].certificate_data
       );
+      qr_code_data["image"] = image;
+
+      // check if stored data same with data in qrcode
+      console.log(`diff -> ${_.isEqual(qr_code_data,certificate)}`)
+
       console.log(`image -> ${image}`)
-      const decrypted_image = decryptData(image, this.state.pin);
-      console.log(`decrypted image -> ${decrypted_image}`)
+      // const decrypted_image = decryptData(image, this.state.pin);
+      //console.log(`decrypted image -> ${decrypted_image}`)
       const final_certificate_data = {
-        data_detail: certificate_data,
+        data_detail: certificate,
         ...certificate_in_sc[1],
       };
 
       this.setState({
         showData: true,
-        imageDataURL: decrypted_image,
+        imageDataURL: image,
         certificate_data: final_certificate_data,
       });
     } catch (err) {

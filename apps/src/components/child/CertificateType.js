@@ -138,7 +138,8 @@ class CertificateType extends React.Component {
                 )}
               >
                 {this.props.values.type === "Vaccine"
-                  ? VaccineDoseList(this.props.values.TakenVaccineDose)
+                  ? parseInt(this.props.values.TakenVaccineDose[this.props.values.TakenVaccineDose.length - 1])+1 < 3 ? 
+                  VaccineDoseList(this.props.values.TakenVaccineDose) : <option disabled>Sudah dosis ketiga</option>
                   : TestResultList()}
               </Form.Select>
             </Form.Group>

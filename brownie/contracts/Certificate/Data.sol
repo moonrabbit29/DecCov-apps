@@ -10,5 +10,4 @@ contract CertificateData {
         uint256 timestamp;
     }
     mapping(bytes32 => COV_CERTIFICATE[]) internal holder_to_certificates;
-
-}
+ }

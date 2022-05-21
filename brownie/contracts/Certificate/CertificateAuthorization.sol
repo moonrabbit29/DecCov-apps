@@ -12,7 +12,7 @@ contract CertificateAuthorization is Helper{
     address private _Registry;
     mapping(address => mapping(uint256 => bool)) internal seenNonces;
 
-    //owner mean the one who deployed this contract
+    //owner mean the one who deployed/migrate this contract
     address payable private owner;
 
     //constructor will be inherit by child class

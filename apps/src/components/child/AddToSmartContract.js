@@ -74,16 +74,16 @@ class AddToSmartContract extends React.Component {
     console.log(user_data)
     
     if (this.props.values.type === "Covid Test") {
-      user_data["certificate_data"]["expiry_date"] = unix_datetime_add_day(
+      user_data["certificate_data"]["expiry_date"] = convert_unix_date(unix_datetime_add_day(
         get_today(),
         this.props.values.testExpiryDate
-      );
+      ));
     }
     console.log(
-      `expiry date result -> ${unix_datetime_add_day(
+      `expiry date result -> ${convert_unix_date(unix_datetime_add_day(
         get_today(),
         this.props.values.testExpiryDate
-      )}`
+      ))}`
     );
     console.log(
       `expiry date -> ${user_data["certificate_data"]["expiry_date"]}`

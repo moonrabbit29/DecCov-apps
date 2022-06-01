@@ -4,6 +4,7 @@ import Home from "./components/Home";
 import RegisterCertificate from "./components/RegisterCertificate";
 import VerifyCertificate from "./components/VerifyCertificate";
 import RegisterIssuer from "./components/RegisterIssuer";
+import NotFound from "./components/NotFound";
 
 class AppRouter extends React.Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class AppRouter extends React.Component {
     return (
       <Router>
         <Routes>
-          <Route exact path="/" element={<Home />}></Route>
+          {/* <Route exact path="/" element={<Home />}></Route> */}
           <Route
             exact
             path="/register-cert"
@@ -45,6 +46,7 @@ class AppRouter extends React.Component {
               />
             }
           ></Route>
+          <Route path='*' exact={true} element={<NotFound />} ></Route>
         </Routes>
       </Router>
     );

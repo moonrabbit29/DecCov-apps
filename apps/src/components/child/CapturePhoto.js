@@ -78,6 +78,35 @@ class MyImageCaptureComponent extends React.Component {
     //Filter video outputs (for devices with multiple cameras)
     return enumerateDevices.filter((device) => device.kind === "videoinput");
   };
+
+  switchCamera = async () => {
+    const listOfVideoInputs = await this.getListOfVideoInputs();
+
+    // The device has more than one camera
+    if (listOfVideoInputs.length > 1) {
+      if (this.player.srcObject) {
+        this.player.srcObject.getVideoTracks().forEach((track) => {
+          track.stop();
+        });
+      }
+
+      // switch to second camera
+      if (this.cameraNumber === 0) {
+        this.cameraNumber = 1;
+      }
+      // switch to first camera
+      else if (this.cameraNumber === 1) {
+        this.cameraNumber = 0;
+      }
+
+      // Restart based on camera input
+      this.initializeMedia();
+    } else if (listOfVideoInputs.length === 1) {
+      alert("The device has only one camera");
+    } else {
+      alert("The device does not have a camera");
+    }
+  };
   render() {
     const Continue = (e) => {
       e.preventDefault();
@@ -89,21 +118,29 @@ class MyImageCaptureComponent extends React.Component {
     };
     const playerORImage = this.state.is_ready_photo ? (
       Boolean(this.props.values.imageDataURL) ? (
-        <img
-          width="120"
-          height="120"
-          src={this.props.values.imageDataURL}
-          alt="cameraPic"
-        />
+        <Row>
+          <Col md="4" xs="4"></Col>
+          <Col>
+            <img
+              width="240"
+              height="120"
+              src={this.props.values.imageDataURL}
+              alt="cameraPic"
+            />
+          </Col>
+          <Col md="4" xs="4"></Col>
+        </Row>
       ) : (
-        <video
-          width="380"
-          height="280"
-          ref={(refrence) => {
-            this.player = refrence;
-          }}
-          autoPlay
-        ></video>
+        <Row>
+          <video
+            width="380"
+            height="280"
+            ref={(refrence) => {
+              this.player = refrence;
+            }}
+            autoPlay
+          ></video>
+        </Row>
       )
     ) : (
       <></>
@@ -114,7 +151,14 @@ class MyImageCaptureComponent extends React.Component {
     ) : this.props.values.imageDataURL ? (
       <Button onClick={this.initializeMedia}>Take Photo</Button>
     ) : (
-      <Button onClick={this.capturePicture}>Capture</Button>
+      <Row>
+        <Col xs="6" md="6">
+          <Button onClick={this.capturePicture}>Capture</Button>
+        </Col>
+        <Col xs="6" md="6">
+          <Button onClick={this.switchCamera}>Switch Camera</Button>
+        </Col>
+      </Row>
     );
 
     return (
@@ -123,12 +167,15 @@ class MyImageCaptureComponent extends React.Component {
           className="justify-content-center"
           style={{ marginBottom: "10px" }}
         >
-          {playerORImage}
-          <Col md="5" />
-          <Col md="2" xs="auto">
+          <Col md="12" xs="12" style={{ marginBottom: "10px" }}>
+            {" "}
+            {playerORImage}
+          </Col>
+          <Col md="4" />
+          <Col md="4" xs="auto">
             {capturePhoto}
           </Col>
-          <Col md="5" />
+          <Col md="4" />
         </Row>
         <Row className="justify-content-md-center">
           <Col md="5" xs="auto">

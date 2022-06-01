@@ -19,7 +19,7 @@ class TestData extends React.Component {
           </tr>
           <tr>
             <td>Habis berlaku : </td>
-            <td>{convert_unix_date(this.props.data.expiry_date)}</td>
+            <td>{this.props.data.expiry_date}</td>
           </tr>
         </>
       );

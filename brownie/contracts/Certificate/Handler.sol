@@ -15,7 +15,7 @@ contract CertificateHandler is CertificateAuthorization {
             certificate_hash,
             holder_to_certificates[holder_id]
         );
-        if (index - 1 > 0) {
+        if (index - 1 == 0) {
             emit IsSuccess(false, "already");
             emit certificateExist(
                 true,

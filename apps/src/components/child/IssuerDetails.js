@@ -31,7 +31,7 @@ class IssuerDetail extends React.Component {
         <Col md={"7"} lg={"7"}>
           <Form>
             <Form.Group className="mb-3">
-              <Form.Label>Tester Address</Form.Label>
+              <Form.Label>Issuer Ethereum Account Address</Form.Label>
               <Form.Control
                 required
                 type="text"

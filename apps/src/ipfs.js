@@ -39,7 +39,7 @@ const retrieve_file = async (hex) => {
         contents += new TextDecoder().decode(i)
     }
     contents = contents.replace(/\0/g, "")
-    return JSON.parse(contents)
+    return contents
 }
 
 export default addFile;

@@ -3,20 +3,21 @@ import UserDetails from "./child/UserDetails";
 import CertificateType from "./child/CertificateType";
 import AddToSmartContract from "./child/AddToSmartContract";
 import getWeb3 from "../Web3Handler";
-import Certificate from "../contracts/Certificate.json";
+import Certificate from "../contracts/CertificateRegistry.json";
 import MyImageCaptureComponent from "./child/CapturePhoto";
 ////"deployment" :
 //{"address": "0x16752Eb174Ce2B3036f428f67ED304Dea80fF847", "chainid": "4", "blockHeight": 10477515}
 class RegisterCertificate extends React.Component {
+  constructor(props) {
+    super(props);
+    this.props = props;
+  }
   state = {
     web3: null,
     accounts: null,
     contract: null,
     activeAccount: "Anonymous",
     isLoginAccount: false,
-    buffer: null,
-    dataToUpload: "",
-    ipfsHash: "",
     hashToCheck: "",
     transactionHash: "",
     step: 1,
@@ -27,33 +28,39 @@ class RegisterCertificate extends React.Component {
     test_result: "",
     dose: "",
     imageDataURL: "",
-    TakenVaccineDose : null
+    TakenVaccineDose: null,
+    gender: "L",
+    //homeAddress: "",
+    age: 0,
+    testExpiryDate:"",
   };
   componentDidMount = async () => {
+    this.props.setToLoading(true);
     const web3 = await getWeb3();
     // const networkId = await web3.eth.net.getId();
     // console.log(`networkId -> ${networkId}`);
-    const deployedNetwork = "0x7a1aF4891a8177E4361AB0C731e07712B253b2B2";
-    //const deployedNetwork = Certificate.deployment.address;
+    //const deployedNetwork = "0x7a1aF4891a8177E4361AB0C731e07712B253b2B2";
+    const deployedNetwork = Certificate.deployment.address;
     const instance = new web3.eth.Contract(Certificate.abi, deployedNetwork);
     this.setState({ web3, contract: instance });
     setInterval(async () => {
       try {
         const accounts = await web3.eth.getAccounts();
         this.setState({ accounts });
-        if (this.state.activeAccount !== accounts[0]) {
+        if (this.state.activeAccount !== accounts[0] && this.state.activeAccount==="Anonymous") {
           var active = await accounts[0];
-          this.setState({ activeAccount: active });
-          this.setState({ dataToUpload: null });
-          this.setState({ buffer: null });
-          this.setState({ fileName: "" });
-          this.setState({ ipfsHash: "" });
-          this.setState({ hashToCheck: "" });
+          this.setState({ activeAccount: active });         
           this.setState({ transactionHash: "" });
           this.setState({ isLoginAccount: true });
+          this.props.setToLoading(false);
+        }else if(!accounts[0]){
+          this.props.setToLoading(true);
+        }else if(this.state.activeAccount !== accounts[0]){
+          window.location.reload();
         }
       } catch (error) {
-        alert(`You are offline, connect to metamask to continue.`);
+        alert(error);
+        //alert(`You are offline, connect to metamask to continue.`);
       }
     }, 500);
   };
@@ -72,6 +79,14 @@ class RegisterCertificate extends React.Component {
     this.setState({ [input]: e.target.value });
   };
 
+  genderEncoding = (input) => (e) => {
+    const genderCode = {
+        'Laki - Laki' : 'L',
+        'Perempuan' : 'p'
+    }
+    this.setState({gender:genderCode[e.target.value]})
+  }
+
   changeState = (input, value) => {
     this.setState({ [input]: value });
   };
@@ -81,8 +96,8 @@ class RegisterCertificate extends React.Component {
   };
 
   setTakenVaccineDose = (data) => {
-    this.setState({TakenVaccineDose:data})
-  }
+    this.setState({ TakenVaccineDose: data });
+  };
 
   render() {
     const { step } = this.state;
@@ -97,13 +112,13 @@ class RegisterCertificate extends React.Component {
       accounts,
       contract,
       activeAccount,
-      buffer,
-      dataToUpload,
-      ipfsHash,
-      hashToCheck,
       transactionHash,
       imageDataURL,
-      TakenVaccineDose
+      TakenVaccineDose,
+      gender,
+      //homeAddress,
+      age,
+      testExpiryDate
     } = this.state;
     const values = {
       Name,
@@ -116,65 +131,60 @@ class RegisterCertificate extends React.Component {
       accounts,
       contract,
       activeAccount,
-      buffer,
-      dataToUpload,
-      ipfsHash,
-      hashToCheck,
       transactionHash,
       imageDataURL,
-      TakenVaccineDose
+      TakenVaccineDose,
+      gender,
+      //homeAddress,
+      age,
+      testExpiryDate
     };
-    if (
-      this.state.isLoginAccount === false &&
-      values.activeAccount === "Anonymous"
-    ) {
-      return <h1>PROCESSING</h1>;
-    } else {
-      switch (step) {
-        case 1:
-          return (
-            <UserDetails
+    switch (step) {
+      case 1:
+        return (
+          <UserDetails
+            nextStep={this.nextStep}
+            prevStep={this.prevStep}
+            values={values}
+            handleChange={this.handleChange}
+            setTakenVaccineDose={this.setTakenVaccineDose}
+            genderEncoding={this.genderEncoding}
+          />
+        );
+      case 2:
+        return (
+          <CertificateType
+            nextStep={this.nextStep}
+            prevStep={this.prevStep}
+            values={values}
+            handleChange={this.handleChange}
+            resetState={this.resetState}
+            setTakenVaccineDose={this.setTakenVaccineDose}
+          />
+        );
+      case 3:
+        return (
+          <>
+            <MyImageCaptureComponent
+              values={values}
+              changeState={this.changeState}
+              handleChange={this.handleChange}
               nextStep={this.nextStep}
               prevStep={this.prevStep}
-              values={values}
-              handleChange={this.handleChange}
-              setTakenVaccineDose={this.setTakenVaccineDose}
             />
-          );
-        case 2:
-          return (
-            <CertificateType
-              nextStep={this.nextStep}
-              prevStep={this.prevStep}
-              values={values}
-              handleChange={this.handleChange}
-              resetState={this.resetState}
-            />
-          );
-        case 3:
-          return (
-            <>
-              <MyImageCaptureComponent
-                values={values}
-                changeState={this.changeState}
-                handleChange={this.handleChange}
-                nextStep={this.nextStep}
-                prevStep={this.prevStep}
-              />
-            </>
-          );
-        case 4:
-          return (
-            <AddToSmartContract
-              nextStep={this.nextStep}
-              prevStep={this.prevStep}
-              values={values}
-              handleChange={this.handleChange}
-            />
-          );
-        default:
-          return <p>Error occured</p>;
-      }
+          </>
+        );
+      case 4:
+        return (
+          <AddToSmartContract
+            nextStep={this.nextStep}
+            prevStep={this.prevStep}
+            values={values}
+            handleChange={this.handleChange}
+          />
+        );
+      default:
+        return <p>Error occured</p>;
     }
   }
 }

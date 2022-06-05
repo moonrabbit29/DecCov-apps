@@ -1,17 +1,18 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.7.0 <0.9.0;
+import "./Helper.sol";
 
 // this contract provides authorization for certificate smart contract
 
 interface IssuerData {
-    function verifyIssuer(address issuer) external returns (bool);
+    function checkIssuerExist(address issuer) external returns (bool);
 }
 
-contract CertificateAuthorization {
+contract CertificateAuthorization is Helper{
     address private _Registry;
     mapping(address => mapping(uint256 => bool)) internal seenNonces;
 
-    //owner mean the one who deployed this contract
+    //owner mean the one who deployed/migrate this contract
     address payable private owner;
 
     //constructor will be inherit by child class
@@ -30,12 +31,12 @@ contract CertificateAuthorization {
         return _Registry;
     }
 
-    function verifyIssuer(address sender) private returns(bool) {
-        return IssuerData(_Registry).verifyIssuer(sender);
+    function checkSignerIsIssuer(address sender) private returns(bool) {
+        return IssuerData(_Registry).checkIssuerExist(sender);
     }
 
     modifier grantAccess(){
-        require(verifyIssuer(msg.sender) == true);
+        require(checkSignerIsIssuer(msg.sender) == true);
         _;
     }
 }

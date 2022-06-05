@@ -19,6 +19,8 @@ code {
   overflow:hidden;
 }
 
+.custom-dialog {width:48% !important; top:20%;}
+
 .empty-content {
   min-height: 150px;
   height: auto;

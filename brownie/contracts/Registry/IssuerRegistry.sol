@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.7.0 <0.9.0;
 
-import "./IssuerData.sol";
+import "./IssuerHandler.sol";
 
-contract Registry is Issuer{
+contract Registry is IssuerHandler{
 }

@@ -58,6 +58,7 @@ class IssuerDetail extends React.Component {
               />
             </Form.Group>
             <Form.Group>
+              <Form.Label>Contract Number</Form.Label>
               <Form.Control
                 required
                 type="number"

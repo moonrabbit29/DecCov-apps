@@ -9,7 +9,7 @@ class NotFound extends Component {
       return (
         <section id="Destruct" className="p-5">
           <MetaTags>
-            <title>Not Found - PoD</title>
+            <title>Not Found</title>
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <meta id="meta-description" name="description" content="Ethereum x IPFS DApp." />
             <meta id="og-title" property="og:title" content="DecCov-App" />

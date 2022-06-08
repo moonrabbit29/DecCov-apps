@@ -4,6 +4,7 @@ import Registry from "../contracts/Registry.json";
 import IssuerDetail from "./child/IssuerDetails";
 import SuccessRegisterIssuer from "./child/SuccessRegisterIssuer"
 import addFile from "../ipfs";
+import TransactionReverted from "./child/TransactionReverted";
 
 class RegisterIssuer extends React.Component {
   state = {
@@ -12,10 +13,18 @@ class RegisterIssuer extends React.Component {
     activeAccount: "",
     transactionHash: "",
     showModal: false,
+    showRevertedTransaction:false
   };
+
+  closeTransactionReverted = () => {
+    this.setState({showRevertedTransaction:false})
+    window.location.reload();
+  }  
+
   handleClose = () => {
     this.setState({showModal:false})
   }
+
   callRegisterIssuer = async (
     issuer_address,
     institution_name,
@@ -42,7 +51,11 @@ class RegisterIssuer extends React.Component {
       )
       .once("receipt", function (receipt) {})
       .on("confirmation", function (confNumber, receipt) {})
-      .on("error", function (error) {})
+      .on("error", function (error) {
+        if (error['message'].includes(`"message":"revert"`)) {
+          this.setState({showRevertedTransaction:true})
+        }
+      })
       .then((receipt) => {
         console.log(receipt)
         const IsSuccess = receipt.events.IsSuccess.returnValues;
@@ -90,6 +103,11 @@ class RegisterIssuer extends React.Component {
         <SuccessRegisterIssuer 
           showModal={this.state.showModal}
           handleClose={this.handleClose}
+        />
+
+        <TransactionReverted 
+          CloseTransactionReverted={this.closeTransactionReverted}
+          showRevertedTransaction={this.state.showRevertedTransaction}
         />
       </>
     );

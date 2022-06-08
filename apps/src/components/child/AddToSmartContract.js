@@ -13,6 +13,7 @@ import {
   unix_datetime_add_day,
   get_today,
 } from "../../date_helper";
+import TransactionReverted from "./TransactionReverted"
 
 class AddToSmartContract extends React.Component {
   // ganache-cli --chain.vmErrorsOnRPCResponse true --hardfork istanbul --miner.blockGasLimit 12000000 --wallet.mnemonic brownie --server.port 8545 --account="0xf5c9a0c1c21216b57a93f0157c309093885b261c7623c138bffbf6298114798c,9629874799100000000000000000" --account="0x60f7afbcb7c2784c04be36ccfd49fc3e04da6acca0157411b87d9eaab1762596,96298
@@ -33,20 +34,29 @@ class AddToSmartContract extends React.Component {
     },
     enter_pin: false,
     pin: "",
-    WA_Number:""
+    WA_Number:"",
+    showRevertedTransaction:false
   };
 
   changeState = (input, value = false) => {
     this.setState({ [input]: value });
   };
 
+  closeTransactionReverted = () => {
+    this.setState({showRevertedTransaction:false})
+    window.location.reload();
+  }  
+
   storeCertificateData = async (e) => {
+    // for performance benchmarking
+    const mark_start = "mark_start"
+    const mark_start_store_certificate_function="mark_start1"
+    const mark_transaction_creation="mark4"
+    const mark_identifier = "mark1" //marking performance for time needed to upload identifier to ipfs
+    const mark_certificate = "mark2" //marking performance for time needed to upload certificate to ipfs
+    const mark_total_creation = "mark3" //marking performance for total needed in this process
+    performance.mark(mark_start_store_certificate_function)
     const holder_id = Web3.utils.soliditySha3(this.props.values.NIK);
-    // const image = await addFile(
-    //   turnIntoBuffer(
-    //     encryptData(this.props.values.imageDataURL, this.state.pin)
-    //   )
-    // );
     const image = this.props.values.imageDataURL;
     this.setState({ holder_id: holder_id });
     const certificate_data =
@@ -70,8 +80,6 @@ class AddToSmartContract extends React.Component {
       image: image,
       certificate_data: certificate_data,
     };
-    console.log("user_data")
-    console.log(user_data)
     
     if (this.props.values.type === "Covid Test") {
       user_data["certificate_data"]["expiry_date"] = convert_unix_date(unix_datetime_add_day(
@@ -79,15 +87,6 @@ class AddToSmartContract extends React.Component {
         this.props.values.testExpiryDate
       ));
     }
-    console.log(
-      `expiry date result -> ${convert_unix_date(unix_datetime_add_day(
-        get_today(),
-        this.props.values.testExpiryDate
-      ))}`
-    );
-    console.log(
-      `expiry date -> ${user_data["certificate_data"]["expiry_date"]}`
-    );
 
     //var certificate_hash = "0xd838244465d7b705adf17e52bd7ea23a1d7f45cf78c6f31e97df9caedf5120e6"
     //["bytes32","string","address"]
@@ -101,17 +100,24 @@ class AddToSmartContract extends React.Component {
         light: "#FFBF60FF", // Transparent background
       },
     };
+    
+    //measure performace uploading data to ipfs
+    performance.mark(mark_start)
     const certificate_identifier = await addFile(
       JSON.stringify({
         holder_id: this.props.values.NIK,
         certificate_data: certificate_data,
       })
     );
+    performance.mark(mark_identifier)
+   
     const ipfs_address_for_certificate = await addFile(
       turnIntoBuffer(encryptData(JSON.stringify(user_data), this.state.pin))
     );
-
+    performance.mark(mark_certificate)
+  
     this.setState({ certificate_hash: certificate_identifier });
+    
     await this.props.values.contract.methods
       .registerCertificate(
         certificate_identifier,
@@ -130,32 +136,26 @@ class AddToSmartContract extends React.Component {
       .once("receipt", function (receipt) {})
       .on("confirmation", function (confNumber, receipt) {})
       .on("error", function (error) {
-        console.log("REVERTED")
-        console.log(`error -> `)
-        console.log(error)
+        performance.mark(mark_transaction_creation)
         if (error['message'].includes(`"message":"revert"`)) {
-          //call modal failed transaction non issuer user
+          this.setState({showRevertedTransaction:true})
         }
       })
       .then(
         async function (receipt) {
+          performance.mark(mark_transaction_creation)
           const IsSuccess = receipt.events.IsSuccess.returnValues;
           const succes = IsSuccess["value"] && IsSuccess["result"] == "stored";
           if (succes) {
             this.setState({ show: true });
             const timestamp =
               receipt.events.timestampEvent.returnValues["timestamp"];
-              console.log(`timestamp -> ${timestamp}`)
             const copy_user_data = { ...user_data };
             delete copy_user_data["image"];
-            console.log(copy_user_data)
             //const qrCodeData = encryptData(JSON.stringify(user_data),this.state.pin)
             const qrCodeData = JSON.stringify({
               ...copy_user_data,
             });
-            // console.log("HERE")
-            // console.log(qrCodeData)
-            // console.log(decryptData(qrCodeData,this.state.pin))
             Qrcode.toDataURL(
               qrCodeData,
               opts,
@@ -172,11 +172,9 @@ class AddToSmartContract extends React.Component {
               );
               const recorded_data =
                 certificate.certificate_data.cov_certificate_identifier;
-              console.log(recorded_data);
               const stored_meta_data = JSON.parse(
                 await retrieve_file(recorded_data)
               );
-              console.log(stored_meta_data);
               this.setState({
                 show_already_exist: true,
                 recorded_timestamp: recorded_timestamp.toString(),
@@ -184,6 +182,12 @@ class AddToSmartContract extends React.Component {
               });
             }
           }
+          performance.mark(mark_total_creation)
+          performance.measure("measure identifier upload time", mark_start, mark_identifier);
+          performance.measure("measure certificate upload time", mark_identifier, mark_certificate);
+          performance.measure("measure total time needed to process a certificate", mark_start_store_certificate_function, mark_total_creation);
+          performance.measure("measure total time needed for transaction callback received",mark_certificate,mark_transaction_creation)
+          console.log(performance.getEntriesByType("measure"));
         }.bind(this)
       );
   };
@@ -323,6 +327,10 @@ class AddToSmartContract extends React.Component {
             </Button>
           </Modal.Footer>
         </Modal>
+        <TransactionReverted 
+          showRevertedTransaction={this.state.showRevertedTransaction}
+          CloseTransactionReverted={this.closeTransactionReverted}
+        />
         <InputPassword
           enter_pin={this.state.enter_pin}
           changeState={this.changeState}

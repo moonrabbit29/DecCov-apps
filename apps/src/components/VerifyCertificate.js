@@ -24,10 +24,10 @@ class VerifyCertificate extends React.Component {
 
   // called after receiving input for decrypting certificate data
   changePin = (pin) => {
-    console.log(pin);
+    //console.log(pin);
     this.setState({ pin: pin, enterPin: false });
-    console.log(`after change -> ${this.state.pin}`);
-    console.log(this.state.qrResult);
+    // console.log(`after change -> ${this.state.pin}`);
+    // console.log(this.state.qrResult);
     this.verifyCertificate(this.state.qrResult);
   };
 
@@ -43,8 +43,8 @@ class VerifyCertificate extends React.Component {
     this.initializeQRScanner();
     setInterval(async () => {
       try {
-        console.log("deployed network")
-        console.log(deployedNetwork)
+        // console.log("deployed network")
+        // console.log(deployedNetwork)
         const accounts = await web3.eth.getAccounts();
         this.setState({ accounts });
         if (this.state.activeAccount !== accounts[0]) {
@@ -68,8 +68,8 @@ class VerifyCertificate extends React.Component {
       this.qrScanner = new QrScanner(
         this.player ? this.player : "",
         (result) => {
-          console.log(JSON.parse(result.data));
-          console.log(result.data);
+          // console.log(JSON.parse(result.data));
+          // console.log(result.data);
           this.setState({ qrResult: JSON.parse(result.data), enterPin: true });
           this.qrScanner.stop();
         },
@@ -125,29 +125,39 @@ class VerifyCertificate extends React.Component {
     //   certificate_data: user_data.certificate_data,
     // };
     try {
-      console.log(qr_code_data)
+      // console.log(qr_code_data)
       const certificate_hash = await addFile(
         JSON.stringify({
           holder_id: qr_code_data.holder_id,
           certificate_data: qr_code_data.certificate_data,
         })
       );
-      console.log(certificate_hash);
+      // console.log(certificate_hash);
+      // for testing performance
+      const mark_start = "mark_start"
+      const mark_verify_certificate = "mark1"
+      const mark_download_data_from_ipfs = "mark2"
+      performance.mark(mark_start)
       const user_id = Web3.utils.soliditySha3(qr_code_data.holder_id)
       const certificate_in_sc = await this.state.contract.methods
         .verifyCertificate(certificate_hash, user_id)
         .call();
-      console.log("looking for this");
-      console.log(certificate_in_sc);
+      performance.mark(mark_verify_certificate)
+      // console.log("looking for this");
+      // console.log(certificate_in_sc);
       const [image, certificate] = await this.getDataFromIPFS(
         certificate_in_sc[1].certificate_data
       );
+      performance.mark(mark_download_data_from_ipfs)
+      performance.measure("measure certificate verification", mark_start, mark_verify_certificate);
+      performance.measure("measure certificate upload time", mark_verify_certificate, mark_download_data_from_ipfs);
+      console.log(performance.getEntriesByType("measure"));
       qr_code_data["image"] = image;
 
       // check if stored data same with data in qrcode
-      console.log(`diff -> ${_.isEqual(qr_code_data,certificate)}`)
+      // console.log(`diff -> ${_.isEqual(qr_code_data,certificate)}`)
 
-      console.log(`image -> ${image}`)
+      // console.log(`image -> ${image}`)
       // const decrypted_image = decryptData(image, this.state.pin);
       //console.log(`decrypted image -> ${decrypted_image}`)
       const final_certificate_data = {
@@ -162,7 +172,7 @@ class VerifyCertificate extends React.Component {
       });
     } catch (err) {
       console.log(err);
-      alert("ERROR PLEASE CONTACT TECHNICIAN");
+      alert("Tidak dapat membaca sertifikat, pastikan sertifikat anda benar");
       this.resetState();
       window.location.reload();
     }

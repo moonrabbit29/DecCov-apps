@@ -17,25 +17,25 @@ class SuccessRegisterIssuer extends React.Component {
         onHide={this.props.handleClose}
       >
         <Modal.Header closeButton >
-          <h3>Sukses registrasi issuer</h3>
+          <h3>{this.props.message}</h3>
         </Modal.Header>
         <Modal.Body>
           <Form>
             <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>Issuer addresss</Form.Label>
-              <Form.Text></Form.Text> 
+              <Form.Text>{this.props.issuer_address}</Form.Text> 
             </Form.Group>
             <Form.Group>
                 <Form.Label>Nama institusi</Form.Label>
-                <Form.Text></Form.Text>
+                <Form.Text>{this.props.institution_name}</Form.Text>
             </Form.Group>
             <Form.Group>
                 <Form.Label>Nomor pekerja kesehatan</Form.Label>
-                <Form.Text></Form.Text>
+                <Form.Text>{this.props.employee_number}</Form.Text>
             </Form.Group>
             <Form.Group>
                 <Form.Label>Kontak</Form.Label>
-                <Form.Text></Form.Text>
+                <Form.Text>{this.props.contact_number}</Form.Text>
             </Form.Group>
           </Form>
         </Modal.Body>

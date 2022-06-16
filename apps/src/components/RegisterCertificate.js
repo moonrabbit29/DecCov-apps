@@ -99,6 +99,11 @@ class RegisterCertificate extends React.Component {
     this.setState({ TakenVaccineDose: data });
   };
 
+  setloading = (msg,isLoading) => {
+    this.props.setToLoading(isLoading)
+    this.props.setLoadingText(msg)
+  }
+
   render() {
     const { step } = this.state;
     const {
@@ -181,6 +186,7 @@ class RegisterCertificate extends React.Component {
             prevStep={this.prevStep}
             values={values}
             handleChange={this.handleChange}
+            setToLoading={this.setloading}
           />
         );
       default:

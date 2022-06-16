@@ -119,6 +119,9 @@ class VerifyCertificate extends React.Component {
   };
 
   verifyCertificate = async (qr_code_data) => {
+    const mark_beginning = "mark_beginning"
+    const finish_verify = "mark_finish"
+    performance.mark(mark_beginning)
     // {
     //   name: user_data.name,
     //   holder_id: user_data.holder_id,
@@ -149,9 +152,6 @@ class VerifyCertificate extends React.Component {
         certificate_in_sc[1].certificate_data
       );
       performance.mark(mark_download_data_from_ipfs)
-      performance.measure("measure certificate verification", mark_start, mark_verify_certificate);
-      performance.measure("measure certificate upload time", mark_verify_certificate, mark_download_data_from_ipfs);
-      console.log(performance.getEntriesByType("measure"));
       qr_code_data["image"] = image;
 
       // check if stored data same with data in qrcode
@@ -170,8 +170,13 @@ class VerifyCertificate extends React.Component {
         imageDataURL: image,
         certificate_data: final_certificate_data,
       });
+      performance.mark(finish_verify)
+      performance.measure("measure certificate hash validation", mark_start, mark_verify_certificate);
+      performance.measure("measure certificate read time ipfs", mark_verify_certificate, mark_download_data_from_ipfs);
+      performance.measure("measure total process time",mark_beginning,finish_verify)
+      console.log(performance.getEntriesByType("measure"));
     } catch (err) {
-      console.log(err);
+      //console.log(err);
       alert("Tidak dapat membaca sertifikat, pastikan sertifikat anda benar");
       this.resetState();
       window.location.reload();

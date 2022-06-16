@@ -23,6 +23,7 @@ class AppRouter extends React.Component {
               <RegisterCertificate
                 isLoading={this.props.isLoading}
                 setToLoading={this.props.setToLoading}
+                setLoadingText={this.props.setLoadingText}
               />
             }
           ></Route>
@@ -33,6 +34,7 @@ class AppRouter extends React.Component {
               <VerifyCertificate
                 isLoading={this.props.isLoading}
                 setToLoading={this.props.setToLoading}
+                setLoadingText={this.props.setLoadingText}
               />
             }
           ></Route>
@@ -43,6 +45,7 @@ class AppRouter extends React.Component {
               <RegisterIssuer
                 isLoading={this.props.isLoading}
                 setToLoading={this.props.setToLoading}
+                setLoadingText={this.props.setLoadingText}
               />
             }
           ></Route>

@@ -10,14 +10,18 @@ import "./app.css";
 function App () {
   const [isLoading,setIsLoading ]= useState(false)
   const setToLoading = (status) => {
-    console.log(`status -> ${status}`)
+   // console.log(`status -> ${status}`)
     setIsLoading(status);
   };
-    return (
+  const[loadingMessage,setLoadingMessage]=useState("Please login to your metamask...")
+  const setLoadingText = (message)=>{
+    setLoadingMessage(message)
+  } 
+  return (
       <LoadingOverlay
         active={isLoading}
         spinner
-        text="Please login to your metamask..."
+        text={loadingMessage}
       >
         <div className={"app"}>
           <Header />
@@ -25,6 +29,7 @@ function App () {
             <AppRouter
               isLoading={isLoading}
               setToLoading={setToLoading}
+              setLoadingText={setLoadingText}
             />
             <div style={{ bottom: "30px" }} />
             <div className={"empty-content"} />

@@ -6,14 +6,14 @@ import Qrcode from "qrcode";
 import addFile from "../../ipfs";
 import { turnIntoBuffer, retrieve_file } from "../../ipfs";
 import InputPassword from "./InputPassword";
-import SendToWa from "./SendToWA"
+import SendToWa from "./SendToWA";
 import { encryptData } from "../../crypt";
 import {
   convert_unix_date,
   unix_datetime_add_day,
   get_today,
 } from "../../date_helper";
-import TransactionReverted from "./TransactionReverted"
+import TransactionReverted from "./TransactionReverted";
 
 class AddToSmartContract extends React.Component {
   // ganache-cli --chain.vmErrorsOnRPCResponse true --hardfork istanbul --miner.blockGasLimit 12000000 --wallet.mnemonic brownie --server.port 8545 --account="0xf5c9a0c1c21216b57a93f0157c309093885b261c7623c138bffbf6298114798c,9629874799100000000000000000" --account="0x60f7afbcb7c2784c04be36ccfd49fc3e04da6acca0157411b87d9eaab1762596,96298
@@ -34,8 +34,8 @@ class AddToSmartContract extends React.Component {
     },
     enter_pin: false,
     pin: "",
-    WA_Number:"",
-    showRevertedTransaction:false
+    WA_Number: "",
+    showRevertedTransaction: false,
   };
 
   changeState = (input, value = false) => {
@@ -43,19 +43,20 @@ class AddToSmartContract extends React.Component {
   };
 
   closeTransactionReverted = () => {
-    this.setState({showRevertedTransaction:false})
+    this.setState({ showRevertedTransaction: false });
     window.location.reload();
-  }  
+  };
 
   storeCertificateData = async (e) => {
     // for performance benchmarking
-    const mark_start = "mark_start"
-    const mark_start_store_certificate_function="mark_start1"
-    const mark_transaction_creation="mark4"
-    const mark_identifier = "mark1" //marking performance for time needed to upload identifier to ipfs
-    const mark_certificate = "mark2" //marking performance for time needed to upload certificate to ipfs
-    const mark_total_creation = "mark3" //marking performance for total needed in this process
-    performance.mark(mark_start_store_certificate_function)
+    const mark_start = "mark_start";
+    const mark_start_store_certificate_function = "mark_start1";
+    const mark_transaction_creation = "mark4";
+    const mark_identifier = "mark1"; //marking performance for time needed to upload identifier to ipfs
+    const mark_certificate = "mark2"; //marking performance for time needed to upload certificate to ipfs
+    const mark_total_creation = "mark3"; //marking performance for total needed in this process
+    performance.mark(mark_start_store_certificate_function);
+    this.props.setToLoading("Processing Certificate", true);
     const holder_id = Web3.utils.soliditySha3(this.props.values.NIK);
     const image = this.props.values.imageDataURL;
     this.setState({ holder_id: holder_id });
@@ -80,12 +81,11 @@ class AddToSmartContract extends React.Component {
       image: image,
       certificate_data: certificate_data,
     };
-    
+
     if (this.props.values.type === "Covid Test") {
-      user_data["certificate_data"]["expiry_date"] = convert_unix_date(unix_datetime_add_day(
-        get_today(),
-        this.props.values.testExpiryDate
-      ));
+      user_data["certificate_data"]["expiry_date"] = convert_unix_date(
+        unix_datetime_add_day(get_today(), this.props.values.testExpiryDate)
+      );
     }
 
     //var certificate_hash = "0xd838244465d7b705adf17e52bd7ea23a1d7f45cf78c6f31e97df9caedf5120e6"
@@ -100,24 +100,24 @@ class AddToSmartContract extends React.Component {
         light: "#FFBF60FF", // Transparent background
       },
     };
-    
+
     //measure performace uploading data to ipfs
-    performance.mark(mark_start)
+    performance.mark(mark_start);
     const certificate_identifier = await addFile(
       JSON.stringify({
         holder_id: this.props.values.NIK,
         certificate_data: certificate_data,
       })
     );
-    performance.mark(mark_identifier)
-   
+    performance.mark(mark_identifier);
+
     const ipfs_address_for_certificate = await addFile(
       turnIntoBuffer(encryptData(JSON.stringify(user_data), this.state.pin))
     );
-    performance.mark(mark_certificate)
-  
+    performance.mark(mark_certificate);
+
     this.setState({ certificate_hash: certificate_identifier });
-    
+
     await this.props.values.contract.methods
       .registerCertificate(
         certificate_identifier,
@@ -136,14 +136,16 @@ class AddToSmartContract extends React.Component {
       .once("receipt", function (receipt) {})
       .on("confirmation", function (confNumber, receipt) {})
       .on("error", function (error) {
-        performance.mark(mark_transaction_creation)
-        if (error['message'].includes(`"message":"revert"`)) {
-          this.setState({showRevertedTransaction:true})
+        this.props.setToLoading("", false);
+        performance.mark(mark_transaction_creation);
+        if (error["message"].includes(`"message":"revert"`)) {
+          this.setState({ showRevertedTransaction: true });
         }
       })
       .then(
         async function (receipt) {
-          performance.mark(mark_transaction_creation)
+          this.props.setToLoading("", false);
+          performance.mark(mark_transaction_creation);
           const IsSuccess = receipt.events.IsSuccess.returnValues;
           const succes = IsSuccess["value"] && IsSuccess["result"] == "stored";
           if (succes) {
@@ -182,11 +184,27 @@ class AddToSmartContract extends React.Component {
               });
             }
           }
-          performance.mark(mark_total_creation)
-          performance.measure("measure identifier upload time", mark_start, mark_identifier);
-          performance.measure("measure certificate upload time", mark_identifier, mark_certificate);
-          performance.measure("measure total time needed to process a certificate", mark_start_store_certificate_function, mark_total_creation);
-          performance.measure("measure total time needed for transaction callback received",mark_certificate,mark_transaction_creation)
+          performance.mark(mark_total_creation);
+          performance.measure(
+            "measure identifier upload time",
+            mark_start,
+            mark_identifier
+          );
+          performance.measure(
+            "measure certificate upload time",
+            mark_identifier,
+            mark_certificate
+          );
+          performance.measure(
+            "measure total time needed to process a certificate",
+            mark_start_store_certificate_function,
+            mark_total_creation
+          );
+          performance.measure(
+            "measure total time needed for transaction callback received",
+            mark_certificate,
+            mark_transaction_creation
+          );
           console.log(performance.getEntriesByType("measure"));
         }.bind(this)
       );
@@ -273,11 +291,11 @@ class AddToSmartContract extends React.Component {
           <Modal.Body>
             <h3>QR CERTIFICATE</h3>
             <img src={this.state.qrURL} class="downloadable-qr" />
-            <SendToWa 
+            <SendToWa
               type={this.props.values.type}
               name={this.props.values.Name}
               NIK={this.props.values.NIK}
-              certificate_qr_code = {this.state.qrURL}
+              certificate_qr_code={this.state.qrURL}
             />
           </Modal.Body>
           <Modal.Footer>
@@ -327,7 +345,7 @@ class AddToSmartContract extends React.Component {
             </Button>
           </Modal.Footer>
         </Modal>
-        <TransactionReverted 
+        <TransactionReverted
           showRevertedTransaction={this.state.showRevertedTransaction}
           CloseTransactionReverted={this.closeTransactionReverted}
         />

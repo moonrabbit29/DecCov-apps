@@ -30,7 +30,7 @@ class UserDetail extends React.Component {
       this.setState({ is_loading: true });
       try {
         const { res, data_len } = await showExistedData();
-        console.log(`res => ${res}`);
+       // console.log(`res => ${res}`);
         this.setState({ is_loading: false });
         if (!res) this.setState({ is_data_valid: false });
         if (data_len == 0) {
@@ -38,13 +38,13 @@ class UserDetail extends React.Component {
         }
         this.setState({ isChecked: true });
       } catch (err) {
-        console.log(err);
+       // console.log(err);
       }
     };
 
     const showExistedData = async () => {
       const holder_id = Web3.utils.soliditySha3(this.props.values.NIK);
-      console.log(`holder id -> ${holder_id}`);
+      //console.log(`holder id -> ${holder_id}`);
       const data = await this.props.values.contract.methods
         .getCertificatesByUser(holder_id)
         .call();

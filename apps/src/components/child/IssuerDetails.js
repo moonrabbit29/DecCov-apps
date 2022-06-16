@@ -18,7 +18,7 @@ class IssuerDetail extends React.Component {
   render() {
     const submitIssuer = (e) => {
       e.preventDefault();
-      console.log(e);
+     // console.log(e);
       this.props.callRegisterIssuer(
         this.state.testerAddress,
         this.state.institutionName,

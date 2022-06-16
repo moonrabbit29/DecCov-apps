@@ -19,7 +19,7 @@ class InputPin extends React.Component {
 
   handleChange = (input) => (e) => {
     this.setState({ [input]: e.target.value });
-    console.log(e.target.value)
+   // console.log(e.target.value)
   }
 
   render() {

@@ -5,9 +5,9 @@ const convert_unix_date = (unix_date) => {
 const unix_datetime_add_day = (current, next) => {
   const day_in_seconds = parseInt(next) * 86400;
   const next_date = parseInt(current) + day_in_seconds;
-  console.log(
-    `current -> ${current} Next date -> ${next_date} -> next -> ${next} day_in_seconds -> ${day_in_seconds}`
-  );
+  // console.log(
+  //   `current -> ${current} Next date -> ${next_date} -> next -> ${next} day_in_seconds -> ${day_in_seconds}`
+  // );
   return next_date;
 };
 

@@ -39,7 +39,7 @@ function VaccineDoseList(esisting_vacine_dose) {
       </>
     );
   else{
-    console.log(esisting_vacine_dose[esisting_vacine_dose.length - 1])
+   // console.log(esisting_vacine_dose[esisting_vacine_dose.length - 1])
     return (
       <>
         <option>

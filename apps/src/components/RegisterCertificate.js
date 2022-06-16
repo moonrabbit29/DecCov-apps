@@ -5,6 +5,7 @@ import AddToSmartContract from "./child/AddToSmartContract";
 import getWeb3 from "../Web3Handler";
 import Certificate from "../contracts/CertificateRegistry.json";
 import MyImageCaptureComponent from "./child/CapturePhoto";
+import {verifyMessage,check_address,signMessage} from "../AuthWeb3"
 ////"deployment" :
 //{"address": "0x16752Eb174Ce2B3036f428f67ED304Dea80fF847", "chainid": "4", "blockHeight": 10477515}
 class RegisterCertificate extends React.Component {
@@ -43,6 +44,22 @@ class RegisterCertificate extends React.Component {
     const deployedNetwork = Certificate.deployment.address;
     const instance = new web3.eth.Contract(Certificate.abi, deployedNetwork);
     this.setState({ web3, contract: instance });
+    const accounts = await web3.eth.getAccounts();
+    const isIssuer = await check_address(accounts[0],web3)
+    if (!isIssuer) {
+      alert("You don't have acces to this feature")
+      window.location.reload();
+    }
+    const [signature,message] = await signMessage(accounts[0],web3)
+    console.log(`Signature -> ${signature}`)
+    console.log(`message -> ${message}`)
+    const isValidSignature = await verifyMessage(message,accounts[0],signature,web3)
+
+    if(isValidSignature!=='Verified'){
+      alert("You can't prove ownership of this account")
+      window.location.reload();
+    }
+
     setInterval(async () => {
       try {
         const accounts = await web3.eth.getAccounts();
@@ -59,8 +76,8 @@ class RegisterCertificate extends React.Component {
           window.location.reload();
         }
       } catch (error) {
-        alert(error);
-        //alert(`You are offline, connect to metamask to continue.`);
+        //alert(error);
+        alert(`Something went wrong, make sure metamask run correctly`);
       }
     }, 500);
   };

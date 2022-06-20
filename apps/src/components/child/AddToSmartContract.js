@@ -169,14 +169,19 @@ class AddToSmartContract extends React.Component {
           } else {
             if (IsSuccess["result"] == "already") {
               const certificate = receipt.events.certificateExist.returnValues;
+              console.log(certificate)
               const recorded_timestamp = convert_unix_date(
                 certificate.certificate_data.timestamp
               );
+              const recorded_issuer = certificate.certificate_data.issuer
               const recorded_data =
                 certificate.certificate_data.cov_certificate_identifier;
               const stored_meta_data = JSON.parse(
                 await retrieve_file(recorded_data)
               );
+              stored_meta_data['issuer_address'] = recorded_issuer
+              console.log("stored meta data")
+              console.log(stored_meta_data)
               this.setState({
                 show_already_exist: true,
                 recorded_timestamp: recorded_timestamp.toString(),

@@ -105,8 +105,8 @@ class RegisterIssuer extends React.Component {
     const web3 = await getWeb3();
     // const networkId = await web3.eth.net.getId();
     // console.log(`networkId -> ${networkId}`);
-    //const deployedNetwork = "0x4258BA34260905EFBCb468528623789FE885aD59";
-    const deployedNetwork = Registry.deployment.address;
+    const deployedNetwork = "0x4258BA34260905EFBCb468528623789FE885aD59";
+    //const deployedNetwork = Registry.deployment.address;
     const instance = new web3.eth.Contract(Registry.abi, deployedNetwork);
     this.setState({ web3, contract: instance });
     setInterval(async () => {

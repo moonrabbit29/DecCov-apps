@@ -40,15 +40,16 @@ class RegisterCertificate extends React.Component {
     const web3 = await getWeb3();
     // const networkId = await web3.eth.net.getId();
     // console.log(`networkId -> ${networkId}`);
-    //const deployedNetwork = "0x7a1aF4891a8177E4361AB0C731e07712B253b2B2";
-    const deployedNetwork = Certificate.deployment.address;
+    const deployedNetwork = "0x7a1aF4891a8177E4361AB0C731e07712B253b2B2";
+    //const deployedNetwork = Certificate.deployment.address;
     const instance = new web3.eth.Contract(Certificate.abi, deployedNetwork);
     this.setState({ web3, contract: instance });
     const accounts = await web3.eth.getAccounts();
     const isIssuer = await check_address(accounts[0],web3)
     if (!isIssuer) {
       alert("You don't have acces to this feature")
-      window.location.reload();
+      window.location.href = "/";
+      return
     }
     const [signature,message] = await signMessage(accounts[0],web3)
     console.log(`Signature -> ${signature}`)
@@ -57,7 +58,7 @@ class RegisterCertificate extends React.Component {
 
     if(isValidSignature!=='Verified'){
       alert("You can't prove ownership of this account")
-      window.location.reload();
+      window.location.href = "/";
     }
 
     setInterval(async () => {

@@ -7,7 +7,6 @@ pragma solidity >=0.7.0 <0.9.0;
 contract RegistryAuthorization {
 
     address payable public owner;
-    mapping(address => bool ) internal authorize_user;
     
     mapping (address=>bytes32) issuerMapping;
 
@@ -17,17 +16,21 @@ contract RegistryAuthorization {
 
     //grant authorization only for authorize user to perform issuer registration. 
     modifier grantAccess{
-        require(msg.sender == owner || authorize_user[msg.sender]);
+        require(msg.sender == owner);
         _;
     }
 
 
-    function registerAuthorizeUser(address _address) public grantAccess returns(bool success) {
-        if(!(authorize_user[_address]==true)){
-            authorize_user[_address] = true;
-            return true;
-        }else{
-            return false;
-        }
+    // function registerAuthorizeUser(address _address) public grantAccess returns(bool success) {
+    //     if(!(authorize_user[_address]==true)){
+    //         authorize_user[_address] = true;
+    //         return true;
+    //     }else{
+    //         return false;
+    //     }
+    // }
+
+    function checkIsRegulator(address _address)  public view returns (bool){
+         return _address == owner;
     }
 }

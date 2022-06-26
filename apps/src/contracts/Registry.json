@@ -2861,5 +2861,5 @@
   "sourceMap": "96:37:1:-:0;;;;;;;;;;;;-1:-1:-1;291:5:2;:27;;-1:-1:-1;;;;;;291:27:2;307:10;291:27;;;96:37:1;;;;;;",
   "sourcePath": "contracts/Registry/IssuerRegistry.sol",
   "type": "contract",
-  "deployment": {"address": "0x3eaB02aE6DB354f5A9Dd01679E5af83146795d4C", "chainid": "4", "blockHeight": 10885385}
+  "deployment": {"address": "0x388B7996e878De5EBC5b9A99EaB076F8571ECda7", "chainid": "4", "blockHeight": 10888332}
 }

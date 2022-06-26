@@ -36,8 +36,8 @@ class VerifyCertificate extends React.Component {
     const web3 = await getWeb3();
     // const networkId = await web3.eth.net.getId();
     // console.log(`networkId -> ${networkId}`);
-    //const deployedNetwork = "0x7a1aF4891a8177E4361AB0C731e07712B253b2B2";
-    const deployedNetwork = Certificate.deployment.address;
+    const deployedNetwork = "0x7a1aF4891a8177E4361AB0C731e07712B253b2B2";
+    //const deployedNetwork = Certificate.deployment.address;
     const instance = new web3.eth.Contract(Certificate.abi, deployedNetwork);
     this.setState({ web3, contract: instance });
     this.initializeQRScanner();
@@ -128,7 +128,7 @@ class VerifyCertificate extends React.Component {
     //   certificate_data: user_data.certificate_data,
     // };
     try {
-      // console.log(qr_code_data)
+      console.log(qr_code_data)
       const certificate_hash = await addFile(
         JSON.stringify({
           holder_id: qr_code_data.holder_id,

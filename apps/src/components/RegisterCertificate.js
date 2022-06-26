@@ -59,6 +59,7 @@ class RegisterCertificate extends React.Component {
     if(isValidSignature!=='Verified'){
       alert("You can't prove ownership of this account")
       window.location.href = "/";
+      return
     }
 
     setInterval(async () => {

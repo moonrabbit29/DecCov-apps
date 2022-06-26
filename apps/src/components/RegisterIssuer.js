@@ -5,12 +5,13 @@ import IssuerDetail from "./child/IssuerDetails";
 import SuccessRegisterIssuer from "./child/SuccessRegisterIssuer"
 import addFile from "../ipfs";
 import TransactionReverted from "./child/TransactionReverted";
+import {verifyMessage,check_address_regulator,signMessage} from "../AuthWeb3"
 
 class RegisterIssuer extends React.Component {
   state = {
     accounts: "",
     contract: "",
-    activeAccount: "",
+    activeAccount: "Anonymous",
     transactionHash: "",
     showModal: false,
     showRevertedTransaction:false,
@@ -108,19 +109,38 @@ class RegisterIssuer extends React.Component {
     const deployedNetwork = "0x4258BA34260905EFBCb468528623789FE885aD59";
     //const deployedNetwork = Registry.deployment.address;
     const instance = new web3.eth.Contract(Registry.abi, deployedNetwork);
+    const accounts = await web3.eth.getAccounts();
+    const isRegulator = await check_address_regulator(accounts[0],web3)
+    if (!isRegulator) {
+      alert("You don't have acces to this feature")
+      window.location.href = "/";
+      return
+    }
+    const [signature,message] = await signMessage(accounts[0],web3)
+    console.log(`Signature -> ${signature}`)
+    console.log(`message -> ${message}`)
+    const isValidSignature = await verifyMessage(message,accounts[0],signature,web3)
+
+    if(isValidSignature!=='Verified'){
+      alert("You can't prove ownership of this account")
+      window.location.href = "/";
+      return
+    }
     this.setState({ web3, contract: instance });
     setInterval(async () => {
       try {
         const accounts = await web3.eth.getAccounts();
         this.setState({ accounts });
-        if (this.state.activeAccount !== accounts[0]) {
+        if (this.state.activeAccount !== accounts[0] && this.state.activeAccount==="Anonymous") {
           var active = await accounts[0];
           this.setState({ activeAccount: active });
           this.setState({ transactionHash: "" });
           this.setState({ isLoginAccount: true });
           this.props.setToLoading(false);
-        } else if (!accounts[0]) {
+        } else if(!accounts[0]){
           this.props.setToLoading(true);
+        }else if(this.state.activeAccount !== accounts[0]){
+          window.location.reload();
         }
       } catch (error) {
         this.resetState();

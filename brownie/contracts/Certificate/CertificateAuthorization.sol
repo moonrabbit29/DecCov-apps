@@ -31,7 +31,7 @@ contract CertificateAuthorization is Helper{
         return _Registry;
     }
 
-    function checkSignerIsIssuer(address sender) private returns(bool) {
+    function checkSignerIsIssuer(address sender) internal returns(bool) {
         return IssuerData(_Registry).checkIssuerExist(sender);
     }
 

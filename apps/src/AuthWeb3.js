@@ -37,6 +37,15 @@ const signMessage = async (address,web3)=>{
     }
 }
 
+const check_address_regulator = async(address,web3)=>{
+    //const deployedNetwork =  Registry.deployment.address;
+    const deployedNetwork = "0x4258BA34260905EFBCb468528623789FE885aD59"
+    const contract = new web3.eth.Contract(Registry.abi, deployedNetwork);
+    const isExist = await contract.methods.checkIsRegulator(address).call()
+    console.log(isExist)
+    return isExist
+}
+
 const check_address = async (address,web3)=>{
     //const deployedNetwork = Registry.deployment.address;
     const deployedNetwork = "0x4258BA34260905EFBCb468528623789FE885aD59"
@@ -72,3 +81,4 @@ const verifyMessage = async (message,accounts,signature,web3) => {
 export { verifyMessage };
 export { check_address };
 export { signMessage };
+export {check_address_regulator}

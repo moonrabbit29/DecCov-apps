@@ -38,10 +38,16 @@ class RegisterCertificate extends React.Component {
   componentDidMount = async () => {
     this.props.setToLoading(true);
     const web3 = await getWeb3();
+    const networkId = await web3.eth.net.getId();
+    if (networkId != 4) {
+      alert("Currently we only have service in rinkeby network")
+      window.location.href = "/";
+      return
+    }
     // const networkId = await web3.eth.net.getId();
     // console.log(`networkId -> ${networkId}`);
-    const deployedNetwork = "0x7a1aF4891a8177E4361AB0C731e07712B253b2B2";
-    //const deployedNetwork = Certificate.deployment.address;
+    //const deployedNetwork = "0x7a1aF4891a8177E4361AB0C731e07712B253b2B2";
+    const deployedNetwork = Certificate.deployment.address;
     const instance = new web3.eth.Contract(Certificate.abi, deployedNetwork);
     this.setState({ web3, contract: instance });
     const accounts = await web3.eth.getAccounts();
@@ -52,8 +58,8 @@ class RegisterCertificate extends React.Component {
       return
     }
     const [signature,message] = await signMessage(accounts[0],web3)
-    console.log(`Signature -> ${signature}`)
-    console.log(`message -> ${message}`)
+  //  console.log(`Signature -> ${signature}`)
+    //console.log(`message -> ${message}`)
     const isValidSignature = await verifyMessage(message,accounts[0],signature,web3)
 
     if(isValidSignature!=='Verified'){
@@ -66,6 +72,12 @@ class RegisterCertificate extends React.Component {
       try {
         const accounts = await web3.eth.getAccounts();
         this.setState({ accounts });
+        const networkId = await web3.eth.net.getId();
+        if (networkId != 4) {
+          alert("Currently we only have service in rinkeby network")
+          window.location.href = "/";
+          return
+        }
         if (this.state.activeAccount !== accounts[0] && this.state.activeAccount==="Anonymous") {
           var active = await accounts[0];
           this.setState({ activeAccount: active });         

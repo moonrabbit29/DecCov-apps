@@ -6,4 +6,4 @@ const certificate_hash = web3.utils.soliditySha3(
     { t: "string", v: "Arya" }
 );
 
-console.log(certificate_hash)
+//console.log(certificate_hash)

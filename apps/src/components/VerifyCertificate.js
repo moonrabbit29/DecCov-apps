@@ -34,15 +34,23 @@ class VerifyCertificate extends React.Component {
   componentDidMount = async () => {
     this.props.setToLoading(true);
     const web3 = await getWeb3();
+    const networkId = await web3.eth.net.getId();
+    if (networkId != 4) {
+      alert("Currently we only have servis in rinkeby network")
+    }
     // const networkId = await web3.eth.net.getId();
     // console.log(`networkId -> ${networkId}`);
-    const deployedNetwork = "0x7a1aF4891a8177E4361AB0C731e07712B253b2B2";
-    //const deployedNetwork = Certificate.deployment.address;
+    //const deployedNetwork = "0x7a1aF4891a8177E4361AB0C731e07712B253b2B2";
+    const deployedNetwork = Certificate.deployment.address;
     const instance = new web3.eth.Contract(Certificate.abi, deployedNetwork);
     this.setState({ web3, contract: instance });
     this.initializeQRScanner();
     setInterval(async () => {
       try {
+        const networkId = await web3.eth.net.getId();
+        if (networkId != 4) {
+          alert("Currently we only have servis in rinkeby network")
+        }
         // console.log("deployed network")
         // console.log(deployedNetwork)
         const accounts = await web3.eth.getAccounts();
@@ -83,7 +91,7 @@ class VerifyCertificate extends React.Component {
       this.qrScanner.setCamera(cameraList[this.state.currentCamera].id);
       this.qrScanner.start();
     } catch (error) {
-      console.log(error);
+    //  console.log(error);
       this.resetState();
     }
   };
@@ -174,7 +182,7 @@ class VerifyCertificate extends React.Component {
       performance.measure("measure certificate hash validation", mark_start, mark_verify_certificate);
       performance.measure("measure certificate read time ipfs", mark_verify_certificate, mark_download_data_from_ipfs);
       performance.measure("measure total process time",mark_beginning,finish_verify)
-      console.log(performance.getEntriesByType("measure"));
+     // console.log(performance.getEntriesByType("measure"));
     } catch (err) {
       //console.log(err);
       alert("Tidak dapat membaca sertifikat, pastikan sertifikat anda benar");

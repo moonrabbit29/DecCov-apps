@@ -83,10 +83,10 @@ class RegisterIssuer extends React.Component {
       .then((receipt) => {
         performance.mark(mark3)
         this.setloading("",false)
-        console.log(receipt)
+       // console.log(receipt)
         const IsSuccess = receipt.events.IsSuccess.returnValues;
         const succes = IsSuccess["value"] && IsSuccess["message"] == "stored";
-        console.log(IsSuccess["message"])
+       // console.log(IsSuccess["message"])
         if (succes) {
           this.setState({registerIssuerMessage:"succes register issuer"})
           this.setState({ showModal: true });
@@ -99,15 +99,19 @@ class RegisterIssuer extends React.Component {
       performance.measure("measure issuer identiy upload",mark1,mark2)
       performance.measure("measure registry transaction",mark2,mark3)
       performance.measure("measure total time",mark_start,mark_final)
-      console.log(performance.getEntriesByType("measure"));
+      //console.log(performance.getEntriesByType("measure"));
   };
   componentDidMount = async () => {
     this.props.setToLoading(true);
     const web3 = await getWeb3();
+    const networkId = await web3.eth.net.getId();
+    if (networkId != 4) {
+      alert("Currently we only have servis in rinkeby network")
+    }
     // const networkId = await web3.eth.net.getId();
     // console.log(`networkId -> ${networkId}`);
-    const deployedNetwork = "0x4258BA34260905EFBCb468528623789FE885aD59";
-    //const deployedNetwork = Registry.deployment.address;
+    //const deployedNetwork = "0x4258BA34260905EFBCb468528623789FE885aD59";
+    const deployedNetwork = Registry.deployment.address;
     const instance = new web3.eth.Contract(Registry.abi, deployedNetwork);
     const accounts = await web3.eth.getAccounts();
     const isRegulator = await check_address_regulator(accounts[0],web3)
@@ -117,8 +121,8 @@ class RegisterIssuer extends React.Component {
       return
     }
     const [signature,message] = await signMessage(accounts[0],web3)
-    console.log(`Signature -> ${signature}`)
-    console.log(`message -> ${message}`)
+   // console.log(`Signature -> ${signature}`)
+    //console.log(`message -> ${message}`)
     const isValidSignature = await verifyMessage(message,accounts[0],signature,web3)
 
     if(isValidSignature!=='Verified'){

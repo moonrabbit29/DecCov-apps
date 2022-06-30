@@ -67,7 +67,7 @@ class MyImageCaptureComponent extends React.Component {
       track.stop();
     });
 
-    console.log(typeof canvas.toDataURL());
+    //console.log(typeof canvas.toDataURL());
     this.props.changeState("imageDataURL", canvas.toDataURL());
   };
 

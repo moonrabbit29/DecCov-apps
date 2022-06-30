@@ -62,7 +62,7 @@ class UserDetail extends React.Component {
                 timestamp: e.timestamp,
               };
             } catch (error) {
-              console.log(error);
+            //  console.log(error);
               return {
                 cov_certificate_identifier: e.cov_certificate_identifier,
                 certificate_data: e.certificate_data,
@@ -72,8 +72,8 @@ class UserDetail extends React.Component {
             }
           })
         );
-        console.log("looking for this");
-        console.log(modified_data);
+        //console.log("looking for this");
+        //console.log(modified_data);
         this.setState({
           show_exiting_data_table: true,
           user_certificate_data: modified_data,
@@ -81,13 +81,13 @@ class UserDetail extends React.Component {
         const vaccine_dose = modified_data
           .map((e) => {
             if (e.data_detail.certificate_data.type === "Vaccine") {
-              console.log(e.data_detail.certificate_data.type);
+              //console.log(e.data_detail.certificate_data.type);
               return e.data_detail.certificate_data.dose;
             }
           }).filter(e => e !== undefined)
           .sort();
-        console.log(vaccine_dose)
-        console.log(`vaccine dose ${vaccine_dose[0]} ${vaccine_dose[1]}`);
+        //console.log(vaccine_dose)
+        //console.log(`vaccine dose ${vaccine_dose[0]} ${vaccine_dose[1]}`);
         this.props.setTakenVaccineDose(vaccine_dose);
       }
       return { res: true, data_len: data.length };

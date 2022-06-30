@@ -26,7 +26,7 @@ class AddToSmartContract extends React.Component {
     holder_id: "",
     transactionHash: "",
     certificate_hash: "",
-    show: false,
+    show_qr_certificate: false,
     qrURL: "",
     show_already_exist: false,
     existed_data: {
@@ -48,6 +48,9 @@ class AddToSmartContract extends React.Component {
   };
 
   storeCertificateData = async (e) => {
+    if(this.state.qrURL!=""){
+      return
+    }
     // for performance benchmarking
     const mark_start = "mark_start";
     const mark_start_store_certificate_function = "mark_start1";
@@ -128,6 +131,7 @@ class AddToSmartContract extends React.Component {
         { from: this.props.values.activeAccount },
         (error, transactionHash) => {
           if (error) {
+           // console.log(error)
           } else {
             this.setState({ transactionHash });
           }
@@ -149,7 +153,7 @@ class AddToSmartContract extends React.Component {
           const IsSuccess = receipt.events.IsSuccess.returnValues;
           const succes = IsSuccess["value"] && IsSuccess["result"] == "stored";
           if (succes) {
-            this.setState({ show: true });
+            this.setState({ show_qr_certificate: true });
             const timestamp =
               receipt.events.timestampEvent.returnValues["timestamp"];
             const copy_user_data = { ...user_data };
@@ -169,7 +173,7 @@ class AddToSmartContract extends React.Component {
           } else {
             if (IsSuccess["result"] == "already") {
               const certificate = receipt.events.certificateExist.returnValues;
-              console.log(certificate)
+              //console.log(certificate)
               const recorded_timestamp = convert_unix_date(
                 certificate.certificate_data.timestamp
               );
@@ -180,8 +184,8 @@ class AddToSmartContract extends React.Component {
                 await retrieve_file(recorded_data)
               );
               stored_meta_data['issuer_address'] = recorded_issuer
-              console.log("stored meta data")
-              console.log(stored_meta_data)
+              //console.log("stored meta data")
+             // console.log(stored_meta_data)
               this.setState({
                 show_already_exist: true,
                 recorded_timestamp: recorded_timestamp.toString(),
@@ -210,7 +214,7 @@ class AddToSmartContract extends React.Component {
             mark_certificate,
             mark_transaction_creation
           );
-          console.log(performance.getEntriesByType("measure"));
+          //console.log(performance.getEntriesByType("measure"));
         }.bind(this)
       );
   };
@@ -275,22 +279,22 @@ class AddToSmartContract extends React.Component {
             </Col>
             <Col md="2" xs="auto">
               <Button
-                onClick={this.storeCertificateData}
+                onClick={this.state.qrURL ? () => this.changeState("show_qr_certificate",true) : this.storeCertificateData }
                 disabled={!Boolean(this.state.pin)}
               >
-                Submit
+                {this.state.qrURL ? "Send Certificate" : "Submit" }
               </Button>
             </Col>
           </Row>
         </Col>
         <Modal
           dialogClassName="custom-dialog"
-          show={this.state.show}
+          show={this.state.show_qr_certificate}
           onHide={this.changeState}
           backdrop="static"
           keyboard={false}
         >
-          <Modal.Header closeButton onClick={() => this.changeState("show")}>
+          <Modal.Header closeButton onClick={() => this.changeState("show_qr_certificate")}>
             <Modal.Title>Certificate result</Modal.Title>
           </Modal.Header>
           <Modal.Body>
@@ -304,7 +308,7 @@ class AddToSmartContract extends React.Component {
             />
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="primary" onClick={() => this.changeState("show")}>
+            <Button variant="primary" onClick={() => this.changeState("show_qr_certificate")}>
               Finish
             </Button>
           </Modal.Footer>

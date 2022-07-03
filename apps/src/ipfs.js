@@ -2,9 +2,18 @@ import { create } from 'ipfs-http-client'
 var buffer = require('buffer/').Buffer
 const bs58 = require('bs58')
 
-const ipfs = create({url:'http://127.0.0.1:5001',protocol:'http'})
+//const ipfs = create({url:'http://127.0.0.1:5001',protocol:'http'})
+const auth =
+    "Basic " + Buffer.from(process.env.REACT_APP_INFURA_PROJECT_ID + ":" + process.env.REACT_APP_INFURA_PROJECT_SECRET).toString("base64");
 //const ipfs = create('https://ipfs.infura.io:5001/api/v0')
-//const ipfs = new IPFS({host: 'ipfs.infura.io', port: 5001, protocol: 'https'});
+const ipfs = new create({
+    host: 'ipfs.infura.io', 
+    port: 5001, 
+    protocol: 'https',
+    headers: {
+        authorization: auth,
+    },
+    });
 const turnIntoBuffer = (e) => buffer.from(e)
 
 // Convert a hex string to a byte array

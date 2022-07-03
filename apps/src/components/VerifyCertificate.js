@@ -119,14 +119,30 @@ class VerifyCertificate extends React.Component {
   };
 
   getDataFromIPFS = async (data_address) => {
-    const ipfs_data = JSON.parse(
-      decryptData(await retrieve_file(data_address), this.state.pin)
-    );
-    const image_data = ipfs_data.image;
-    return [image_data, ipfs_data];
+    const data_from_ipfs = await retrieve_file(data_address)
+    console.log("ecnrypted data -> ")
+    console.log(data_from_ipfs)
+    try {
+      const ipfs_data = JSON.parse(
+        decryptData(data_from_ipfs, this.state.pin)
+      );
+      console.log(JSON.stringify(ipfs_data))
+      console.log(ipfs_data)
+      const image_data = ipfs_data.image;
+      return [image_data, ipfs_data];
+    } catch (error) {
+      console.log(`Error -> ${error}`)
+      throw new Error('Error Decrypting data!')
+    }
   };
 
+  setloading = (msg,isLoading) => {
+    this.props.setToLoading(isLoading)
+    this.props.setLoadingText(msg)
+  }
+
   verifyCertificate = async (qr_code_data) => {
+    this.setloading("Processing certificate",true)
     const mark_beginning = "mark_beginning"
     const finish_verify = "mark_finish"
     performance.mark(mark_beginning)
@@ -136,7 +152,6 @@ class VerifyCertificate extends React.Component {
     //   certificate_data: user_data.certificate_data,
     // };
     try {
-      console.log(qr_code_data)
       const certificate_hash = await addFile(
         JSON.stringify({
           holder_id: qr_code_data.holder_id,
@@ -178,6 +193,7 @@ class VerifyCertificate extends React.Component {
         imageDataURL: image,
         certificate_data: final_certificate_data,
       });
+      this.setloading("",false)
       performance.mark(finish_verify)
       performance.measure("measure certificate hash validation", mark_start, mark_verify_certificate);
       performance.measure("measure certificate read time ipfs", mark_verify_certificate, mark_download_data_from_ipfs);

@@ -43,7 +43,7 @@ function VaccineDoseList(esisting_vacine_dose) {
     return (
       <>
         <option>
-          {parseInt(esisting_vacine_dose[esisting_vacine_dose.length - 1])+1}
+          {esisting_vacine_dose}
         </option>
       </>
     );
@@ -60,6 +60,13 @@ class CertificateType extends React.Component {
   };
 
   componentDidMount = async () => {
+    const vaccine_dose = parseInt(this.props.values.TakenVaccineDose!==null ? 
+      this.props.values.TakenVaccineDose[this.props.values.TakenVaccineDose.length - 1]:0)+1
+    console.log(vaccine_dose)
+    console.log(`isnan -> ${isNaN(vaccine_dose)}`)
+    const count_vacine_dose = isNaN(vaccine_dose) ? 0 : vaccine_dose
+    console.log(count_vacine_dose)
+    this.setState({vaccine_dose : count_vacine_dose})
     setInterval(() => {
       if (
         this.props.values.cert_name &&
@@ -138,9 +145,8 @@ class CertificateType extends React.Component {
                 )}
               >
                 {this.props.values.type === "Vaccine"
-                  ? (parseInt(this.props.values.TakenVaccineDose!==null ? 
-                    this.props.values.TakenVaccineDose[this.props.values.TakenVaccineDose.length - 1]:0)+1) <= 3 ? 
-                  VaccineDoseList(this.props.values.TakenVaccineDose) : <option disabled>Sudah dosis ketiga</option>
+                  ? (this.state.vaccine_dose <= 3 ? 
+                  VaccineDoseList(this.state.vaccine_dose) : <option disabled>Sudah dosis ketiga</option>)
                   : TestResultList()}
               </Form.Select>
             </Form.Group>

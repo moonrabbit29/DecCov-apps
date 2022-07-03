@@ -119,6 +119,19 @@ class AddToSmartContract extends React.Component {
     );
     performance.mark(mark_certificate);
 
+    performance.measure(
+      "measure identifier upload time",
+      mark_start,
+      mark_identifier
+    );
+    performance.measure(
+      "measure certificate upload time",
+      mark_identifier,
+      mark_certificate
+    );
+
+    console.log(performance.getEntriesByType("measure"));
+
     this.setState({ certificate_hash: certificate_identifier });
 
     await this.props.values.contract.methods
@@ -141,7 +154,7 @@ class AddToSmartContract extends React.Component {
       .on("confirmation", function (confNumber, receipt) {})
       .on("error", function (error) {
         this.props.setToLoading("", false);
-        performance.mark(mark_transaction_creation);
+       // performance.mark(mark_transaction_creation);
         if (error["message"].includes(`"message":"revert"`)) {
           this.setState({ showRevertedTransaction: true });
         }
@@ -149,7 +162,7 @@ class AddToSmartContract extends React.Component {
       .then(
         async function (receipt) {
           this.props.setToLoading("", false);
-          performance.mark(mark_transaction_creation);
+         // performance.mark(mark_transaction_creation);
           const IsSuccess = receipt.events.IsSuccess.returnValues;
           const succes = IsSuccess["value"] && IsSuccess["result"] == "stored";
           if (succes) {
@@ -193,28 +206,18 @@ class AddToSmartContract extends React.Component {
               });
             }
           }
-          performance.mark(mark_total_creation);
-          performance.measure(
-            "measure identifier upload time",
-            mark_start,
-            mark_identifier
-          );
-          performance.measure(
-            "measure certificate upload time",
-            mark_identifier,
-            mark_certificate
-          );
-          performance.measure(
-            "measure total time needed to process a certificate",
-            mark_start_store_certificate_function,
-            mark_total_creation
-          );
-          performance.measure(
-            "measure total time needed for transaction callback received",
-            mark_certificate,
-            mark_transaction_creation
-          );
-          //console.log(performance.getEntriesByType("measure"));
+         // performance.mark(mark_total_creation);
+  
+        //  // performance.measure(
+        //     "measure total time needed to process a certificate",
+        //     mark_start_store_certificate_function,
+        //     mark_total_creation
+        //   );
+          // performance.measure(
+          //   "measure total time needed for transaction callback received",
+          //   mark_certificate,
+          //   mark_transaction_creation
+          // );
         }.bind(this)
       );
   };

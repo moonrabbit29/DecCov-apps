@@ -15,7 +15,7 @@ class InputPassword extends React.Component {
   submitPin = (e) => {
       console.log(e)
     e.preventDefault()
-    if(this.state.pin_1 != this.state.pin_2 && (this.state.pin_1=="" || this.state.pin_2=="")){
+    if(this.state.pin_1 != this.state.pin_2 ){
       this.setState({is_pin_same:false})
     }else{
         this.props.changeState("pin",this.state.pin_1)

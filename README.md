@@ -1,4 +1,4 @@
-# TA-APPS
+# DecCov-Apps
 
 Stroing covid-19 Certificates apps in ethereum.
 

@@ -1,6 +1,6 @@
 # DecCov-Apps
 
-Stroing covid-19 Certificates apps in ethereum.
+Storing covid-19 Certificates apps in ethereum.
 
 
 Step : 
